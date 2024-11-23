@@ -10,10 +10,10 @@ const Connect = () => {
                 <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
                     <SectionBadge title="Connect Tools" />
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                        Seamless Integration with your favorite tools
+                    Effortless Integration with Leading Training Tools
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                        We support a wide range of integrations to help you connect your favorite tools with our platform
+                    Seamlessly connect SimVizLabs with your preferred aviation training systems and tools. From FMCs to ACARS, our platform ensures compatibility to streamline your training experience and maximize efficiency.
                     </p>
                 </div>
             </Container>

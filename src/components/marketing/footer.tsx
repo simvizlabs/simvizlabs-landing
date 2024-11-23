@@ -22,11 +22,11 @@ const Footer = () => {
                         <div className="flex items-center gap-2">
                             <Icons.icon className="w-5 h-5" />
                             <span className="text-xl font-medium">
-                                Luro
+                                SimVizLabs
                             </span>
                         </div>
                         <p className="text-base max-w mt-4">
-                            Empower your business with our AI tools.
+                            Empower your business with our FMS Solutions.
                         </p>
                         <Button className="mt-8">
                             <Link href="/app">
@@ -57,7 +57,7 @@ const Footer = () => {
             <Container>
                 <Wrapper className="pt-10 flex items-center justify-between relative">
                     <p className="text-sm text-secondary-foreground">
-                        &copy; {new Date().getFullYear()} Luro. All rights reserved.
+                        &copy; {new Date().getFullYear()} SimVizLabs. All rights reserved.
                     </p>
                     <div className="flex items-center gap-4">
                         <Link href="#" className="p-1">
