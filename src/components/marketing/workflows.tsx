@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 
@@ -17,14 +17,17 @@ export default function Workflows() {
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-blue-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-blue-200/50">
               <span className="inline-flex bg-gradient-to-r from-blue-500 to-blue-200 bg-clip-text text-transparent">
-              Diverse Product Suite
+              Advanced Aviation Solutions
+
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.blue.200),theme(colors.gray.50),theme(colors.blue.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-            Discover Our Range of Innovative Solutions
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.blue.200),theme(colors.gray.50),theme(colors.blue.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-5xl">
+            How Our Learning Analytics Enhance Aviation Training
+
             </h2>
             <p className="text-lg text-blue-200/65">
-            We offer versatile products that cater to different training needs, ranging from advanced simulation tools to customized software development. 
+            Our Learning Analytic Emulators enable the utilization of Data Analytics and Machine Learning to tailor pilot training programs effectively.
+
             </p>
           </div>
           {/* Spotlight items */}
@@ -65,12 +68,12 @@ export default function Workflows() {
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,theme(colors.gray.700/.15),theme(colors.gray.700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-200 bg-clip-text text-transparent">
-                      Realistic Training Environments
+                      For Airlines
                       </span>
                     </span>
                   </div>
-                  <p className="text-blue-200/65">
-                  Experience lifelike simulations with tools like ACARS FMC and the Pre-Flight Trainer. Our solutions replicate real-world scenarios, allowing learners to practice procedures with precision and confidence.                  </p>
+                  <p className="text-white-200/65">
+                  Learning Analytic Emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks that help refine and enhance training programs.</p>
                 </div>
               </div>
             </a>
@@ -110,12 +113,12 @@ export default function Workflows() {
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,theme(colors.gray.700/.15),theme(colors.gray.700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-200 bg-clip-text text-transparent">
-                      Comprehensive Data Access
+                      For Aeronautical Schools
                       </span>
                     </span>
                   </div>
-                  <p className="text-blue-200/65">
-                  Leverage ARINC 424 with seamless integration of all databases in SQL and other formats. Ensure that your training aligns with the most current data for accurate decision-making.
+                  <p className="text-white-200/65">
+                  Predictive machine learning software analyzes performance data to highlight areas needing improvement, ranking them by priority to guide effective and focused training.
                   </p>
                 </div>
               </div>
@@ -156,12 +159,12 @@ export default function Workflows() {
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,theme(colors.gray.700/.15),theme(colors.gray.700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-200 bg-clip-text text-transparent">
-                      Customised Mobile Applications
+                      For Nav Database Services
                       </span>
                     </span>
                   </div>
-                  <p className="text-blue-200/65">
-                  Get a custom app built on Swift, specifically tailored to meet your business requirements. Empower your teams with tools that fit perfectly into your unique workflow.
+                  <p className="text-white-200/65">
+                  Our dynamic, scalable software resets and deploys new training scenarios directly to users’ devices, offering real-time adaptability and seamless operational updates.
                   </p>
                 </div>
               </div>

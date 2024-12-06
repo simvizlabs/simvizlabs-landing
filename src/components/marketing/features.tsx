@@ -12,12 +12,15 @@ const Features = () => {
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">
             <Container>
                 <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-                    <SectionBadge title="Features" />
+                    <SectionBadge title="Targeted Training Solutions
+" />
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                    Streamline Your Training with Precision <br /> and Innovation
+                    Empower Training with Event-Based Analytics
+
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                    Elevate your aviation training with SimVizLabs state-of-the-art simulation tools, tailored to enhance skill development, efficiency, and operational confidence.
+                    Revolutionize pilot training with event-based analytics and data-driven solutions. Optimize workflows, customize scenarios, and achieve targeted training outcomes.
+
                     </p>
                 </div>
             </Container>
@@ -40,10 +43,12 @@ const Features = () => {
                                     </div>
                                     <div className="flex flex-col">
                                         <h4 className="text-xl font-heading font-medium heading ">
-                                        Gain Actionable Insights
+                                        EBAT System
+
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                        Monitor pilot performance with advanced analytics and real-time data, empowering you to make informed training decisions.
+                                        Leverage the Event-Based Analytics and Training system to understand your workforce, implement targeted programs, and save both time and costs.
+
                                         </p>
                                     </div>
                                 </div>
@@ -60,10 +65,12 @@ const Features = () => {
                                     </div>
                                     <div className="flex flex-col mt-auto">
                                         <h4 className="text-xl font-heading font-medium heading">
-                                        Scenario Customization
+                                        Data-Driven Insights
+
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                        Design dynamic training scenarios tailored to specific flight operations, enhancing pilot adaptability and expertise.
+                                        Analyze data insights to monitor trainee performance, identify gaps, and optimize training programs for better skill development and safety.
+
                                         </p>
                                     </div>
                                 </div>
@@ -98,10 +105,12 @@ const Features = () => {
                                 <div className="bento-card w-full flex-row gap-6">
                                     <div className="flex flex-col mb-auto">
                                         <h4 className="text-xl font-heading font-medium heading ">
-                                        Effortless System Compatibility
+                                        Data-Driven Scenarios
+
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                        Integrate SimVizLabs seamlessly with existing aviation systems for a smooth and unified training experience.
+                                        Create customized, data-driven scenarios tailored to replicate real-world challenges, improving adaptability and operational decision-making.
+
                                         </p>
                                     </div>
                                     <div className="w-full h-28 relative">
@@ -121,11 +130,13 @@ const Features = () => {
                                     </div>
                                     <div className="flex flex-col mt-auto">
                                         <h4 className="text-xl font-heading font-medium heading ">
-                                        Immersive Virtual Environments
+                                        Component Integration
+
 
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                        Create realistic virtual flight environments with cutting-edge simulation technology for hands-on pilot training.
+                                        Integrate dynamic components into your aviation training systems for seamless workflows, adaptability, and operational efficiency.
+
                                         </p>
                                     </div>
                                 </div>
@@ -137,10 +148,12 @@ const Features = () => {
                                     </div>
                                     <div className="flex flex-col mt-auto">
                                         <h4 className="text-xl font-heading font-medium heading ">
-                                        Tailored Training Recommendations
+                                        Targeted Training Recommendations
+
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                        Receive personalized training recommendations to address skill gaps and ensure comprehensive learning outcomes.
+                                        Implement targeted training programs using data analytics to meet specific operational needs, ensuring efficiency and cost-effectiveness.
+
                                         </p>
                                     </div>
                                 </div>

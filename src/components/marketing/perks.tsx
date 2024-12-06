@@ -9,12 +9,15 @@ const Perks = () => {
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">
             <Container>
                 <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-                    <SectionBadge title="Perks" />
+                    <SectionBadge title="Benefits" />
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                    Uncover the Advantages of Next-Gen Training
+                    Maximize Efficiency with Tailored Training Solutions
+
+
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                    Explore the cutting-edge tools and features SimVizLabs offers to elevate your aviation training experience and operational excellence.
+                    Explore innovative tools and features designed to enhance efficiency, customize training workflows, and elevate operational performance in aviation training.
+
                     </p>
                 </div>
             </Container>

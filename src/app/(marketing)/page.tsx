@@ -15,11 +15,11 @@ const HomePage = () => {
                     />
                     <Hero />
                 </Container>
-                <Container className="py-8 lg:py-20">
-                    <Companies />
+                <Container className="py-8 lg:py-8">
+                  
                 </Container>
                 <Workflows/>
-                <Connect />
+               
                 <Features />
                 <Perks />
                

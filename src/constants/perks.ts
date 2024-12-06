@@ -6,31 +6,31 @@ export const PERKS = [
     {
         icon: ZapIcon,
         title: "Streamlined and Effective",
-        description: "Experience efficient and seamless training simulations with our highly optimized aviation tools, saving time while ensuring precision."
+        description: "Achieve seamless training workflows with optimized tools that save time, enhance precision, and deliver consistent results for operational success."
     },
     {
         icon: ChartSplineIcon,
         title: "Data-Driven Insights",
-        description: "Leverage advanced analytics to monitor and optimize pilot performance, ensuring informed and confident decision-making."
+        description: "Utilize advanced analytics to monitor pilot performance, identify skill gaps, and enable data-driven decision-making for continuous improvement."
     },
     {
         icon: LifeBuoyIcon,
         title: "Round-the-Clock Support",
-        description: "Access dedicated support from aviation experts anytime, ensuring seamless training without interruptions."
+        description: "Benefit from expert support available 24/7, ensuring uninterrupted training sessions and confidence in operations."
     },
     {
         icon: PaletteIcon,
         title: "Adaptable Solutions",
-        description: "Customize training scenarios and tools to match your specific aircraft and operational requirements for maximum relevance."
+        description: "Customize training scenarios to align with specific aircraft needs and operational goals, ensuring maximum adaptability and relevance."
     },
     {
         icon: ShieldCheckIcon,
         title: "Secure and Reliable",
-        description: "Rely on a robust platform that prioritizes data security and guarantees uninterrupted, high-quality training experiences."
+        description: "Trust a secure, reliable platform that ensures uninterrupted, high-quality training sessions and safeguards sensitive data."
     },
     {
         icon: WaypointsIcon,
         title: "Seamless Integration",
-        description: "Effortlessly integrate SimVizLabs with your existing aviation systems for a smooth, unified workflow and APIS for developers."
+        description: "Easily integrate training systems with existing workflows and developer-friendly APIs for a unified and efficient experience."
     },
 ];
