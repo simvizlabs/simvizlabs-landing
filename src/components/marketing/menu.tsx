@@ -25,24 +25,60 @@ const Menu = () => {
                     </Link>
                 </NavigationMenuItem> */}
 
-                <NavigationMenuItem>
+
+<NavigationMenuItem>
                     <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-                        iPad Simulators
+                    Airlines
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[500px]">
-                            <Item title="B747" href="/resources/blog" icon={<Newspaper className="w-5 h-5" />}>
-                                FMC ACARS
+                        <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
+                            
+                            <Item title="Interactive Web Apps" href="/features/content-calendar" icon={<CalendarRangeIcon className="w-5 h-5" />}>
+                            Practice VNAV and LNAV Excercises.
                             </Item>
-                            <Item title="B737" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
-                                FMS
+                            <Item title="Distant Learning" href="/features/hashtag-manager" icon={<HashIcon className="w-5 h-5" />}>
+                            
+                            Pilot training with data-driven real-world solutions.
                             </Item>
-                            <Item title="B767" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
-                            FMS
-                            </Item>
-                            <Item title="B757" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
-                            FMS
-                            </Item>
+                            {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
+                                Monitor and analyze competitor performance.
+                            </Item> */}
+                        </ul>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+
+
+
+
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
+                    Aeronautical Schools
+
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
+                            <li className="row-span-3">
+                                <NavigationMenuLink asChild>
+                                    <Link
+                                        href=""
+                                        className="flex flex-col justify-end w-full h-full p-4 no-underline rounded-lg outline-none select-none bg-gradient-to-tr from-accent to-accent/50 focus:shadow-md"
+                                    >
+                                        <Icons.icon className="w-6 h-6" />
+                                        <div className="my-2 text-lg font-normal">
+                                        LMS Course
+
+                                        </div>
+                                        <p className="text-sm text-muted-foreground">
+                                        Comprehensive learning management system designed to introduce students to aviation concepts and fundamentals.
+
+                                        </p>
+                                    </Link>
+                                </NavigationMenuLink>
+                            </li>
+                            
+                            {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
+                                Monitor and analyze competitor performance.
+                            </Item> */}
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -50,6 +86,36 @@ const Menu = () => {
 
 
                 <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
+                    Students & Professional Pilots
+
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[500px]">
+                            <Item title="B747" href="/resources/blog" icon={<Newspaper className="w-5 h-5" />}>
+                            Master FMC and ACARS systems.
+                            </Item>
+                            <Item title="B737" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
+                            Learn critical flight system operations.
+
+
+                            </Item>
+                            <Item title="B767" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
+                            Enhance skills with dynamic FMS training.
+
+                            </Item>
+                            <Item title="B757" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
+                            Develop proficiency in FMS features. 
+
+                            </Item>
+                        </ul>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+
+
+
+
+                {/* <NavigationMenuItem>
                     <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
                         Business Solutions
                     </NavigationMenuTrigger>
@@ -77,12 +143,12 @@ const Menu = () => {
                             <Item title="Interactive Web Apps" href="/features/hashtag-manager" icon={<HashIcon className="w-5 h-5" />}>
                             Practice VNAV and LNAV Excercises
                             </Item>
-                            {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
+                            <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
                                 Monitor and analyze competitor performance.
-                            </Item> */}
+                            </Item> 
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
 
 
                

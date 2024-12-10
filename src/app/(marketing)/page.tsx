@@ -16,8 +16,8 @@ const HomePage = () => {
                     <Hero />
                 </Container>
                 <Container className="py-8 lg:py-8">
-                  
-                </Container>
+  <> </>
+</Container>
                 <Workflows/>
                
                 <Features />

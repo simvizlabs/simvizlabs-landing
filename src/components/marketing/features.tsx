@@ -19,7 +19,7 @@ const Features = () => {
 
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                    Revolutionize pilot training with event-based analytics and data-driven solutions. Optimize workflows, customize scenarios, and achieve targeted training outcomes.
+                    Revolutionize Distance learning pilot training with event-based analytics and data-driven solutions. Our software allows organization of all the de-identified data and secure record keeping for airlines. 
 
                     </p>
                 </div>
@@ -69,7 +69,7 @@ const Features = () => {
 
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                        Analyze data insights to monitor trainee performance, identify gaps, and optimize training programs for better skill development and safety.
+                                        Analyze data insights and data organization to monitor trainee performance, identify gaps, and optimize training programs for better skill development and safety.
 
                                         </p>
                                     </div>

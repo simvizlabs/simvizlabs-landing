@@ -19,7 +19,7 @@ const Hero = () => {
                         </div>
                     </div>
                     <span className="inline-flex items-center justify-center gap-2 animate-text-gradient animate-background-shine bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-sm text-transparent">
-                        Disrupting Pilot Training
+                        Disrupting Distant Learning
                         <span className="text-xs text-secondary-foreground px-3 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
                             Learn More
                             <ArrowRightIcon className="w-3.5 h-3.5 ml-1 text-foreground/50" />
@@ -28,13 +28,14 @@ const Hero = () => {
                 </div>
             </Container>
             <BlurText
-                word={"Next-Gen Aviation Training with Interactive Distance Learning"}
+                word={"Next-Gen Interactive Distance Learning with Predictive Analytics"}
                 className="text-3xl sm:text-5xl lg:text-6xl xl:text-6xl bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent py-2 md:py-0 lg:!leading-snug font-medium racking-[-0.0125em] mt-6 font-heading"
             />
             <Container delay={0.1}>
                 <p className="text-sm sm:text-base lg:text-lg mt-4 text-accent-foreground/60 max-w-3xl mx-auto">
-                Experience aviation training redefined with predictive learning and analytics. Our interactive distance learning emulator offers dynamic, data-driven scenarios, helping airlines optimize training, boost safety, and tailor programs to individual needs.
-                <span className="hidden sm:inline"></span>
+                Experience aviation training redefined with predictive learning & analytics. Our interactive distance learning emulator helps airlines optimize training, boost efficiency, enhance safety, identify knowledge gaps, and dynamically tailor programs to individual needs.
+
+<span className="hidden sm:inline"></span>
                 </p>
             </Container>
             <Container delay={0.2}>

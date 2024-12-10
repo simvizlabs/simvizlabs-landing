@@ -22,11 +22,11 @@ export default function Workflows() {
               </span>
             </div>
             <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.blue.200),theme(colors.gray.50),theme(colors.blue.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-5xl">
-            How Our Learning Analytics Enhance Aviation Training
+            How Our Learning Analytics Enhances Aviation Training
 
             </h2>
             <p className="text-lg text-blue-200/65">
-            Our Learning Analytic Emulators enable the utilization of Data Analytics and Machine Learning to tailor pilot training programs effectively.
+            Our Learning Analytic Emulators enable the utilization of Data Analytics and Machine Learning to tailor pilot training curriculum dynamically and effectively.
 
             </p>
           </div>
@@ -73,7 +73,8 @@ export default function Workflows() {
                     </span>
                   </div>
                   <p className="text-white-200/65">
-                  Learning Analytic Emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks that help refine and enhance training programs.</p>
+                  Learning Analytic interactive emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks reviewed to refine and enhance training curriculum.
+                  </p>
                 </div>
               </div>
             </a>
@@ -118,8 +119,7 @@ export default function Workflows() {
                     </span>
                   </div>
                   <p className="text-white-200/65">
-                  Predictive machine learning software analyzes performance data to highlight areas needing improvement, ranking them by priority to guide effective and focused training.
-                  </p>
+                  Predictive machine learning software analyzes performance data to identify and prioritize improvement areas, guiding focused and effective training programs.                  </p>
                 </div>
               </div>
             </a>
@@ -164,7 +164,7 @@ export default function Workflows() {
                     </span>
                   </div>
                   <p className="text-white-200/65">
-                  Our dynamic, scalable software resets and deploys new training scenarios directly to users’ devices, offering real-time adaptability and seamless operational updates.
+                  Dynamic, scalable software deploys tailored training scenarios to user devices, using data trends and airline inputs to address critical knowledge gaps.
                   </p>
                 </div>
               </div>
