@@ -208,7 +208,7 @@ const SignUpForm = () => {
                                 variant="tertiary"
                                 disabled={isGoogleLoading || isAppleLoading}
                                 onClick={() => handleOAuth("oauth_google")}
-                                className="w-full"
+                                className="w-full text-white"
                             >
                                 {isGoogleLoading ? <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" /> : <Icons.google className="w-4 h-4 absolute left-4" />}
                                 Continue with Google
@@ -221,7 +221,7 @@ const SignUpForm = () => {
                                 variant="tertiary"
                                 disabled={isGoogleLoading || isAppleLoading}
                                 onClick={() => handleOAuth("oauth_apple")}
-                                className="w-full"
+                                className="w-full text-white"
                             >
                                 {isAppleLoading ? <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" /> : <Icons.apple className="w-4 h-4 absolute left-4" />}
                                 Continue with Apple
@@ -234,14 +234,14 @@ const SignUpForm = () => {
                                 variant="tertiary"
                                 disabled={isGoogleLoading || isAppleLoading}
                                 onClick={() => setIsEmailOpen(false)}
-                                className="w-full"
+                                className="w-full text-white"
                             >
                                 <MailIcon className="w-4 h-4 absolute left-4" />
                                 Continue with email
                             </Button>
                         </div>
                         <div className="pt-12 text-muted-foreground text-sm">
-                            <span>Already have an account?</span> <Link href="/auth/signin" className="text-foreground">Login</Link>
+                            <span>Already have an account?</span> <Link href="/auth/signin" className="text-foreground">Get Our App</Link>
                         </div>
                     </motion.div>
                 </div>
