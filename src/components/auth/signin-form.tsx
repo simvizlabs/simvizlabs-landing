@@ -225,7 +225,7 @@ const SignInForm = () => {
                                 disabled={isGoogleLoading || isAppleLoading || isEmailLoading}
                                 onClick={() => handleOAuth("oauth_google")}
                                 variant="tertiary"
-                                className="w-full"
+                                className="w-full text-white"
                             >
                                 {isGoogleLoading ? (
                                     <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" />
@@ -242,7 +242,7 @@ const SignInForm = () => {
                                 disabled={isGoogleLoading || isAppleLoading || isEmailLoading}
                                 onClick={() => handleOAuth("oauth_apple")}
                                 variant="tertiary"
-                                className="w-full"
+                                className="w-full text-white"
                             >
                                 {isAppleLoading ? <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" /> : <Icons.apple className="w-4 h-4 absolute left-4" />}
                                 Continue with Apple
@@ -255,7 +255,7 @@ const SignInForm = () => {
                                 variant="tertiary"
                                 disabled={isGoogleLoading || isAppleLoading || isEmailLoading}
                                 onClick={() => setIsEmailOpen(false)}
-                                className="w-full"
+                                className="w-full text-white"
                             >
                                 <MailIcon className="w-4 h-4 absolute left-4" />
                                 Continue with email
