@@ -59,14 +59,14 @@ const Navbar = () => {
                                 </Button>
                             ) : (
                                 <>
-                                    <Button size="sm" variant="tertiary" asChild className="hover:translate-y-0 hover:scale-100">
+                                    <Button size="sm" variant="tertiary" asChild className="hover:translate-y-0 hover:scale-100 bg-gray-950 hover:bg-gray-900 text-white">
                                         <Link href="/auth/signin">
-                                            Login
+                                            Get Our App
                                         </Link>
                                     </Button>
                                     <Button size="sm" variant="white" asChild className="hidden sm:flex">
                                         <Link href="/auth/signup">
-                                            Start for free
+                                            Book a Call
                                             <ArrowRightIcon className="w-4 h-4 ml-2 hidden lg:block" />
                                         </Link>
                                     </Button>
