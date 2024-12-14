@@ -9,40 +9,41 @@ const secondRow = REVIEWS.slice(REVIEWS.length / 2);
 
 const Reviews = () => {
     return (
-        <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24  w-full">
-            <Container>
-                <div className="flex flex-col items-center text-center max-w-xl mx-auto">
-                    <SectionBadge title="Our Customers" />
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                        What our customers say
-                    </h2>
-                    <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                        We are proud to have helped thousands of customers across the globe. Here are some of their stories
-                    </p>
-                </div>
-            </Container>
-            <Container>
-                <div className="mt-16 w-full relative overflow-hidden">
-                    <div className="relative flex flex-col items-center justify-center overflow-hidden">
-                        <Marquee pauseOnHover className="[--duration:30s]">
-                            {firstRow.map((review) => (
-                                <ReviewCard key={review.username} {...review} />
-                            ))}
-                        </Marquee>
-                        <Marquee pauseOnHover reverse className="[--duration:30s]">
-                            {secondRow.map((review) => (
-                                <ReviewCard key={review.username} {...review} />
-                            ))}
-                        </Marquee>
-                        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
-                        <div className="absolute hidden lg:block top-1/4 left-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]"></div>
-                        <div className="absolute hidden lg:block top-1/4 right-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]"></div>
-                    </div>
-                </div>
-            </Container>
-        </div>
-    )
+      <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24  w-full">
+        <Container>
+          <div className="flex flex-col items-center text-center max-w-xl mx-auto">
+            <SectionBadge title="Our Customers" />
+            <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+              What our customers say
+            </h2>
+            <p className="text-lg text-gray-700">
+              We are proud to have helped thousands of customers across the
+              globe. Here are some of their stories
+            </p>
+          </div>
+        </Container>
+        <Container>
+          <div className="mt-16 w-full relative overflow-hidden">
+            <div className="relative flex flex-col items-center justify-center overflow-hidden">
+              <Marquee pauseOnHover className="[--duration:30s]">
+                {firstRow.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+              <Marquee pauseOnHover reverse className="[--duration:30s]">
+                {secondRow.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+              <div className="absolute hidden lg:block top-1/4 left-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]"></div>
+              <div className="absolute hidden lg:block top-1/4 right-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]"></div>
+            </div>
+          </div>
+        </Container>
+      </div>
+    );
 };
 
 const ReviewCard = ({
