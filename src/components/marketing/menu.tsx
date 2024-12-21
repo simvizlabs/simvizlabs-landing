@@ -15,9 +15,9 @@ interface Props {
 
 const Menu = () => {
     return (
-        <NavigationMenu>
-            <NavigationMenuList>
-                {/* <NavigationMenuItem>
+      <NavigationMenu>
+        <NavigationMenuList>
+          {/* <NavigationMenuItem>
                     <Link href="/docs" legacyBehavior passHref>
                         <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
                             How it works
@@ -25,97 +25,89 @@ const Menu = () => {
                     </Link>
                 </NavigationMenuItem> */}
 
-
-<NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-                    Airlines
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
-                            
-                            <Item title="Interactive Web Apps" href="/features/content-calendar" icon={<CalendarRangeIcon className="w-5 h-5" />}>
-                            Practice VNAV and LNAV Excercises.
-                            </Item>
-                            <Item title="Distant Learning" href="/features/hashtag-manager" icon={<HashIcon className="w-5 h-5" />}>
-                            
-                            Pilot training with data-driven real-world solutions.
-                            </Item>
-                            {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
+              Airlines
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
+                <Item
+                  title="Interactive Web Apps"
+                  href="/features/content-calendar"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Practice VNAV and LNAV Excercises.
+                </Item>
+                <Item
+                  title="Distant Learning"
+                  href="/features/hashtag-manager"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Pilot training with data-driven real-world solutions.
+                </Item>
+                {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
                                 Monitor and analyze competitor performance.
                             </Item> */}
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
+              Aeronautical Schools
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid rounded-3xl p-2 md:w-[300px] lg:w-[300px] xl:w-[300px] ">
+                <Item
+                  title="LMS Course"
+                  href="/features/content-calendar"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Comprehensive Learning Management System.
+                </Item>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
+              Students & Professional Pilots
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[500px]">
+                <Item
+                  title="B747"
+                  href="/resources/blog"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Master FMC and ACARS systems.
+                </Item>
+                <Item
+                  title="B737"
+                  href="/resources/support"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Learn critical flight system operations.
+                </Item>
+                <Item
+                  title="B767"
+                  href="/resources/support"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Enhance skills with dynamic FMS training.
+                </Item>
+                <Item
+                  title="B757"
+                  href="/resources/support"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Develop proficiency in FMS features.
+                </Item>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-                    Aeronautical Schools
-
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href=""
-                                        className="flex flex-col justify-end w-full h-full p-4 no-underline rounded-lg outline-none select-none bg-gradient-to-tr from-accent to-accent/50 focus:shadow-md"
-                                    >
-                                        <Icons.icon className="w-6 h-6" />
-                                        <div className="my-2 text-lg font-normal">
-                                        LMS Course
-
-                                        </div>
-                                        <p className="text-sm text-muted-foreground">
-                                        Comprehensive learning management system designed to introduce students to aviation concepts and fundamentals.
-
-                                        </p>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                            
-                            {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
-                                Monitor and analyze competitor performance.
-                            </Item> */}
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-
-
-
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-                    Students & Professional Pilots
-
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[500px]">
-                            <Item title="B747" href="/resources/blog" icon={<Newspaper className="w-5 h-5" />}>
-                            Master FMC and ACARS systems.
-                            </Item>
-                            <Item title="B737" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
-                            Learn critical flight system operations.
-
-
-                            </Item>
-                            <Item title="B767" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
-                            Enhance skills with dynamic FMS training.
-
-                            </Item>
-                            <Item title="B757" href="/resources/support" icon={<CircleHelp className="w-5 h-5" />}>
-                            Develop proficiency in FMS features. 
-
-                            </Item>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-
-
-
-
-                {/* <NavigationMenuItem>
+          {/* <NavigationMenuItem>
                     <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
                         Business Solutions
                     </NavigationMenuTrigger>
@@ -150,27 +142,23 @@ const Menu = () => {
                     </NavigationMenuContent>
                 </NavigationMenuItem> */}
 
-
-               
-
-                {/* <NavigationMenuItem>
+          {/* <NavigationMenuItem>
                     <Link href="/pricing" legacyBehavior passHref>
                         <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
                             Pricing
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem> */}
-                <NavigationMenuItem>
-                    <Link href="/integrations" legacyBehavior passHref>
-                        <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
-                            APIs for Developers
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-                
-            </NavigationMenuList>
-        </NavigationMenu>
-    )
+          <NavigationMenuItem>
+            <Link href="/integrations" legacyBehavior passHref>
+              <NavigationMenuLink className="h-10 px-4 py-2 text-sm font-normal rounded-md text-muted-foreground hover:text-foreground w-max hover:bg-none">
+                APIs for Developers
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    );
 };
 
 const Item = ({ title, href, children, icon, ...props }: Props) => {
