@@ -18,10 +18,8 @@ const Features = () => {
             Empower Training with Event-Based Analytics
           </h2>
           <p className="text-lg text-gray-700">
-            Revolutionize Distance learning pilot training with event-based
-            analytics and data-driven solutions. Our software allows
-            organization of all the de-identified data and secure record keeping
-            for airlines.
+            Revolutionize Distance learning pilot training with LMS containing interactive playground, Event-based
+            analytics & Data-driven solutions. 
           </p>
         </div>
       </Container>
@@ -36,7 +34,7 @@ const Features = () => {
                 <div className="bento-card flex items-center justify-center min-h-72">
                   <span className="text-muted-foreground group-hover:text-foreground mx-auto relative">
                     <Image
-                      src="/images/newDashboard.png"
+                      src="/images/bento.png"
                       alt="dashboard"
                       width={1920}
                       height={1080}

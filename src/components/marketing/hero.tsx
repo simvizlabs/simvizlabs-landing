@@ -17,6 +17,7 @@ const Hero = () => {
             </div>
             <div className="w-1.5 h-1.5 rounded-full bg-primary flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
           </div>
+
           <span className="inline-flex items-center justify-center gap-2 animate-text-gradient animate-background-shine bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 bg-[200%_auto] bg-clip-text text-sm text-transparent">
             Disrupting Distant Learning
             <span className="text-xs text-secondary-foreground px-3 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
@@ -26,8 +27,8 @@ const Hero = () => {
           </span>
         </div>
       </Container>
-      <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-        <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-4xl font-semibold text-transparent md:text-[2.75rem] md:leading-tight">
+      <div className="mx-auto max-w-5xl pb-12 text-center md:pb-8">
+        <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-4xl font-bold text-transparent md:text-6xl md:leading-tight">
           Next-Gen Interactive Distance Learning with Predictive Analytics
         </h2>
         <p className="text-lg text-gray-900">

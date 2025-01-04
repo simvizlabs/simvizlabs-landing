@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <div className="relative w-full h-full">
-      <div className="z-[99] fixed pointer-events-none inset-x-0 h-[88px] bg-[rgba(10,10,10,0.8)] backdrop-blur-sm [mask:linear-gradient(to_bottom,#000_20%,transparent_calc(100%-20%))]"></div>
+      <div className="z-[99] fixed pointer-events-none inset-x-0 h-[88px] bg-[rgba(39,39,39,0.24)] backdrop-blur-sm [mask:linear-gradient(to_bottom,#000_20%,transparent_calc(100%-20%))]"></div>
 
       <header
         className={cn(
@@ -38,7 +38,7 @@ const Navbar = () => {
           isOpen ? "h-[calc(100%-24px)]" : "h-12"
         )}
       >
-        <Wrapper className="backdrop-blur-lg rounded-xl lg:rounded-2xl border border-[rgba(124,124,124,0.2)] px- md:px-2 flex items-center justify-start">
+        <Wrapper className="backdrop-blur-lg rounded-xl lg:rounded-2xl border border-[rgba(223,223,223,0.72)] px- md:px-2 flex items-center justify-start">
           <div className="flex items-center justify-between w-full sticky mt-[7px] lg:mt-auto mb-auto inset-x-0">
             <div className="flex items-center flex-1 lg:flex-none pl-1">
               <Link href="/" className="text-lg font-semibold text-foreground">
@@ -64,7 +64,7 @@ const Navbar = () => {
                     size="sm"
                     variant="tertiary"
                     asChild
-                    className="hover:translate-y-0 hover:scale-100 bg-gray-950 hover:bg-gray-900 text-white"
+                    className="hover:translate-y-0 hover:scale-100 bg-blue-700 hover:bg-gray-900 text-white"
                   >
                     <Link href="https://apps.apple.com/us/app/fms-trainer-b747/id6464125512">Get Our App</Link>
                   </Button>

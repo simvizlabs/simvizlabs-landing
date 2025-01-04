@@ -27,34 +27,31 @@ const Menu = () => {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-              Airlines
+              Airline Solutions
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid rounded-3xl gap-3 p-4 md:w-[400px] lg:w-[500px] xl:w-[550px] lg:grid-cols-[.75fr_1fr]">
+           <NavigationMenuContent>
+              <ul className="grid rounded-3xl p-2 md:w-[300px] lg:w-[300px] xl:w-[300px] ">
                 <Item
-                  title="Interactive Web Apps"
+                  title="PLAS"
                   href="/features/content-calendar"
                   icon={<Newspaper className="w-5 h-5" />}
                 >
-                  Practice VNAV and LNAV Excercises.
+                  Predictive Learning Analytic Software.
                 </Item>
                 <Item
                   title="Distant Learning"
-                  href="/features/hashtag-manager"
+                  href="/features/content-calendar"
                   icon={<Newspaper className="w-5 h-5" />}
                 >
                   Pilot training with data-driven real-world solutions.
                 </Item>
-                {/* <Item title="Competitor Analysis" href="/features/competitor-analysis" icon={<UsersIcon className="w-5 h-5" />}>
-                                Monitor and analyze competitor performance.
-                            </Item> */}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-              Aeronautical Schools
+              Aeronautical College Solutions
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid rounded-3xl p-2 md:w-[300px] lg:w-[300px] xl:w-[300px] ">
@@ -65,13 +62,20 @@ const Menu = () => {
                 >
                   Comprehensive Learning Management System.
                 </Item>
+                <Item
+                  title="iOS-Based Simulators"
+                  href="/features/content-calendar"
+                  icon={<Newspaper className="w-5 h-5" />}
+                >
+                  Immersive flight training tools.
+                </Item>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
-              Students & Professional Pilots
+              iOS Simulators
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[500px]">
@@ -87,7 +91,7 @@ const Menu = () => {
                   href="/resources/support"
                   icon={<Newspaper className="w-5 h-5" />}
                 >
-                  Learn critical flight system operations.
+                  Practice preflight of FMS and ACARS.
                 </Item>
                 <Item
                   title="B767"
