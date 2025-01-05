@@ -233,6 +233,7 @@ export function SecondaryFeatures() {
       className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
     >
       <Container>
+        
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
             Simplify everyday business tasks.
@@ -256,9 +257,13 @@ export default function Workflows() {
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           {/* <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20"> */}
-          <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-blue-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-blue-200/50">
-            <SectionBadge title="Advanced Aviation Solutions" />
-          </div>
+          <div className="flex items-center justify-center pb-3">
+  <div className="relative flex items-center justify-center gap-3">
+    <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-200/50"></div>
+    <SectionBadge title="Advanced Aviation Solutions" />
+    <div className="h-px w-8 bg-gradient-to-l from-transparent to-blue-200/50"></div>
+  </div>
+</div>
           {/* <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
               <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-5xl">
                 How Our Learning Analytics <br />

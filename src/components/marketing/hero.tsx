@@ -28,9 +28,9 @@ const Hero = () => {
         </div>
       </Container>
       <div className="mx-auto max-w-5xl pb-12 text-center md:pb-8">
-        <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-4xl font-bold text-transparent md:text-6xl md:leading-tight">
-          Next-Gen Interactive Distance Learning with Predictive Analytics
-        </h2>
+      <h2 className="pt-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl ">
+  Next-Gen Interactive Distance Learning with Predictive Analytics
+</h2>
         <p className="text-lg text-gray-900">
           Experience aviation training redefined with predictive learning &
           analytics. Our interactive distance learning emulator helps airlines
