@@ -1,7 +1,7 @@
 "use client";
 import Spotlight2 from "../ui/spotlight2";
 import { SectionBadge } from "../ui/section-bade";
-import { useId } from "react";
+import { useEffect, useId, useState } from "react";
 import Image, { type ImageProps } from "next/image";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
@@ -148,6 +148,7 @@ function Feature({
 }
 
 function FeaturesMobile() {
+  
   return (
     <div className="-mx-4 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden">
       {features.map((feature) => (
@@ -171,6 +172,16 @@ function FeaturesMobile() {
 }
 
 function FeaturesDesktop() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % features.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <TabGroup className="hidden lg:mt-20 lg:block">
       {({ selectedIndex }) => (
@@ -188,7 +199,7 @@ function FeaturesDesktop() {
                     </Tab>
                   ),
                 }}
-                isActive={featureIndex === selectedIndex}
+                isActive={featureIndex === activeIndex}
                 className="relative"
               />
             ))}
@@ -201,9 +212,9 @@ function FeaturesDesktop() {
                   key={feature.summary}
                   className={clsx(
                     "px-5 transition duration-500 ease-in-out ui-not-focus-visible:outline-none",
-                    featureIndex !== selectedIndex && "opacity-60"
+                    featureIndex !== activeIndex && "opacity-60"
                   )}
-                  style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
+                  style={{ transform: `translateX(-${activeIndex * 100}%)` }}
                   aria-hidden={featureIndex !== selectedIndex}
                 >
                   <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
