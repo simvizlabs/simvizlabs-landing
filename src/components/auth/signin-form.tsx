@@ -17,8 +17,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { SignUpSchema, SignUpSchemaType } from "@/schema";
-import Container from "../global/container";
+ import Container from "../global/container";
 import Link from "next/link";
 import { ArrowLeftIcon, MailIcon } from "lucide-react";
 import Icons from "../global/icons";

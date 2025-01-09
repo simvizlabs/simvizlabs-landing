@@ -19,7 +19,7 @@ export function TimelineDemo() {
 
 
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Flight Events and tasks requiring special focus, recommended by TI's and Check Pilots.
+          Flight Events and tasks requiring special focus, recommended by TI&apos;s and Check Pilots.
           </p>
 
 
