@@ -17,14 +17,14 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
     <Accordion.Item
       className={cn(
         "mt-px overflow-hidden focus-within:relative focus-within:z-10",
-        className,
+        className
       )}
       {...props}
       ref={forwardedRef}
     >
       {children}
     </Accordion.Item>
-  ),
+  )
 );
 AccordionItem.displayName = "AccordionItem";
 
@@ -39,7 +39,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
       <Accordion.Trigger
         className={cn(
           "group flex flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-none",
-          className,
+          className
         )}
         {...props}
         ref={forwardedRef}
@@ -47,7 +47,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
         {children}
       </Accordion.Trigger>
     </Accordion.Header>
-  ),
+  )
 );
 AccordionTrigger.displayName = "AccordionTrigger";
 type AccordionContentProps = {
@@ -60,14 +60,14 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
     <Accordion.Content
       className={cn(
         "data-[state=closed]:animate-slide-up data-[state=open]:animate-slide-down overflow-hidden text-[15px] font-medium",
-        className,
+        className
       )}
       {...props}
       ref={forwardedRef}
     >
       <div className="px-5 py-2">{children}</div>
     </Accordion.Content>
-  ),
+  )
 );
 AccordionContent.displayName = "AccordionContent";
 
@@ -87,7 +87,7 @@ export interface FeaturesProps {
   data: FeaturesDataProps[];
 }
 
-export function   EldoraFeatures({
+export function EldoraFeatures({
   collapseDelay = 5000,
   ltr = false,
   linePosition = "left",
@@ -135,7 +135,7 @@ export function   EldoraFeatures({
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex !== undefined ? (prevIndex + 1) % data.length : 0,
+        prevIndex !== undefined ? (prevIndex + 1) % data.length : 0
       );
     }, collapseDelay);
 
@@ -162,7 +162,7 @@ export function   EldoraFeatures({
         const cardWidth = carousel.querySelector(".card")?.clientWidth || 0;
         const newIndex = Math.min(
           Math.floor(scrollLeft / cardWidth),
-          data.length - 1,
+          data.length - 1
         );
         setCurrentIndex(newIndex);
       };
@@ -261,7 +261,7 @@ export function   EldoraFeatures({
               </Accordion.Root>
             </div>
             <div
-              className={`h-[500px] w-auto min-h-[200px]  ${
+              className={`md:h-[500px] w-auto min-h-[200px] md:w-[500px]  ${
                 ltr && "lg:order-1"
               }`}
             >
@@ -292,13 +292,12 @@ export function   EldoraFeatures({
 
             <ul
               ref={carouselRef}
-              className=" flex h-full snap-x snap-mandatory flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
-              
+              className=" flex h-full snap-x snap-mandatory flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
             >
               {data.map((item, index) => (
                 <div
                   key={item.id}
-                  className="card relative mr-8 grid h-full max-w-60 shrink-0 items-start justify-center py-4 last:mr-0"
+                  className="card relative mr-8 grid h-full  shrink-0 items-start justify-center py-4 last:mr-0"
                   onClick={() => setCurrentIndex(index)}
                   style={{
                     scrollSnapAlign: "center",
