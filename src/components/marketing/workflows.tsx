@@ -10,7 +10,7 @@ const data = [
     title: "For Airlines",
     content:
       "Learning Analytic interactive emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks reviewed to refine and enhance training curriculum.",
-    image: "/images/screenshots/profit-loss.png",
+    image: "/images/images/screenshots/profit-loss.png",
     icon: <PackageSearch className="size-6 text-primary" />,
   },
   {
@@ -18,7 +18,7 @@ const data = [
     title: "For Aeronautical Schools",
     content:
       "Predictive machine learning software analyzes performance data to identify and prioritize improvement areas, guiding focused and effective training programs.",
-    image: "/images/screenshots/inventory.png",
+    image: "/images/images/screenshots/inventory.png",
     icon: <Settings className="size-6 text-primary" />,
   },
   {
@@ -26,7 +26,7 @@ const data = [
     title: "For Nav Database Services",
     content:
       "Dynamic, scalable software deploys tailored training scenarios to user devices, using data trends and airline inputs to address critical knowledge gaps.",
-    image: "/images/screenshots/contacts.png",
+    image: "/images/images/screenshots/contacts.png",
     icon: <Eye className="size-6 text-primary" />,
   },
 ];

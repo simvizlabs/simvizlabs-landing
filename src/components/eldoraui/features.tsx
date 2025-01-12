@@ -87,7 +87,7 @@ export interface FeaturesProps {
   data: FeaturesDataProps[];
 }
 
-export function EldoraFeatures({
+export function   EldoraFeatures({
   collapseDelay = 5000,
   ltr = false,
   linePosition = "left",
@@ -293,9 +293,7 @@ export function EldoraFeatures({
             <ul
               ref={carouselRef}
               className=" flex h-full snap-x snap-mandatory flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
-              style={{
-                padding: "50px calc(50%)",
-              }}
+              
             >
               {data.map((item, index) => (
                 <div
