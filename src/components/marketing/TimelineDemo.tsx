@@ -167,12 +167,12 @@ export function TimelineDemo() {
     <div className="w-full">
       <div className="pt-48 text-center">
       <h2 className="text-5xl font-bold text-transparent pb-2 bg-clip-text bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900">
-      Predictive Learning and Analytics Model
+      How our Platform works!
     </h2>
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-      Overall Sequence of Events for each Fleet to develop Emulator Training Scenarios
-      <br />
-      and Interactive LMS Course Recommendations.
+     Our platform is designed to transform training — combining emulators, interactive LMS, <br /> and a seamless data pipeline to craft dynamic scenarios that evolve with your training needs.
+      
+     
     </p>
   </div>
       <Timeline data={data} />
