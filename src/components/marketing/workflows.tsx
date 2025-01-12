@@ -2,7 +2,15 @@
 import Spotlight2 from "../ui/spotlight2";
 import { SectionBadge } from "../ui/section-bade";
 import { EldoraFeatures } from "../eldoraui/features";
-import { PackageSearch, Settings, Eye } from "lucide-react";
+import {
+  PackageSearch,
+  Settings,
+  Eye,
+  Plane,
+  GraduationCap,
+  Database,
+} from "lucide-react";
+import { TimelineDemo } from "./TimelineDemo";
 
 const data = [
   {
@@ -11,7 +19,7 @@ const data = [
     content:
       "Learning Analytic interactive emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks reviewed to refine and enhance training curriculum.",
     image: "/images/images/screenshots/profit-loss.png",
-    icon: <PackageSearch className="size-6 text-primary" />,
+    icon: <Plane className="size-6 text-primary" />,
   },
   {
     id: 2,
@@ -19,7 +27,7 @@ const data = [
     content:
       "Predictive machine learning software analyzes performance data to identify and prioritize improvement areas, guiding focused and effective training programs.",
     image: "/images/images/screenshots/inventory.png",
-    icon: <Settings className="size-6 text-primary" />,
+    icon: <GraduationCap className="size-6 text-primary" />,
   },
   {
     id: 3,
@@ -27,7 +35,7 @@ const data = [
     content:
       "Dynamic, scalable software deploys tailored training scenarios to user devices, using data trends and airline inputs to address critical knowledge gaps.",
     image: "/images/images/screenshots/contacts.png",
-    icon: <Eye className="size-6 text-primary" />,
+    icon: <Database className="size-6 text-primary" />,
   },
 ];
 
@@ -45,20 +53,15 @@ export default function Workflows() {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-blue-200/50"></div>
             </div>
           </div>
-          {/* <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-              <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-5xl">
-                How Our Learning Analytics <br />
-                Enhances Aviation Training
+          <div className="mx-auto max-w-5xl pb-12 text-center md:pb-20">
+              <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-bold text-transparent md:text-5xl">
+              Our Products and Solutions
               </h2>
               <p className="text-lg text-gray-700">
-                Experience aviation training redefined with predictive learning
-                & analytics. Our interactive distance learning emulator helps
-                airlines optimize training, boost efficiency, enhance safety,
-                identify knowledge gaps, and dynamically tailor programs to
-                individual needs.
+               Tailored to your specific operations and training needs from fleet-specific simulations to advanced analytics tools, our solutions are designed to elevate your organizations training standards.
               </p>
             </div>
-          </div> */}
+          {/* </div> */}
           {/* Spotlight items */}
 
           <EldoraFeatures data={data} />
@@ -198,6 +201,7 @@ export default function Workflows() {
             </a>
           </Spotlight2> */}
         </div>
+        <TimelineDemo />
       </div>
     </section>
   );

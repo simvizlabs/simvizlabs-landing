@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "../global/container";
-import { TimelineDemo } from "./TimelineDemo";
+// import { TimelineDemo } from "./TimelineDemo";
 
 const Hero = () => {
   return (
@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
         </div>
       </Container>
-      <TimelineDemo />
+      {/* <TimelineDemo /> */}
     </div>
   );
 };
