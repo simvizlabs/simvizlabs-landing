@@ -18,7 +18,7 @@ const data = [
     title: "For Airlines",
     content:
       "Learning Analytic interactive emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks reviewed to refine and enhance training curriculum.",
-    image: "/images/images/screenshots/profit-loss.png",
+    image: "/images/images/screenshots/air.png",
     icon: <Plane className="size-6 text-primary" />,
   },
   {
@@ -26,7 +26,7 @@ const data = [
     title: "For Aeronautical Schools",
     content:
       "Predictive machine learning software analyzes performance data to identify and prioritize improvement areas, guiding focused and effective training programs.",
-    image: "/images/images/screenshots/inventory.png",
+    image: "/images/images/screenshots/aero.png",
     icon: <GraduationCap className="size-6 text-primary" />,
   },
   {
@@ -34,7 +34,7 @@ const data = [
     title: "For Nav Database Services",
     content:
       "Dynamic, scalable software deploys tailored training scenarios to user devices, using data trends and airline inputs to address critical knowledge gaps.",
-    image: "/images/images/screenshots/contacts.png",
+    image: "/images/images/screenshots/db.png",
     icon: <Database className="size-6 text-primary" />,
   },
 ];
@@ -54,8 +54,8 @@ export default function Workflows() {
             </div>
           </div>
           <div className="mx-auto max-w-5xl pb-12 text-center md:pb-20">
-              <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-bold text-transparent md:text-5xl">
-              Our Products and Solutions
+          <h2 className="text-5xl font-bold text-transparent pb-4 bg-clip-text bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900 pt-6">
+          Our Products and Solutions
               </h2>
               <p className="text-lg text-gray-700">
                Tailored to your specific operations and training needs from fleet-specific simulations to advanced analytics tools, our solutions are designed to elevate your organizations training standards.

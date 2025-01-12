@@ -247,11 +247,11 @@ export function   EldoraFeatures({
                       </div>
 
                       <div>
-                        <AccordionTrigger className="pl-0 text-xl font-bold">
+                        <AccordionTrigger className="pl-0 text-2xl font-heading font-bold">
                           {item.title}
                         </AccordionTrigger>
 
-                        <AccordionTrigger className="justify-start pl-0 text-left text-[16px] leading-4">
+                        <AccordionTrigger className="justify-start pl-0 pt-2 text-left text-[16px] ">
                           {item.content}
                         </AccordionTrigger>
                       </div>
@@ -261,7 +261,7 @@ export function   EldoraFeatures({
               </Accordion.Root>
             </div>
             <div
-              className={`h-[350px] min-h-[200px] w-auto  ${
+              className={`h-[500px] w-auto min-h-[200px]  ${
                 ltr && "lg:order-1"
               }`}
             >
