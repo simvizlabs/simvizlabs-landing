@@ -16,24 +16,24 @@ const data = [
   {
     id: 1,
     title: "For Airlines",
-    content:
-      "Learning Analytic interactive emulators allow pilots to train remotely in complex, data-driven scenarios, creating performance benchmarks reviewed to refine and enhance training curriculum.",
+    content: `
+    Our simulators provide standardized fleet training, customizable scenarios, and CPDLC operations. We accelerate onboarding and enhance recurrent training with actionable insights, improving procedural standards and operational readiness.`,
     image: "/images/images/screenshots/air.png",
     icon: <Plane className="size-6 text-primary" />,
   },
   {
     id: 2,
     title: "For Aeronautical Schools",
-    content:
-      "Predictive machine learning software analyzes performance data to identify and prioritize improvement areas, guiding focused and effective training programs.",
+    content: `
+    FMS Trainer equips students with hands-on learning and familiarity with FMC/ACARS systems, ensuring job-ready skills. Our LMS platform offers customizable modules designed by industry experts, seamlessly integrating into aviation programs for enhanced training outcomes.`,
     image: "/images/images/screenshots/aero.png",
     icon: <GraduationCap className="size-6 text-primary" />,
   },
   {
     id: 3,
     title: "For Nav Database Services",
-    content:
-      "Dynamic, scalable software deploys tailored training scenarios to user devices, using data trends and airline inputs to address critical knowledge gaps.",
+    content: `
+    We provide navigation databases for the US, Alaska, and Canada, tailored ARINC 424 datasets, and custom IT solutions to meet avionics-specific needs. Our reliable systems ensure precise navigation and dynamic database updates for safe and efficient operations.`,
     image: "/images/images/screenshots/db.png",
     icon: <Database className="size-6 text-primary" />,
   },

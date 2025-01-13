@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { BlurText } from "../ui/blur-text";
@@ -5,9 +7,36 @@ import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "../global/container";
-// import { TimelineDemo } from "./TimelineDemo";
+import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const Hero = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+  
+    const timer = setTimeout(() => {
+      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
+        setCurrent(0);
+        api.scrollTo(0);
+      } else {
+        api.scrollNext();
+        setCurrent(current + 1);
+      }
+    }, 3000); // This makes it slower
+  
+    return () => clearTimeout(timer);
+  }, [api, current]);
+
   return (
     <div className="flex flex-col items-center text-center w-full max-w-5xl my-24 mx-auto z-40 relative">
       <Container delay={0.0}>
@@ -29,23 +58,27 @@ const Hero = () => {
         </div>
       </Container>
       <div className="mx-auto max-w-5xl pb-12 text-center md:pb-8">
-      <h2 className="pt-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl">
-  Next-Gen Aviation Training: <br />
-  <span className="text-2xl md:text-5xl font-bold">Safer Operations with better trained pilots</span>
-</h2>
+        <h2 className="pt-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl">
+          Next-Gen Aviation Training: <br />
+          <span className="text-2xl md:text-5xl font-bold">
+            Safer Operations with better trained pilots
+          </span>
+        </h2>
         <p className="text-lg text-gray-900">
-        Experience aviation distance learning powered by Interactive Data driven Training Tools. Our solutions provide actionable insights, identify knowledge gaps and deliver real-time feedback to enhance safety and standards.
-
+          Experience aviation distance learning powered by Interactive Data
+          driven Training Tools. Our solutions provide actionable insights,
+          identify knowledge gaps and deliver real-time feedback to enhance
+          safety and standards.
         </p>
       </div>
       <Container delay={0.2}>
         <div className="flex items-center justify-center md:gap-x-6 mt-8 ">
-          <Button asChild size="lg">
+          {/* <Button asChild size="lg">
             <Link href="https://calendly.com/simvizlabs_demo/30min">
               Schedule a Call
             </Link>
-          </Button>
-          <Button
+          </Button> */}
+          {/* <Button
             asChild
             size="lg"
             variant="outline"
@@ -54,10 +87,39 @@ const Hero = () => {
             <Link href="https://apps.apple.com/us/app/fms-trainer-b747/id6464125512">
               Download our App
             </Link>
-          </Button>
+          </Button> */}
         </div>
       </Container>
-       {/* <Container delay={0.3}>
+      <Container delay={0.3}>
+      <div className="w-full py-4 lg:py-4">
+  <div className="w-full px-0">
+    <div className="flex flex-col">
+      <Carousel 
+        setApi={setApi} 
+        className="w-full"
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+      >
+        <CarouselContent>
+          {Array.from({ length: 15 }).map((_, index) => (
+            <CarouselItem
+              className="basis-1/3 md:basis-1/4 lg:basis-1/6"
+              key={index}
+            >
+              <div className="flex rounded-md aspect-square bg-muted items-center justify-center p-4">
+                <span className="text-sm">Logo {index + 1}</span>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+    </div>
+  </div>
+</div>
+      </Container>
+        {/* <Container delay={0.3}>
         <div className="relative mx-auto max-w-7xl rounded-xl lg:rounded-[32px] border border-neutral-200/50 p-2 backdrop-blur-lg border-neutral-700 bg-neutral-800/50 md:p-4 mt-12">
           <div className="absolute top-1/4 left-1/2 -z-10 gradient w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem]"></div>
 
