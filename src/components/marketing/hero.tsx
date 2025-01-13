@@ -1,5 +1,5 @@
 "use client";
-
+import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { BlurText } from "../ui/blur-text";
@@ -14,7 +14,106 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import Marquee from "../ui/marquee";
 
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "/images/carousel-imgs/1.png",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "/images/carousel-imgs/2.png",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm so impressed. This is the best thing I've ever seen.",
+    img: "/images/carousel-imgs/3.png",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "This is a game changer. I'm so excited to use this.",
+    img: "/images/carousel-imgs/4.png",
+  },
+  {
+    name: "Doe",
+    username: "@doe",
+    body: "Absolutely fantastic. Highly recommend to everyone.",
+    img: "/images/carousel-imgs/5.png",
+  },
+  {
+    name: "Alice",
+    username: "@alice",
+    body: "Incredible experience. This is the future of learning.",
+    img: "/images/carousel-imgs/6.png",
+  },
+  {
+    name: "Bob",
+    username: "@bob",
+    body: "I'm blown away by the quality and effectiveness.",
+    img: "/images/carousel-imgs/7.png",
+  },
+  {
+    name: "Charlie",
+    username: "@charlie",
+    body: "This has exceeded all my expectations. Brilliant!",
+    img: "/images/carousel-imgs/8.png",
+  },
+  {
+    name: "Dave",
+    username: "@dave",
+    body: "A revolutionary tool for aviation training.",
+    img: "/images/carousel-imgs/9.png",
+  },
+  {
+    name: "Eve",
+    username: "@eve",
+    body: "Simply outstanding. A must-have for all pilots.",
+    img: "/images/carousel-imgs/10.png",
+  },
+  {
+    name: "Frank",
+    username: "@frank",
+    body: "Top-notch training tool. Highly effective.",
+    img: "/images/carousel-imgs/11.png",
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
+  return (
+    <div className="relative w-64 cursor-pointer overflow-hidden">
+      <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-col">
+          <Image
+            src={img}
+            alt={name}
+            width={1080}
+            height={1080}
+            className="rounded-lg"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Hero = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -91,7 +190,7 @@ const Hero = () => {
           </Button> */}
         </div>
       </Container>
-      <Container delay={0.3}>
+      {/* <Container delay={0.3}>
         <div className="w-full py-4 lg:py-4">
           <div className="w-full px-0">
             <div className="flex flex-col">
@@ -119,7 +218,14 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
+      <div className="w-full py-4 lg:py-4">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+      </div>
       {/* <Container delay={0.3}>
         <div className="relative mx-auto max-w-7xl rounded-xl lg:rounded-[32px] border border-neutral-200/50 p-2 backdrop-blur-lg border-neutral-700 bg-neutral-800/50 md:p-4 mt-12">
           <div className="absolute top-1/4 left-1/2 -z-10 gradient w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem]"></div>
