@@ -15,6 +15,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
+
 const Hero = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -23,7 +24,7 @@ const Hero = () => {
     if (!api) {
       return;
     }
-  
+
     const timer = setTimeout(() => {
       if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
         setCurrent(0);
@@ -33,7 +34,7 @@ const Hero = () => {
         setCurrent(current + 1);
       }
     }, 3000); // This makes it slower
-  
+
     return () => clearTimeout(timer);
   }, [api, current]);
 
@@ -91,35 +92,35 @@ const Hero = () => {
         </div>
       </Container>
       <Container delay={0.3}>
-      <div className="w-full py-4 lg:py-4">
-  <div className="w-full px-0">
-    <div className="flex flex-col">
-      <Carousel 
-        setApi={setApi} 
-        className="w-full"
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-      >
-        <CarouselContent>
-          {Array.from({ length: 15 }).map((_, index) => (
-            <CarouselItem
-              className="basis-1/3 md:basis-1/4 lg:basis-1/6"
-              key={index}
-            >
-              <div className="flex rounded-md aspect-square bg-muted items-center justify-center p-4">
-                <span className="text-sm">Logo {index + 1}</span>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-    </div>
-  </div>
-</div>
+        <div className="w-full py-4 lg:py-4">
+          <div className="w-full px-0">
+            <div className="flex flex-col">
+              <Carousel
+                setApi={setApi}
+                className="w-full"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+              >
+                <CarouselContent>
+                  {Array.from({ length: 11 }).map((_, index) => (
+                    <CarouselItem
+                      className="basis-1/3 md:basis-1/4 lg:basis-1/6"
+                      key={index}
+                    >
+                      <div className="flex rounded-md aspect-square bg-muted items-center justify-center ">
+                        <Image src={`/images/carousel-imgs/${index+1}.png`} alt="logo" width={1920} height={1080} />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          </div>
+        </div>
       </Container>
-        {/* <Container delay={0.3}>
+      {/* <Container delay={0.3}>
         <div className="relative mx-auto max-w-7xl rounded-xl lg:rounded-[32px] border border-neutral-200/50 p-2 backdrop-blur-lg border-neutral-700 bg-neutral-800/50 md:p-4 mt-12">
           <div className="absolute top-1/4 left-1/2 -z-10 gradient w-3/4 -translate-x-1/2 h-1/4 -translate-y-1/2 inset-0 blur-[10rem]"></div>
 

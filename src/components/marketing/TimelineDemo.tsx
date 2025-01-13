@@ -30,7 +30,7 @@ export function TimelineDemo() {
 
           <div className="grid grid-cols-1 gap-4">
             <Image
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/timeline-imgs/1.png"
               alt="startup template"
               width={500}
               height={500}
@@ -112,7 +112,7 @@ export function TimelineDemo() {
           </div> */}{" "}
           <div className="grid grid-cols-1 gap-4">
             <Image
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/timeline-imgs/2.png"
               alt="startup template"
               width={500}
               height={500}
@@ -161,7 +161,7 @@ export function TimelineDemo() {
 
           <div className="grid grid-cols-1 gap-4">
             <Image
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/timeline-imgs/3.png"
               alt="startup template"
               width={500}
               height={500}

@@ -75,7 +75,7 @@ const Navbar = () => {
                     className="hidden sm:flex"
                   >
                     <Link href="https://calendly.com/simvizlabs_demo/30min">
-                      Book a Call
+                      Contact Us
                       <ArrowRightIcon className="w-4 h-4 ml-2 hidden lg:block" />
                     </Link>
                   </Button>

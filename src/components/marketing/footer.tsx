@@ -28,7 +28,7 @@ const Footer = () => {
             </p>
             <Button className="mt-8">
               <Link href="https://calendly.com/simvizlabs_demo/30min">
-                Book a Call
+                Contact Us
               </Link>
             </Button>
           </div>
