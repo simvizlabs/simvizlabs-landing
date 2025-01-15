@@ -8,22 +8,22 @@ export function TimelineDemo() {
       title: "Data Input and Collection",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Model receives initial data inputs to establish a baseline for
             Course development.
           </p>
 
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             De-identified data received from Training departments requiring
             focus.
           </p>
 
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Flight Events and tasks requiring special focus, recommended by
             TI&apos;s and Check Pilots.
           </p>
 
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Initial Set of Data Collected by running Pilot program utilizing
             Emulators and LMS initial scenarios.
           </p>
@@ -45,19 +45,19 @@ export function TimelineDemo() {
       title: "Filtering and Selection",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Filtering algorithm creates set of initial scenarios consisting of
             tasks and events requiring focus.
           </p>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Filtering system selects specific events and tasks to create set of
             scenarios and recommendation for LMS course.
           </p>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Model identifies and pin points knowledge gaps and need for
             standardization implementation.
           </p>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Produces performance based dashboards.
           </p>
 
@@ -77,15 +77,15 @@ export function TimelineDemo() {
       title: "Final Scenarios and Courseware",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Model pushes and Runs the Scenarios to Emulators.
           </p>
 
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Final Recommendations are made to Decision makers and Instructors.
           </p>
 
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-s md:text-m font-normal mb-4">
             Final LMS courses are Pushed.
           </p>
 

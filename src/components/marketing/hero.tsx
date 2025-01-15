@@ -159,16 +159,13 @@ const Hero = () => {
       </Container>
       <div className="mx-auto max-w-5xl pb-12 text-center md:pb-8">
         <h2 className="pt-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl">
-          Next-Gen Aviation Training: <br />
-          <span className="text-2xl md:text-5xl font-bold">
-            Safer Operations with better trained pilots
+          Next-Gen Aviation Training <br />
+          <span className="text-2xl md:text-4xl font-bold">
+          SAFE OPERATIONS WITH BETTER TRAINED PILOTS
           </span>
         </h2>
         <p className="text-lg text-gray-900">
-          Experience aviation distance learning powered by Interactive Data
-          driven Training Tools. Our solutions provide actionable insights,
-          identify knowledge gaps and deliver real-time feedback to enhance
-          safety and standards.
+        Experience aviation distance learning powered by interactive data-driven training. Our solutions identify knowledge gaps, provide actionable insights and deliver real-time feedback to enhance safety and standards.
         </p>
       </div>
       <Container delay={0.2}>

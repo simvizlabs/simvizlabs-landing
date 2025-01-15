@@ -15,7 +15,7 @@ import { TimelineDemo } from "./TimelineDemo";
 const data = [
   {
     id: 1,
-    title: "For Airlines",
+    title: "Airlines",
     content: `
     Our simulators provide standardized fleet training, customizable scenarios, and CPDLC operations. We accelerate onboarding and enhance recurrent training with actionable insights, improving procedural standards and operational readiness.`,
     image: "/images/solutions-imgs/1.png",
@@ -23,7 +23,7 @@ const data = [
   },
   {
     id: 2,
-    title: "For Aeronautical Schools",
+    title: "Aeronautical Schools",
     content: `
     FMS Trainer equips students with hands-on learning and familiarity with FMC/ACARS systems, ensuring job-ready skills. Our LMS platform offers customizable modules designed by industry experts, seamlessly integrating into aviation programs for enhanced training outcomes.`,
     image: "/images/solutions-imgs/2.png",
@@ -31,7 +31,7 @@ const data = [
   },
   {
     id: 3,
-    title: "For Nav Database Services",
+    title: "Aeronautical Databases",
     content: `
     We provide navigation databases for the US, Alaska, and Canada, tailored ARINC 424 datasets, and custom IT solutions to meet avionics-specific needs. Our reliable systems ensure precise navigation and dynamic database updates for safe and efficient operations.`,
     image: "/images/solutions-imgs/3.png",
