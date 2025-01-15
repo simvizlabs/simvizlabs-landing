@@ -74,10 +74,10 @@ const Navbar = () => {
                     asChild
                     className="hidden sm:flex"
                   >
-                    <Link href="https://calendly.com/simvizlabs_demo/30min">
-                      Contact Us
-                      <ArrowRightIcon className="w-4 h-4 ml-2 hidden lg:block" />
-                    </Link>
+                   <Link href="/contact">
+        Contact Us
+        <ArrowRightIcon className="w-4 h-4 ml-2 hidden lg:block" />
+    </Link>
                   </Button>
                 </>
               )}
