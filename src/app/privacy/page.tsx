@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
               <p className="mt-4">
                 The data we collect is primarily used to enhance app
                 functionality, personalize your learning path, and ensure the
-                content's relevance to your aviation training goals.
+                content&apos;ss relevance to your aviation training goals.
               </p>
             </div>
 
@@ -94,7 +94,7 @@ export default function PrivacyPolicyPage() {
                 User Consent
               </h2>
               <p className="mt-4">
-                Upon using FMC-ACARS Preflight Trainer, you'll encounter
+                Upon using FMC-ACARS Preflight Trainer, you&apos;sll encounter
                 straightforward options to manage your personal data, including
                 provisions to delete your account if desired. We believe in
                 giving you full control over your information.
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
                 User Rights
               </h2>
               <p className="mt-4">
-                Within the app’s settings screen, you have the ability to view,
+                Within the app&apos;ss settings screen, you have the ability to view,
                 update, or request the deletion of your personal data. We
                 empower you to manage your information directly within the app.
               </p>
@@ -117,7 +117,7 @@ export default function PrivacyPolicyPage() {
                 Data Security
               </h2>
               <p className="mt-4">
-                Your data’s security is paramount. We employ encryption and
+                Your data&apos;ss security is paramount. We employ encryption and
                 follow industry best practices to protect your information from
                 unauthorized access, disclosure, alteration, or destruction.
               </p>
@@ -140,7 +140,7 @@ export default function PrivacyPolicyPage() {
                 Restore Purchases
               </h2>
               <p className="mt-4">
-                Our app includes a "Restore Purchases" feature allowing you to
+                Our app includes a &apos;sRestore Purchases&apos;s feature allowing you to
                 restore previously purchased in-app items.
               </p>
             </div>

@@ -38,13 +38,9 @@ export default function TermsPage() {
         {/* Content */}
         <div className="mt-8 space-y-12 text-gray-800">
           <div>
-            <p className="text-lg">
-              Thank you for choosing FMC-ACARS Preflight Trainer. Please read
-              these Terms and Conditions ("Terms", "Terms and Conditions")
-              carefully before using the FMC-ACARS Preflight Trainer application
-              (the "Application") operated by Simviz Labs ("us", "we", or
-              "our").
-            </p>
+          <p className="text-lg">
+      Thank you for choosing FMC-ACARS Preflight Trainer. Please read these Terms and Conditions (&quot;Terms&quot;, &quot;Terms and Conditions&quot;) carefully before using the FMC-ACARS Preflight Trainer application (the &quot;Application&quot;) operated by SimvizLabs (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;).
+    </p>
           </div>
 
           {/* Sections */}
@@ -107,7 +103,7 @@ export default function TermsPage() {
               <p className="mt-4">
                 By subscribing to our services or making in-app purchases, you
                 agree to the terms related to auto-renewals and subscription
-                management. Details can be found in the app's purchase section.
+                management. Details can be found in the app&apos;s purchase section.
               </p>
             </div>
 
@@ -138,15 +134,14 @@ export default function TermsPage() {
                 Contact Information
               </h2>
               <p className="mt-4">
-                If you have questions about these Terms, please reach out to us
-                at{" "}
-                <a
-                  href="mailto:info@simvizlabs.com"
-                  className="text-blue-600 hover:underline"
-                >
-                  info@simvizlabs.com
-                </a>
-                . For more details, visit our website at Simvizlabs.com.
+              If you have questions about these Terms, please reach out to us at{" "}
+<a
+  href="mailto:info@simvizlabs.com"
+  className="text-blue-600 hover:underline"
+>
+  info@simvizlabs.com
+</a>
+. For more details, visit our website at Simvizlabs.com.
               </p>
             </div>
           </div>
