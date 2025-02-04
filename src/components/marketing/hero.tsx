@@ -83,7 +83,15 @@ const reviews = [
     body: "Top-notch training tool. Highly effective.",
     img: "/images/carousel-imgs/11.png",
   },
+
+  {
+    name: "John",
+    username: "@john",
+    body: "Top-notch training tool. Highly effective.",
+    img: "/images/carousel-imgs/12.png",
+  },
 ];
+
 
 const firstRow = reviews.slice(0, reviews.length / 2);
 
@@ -99,15 +107,15 @@ const ReviewCard = ({
   body: string;
 }) => {
   return (
-    <div className="relative w-64 cursor-pointer overflow-hidden">
-      <div className="flex flex-row items-center gap-2">
-        <div className="flex flex-col">
+    <div className="relative w-48 md:w-72 px-2 md:px-3">
+      <div className="flex flex-row items-center">
+        <div className="flex flex-col w-full">
           <Image
             src={img}
             alt={name}
             width={1080}
             height={1080}
-            className="rounded-lg"
+            className="w-full h-auto rounded-lg"
           />
         </div>
       </div>
@@ -138,7 +146,7 @@ const Hero = () => {
   }, [api, current]);
 
   return (
-    <div className="flex flex-col items-center text-center w-full max-w-5xl my-24 mx-auto z-40 relative">
+    <div className="flex flex-col items-center w-full my-20 z-40 relative">
       <Container delay={0.0}>
         <div className="pl-2 pr-1 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto">
           <div className="w-3.5 h-3.5 rounded-full bg-primary/40 flex items-center justify-center relative">
@@ -157,8 +165,8 @@ const Hero = () => {
           </span>
         </div>
       </Container>
-      <div className="mx-auto max-w-5xl pb-12 text-center md:pb-8">
-        <h2 className="pt-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl">
+      <div className="mx-auto max-w-5xl pb-2 text-center ">
+        <h2 className="pt-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl">
           Next-Gen Aviation Training <br />
           <span className="text-2xl md:text-4xl font-bold">
           SAFE OPERATIONS WITH BETTER TRAINED PILOTS
@@ -169,7 +177,7 @@ const Hero = () => {
         </p>
       </div>
       <Container delay={0.2}>
-        <div className="flex items-center justify-center md:gap-x-6 mt-8 ">
+        <div className="flex items-center justify-center  ">
           {/* <Button asChild size="lg">
             <Link href="https://calendly.com/simvizlabs_demo/30min">
               Schedule a Call
@@ -216,12 +224,14 @@ const Hero = () => {
           </div>
         </div>
       </Container> */}
-      <div className="w-full py-4 lg:py-4">
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
+      <div className="w-screen overflow-hidden relative mt-8 h-48 md:h-64 left-0">
+        <div className="w-full absolute z-50 left-0">
+          <Marquee pauseOnHover className="[--duration:30s] !p-0 !m-0">
+            {firstRow.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+        </div>
       </div>
       {/* <Container delay={0.3}>
         <div className="relative mx-auto max-w-7xl rounded-xl lg:rounded-[32px] border border-neutral-200/50 p-2 backdrop-blur-lg border-neutral-700 bg-neutral-800/50 md:p-4 mt-12">

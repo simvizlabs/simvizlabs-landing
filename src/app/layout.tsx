@@ -12,12 +12,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className={satoshi.variable}>
             <body
                 className={cn(
-                    "min-h-screen bg-background text-foreground antialiased font-default overflow-x-hidden !scrollbar-hide",
-                    inter.variable,
-                    satoshi.variable,
+                    "min-h-screen bg-background text-foreground antialiased font-satoshi overflow-x-hidden !scrollbar-hide",
+                    inter.variable
                 )}
             >
                 <Toaster
@@ -31,4 +30,4 @@ export default function RootLayout({
             </body>
         </html>
     );
-};
+}

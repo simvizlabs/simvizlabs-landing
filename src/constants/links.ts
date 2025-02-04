@@ -78,10 +78,10 @@ export const FOOTER_LINKS = [
     ],
   },
   {
-    title: "Pilots",
+    title: "iOS Simulators",
     links: [
-      { name: "B747", href: "/" },
-      { name: "B737", href: "/" },
+      { name: "B747", href: "https://apps.apple.com/us/app/fms-trainer-b747/id6464125512" },
+      { name: "B737", href: "https://apps.apple.com/us/app/fms-trainer-b737/id6740346553" },
       { name: "B767", href: "/" },
       { name: "B757", href: "/" },
     ],

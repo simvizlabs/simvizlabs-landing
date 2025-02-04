@@ -59,13 +59,13 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} SimVizLabs. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="#" className="p-1">
+            <Link href="https://www.instagram.com/simvizlabs/" target="_blank" rel="noopener noreferrer" className="p-1">
               <Icons.instagram className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />
             </Link>
-            <Link href="#" className="p-1">
+            <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" rel="noopener noreferrer" className="p-1">
               <Icons.twitter className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />
             </Link>
-            <Link href="#" className="p-1">
+            <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank" rel="noopener noreferrer" className="p-1">
               <Icons.discord className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />
             </Link>
           </div>

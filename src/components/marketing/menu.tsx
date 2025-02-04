@@ -6,11 +6,14 @@ import Link from 'next/link';
 import React from 'react';
 import Icons from "../global/icons";
 
+// Update the Props interface to include target and rel
 interface Props {
     title: string;
     href: string;
     children: React.ReactNode;
     icon: React.ReactNode;
+    target?: string;
+    rel?: string;
 }
 
 const Menu = () => {
@@ -81,15 +84,19 @@ const Menu = () => {
               <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[500px]">
                 <Item
                   title="B747"
-                  href="/resources/blog"
+                  href="https://apps.apple.com/us/app/fms-trainer-b747/id6464125512"
                   icon={<Newspaper className="w-5 h-5" />}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Master FMC and ACARS systems.
                 </Item>
                 <Item
                   title="B737"
-                  href="/resources/support"
+                  href="https://apps.apple.com/us/app/fms-trainer-b737/id6740346553"
                   icon={<Newspaper className="w-5 h-5" />}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Practice preflight of FMS and ACARS.
                 </Item>
@@ -165,13 +172,16 @@ const Menu = () => {
     );
 };
 
-const Item = ({ title, href, children, icon, ...props }: Props) => {
+// Update the Item component to pass target and rel to Link
+const Item = ({ title, href, children, icon, target, rel, ...props }: Props) => {
     return (
         <li>
             <NavigationMenuLink asChild>
                 <Link
                     passHref
                     href={href}
+                    target={target}
+                    rel={rel}
                     {...props}
                     className="grid grid-cols-[.15fr_1fr] select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
                 >
