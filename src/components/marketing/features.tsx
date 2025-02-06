@@ -14,10 +14,11 @@ const Features = () => {
       <Container>
         <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
           <SectionBadge title="Targeted Training Solutions" />
-          <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-            Empower Training with Event-Based Analytics
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent pb-4 bg-clip-text bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900 pt-10 font-satoshi [&>br]:mb-4">
+            Empower Training with <br />
+            Event-Based Analytics
           </h2>
-          <p className="text-lg text-gray-700">
+          <p className="text-base md:text-lg text-gray-700 font-satoshi">
             Revolutionize Distance learning pilot training with LMS containing interactive playground, Event-based
             analytics & Data-driven solutions. 
           </p>
@@ -53,7 +54,7 @@ const Features = () => {
                     <Images.analytics className="w-full h-full" />
                   </div>
                   <div className="flex flex-col">
-                    <h4 className="text-xl font-heading font-medium heading ">
+                    <h4 className="text-xl font-satoshi font-semibold heading">
                       EBAT System
                     </h4>
                     <p className="text-sm md:text-base mt-2 text-muted-foreground">
@@ -78,7 +79,7 @@ const Features = () => {
                     <div className="w-40 h-40 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                   </div>
                   <div className="flex flex-col mt-auto">
-                    <h4 className="text-xl font-heading font-medium heading">
+                    <h4 className="text-xl font-satoshi font-semibold heading">
                       Data-Driven Insights
                     </h4>
                     <p className="text-sm md:text-base mt-2 text-muted-foreground">
@@ -97,18 +98,10 @@ const Features = () => {
                   <div className="bento-card w-full relative items-center justify-center">
                     <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       <p className="text-base text-muted-foreground text-justify [mask-image:radial-gradient(50%_50%_at_50%_50%,#BAB3FF_0%,rgba(186,179,255,0)_90.69%)]">
-                        We use AI to help you create content that resonates with
-                        your audience. Our tools are designed to optimize your
-                        content creation and engagement like never before.
-                        Transform your social media strategy with Luro AI&apos;s
-                        cutting-edge features. Reach your audience with the
-                        right message at the right time. Create content faster
-                        and smarter with Luro AI. Transform your social media
-                        strategy with Luro AI&apos;s cutting-edge features.
-                        Create content faster and smarter with Luro AI.
-                        Transform your social media strategy with Luro AI&apos;s
-                        cutting-edge features. Create content faster and smarter
-                        with Luro AI.
+                      Harness the power of AI-driven predictive analytics to elevate your airline training programs. Our advanced tools are designed to optimize training content creation, engagement, and performance tracking like never before. Transform your pilot training strategy with cutting-edge features that deliver data-driven insights and actionable recommendations. Reach your trainees with the right training modules at the right time, ensuring enhanced skill development and operational readiness. Create customized, scenario-based training faster and smarter, tailored to replicate real-world challenges and improve decision-making.
+
+With Event-Based Analytics and Training (EBAT), you can monitor trainee progress, identify performance gaps, and refine training programs for maximum efficiency. Our system integrates seamlessly with your existing workflows, providing dynamic and adaptable solutions that enhance operational efficiency. Leverage predictive learning analytics to implement targeted training programs, ensuring cost-effectiveness and improved safety standards.
+
                       </p>
                     </div>
                     <div className="w-full h-16 relative">
@@ -138,7 +131,7 @@ const Features = () => {
               >
                 <div className="bento-card w-full flex-row gap-6">
                   <div className="flex flex-col mb-auto">
-                    <h4 className="text-xl font-heading font-medium heading ">
+                    <h4 className="text-xl font-satoshi font-semibold heading">
                       Data-Driven Scenarios
                     </h4>
                     <p className="text-sm md:text-base mt-2 text-muted-foreground">
@@ -166,7 +159,7 @@ const Features = () => {
                     <Images.image className="w-full h-40 lg:h-auto" />
                   </div>
                   <div className="flex flex-col mt-auto">
-                    <h4 className="text-xl font-heading font-medium heading ">
+                    <h4 className="text-xl font-satoshi font-semibold heading">
                       Component Integration
                     </h4>
                     <p className="text-sm md:text-base mt-2 text-muted-foreground">
@@ -186,7 +179,7 @@ const Features = () => {
                     <Images.hash className="w-full h-40 lg:h-52" />
                   </div>
                   <div className="flex flex-col mt-auto">
-                    <h4 className="text-xl font-heading font-medium heading ">
+                    <h4 className="text-xl font-satoshi font-semibold heading">
                       Targeted Training Recommendations
                     </h4>
                     <p className="text-sm md:text-base mt-2 text-muted-foreground">

@@ -16,24 +16,21 @@ const data = [
   {
     id: 1,
     title: "Airlines",
-    content: `
-    Our simulators provide standardized fleet training, customizable scenarios, and CPDLC operations. We accelerate onboarding and enhance recurrent training with actionable insights, improving procedural standards and operational readiness.`,
+    content: `Our simulators provide standardized fleet training, customizable scenarios, and CPDLC operations. We accelerate onboarding and enhance recurrent training with actionable insights, improving procedural standards and operational readiness.`,
     image: "/images/solutions-imgs/1.png",
     icon: <Plane className="size-6 text-primary" />,
   },
   {
     id: 2,
     title: "Aeronautical Schools",
-    content: `
-    FMS Trainer equips students with hands-on learning and familiarity with FMC/ACARS systems, ensuring job-ready skills. Our LMS platform offers customizable modules designed by industry experts, seamlessly integrating into aviation programs for enhanced training outcomes.`,
+    content: `FMS Trainer equips students with hands-on learning and familiarity with FMC/ACARS systems, ensuring job-ready skills. Our LMS platform offers customizable modules designed by industry experts, seamlessly integrating into aviation programs for enhanced training outcomes.`,
     image: "/images/solutions-imgs/2.png",
     icon: <GraduationCap className="size-6 text-primary" />,
   },
   {
     id: 3,
     title: "Aeronautical Databases",
-    content: `
-    We provide navigation databases for the US, Alaska, and Canada, tailored ARINC 424 datasets, and custom IT solutions to meet avionics-specific needs. Our reliable systems ensure precise navigation and dynamic database updates for safe and efficient operations.`,
+    content: `We provide navigation databases for the US, Alaska, and Canada, tailored ARINC 424 datasets, and custom IT solutions to meet avionics-specific needs. Our reliable systems ensure precise navigation and dynamic database updates for safe and efficient operations.`,
     image: "/images/solutions-imgs/3.png",
     icon: <Database className="size-6 text-primary" />,
   },
@@ -54,10 +51,10 @@ export default function Workflows() {
             </div>
           </div>
           <div className="mx-auto max-w-5xl pb-12 text-center md:pb-20">
-          <h2 className="text-5xl font-bold text-transparent pb-4 bg-clip-text bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900 pt-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-transparent pb-4 bg-clip-text bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900 pt-6 font-nacelle">
           Our Products and Solutions
               </h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-base md:text-lg text-gray-700">
                Tailored to your specific operations and training needs from fleet-specific simulations to advanced analytics tools, our solutions are designed to elevate your organizations training standards.
               </p>
             </div>

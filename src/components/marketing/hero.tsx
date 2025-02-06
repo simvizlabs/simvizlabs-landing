@@ -156,11 +156,11 @@ const Hero = () => {
             <div className="w-1.5 h-1.5 rounded-full bg-primary flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
           </div>
 
-          <span className="inline-flex items-center justify-center gap-2 animate-text-gradient animate-background-shine bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 bg-[200%_auto] bg-clip-text text-sm text-transparent">
+          <span className="inline-flex items-center justify-center gap-2 animate-text-gradient animate-background-shine bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-[200%_auto] bg-clip-text text-sm text-transparent">
             Disrupting Distant Learning
-            <span className="text-xs text-secondary-foreground px-3 py-0.5 rounded-full bg-gradient-to-b from-foreground/20 to-foreground/10 flex items-center justify-center">
+            <span className="text-xs px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 border border-blue-200/30 dark:border-blue-700/30 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors flex items-center justify-center group">
               Learn More
-              <ArrowRightIcon className="w-3.5 h-3.5 ml-1 text-foreground/50" />
+              <ArrowRightIcon className="w-3.5 h-3.5 ml-1 text-blue-500 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform" />
             </span>
           </span>
         </div>
@@ -169,7 +169,7 @@ const Hero = () => {
         <h2 className="pt-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pb-4 font-nacelle text-4xl font-bold md:text-6xl md:leading-tight tracking-[-0.015em] mx-auto max-w-7xl">
           Next-Gen Aviation Training <br />
           <span className="text-2xl md:text-4xl font-bold">
-          SAFE OPERATIONS WITH BETTER TRAINED PILOTS
+          SAFER OPERATIONS WITH BETTER TRAINED PILOTS
           </span>
         </h2>
         <p className="text-lg text-gray-900">

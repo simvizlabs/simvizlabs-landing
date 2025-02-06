@@ -1,7 +1,7 @@
 "use client"
 
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { CalendarRangeIcon, CircleHelp, HashIcon, Newspaper, UsersIcon } from 'lucide-react';
+import { CalendarRangeIcon, CircleHelp, HashIcon, Plane, Database, GraduationCap, Radio, MonitorSmartphone, AppWindow, Code2, BookOpen, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import Icons from "../global/icons";
@@ -35,18 +35,32 @@ const Menu = () => {
            <NavigationMenuContent>
               <ul className="grid rounded-3xl p-2 md:w-[300px] lg:w-[300px] xl:w-[300px] ">
                 <Item
-                  title="PLAS"
+                  title="ImmersiData"
                   href="/features/content-calendar"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<Database className="w-5 h-5" />}
                 >
-                  Predictive Learning Analytic Software.
+                  Interactive data driven training tools.
                 </Item>
                 <Item
-                  title="Distant Learning"
+                  title="FMS Trainer"
                   href="/features/content-calendar"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<MonitorSmartphone className="w-5 h-5" />}
                 >
-                  Pilot training with data-driven real-world solutions.
+                  FreePlay Replica of FMC
+                </Item>
+                <Item
+                  title="ACARS Trainer"
+                  href="/features/content-calendar"
+                  icon={<Radio className="w-5 h-5" />}
+                >
+                  Sub-systems customized to AOC menu and Aircraft type
+                </Item>
+                <Item
+                  title="LMS"
+                  href="/features/content-calendar"
+                  icon={<GraduationCap className="w-5 h-5" />}
+                >
+                  Interactive Learning Management Systems.
                 </Item>
               </ul>
             </NavigationMenuContent>
@@ -61,14 +75,14 @@ const Menu = () => {
                 <Item
                   title="LMS Course"
                   href="/features/content-calendar"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<BookOpen className="w-5 h-5" />}
                 >
                   Comprehensive Learning Management System.
                 </Item>
                 <Item
                   title="iOS-Based Simulators"
                   href="/features/content-calendar"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<Smartphone className="w-5 h-5" />}
                 >
                   Immersive flight training tools.
                 </Item>
@@ -85,7 +99,7 @@ const Menu = () => {
                 <Item
                   title="B747"
                   href="https://apps.apple.com/us/app/fms-trainer-b747/id6464125512"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<Plane className="w-5 h-5" />}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -94,7 +108,7 @@ const Menu = () => {
                 <Item
                   title="B737"
                   href="https://apps.apple.com/us/app/fms-trainer-b737/id6740346553"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<Plane className="w-5 h-5" />}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -103,14 +117,14 @@ const Menu = () => {
                 <Item
                   title="B767"
                   href="/resources/support"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<Plane className="w-5 h-5" />}
                 >
                   Enhance skills with dynamic FMS training.
                 </Item>
                 <Item
                   title="B757"
                   href="/resources/support"
-                  icon={<Newspaper className="w-5 h-5" />}
+                  icon={<Plane className="w-5 h-5" />}
                 >
                   Develop proficiency in FMS features.
                 </Item>

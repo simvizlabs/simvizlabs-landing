@@ -292,12 +292,12 @@ export function EldoraFeatures({
 
             <ul
               ref={carouselRef}
-              className=" flex h-full snap-x snap-mandatory flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
+              className="flex h-full snap-x snap-mandatory flex-nowrap overflow-x-auto py-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
             >
               {data.map((item, index) => (
                 <div
                   key={item.id}
-                  className="card relative mr-8 grid h-full  shrink-0 items-start justify-center py-4 last:mr-0"
+                  className="card relative mr-8 grid h-full shrink-0 items-start justify-center py-3 last:mr-0"
                   onClick={() => setCurrentIndex(index)}
                   style={{
                     scrollSnapAlign: "center",
@@ -314,8 +314,8 @@ export function EldoraFeatures({
                       }}
                     ></div>
                   </div>
-                  <h2 className="text-xl font-bold">{item.title}</h2>
-                  <p className="mx-0 max-w-sm text-balance text-sm">
+                  <h2 className="text-2xl md:text-xl font-bold mb-2">{item.title}</h2>
+                  <p className="mx-0 max-w-sm text-balance text-base">
                     {item.content}
                   </p>
                 </div>

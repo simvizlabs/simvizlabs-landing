@@ -27,7 +27,7 @@ const Footer = () => {
               Empower your business with our FMS Solutions.
             </p>
             <Button className="mt-8">
-              <Link href="https://calendly.com/simvizlabs_demo/30min">
+              <Link href="/contact">
                 Contact Us
               </Link>
             </Button>

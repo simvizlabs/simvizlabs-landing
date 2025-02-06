@@ -31,23 +31,18 @@ export const SIDEBAR_LINKS: Link[] = [
     icon: ChartPieIcon,
   },
   {
-    href: "/dashboard/campaigns",
-    label: "Campaigns",
-    icon: MegaphoneIcon,
-  },
-  {
     href: "/dashboard/analytics",
     label: "Analytics",
     icon: LineChartIcon,
   },
   {
-    href: "/dashboard/posts",
-    label: "Posts",
+    href: "/dashboard/training",
+    label: "Training",
     icon: MessageSquareTextIcon,
   },
   {
-    href: "/dashboard/engagement",
-    label: "Engagement",
+    href: "/dashboard/performance",
+    label: "Performance",
     icon: UsersIcon,
   },
   {
@@ -66,8 +61,10 @@ export const FOOTER_LINKS = [
   {
     title: "Airline Solutions",
     links: [
-      { name: "PLAS", href: "/" },
-      { name: "Distant Learning", href: "/" },
+      { name: "ImmersiData", href: "/" },
+      { name: "Distance Learning", href: "/" },
+      { name: "FMS Trainer", href: "/" },
+      { name: "ACARS Trainer", href: "/" },
     ],
   },
   {
@@ -75,6 +72,7 @@ export const FOOTER_LINKS = [
     links: [
       { name: "LMS Course", href: "/" },
       { name: "iOS-Based Simulators", href: "/" },
+      { name: "Training Resources", href: "/" },
     ],
   },
   {
@@ -88,6 +86,9 @@ export const FOOTER_LINKS = [
   },
   {
     title: "Developers",
-    links: [{ name: "API Docs", href: "/" }],
+    links: [
+      { name: "API Documentation", href: "/" },
+    
+    ],
   },
 ];

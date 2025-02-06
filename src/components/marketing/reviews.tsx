@@ -13,7 +13,7 @@ const Reviews = () => {
         <Container>
           <div className="flex flex-col items-center text-center max-w-xl mx-auto">
             <SectionBadge title="Our Customers" />
-            <h2 className="pt-10 animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.700),theme(colors.gray.500))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2 className="text-5xl md:text-5xl font-bold text-transparent pb-4 bg-clip-text bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900 pt-10 font-nacelle">
               What our customers say
             </h2>
             <p className="text-lg text-gray-700">

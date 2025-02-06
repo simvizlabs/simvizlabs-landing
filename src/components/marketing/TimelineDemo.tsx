@@ -110,7 +110,9 @@ export function TimelineDemo() {
         </h2>
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
           Our platform is designed to transform training — combining emulators,
-          interactive LMS, <br /> and a seamless data pipeline to craft dynamic
+          interactive LMS,{" "}
+          <br className="hidden md:block" /> 
+          and a seamless data pipeline to craft dynamic
           scenarios that evolve with your training needs.
         </p>
       </div>
