@@ -19,13 +19,13 @@ const CTA = () => {
                         </p>
                         <div className="flex flex-col md:flex-row items-center justify-center w-full gap-6 mt-6">
                             <Button asChild size="lg" className="w-full md:w-max">
-                                <Link href="">
+                                <Link href="https://calendly.com/simvizlabs_demo/30min">
                                 Schedule a Call
                                 </Link>
                             </Button>
                             <Button asChild size="lg" variant="secondary" className="w-full md:w-max">
-                                <Link href="">
-                                Download the App
+                                <Link href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071">
+                                Download our Apps
                                 </Link>
                             </Button>
                         </div>
