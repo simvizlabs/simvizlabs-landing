@@ -18,7 +18,7 @@ interface MetadataProps {
 
 export const generateMetadata = ({
     title = `Simvizlabs`,
-    description = "Streamline your social media management with AI-powered analytics, scheduling, and content optimization. Get real-time insights, automate posts, and boost engagement across all platforms",
+    description = "Next-Gen Aviation Training: Experience data-driven flight training that identifies knowledge gaps, provides actionable insights, and delivers real-time feedback to enhance safety standards and pilot performance",
     image = "/thumbnail.png",
     icons = [
         {
@@ -51,7 +51,7 @@ export const generateMetadata = ({
     publishedTime,
     modifiedTime
 }: MetadataProps = {}): Metadata => {
-    const metadataBase = new URL(process.env.NEXT_PUBLIC_APP_URL || "https://luro-ai.vercel.app");
+    const metadataBase = new URL(process.env.NEXT_PUBLIC_APP_URL || "https://simvizlabs.com");
     const imageUrl = image ? new URL(image, metadataBase).toString() : null;
 
     return {
