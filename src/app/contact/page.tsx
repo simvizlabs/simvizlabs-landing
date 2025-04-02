@@ -1,7 +1,42 @@
 "use client";
+import { useState } from 'react';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 export default function ContactPage() {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    formData.append("access_key", "bb52624a-5b2f-4c6d-8835-5543a8100e22"); // Your Web3Forms Access Key
+
+    // Add subject and from_name if desired
+    formData.append("subject", "New Contact Form Submission from SimViz Labs Landing");
+    formData.append("from_name", "SimViz Labs Contact Form");
+
+    // Append existing form fields
+    // Note: Ensure input names match what Web3Forms expects or adjust here
+    // formData.append("name", `${formData.get('first-name')} ${formData.get('last-name')}`); // Example: Combine first/last name if needed
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully!");
+      (event.target as HTMLFormElement).reset(); // Reset form fields
+      setTimeout(() => setResult(""), 5000); // Clear message after 5 seconds
+    } else {
+      console.error("Error submitting form:", data);
+      setResult(`Error: ${data.message}`);
+    }
+  };
+
   return (
     <div className="relative isolate bg-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
@@ -102,9 +137,10 @@ export default function ContactPage() {
           </div>
         </div>
         {/* Contact Form Section */}
-        <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+        <form onSubmit={onSubmit} className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              {/* Input fields need 'name' attributes for FormData */}
               <div>
                 <label htmlFor="first-name" className="block text-sm font-semibold text-gray-900">
                   First name
@@ -112,9 +148,10 @@ export default function ContactPage() {
                 <div className="mt-2.5">
                   <input
                     id="first-name"
-                    name="first-name"
+                    name="first-name" // Ensure name attribute is present
                     type="text"
                     autoComplete="given-name"
+                    required // Added required attribute
                     className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
                   />
                 </div>
@@ -126,9 +163,10 @@ export default function ContactPage() {
                 <div className="mt-2.5">
                   <input
                     id="last-name"
-                    name="last-name"
+                    name="last-name" // Ensure name attribute is present
                     type="text"
                     autoComplete="family-name"
+                    required // Added required attribute
                     className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
                   />
                 </div>
@@ -140,9 +178,10 @@ export default function ContactPage() {
                 <div className="mt-2.5">
                   <input
                     id="email"
-                    name="email"
+                    name="email" // Ensure name attribute is present
                     type="email"
                     autoComplete="email"
+                    required // Added required attribute
                     className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
                   />
                 </div>
@@ -154,8 +193,9 @@ export default function ContactPage() {
                 <div className="mt-2.5">
                   <textarea
                     id="message"
-                    name="message"
+                    name="message" // Ensure name attribute is present
                     rows={4}
+                    required // Added required attribute
                     className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
                   />
                 </div>
@@ -169,6 +209,12 @@ export default function ContactPage() {
                 Send message
               </button>
             </div>
+            {/* Display submission result */}
+            {result && (
+              <p className={`mt-4 text-sm ${result.startsWith('Error') ? 'text-red-600' : 'text-green-600'}`}>
+                {result}
+              </p>
+            )}
           </div>
         </form>
       </div>

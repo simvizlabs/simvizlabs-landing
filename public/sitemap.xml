@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://simvizlabs.com/</loc>
+    <lastmod>2024-04-03</lastmod> <!-- Consider making this dynamic or updating periodically -->
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://simvizlabs.com/contact</loc>
+    <lastmod>2024-04-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+   <url>
+    <loc>https://simvizlabs.com/737demo</loc>
+    <lastmod>2024-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+   <url>
+    <loc>https://simvizlabs.com/747demo</loc>
+    <lastmod>2024-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://simvizlabs.com/privacy</loc>
+    <lastmod>2024-04-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://simvizlabs.com/terms</loc>
+    <lastmod>2024-04-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Add other important public pages as needed -->
+</urlset>

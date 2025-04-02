@@ -17,7 +17,7 @@ interface MetadataProps {
 }
 
 export const generateMetadata = ({
-    title = `Simvizlabs`,
+    title = `Simvizlabs: Next-Gen Aviation Training & Distance Learning`, // Updated default title
     description = "Next-Gen Aviation Training: Experience data-driven flight training that identifies knowledge gaps, provides actionable insights, and delivers real-time feedback to enhance safety standards and pilot performance",
     image = "/thumbnail.png",
     icons = [
@@ -36,28 +36,35 @@ export const generateMetadata = ({
     ],
     noIndex = false,
     keywords = [
-        "AI content creation",
-        "content automation",
-        "AI writing assistant",
-        "content generation",
-        "artificial intelligence",
-        "content marketing"
-    ],
-    author = process.env.NEXT_PUBLIC_AUTHOR_NAME,
-    twitterHandle = "@yourtwitterhandle",
+        "aviation training",
+        "pilot training",
+        "distance learning",
+        "flight simulator training",
+        "aviation safety",
+        "data-driven training",
+        "FMS trainer",
+        "aircraft systems training",
+        "pilot performance",
+        "knowledge gap analysis",
+        "aviation technology",
+        "Simvizlabs"
+    ], // Updated keywords
+    author = process.env.NEXT_PUBLIC_AUTHOR_NAME || "Simvizlabs LLC", // Use env var or fallback
+    // twitterHandle removed
     type = "website",
     locale = "en_US",
     alternates = {},
     publishedTime,
     modifiedTime
 }: MetadataProps = {}): Metadata => {
+    const appName = process.env.NEXT_PUBLIC_APP_NAME || "Simvizlabs"; // Use env var or fallback
     const metadataBase = new URL(process.env.NEXT_PUBLIC_APP_URL || "https://simvizlabs.com");
     const imageUrl = image ? new URL(image, metadataBase).toString() : null;
 
     return {
         metadataBase,
         title: {
-            template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+            template: `%s | ${appName}`, // Use appName variable
             default: title
         },
         description,
@@ -92,15 +99,7 @@ export const generateMetadata = ({
             ...(modifiedTime && { modifiedTime })
         },
 
-        // Twitter
-        twitter: {
-            card: imageUrl ? "summary_large_image" : "summary",
-            site: twitterHandle,
-            creator: twitterHandle,
-            title,
-            description,
-            ...(imageUrl && { images: [imageUrl] })
-        },
+        // Twitter section removed
 
         // Robots
         robots: {
