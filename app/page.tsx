@@ -6,6 +6,7 @@ import Feature108 from "@/components/Feature108";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Pricing from "@/components/pricing";
 import Testimonial from "@/components/testimonial";
+import VerticalEventTimeline from "@/components/timeline";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <NavbarDemo />
       <Hero />
       <Feature108 />
+      <VerticalEventTimeline />
       <Features />
       <FAQ />
       <Testimonial />
