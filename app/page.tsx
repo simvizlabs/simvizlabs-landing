@@ -1,5 +1,4 @@
 import FAQ from "@/components/faq";
-import Features from "@/components/features";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import Feature108 from "@/components/Feature108";
@@ -7,6 +6,8 @@ import NavbarDemo from "@/components/resizable-navbar-demo";
 import Pricing from "@/components/pricing";
 import Testimonial from "@/components/testimonial";
 import VerticalEventTimeline from "@/components/timeline";
+import FeaturesSection from "@/components/FeaturesSection";
+import FeaturesSectionDemo from "@/components/Benefits";
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
       <Hero />
       <Feature108 />
       <VerticalEventTimeline />
-      <Features />
+      <FeaturesSection />
+      <FeaturesSectionDemo />
       <FAQ />
       <Testimonial />
       <Pricing />
