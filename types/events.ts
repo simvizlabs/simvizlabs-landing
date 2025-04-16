@@ -10,6 +10,7 @@ export interface EventsItem {
   isChecked: boolean;
   events: Event[];
   description?: string;
+  image?: string;
 }
 
 export type Events = EventsItem[];

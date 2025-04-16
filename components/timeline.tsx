@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, CheckCircle } from "lucide-react";
+import { Calendar } from "lucide-react";
+import Image from 'next/image';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Events } from "@/types/events";
@@ -99,13 +100,17 @@ export default function VerticalEventTimeline() {
               >
                 <Card className="overflow-hidden border-primary/10 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6">
-                    
+                    {/* You can add content here if needed */}
                   </CardContent>
-                   <img
-                      src="/hero-img.png"
-                      alt="Timeline"
-                      className="w-full rounded-md"
+                  {item.image && (
+                    <Image
+                      src={item.image}
+                      alt={item.events[0].title}
+                      className="h-full w-full object-cover rounded-md"
+                      width={500}
+                      height={500}
                     />
+                  )}
                 </Card>
               </motion.div>
             </div>

@@ -1,19 +1,11 @@
 import { cn } from "@/lib/utils";
 import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
-  IconZap,
-  IconChartLine,
-  IconHeadphones,
-  IconPalette,
-  IconShieldCheck,
-  IconShare,
+  Zap,
+  ChartLine,
+  Headphones,
+  Palette,
+  ShieldCheck,
+  Share,
 } from "lucide-react";
 
 function FeaturesSectionDemo() {

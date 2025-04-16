@@ -1,13 +1,13 @@
-import FAQ from "@/components/faq";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import Feature108 from "@/components/Feature108";
 import NavbarDemo from "@/components/resizable-navbar-demo";
-import Pricing from "@/components/pricing";
-import Testimonial from "@/components/testimonial";
 import VerticalEventTimeline from "@/components/timeline";
-import FeaturesSection from "@/components/FeaturesSection";
 import FeaturesSectionDemo from "@/components/Benefits";
+import BentoGrid from "@/components/BentoGrid";
+import { FaqSectionDemo } from "@/components/FaqSectionDemo";
+import { MarqueeDemo } from "@/components/MarqueeDemo";
+import { RetroGridDemo } from "@/components/RetroGridDemo";
 
 export default function Home() {
   return (
@@ -16,11 +16,11 @@ export default function Home() {
       <Hero />
       <Feature108 />
       <VerticalEventTimeline />
-      <FeaturesSection />
+      <BentoGrid />
       <FeaturesSectionDemo />
-      <FAQ />
-      <Testimonial />
-      <Pricing />
+      <FaqSectionDemo />
+      <MarqueeDemo />
+      <RetroGridDemo />
       <Footer />
     </>
   );

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -40,21 +41,25 @@ const Feature108 = ({
                 See Plans
               </Button>
             </div>
-            <img
+            <Image
               src="https://shadcnblocks.com/images/block/placeholder-dark-1.svg"
               alt="placeholder"
               className="rounded-xl"
               style={{ order: 1 }}
+              width={500}
+              height={500}
             />
           </div>
         </div>
         <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl bg-muted/70 p-6 lg:p-16">
           <div className="grid place-items-center gap-20 lg:grid-cols-2 lg:gap-10">
-            <img
+            <Image
               src="https://shadcnblocks.com/images/block/placeholder-dark-1.svg"
               alt="placeholder"
               className="rounded-xl"
               style={{ order: 0 }}
+              width={500}
+              height={500}
             />
             <div className="flex flex-col gap-5">
               <Badge variant="outline" className="w-fit bg-background">

@@ -9,6 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'),
   title: "Beautiful Shadcn UI Landing Page",
   description:
     "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",

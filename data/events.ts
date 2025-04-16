@@ -11,12 +11,13 @@ export const events: Events = [
       { title: "Initial Design Phase", isChecked: true },
     ],
     description: `Model receives initial data inputs to establish a baseline for Course development.
-    
+
     De-identified data received from Training departments requiring focus.
-    
+
     Flight Events and tasks requiring special focus, recommended by TI's and Check Pilots.
-    
+
     Initial Set of Data Collected by running Pilot program utilizing Emulators and LMS initial scenarios.`,
+    image: 'https://placehold.co/600x400',
   },
   {
     year: 2023,
@@ -28,11 +29,11 @@ export const events: Events = [
       { title: "Backend Development", isChecked: true },
     ],
     description: `Filtering algorithm creates set of initial scenarios consisting of tasks and events requiring focus.
-    
+
     Filtering system selects specific events and tasks to create set of scenarios and recommendation for LMS course.
-    
+
     Model identifies and pin points knowledge gaps and need for standardization implementation.
-    
+
     Produces performance based dashboards.`,
   },
   {
@@ -45,9 +46,9 @@ export const events: Events = [
       { title: "Deployment", isChecked: false },
     ],
     description: `Model pushes and Runs the Scenarios to Emulators.
-    
+
     Final Recommendations are made to Decision makers and Instructors.
-    
+
     Final LMS courses are Pushed.`,
   },
 ];
