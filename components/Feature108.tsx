@@ -24,18 +24,16 @@ const Feature108 = ({
           <div className="grid place-items-center gap-20 lg:grid-cols-2 lg:gap-10">
             <div className="flex flex-col gap-5">
               <Badge variant="outline" className="w-fit bg-background">
-                Modern Tactics
+                For Aspiring Pilots
               </Badge>
-              <h3 className="text-3xl font-semibold lg:text-5xl">
-                Make your site a true standout.
+              <h3 className="text-3xl font-bold lg:text-4xl">
+                Take the Controls with Confidence
               </h3>
               <p className="text-muted-foreground lg:text-lg">
-                Discover new web trends that help you craft sleek, highly
-                functional sites that drive traffic and convert leads into
-                customers.
+                Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment.
               </p>
               <Button className="mt-2.5 w-fit gap-2" size="lg">
-                See Plans
+                Check our apps
               </Button>
             </div>
             <Image
@@ -60,18 +58,16 @@ const Feature108 = ({
             />
             <div className="flex flex-col gap-5">
               <Badge variant="outline" className="w-fit bg-background">
-                Modern Tactics
+               For Aeronautical Schools
               </Badge>
-              <h3 className="text-3xl font-semibold lg:text-5xl">
-                Make your site a true standout.
+              <h3 className="text-3xl font-bold lg:text-4xl">
+              Modernize Your Training Curriculum
               </h3>
               <p className="text-muted-foreground lg:text-lg">
-                Discover new web trends that help you craft sleek, highly
-                functional sites that drive traffic and convert leads into
-                customers.
+                Seamlessly integrate our interactive simulators and customizable LMS modules to give students hands‑on avionics experience, accelerate learning outcomes, and produce job‑ready graduates.
               </p>
               <Button className="mt-2.5 w-fit gap-2" size="lg">
-                See Plans
+                Get in touch
               </Button>
             </div>
           </div>

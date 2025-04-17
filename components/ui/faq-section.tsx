@@ -88,11 +88,12 @@ const FaqItem = React.forwardRef<
       <Button
         variant="ghost"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-4 h-auto justify-between hover:bg-transparent"
+        className="w-full px-6 py-4 h-auto flex justify-between items-start hover:bg-transparent min-w-[200px]"
       >
         <h3
           className={cn(
-            "text-base font-medium transition-colors duration-200 text-left",
+            "flex-1 text-base font-medium text-left",
+            "whitespace-normal break-words",        // allow multi-line wrapping
             "text-foreground/70",
             isOpen && "text-foreground"
           )}
@@ -106,7 +107,7 @@ const FaqItem = React.forwardRef<
           }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "p-0.5 rounded-full flex-shrink-0",
+            "p-0.5 rounded-full flex-shrink-0 mt-1",
             "transition-colors duration-200",
             isOpen ? "text-primary" : "text-muted-foreground"
           )}
@@ -134,7 +135,7 @@ const FaqItem = React.forwardRef<
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
-                className="text-sm text-muted-foreground leading-relaxed"
+                className="text-sm text-muted-foreground leading-relaxed break-words"
               >
                 {answer}
               </motion.p>

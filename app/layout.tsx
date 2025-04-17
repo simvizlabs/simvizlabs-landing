@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -97,7 +91,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`antialiased font-geist`}>
         <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
           {children}
         </ThemeProvider>

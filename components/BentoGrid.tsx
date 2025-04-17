@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 export default function Example() {
@@ -24,13 +23,9 @@ export default function Example() {
                 className="h-80 object-cover object-left"
                 priority
               />
-              <div className="p-10 pt-4">
-                <h3 className="text-sm/4 font-semibold text-indigo-600">Performance</h3>
-                <p className="mt-2 text-lg font-medium tracking-tight text-gray-950">Lightning-fast builds</p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida justo et nulla efficitur, maximus
-                  egestas sem pellentesque.
-                </p>
+              <div className="pt-4 pl-10 pr-10">
+                <h3 className="text-lg font-bold sm:text-xl text-indigo-600">EBAT System</h3>
+                <p className="mt-2 text-muted-foreground font-medium">Understand your workforce, deploy targeted training programs, and optimize both time and costs with our Event-Based Analytics & Training platform.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
@@ -45,14 +40,10 @@ export default function Example() {
                 height={300}
                 className="h-80 object-cover object-left lg:object-right"
               />
-              <div className="p-10 pt-4">
-                <h3 className="text-sm/4 font-semibold text-indigo-600">Releases</h3>
-                <p className="mt-2 text-lg font-medium tracking-tight text-gray-950">Push to deploy</p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-600">
-                  Curabitur auctor, ex quis auctor venenatis, eros arcu rhoncus massa, laoreet dapibus ex elit vitae
-                  odio.
-                </p>
-              </div>
+              <div className="pt-4 pl-10 pr-10">
+                  <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Data‑Driven Scenarios</h3>
+                  <p className="mt-2 text-muted-foreground font-medium">Identify performance gaps in your training data and generate customized, real-world scenarios that boost adaptability and sharpen operational decision-making.</p>
+                </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
           </div>
@@ -67,11 +58,8 @@ export default function Example() {
                 className="h-80 object-cover object-left"
               />
               <div className="p-10 pt-4">
-                <h3 className="text-sm/4 font-semibold text-indigo-600">Speed</h3>
-                <p className="mt-2 text-lg font-medium tracking-tight text-gray-950">Built for power users</p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-600">
-                  Sed congue eros non finibus molestie. Vestibulum euismod augue.
-                </p>
+                <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Predictive Learning & Analytics</h3>
+                <p className="mt-2 text-muted-foreground font-medium max-w-xs max-w-[20ch]">Harness AI-driven predictive analytics to refine content, deliver real-time feedback, and surface actionable recommendations for skill development.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]" />
@@ -87,11 +75,8 @@ export default function Example() {
                 className="h-80 object-cover"
               />
               <div className="p-10 pt-4">
-                <h3 className="text-sm/4 font-semibold text-indigo-600">Integrations</h3>
-                <p className="mt-2 text-lg font-medium tracking-tight text-gray-950">Connect your favorite tools</p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-600">
-                  Maecenas at augue sed elit dictum vulputate, in nisi aliquam maximus arcu.
-                </p>
+                <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Component Integration</h3>
+                <p className="mt-2 text-muted-foreground font-medium max-w-xs max-w-[20ch]">Seamlessly embed dynamic modules—FMS, ACARS, EFB, and more—into your training ecosystem to streamline workflows and boost operational efficiency.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
@@ -107,11 +92,8 @@ export default function Example() {
                 className="h-80 object-cover"
               />
               <div className="p-10 pt-4">
-                <h3 className="text-sm/4 font-semibold text-indigo-600">Network</h3>
-                <p className="mt-2 text-lg font-medium tracking-tight text-gray-950">Globally distributed CDN</p>
-                <p className="mt-2 max-w-lg text-sm/6 text-gray-600">
-                  Aenean vulputate justo commodo auctor vehicula in malesuada semper.
-                </p>
+                <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Targeted Training Recommendations</h3>
+                <p className="mt-2 text-muted-foreground font-medium max-w-xs">Implement precision training programs with data analytics—targeting key procedures to cut costs and elevate safety standards.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />

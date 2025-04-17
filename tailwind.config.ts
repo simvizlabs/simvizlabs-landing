@@ -83,6 +83,10 @@ export default {
         xs: "375px",
       },
     },
+    fontFamily: {
+      sans: ["Geist", "sans-serif"],
+      geist: ["Geist", "sans-serif"],
+    },
   },
   plugins: [animate],
 } satisfies Config;
