@@ -67,7 +67,7 @@ export default function VerticalEventTimeline() {
               }`}
             >
               <motion.div className="mb-4 md:mb-0" whileHover={{ scale: 1.05 }}>
-                <div className={`${item.periodType === "Q" && item.periodNumber === 2 ? "text-left" : "text-right"}`}>
+                <div className={`text-left pt-12 pl-4 ${item.periodType === "Q" && item.periodNumber === 2 ? "md:text-left" : "md:text-right"}`}>
                   <Badge
                     variant="outline"
                     className="text-sm py-1 px-3 bg-primary/5 border-primary/20"
@@ -90,7 +90,7 @@ export default function VerticalEventTimeline() {
 
             {/* Card - takes full width on mobile, half width on desktop */}
             <div
-              className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-8" : "md:pr-8"}`}
+              className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-8 pl-4" : "md:pr-8 pl-4"}`}
             >
               <motion.div
                 layout
