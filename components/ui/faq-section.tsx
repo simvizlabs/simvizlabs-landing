@@ -7,8 +7,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 interface FaqSectionProps extends React.HTMLAttributes<HTMLElement> {
-  title: string;
-  description?: string;
   items: {
     question: string;
     answer: string;
@@ -16,7 +14,7 @@ interface FaqSectionProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
-  ({ className, title, description, items, ...props }, ref) => {
+  ({ className, items, ...props }, ref) => {
     return (
       <section
         ref={ref}
@@ -34,12 +32,12 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
             transition={{ duration: 0.5 }}
             className="max-w-2xl mx-auto text-center mb-12"
           >
-            <h2 className="text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent">
-              {title}
-            </h2>
-            {description && (
-              <p className="text-sm text-muted-foreground">{description}</p>
-            )}
+            <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
+              What our customers say
+            </p>
+            <p className="text-muted-foreground text-lg font-geist leading-relaxed text-center sm:text-center mx-auto mt-2 mb-16 px-4">
+              We are proud to have helped thousands of customers across the globe. <br className="hidden sm:inline" />Here are some of their stories:
+            </p>
           </motion.div>
 
           {/* FAQ Items */}

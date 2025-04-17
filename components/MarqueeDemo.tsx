@@ -82,6 +82,12 @@ const ReviewCard = ({
 export function MarqueeDemo() {
   return (
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 relative flex w-full flex-col items-center justify-center overflow-hidden pt-12 pb-12">
+      <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
+        What our customers say
+      </p>
+      <p className="text-muted-foreground text-lg font-geist leading-relaxed text-center sm:text-center mx-auto mt-2 mb-16 px-4">
+        We are proud to have helped thousands of customers across the globe. <br className="hidden sm:inline" />Here are some of their stories:
+      </p>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

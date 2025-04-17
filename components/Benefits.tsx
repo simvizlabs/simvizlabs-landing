@@ -48,10 +48,18 @@ function FeaturesSectionDemo() {
     },
   ];
   return (
-    <div className="container mx-auto max-w-screen-xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10 py-10">
-      {features.map((feature, index) => (
-        <Feature key={feature.title} {...feature} index={index} />
-      ))}
+    <div className="container mx-auto max-w-screen-xl w-full relative z-10 py-10">
+      <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
+        Maximize Efficiency with Tailored<br className="xs:inline sm:hidden" /> Training Solutions
+      </p>
+      <p className="text-muted-foreground text-lg font-geist leading-relaxed text-center sm:text-center mx-auto mt-2 mb-16 px-4">
+        Explore innovative tools and features designed to enhance efficiency, customize<br className="hidden sm:inline" /> training workflows, and elevate operational performance in aviation training.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10">
+        {features.map((feature, index) => (
+          <Feature key={feature.title} {...feature} index={index} />
+        ))}
+      </div>
     </div>
   );
 }

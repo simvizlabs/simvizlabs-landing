@@ -23,21 +23,22 @@ export default function VerticalEventTimeline() {
   return (
     <div className="mx-auto px-4 py-12 max-w-5xl">
       <motion.h1
-        className="text-3xl md:text-4xl font-bold mb-2 text-center"
+        className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto mb-2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Project Timeline
+        How our Platform works!
       </motion.h1>
 
       <motion.p
-        className="text-muted-foreground text-center mb-12"
+        className="text-muted-foreground text-lg font-geist leading-relaxed text-center xs:text-left sm:text-center mx-auto mb-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Our development journey and milestones
+        Our platform is designed to transform training — combining emulators, interactive LMS,<br />
+        and a seamless data pipeline to craft dynamic scenarios that evolve with your training needs.
       </motion.p>
 
       <div className="relative">

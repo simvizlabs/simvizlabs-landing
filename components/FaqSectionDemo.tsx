@@ -21,8 +21,6 @@ export function FaqSectionDemo() {
   return (
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 bg-background text-foreground pb-12">
       <FaqSection
-        title="Frequently Asked Questions"
-        description="Everything you need to know about our platform"
         items={DEMO_FAQS}
       />
     </div>
