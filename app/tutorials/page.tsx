@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-
+import Image from 'next/image';
 
 const posts = [
   {
@@ -58,9 +58,11 @@ export default function Example() {
           {posts.map((post) => (
             <article key={post.id} className={`flex flex-col items-start justify-between ${post.comingSoon ? 'opacity-50 pointer-events-none' : ''}`}>
               <Link href={post.href} className="relative w-full">
-                <img
+                <Image
                   alt=""
                   src="/placeholder.svg"
+                  width={600}
+                  height={400}
                   className="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />

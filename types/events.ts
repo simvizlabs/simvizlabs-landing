@@ -11,6 +11,7 @@ export interface EventsItem {
   events: Event[];
   description?: string;
   image?: string;
+  tag?: string;
 }
 
 export type Events = EventsItem[];

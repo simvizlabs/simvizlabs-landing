@@ -6,19 +6,9 @@ import { Calendar } from "lucide-react";
 import Image from 'next/image';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Events } from "@/types/events";
 import { events } from "@/data/events";
 
 export default function VerticalEventTimeline() {
-  // Helper function to format period
-  const formatPeriod = (item: Events[0]) => {
-    if (item.periodType === "Q") {
-      return `Q${item.periodNumber} ${item.year}`;
-    } else if (item.periodType === "H") {
-      return `H${item.periodNumber} ${item.year}`;
-    }
-    return `${item.year}`;
-  };
 
   return (
     <div className="mx-auto px-4 py-12 max-w-5xl">
@@ -73,7 +63,7 @@ export default function VerticalEventTimeline() {
                     className="text-sm py-1 px-3 bg-primary/5 border-primary/20"
                   >
                     <Calendar className="w-4 h-4 mr-1" />
-                    {formatPeriod(item)}
+                    {item.tag}
                   </Badge>
                   <p className="text-base mt-2 space-y-2">
                     {item.description?.split("\n").map((line, index) => (

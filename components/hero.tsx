@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, CirclePlay } from "lucide-react";
+import ExploreProductsButton from "./ExploreProductsButton";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const Hero = () => {
@@ -9,7 +11,7 @@ const Hero = () => {
       <div className="max-w-screen-xl w-full flex flex-col lg:flex-row mx-auto items-center justify-between gap-y-14 gap-x-10 px-6 py-12 lg:py-0">
         <div className="max-w-xl">
           <Badge className="rounded-full py-1 border-none">
-            Just released v1.0.0
+            Disrupting Distant Learning
           </Badge>
           <h1 className="mt-6 max-w-[20ch] text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2] tracking-tight">
           Next-Gen Pilot Training for Safer Operations
@@ -19,19 +21,15 @@ const Hero = () => {
 
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto rounded-full text-base"
-            >
-              Get Started <ArrowUpRight className="!h-5 !w-5" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full sm:w-auto rounded-full text-base shadow-none"
-            >
-              <CirclePlay className="!h-5 !w-5" /> Watch Demo
-            </Button>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto rounded-full text-base"
+              >
+                Get in touch <ArrowUpRight className="!h-5 !w-5" />
+              </Button>
+            </Link>
+            <ExploreProductsButton text="Explore our products" target="#feature108" />
           </div>
         </div>
         <div className="relative lg:max-w-lg xl:max-w-xl w-full rounded-xl aspect-square flex items-center">

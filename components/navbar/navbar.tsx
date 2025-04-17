@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
@@ -15,10 +16,12 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Button variant="outline" className="hidden sm:inline-flex">
-            Sign In
+          <Button variant="outline" className="hidden sm:inline-flex" asChild>
+            <a href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071" target="_blank" rel="noopener noreferrer">iPad Apps</a>
           </Button>
-          <Button className="hidden xs:inline-flex">Get Started</Button>
+          <Button className="hidden xs:inline-flex" asChild>
+            <Link href="/contact">Contact Us</Link>
+          </Button>
 
           {/* Mobile Menu */}
           <div className="md:hidden">

@@ -12,7 +12,7 @@ const Feature108 = ({
   description = "Revolutionize Distance learning pilot training with LMS containing interactive playground, Event-based analytics & Data-driven solutions.",
 }: Feature108Props) => {
   return (
-    <section className="py-24">
+    <section id="feature108" className="py-24">
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-4 text-center">
           <h1 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text">

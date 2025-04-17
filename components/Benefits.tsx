@@ -48,7 +48,7 @@ function FeaturesSectionDemo() {
     },
   ];
   return (
-    <div className="container mx-auto max-w-screen-xl w-full relative z-10 py-10">
+    <div id="features" className="container mx-auto max-w-screen-xl w-full relative z-10 py-10">
       <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
         Maximize Efficiency with Tailored<br className="xs:inline sm:hidden" /> Training Solutions
       </p>

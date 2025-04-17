@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   Navbar,
   NavBody,
@@ -15,16 +16,12 @@ import { useState } from "react";
 export default function NavbarDemo() {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: "Our Products",
+      link: "#feature108",
     },
     {
-      name: "Pricing",
-      link: "#pricing",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
+      name: "Aeronautical Schools",
+      link: "#feature108",
     },
   ];
 
@@ -37,9 +34,13 @@ export default function NavbarDemo() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+          <div className="flex items-center gap-8">
+            <NavbarButton variant="secondary">
+              <a href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071" target="_blank" rel="noopener noreferrer">iPad Apps</a>
+            </NavbarButton>
+            <NavbarButton variant="primary">
+              <Link href="/contact">Contact Us</Link>
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -73,14 +74,14 @@ export default function NavbarDemo() {
                 variant="primary"
                 className="w-full"
               >
-                Login
+                iPad Apps
               </NavbarButton>
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
               >
-                Book a call
+                Contact Us
               </NavbarButton>
             </div>
           </MobileNavMenu>

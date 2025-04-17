@@ -6,6 +6,7 @@ export const events: Events = [
     periodType: "Q",
     periodNumber: 1,
     isChecked: true,
+    tag: "Data Input and Collection",
     events: [
       { title: "Project Kickoff", isChecked: true },
       { title: "Initial Design Phase", isChecked: true },
@@ -24,6 +25,7 @@ export const events: Events = [
     periodType: "Q",
     periodNumber: 2,
     isChecked: true,
+    tag: "Filtering and Selection",
     events: [
       { title: "Frontend Development", isChecked: true },
       { title: "Backend Development", isChecked: true },
@@ -35,12 +37,14 @@ export const events: Events = [
     Model identifies and pin points knowledge gaps and need for standardization implementation.
 
     Produces performance based dashboards.`,
+    image: 'https://placehold.co/600x400',
   },
   {
     year: 2023,
     periodType: "Q",
     periodNumber: 3,
     isChecked: false,
+    tag: "Final Scenarios and Courseware",
     events: [
       { title: "Testing and QA", isChecked: false },
       { title: "Deployment", isChecked: false },
@@ -50,5 +54,6 @@ export const events: Events = [
     Final Recommendations are made to Decision makers and Instructors.
 
     Final LMS courses are Pushed.`,
+    image: 'https://placehold.co/600x400',
   },
 ];
