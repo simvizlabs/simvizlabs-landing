@@ -1,10 +1,11 @@
-import { Search, ArrowLeft } from "lucide-react"
+import Link from 'next/link';
+import { ArrowLeft } from "lucide-react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -77,8 +78,8 @@ ref={ref}
 Input.displayName = "Input";
 
 interface NotFoundProps {
-title?: string
-description?: string
+title?: string;
+description?: string;
 }
 
 export function Illustration(props: React.ComponentPropsWithoutRef<"svg">) {
@@ -104,16 +105,9 @@ return (
 <p className="mt-6 text-pretty text-lg font-medium text-muted-foreground sm:text-xl/8">
 {description}
 </p>
-<div className="mt-10 flex flex-col sm:flex-row gap-y-3 sm:space-x-2 mx-auto sm:max-w-sm">
-<div className="relative w-full">
-<Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-<Input placeholder="Search" className="pl-8" />
-</div>
-<Button variant="outline">Search</Button>
-</div>
 <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-y-3 gap-x-6">
 <Button variant="secondary" asChild className="group">
-<a href="#">
+<a href="javascript:history.back()">
 <ArrowLeft
 className="me-2 ms-0 opacity-60 transition-transform group-hover:-translate-x-0.5"
 size={16}
@@ -123,12 +117,12 @@ aria-hidden="true"
 Go back
 </a>
 </Button>
-<Button className="-order-1 sm:order-none" asChild>
-<a href="#">Take me home</a>
+<Button asChild>
+<Link href="/">Take me home</Link>
 </Button>
 </div>
 </div>
-)
+);
 }
 
 export default NotFound;
