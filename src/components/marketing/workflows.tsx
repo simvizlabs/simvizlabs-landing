@@ -29,8 +29,8 @@ const data = [
   },
   {
     id: 3,
-    title: "Aeronautical Databases",
-    content: `We provide navigation databases for the US, Alaska, and Canada, tailored ARINC 424 datasets, and custom IT solutions to meet avionics-specific needs. Our reliable systems ensure precise navigation and dynamic database updates for safe and efficient operations.`,
+    title: "Platform Integration Services",
+    content: `Our integration services and customizable connectors enable you to embed our simulation, analytics, and training modules directly into your existing systems. Through automated data pipelines, unified performance dashboards, and expert guidance, we streamline workflows and deliver a cohesive, scalable training ecosystem tailored to your operational needs.`,
     image: "/images/solutions-imgs/3.png",
     icon: <Database className="size-6 text-primary" />,
   },
