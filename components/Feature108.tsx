@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -33,10 +34,12 @@ const Feature108 = ({
                 Take the Controls with Confidence
               </h3>
               <p className="text-muted-foreground lg:text-lg">
-                Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment.
+:start_line:37
+-------
+                Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment. For more information, <Link href="/contact">contact us</Link>.
               </p>
-              <Button className="mt-2.5 w-fit gap-2" size="lg">
-                Check our apps
+              <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
+                <Link href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071">Check our apps</Link>
               </Button>
             </div>
             <Image
@@ -69,8 +72,8 @@ const Feature108 = ({
               <p className="text-muted-foreground lg:text-lg">
                 Seamlessly integrate our interactive simulators and customizable LMS modules to give students hands‑on avionics experience, accelerate learning outcomes, and produce job‑ready graduates.
               </p>
-              <Button className="mt-2.5 w-fit gap-2" size="lg">
-                Get in touch
+              <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
+                <Link href="/contact">Get in touch</Link>
               </Button>
             </div>
           </div>

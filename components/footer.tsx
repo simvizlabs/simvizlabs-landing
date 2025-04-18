@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import {
-  DribbbleIcon,
-  GithubIcon,
-  TwitchIcon,
-  TwitterIcon,
+  Facebook,
+  Instagram,
+  Linkedin,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -14,19 +13,19 @@ const footerSections = [
     links: [
       {
         title: "ImmersiData",
-        href: "#",
+        href: "/immersidata",
       },
       {
         title: "Distance Learning",
-        href: "#",
+        href: "/distance-learning",
       },
         {
         title: "FMS Trainer",
-        href: "#",
+        href: "/fms-trainer",
       },
       {
         title: "ACARS Trainer",
-        href: "#",
+        href: "/acars-trainer",
       },
     ],
   },
@@ -35,15 +34,15 @@ const footerSections = [
     links: [
       {
         title: "LMS Course",
-        href: "#",
+        href: "/lms-course",
       },
       {
         title: "iOS-Based Simulators",
-        href: "#",
+        href: "/ios-simulators",
       },
       {
         title: "Training Resources",
-        href: "#",
+        href: "/training-resources",
       },
     ],
   },
@@ -52,19 +51,19 @@ const footerSections = [
     links: [
       {
         title: "B747",
-        href: "#",
+        href: "/tutorials/747",
       },
       {
         title: "B737",
-        href: "#",
+        href: "/tutorials/737",
       },
       {
         title: "B767",
-        href: "#",
+        href: "/tutorials/767",
       },
       {
         title: "B757",
-        href: "#",
+        href: "/tutorials/757",
       },
     ],
   },
@@ -73,15 +72,15 @@ const footerSections = [
     links: [
       {
         title: "Terms",
-        href: "#",
+        href: "/terms",
       },
       {
         title: "Privacy",
-        href: "#",
+        href: "/privacy",
       },
       {
         title: "Contact",
-        href: "#",
+        href: "/contact",
       },
     ],
   },
@@ -130,24 +129,18 @@ const Footer = () => {
         {/* Copyright */}
         <span className="text-muted-foreground text-center xs:text-start">
           &copy; {new Date().getFullYear()}{" "}
-          <Link href="https://shadcnui-blocks.com" target="_blank">
-            Shadcn UI Blocks
-          </Link>
-          . All rights reserved.
+          SimvizLabs LLC. All rights reserved.
         </span>
 
         <div className="flex items-center gap-5 text-muted-foreground">
-          <Link href="#" target="_blank">
-            <TwitterIcon className="h-5 w-5" />
+          <Link href="https://www.instagram.com/simvizlabs/" target="_blank">
+            <Instagram className="h-5 w-5" />
           </Link>
-          <Link href="#" target="_blank">
-            <DribbbleIcon className="h-5 w-5" />
+          <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank">
+            <Linkedin className="h-5 w-5" />
           </Link>
-          <Link href="#" target="_blank">
-            <TwitchIcon className="h-5 w-5" />
-          </Link>
-          <Link href="#" target="_blank">
-            <GithubIcon className="h-5 w-5" />
+          <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank">
+            <Facebook className="h-5 w-5" />
           </Link>
         </div>
       </div>

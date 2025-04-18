@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Example() {
   return (
@@ -30,7 +31,7 @@ export default function Example() {
               />
               <div className="pt-4 pl-10 pr-10">
                 <h3 className="text-lg font-bold sm:text-xl text-indigo-600">EBAT System</h3>
-                <p className="mt-2 text-muted-foreground font-medium">Understand your workforce, deploy targeted training programs, and optimize both time and costs with our Event-Based Analytics & Training platform.</p>
+                <p className="mt-2 text-muted-foreground font-medium">Understand your workforce, deploy targeted training programs, and optimize both time and costs with our Event-Based Analytics & Training platform. For more information, <Link href="/contact">contact us</Link>.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
@@ -47,7 +48,7 @@ export default function Example() {
               />
               <div className="pt-4 pl-10 pr-10">
                   <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Data‑Driven Scenarios</h3>
-                  <p className="mt-2 text-muted-foreground font-medium">Identify performance gaps in your training data and generate customized, real-world scenarios that boost adaptability and sharpen operational decision-making.</p>
+                  <p className="mt-2 text-muted-foreground font-medium">Identify performance gaps in your training data and generate customized, real-world scenarios that boost adaptability and sharpen operational decision-making. For more information, <Link href="/contact">contact us</Link>.</p>
                 </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
@@ -64,7 +65,7 @@ export default function Example() {
               />
               <div className="p-10 pt-4">
                 <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Predictive Learning & Analytics</h3>
-                <p className="mt-2 text-muted-foreground font-medium max-w-xs max-w-[20ch]">Harness AI-driven predictive analytics to refine content, deliver real-time feedback, and surface actionable recommendations for skill development.</p>
+                <p className="mt-2 text-muted-foreground font-medium max-w-xs max-w-[20ch]">Harness AI-driven predictive analytics to refine content, deliver real-time feedback, and surface actionable recommendations for skill development. For more information, <Link href="/contact">contact us</Link>.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]" />
@@ -81,7 +82,7 @@ export default function Example() {
               />
               <div className="p-10 pt-4">
                 <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Component Integration</h3>
-                <p className="mt-2 text-muted-foreground font-medium max-w-xs max-w-[20ch]">Seamlessly embed dynamic modules—FMS, ACARS, EFB, and more—into your training ecosystem to streamline workflows and boost operational efficiency.</p>
+                <p className="mt-2 text-muted-foreground font-medium max-w-xs max-w-[20ch]">Seamlessly embed dynamic modules—FMS, ACARS, EFB, and more—into your training ecosystem to streamline workflows and boost operational efficiency. For more information, <Link href="/contact">contact us</Link>.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
@@ -98,7 +99,7 @@ export default function Example() {
               />
               <div className="p-10 pt-4">
                 <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Targeted Training Recommendations</h3>
-                <p className="mt-2 text-muted-foreground font-medium max-w-xs">Implement precision training programs with data analytics—targeting key procedures to cut costs and elevate safety standards.</p>
+                <p className="mt-2 text-muted-foreground font-medium max-w-xs">Implement precision training programs with data analytics—targeting key procedures to cut costs and elevate safety standards. For more information, <Link href="/contact">contact us</Link>.</p>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />

@@ -3,21 +3,17 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
-  title: "Beautiful Shadcn UI Landing Page",
+  metadataBase: new URL('https://simvizlabs.com'),
+  title: "SimvizLabs - Next-Gen Pilot Training for Safer Operations",
   description:
-    "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+    "Experience aviation distance learning powered by interactive data-driven training. Enhance pilot performance and operational safety with SimvizLabs' innovative solutions.",
   keywords: [
-    "Shadcn UI Landing Page",
-    "Shadcn UI Blocks",
-    "Shadcn UI",
-    "Landing Page",
-    "Tailwind CSS Landing Page",
-    "Beautiful Shadcn UI Landing Page",
-    "Next.js 15 Landing Page",
-    "Simple Landing Page",
-    "Landing Page Template",
-    "Landing Page Design",
+    "pilot training",
+    "aviation",
+    "distance learning",
+    "pilot performance",
+    "operational safety",
+    "SimvizLabs",
   ],
   openGraph: {
     type: "website",

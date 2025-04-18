@@ -31,7 +31,9 @@ const Hero = () => {
             Next-Gen Pilot Training for  <AuroraText>Safer Operations</AuroraText>
           </h1>
           <p className="mt-6 max-w-[60ch] xs:text-lg">
-            Experience aviation distance learning powered by interactive <br />data-driven training. Our solutions identifies knowledge gaps, delivers real-time feedback, and provides actionable insights to enhance pilot performance, training outcomes, and increases operational safety.
+:start_line:34
+-------
+            Experience aviation distance learning powered by interactive <br />data-driven training. Explore our <Link href="/tutorials/737">B737 Tutorials</Link> and <Link href="/tutorials/747">B747 Tutorials</Link> to enhance pilot performance, training outcomes, and increases operational safety.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
             <Link href="/contact">
