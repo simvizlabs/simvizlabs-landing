@@ -3,20 +3,23 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 interface Feature108Props {
-  heading?: string;
   description?: string;
 }
 
 const Feature108 = ({
-  heading = "Our Products and Solutions",
   description = "Revolutionize Distance learning pilot training with LMS containing interactive playground, Event-based analytics & Data-driven solutions.",
 }: Feature108Props) => {
   return (
     <section id="feature108" className="py-24">
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-4 text-center">
+          <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto">
+            <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
+                Advanced Aviation Solutions
+            </div>
+          </div>
           <h1 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text">
-            {heading}
+            Our Products and Solutions
           </h1>
           <p className="text-muted-foreground text-lg font-geist leading-relaxed max-w-[60ch]">{description}</p>
         </div>
@@ -37,8 +40,8 @@ const Feature108 = ({
               </Button>
             </div>
             <Image
-              src="https://shadcnblocks.com/images/block/placeholder-dark-1.svg"
-              alt="placeholder"
+              src="/images/airline.png"
+              alt="airline"
               className="rounded-xl"
               style={{ order: 1 }}
               width={500}
@@ -49,8 +52,8 @@ const Feature108 = ({
         <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl bg-muted/70 p-6 lg:p-16">
           <div className="grid place-items-center gap-20 lg:grid-cols-2 lg:gap-10">
             <Image
-              src="https://shadcnblocks.com/images/block/placeholder-dark-1.svg"
-              alt="placeholder"
+              src="/images/schools.png"
+              alt="schools"
               className="rounded-xl"
               style={{ order: 0 }}
               width={500}

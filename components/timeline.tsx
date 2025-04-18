@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import Image from 'next/image';
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { events } from "@/data/events";
 
@@ -12,6 +11,11 @@ export default function VerticalEventTimeline() {
 
   return (
     <div className="mx-auto px-4 py-12 max-w-5xl">
+      <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto mb-4">
+        <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
+          Advanced Aviation Solutions
+        </div>
+      </div>
       <motion.h1
         className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto mb-2"
         initial={{ opacity: 0, y: -20 }}
@@ -89,20 +93,15 @@ export default function VerticalEventTimeline() {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="overflow-hidden border-primary/10 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    {/* You can add content here if needed */}
-                  </CardContent>
-                  {item.image && (
-                    <Image
-                      src={item.image}
-                      alt={item.events[0].title}
-                      className="h-full w-full object-cover rounded-md"
-                      width={500}
-                      height={500}
-                    />
-                  )}
-                </Card>
+                {item.image && (
+                  <Image
+                    src={item.image}
+                    alt={item.events[0].title}
+                    className="h-full w-full object-cover rounded-md mt-8"
+                    width={500}
+                    height={500}
+                  />
+                )}
               </motion.div>
             </div>
           </motion.div>

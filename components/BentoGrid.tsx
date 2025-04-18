@@ -5,6 +5,11 @@ export default function Example() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
        
+        <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto mb-4">
+          <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
+            Advanced Aviation Solutions
+          </div>
+        </div>
         <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
           Empower Training with Event-Based Analytics
         </p>
@@ -16,11 +21,11 @@ export default function Example() {
             <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
               <Image
-                src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-performance.png"
-                alt=""
-                width={400}
+                src="/images/bento/bento1.png"
+                alt="EBAT System"
+                width={600}
                 height={300}
-                className="h-80 object-cover object-left"
+                className="h-80 object-cover"
                 priority
               />
               <div className="pt-4 pl-10 pr-10">
@@ -34,11 +39,11 @@ export default function Example() {
             <div className="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]" />
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
               <Image
-                src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-releases.png"
-                alt=""
-                width={400}
+                src="/images/bento/bento2.png"
+                alt="Data-Driven Scenarios"
+                width={600}
                 height={300}
-                className="h-80 object-cover object-left lg:object-right"
+                className="h-80 object-cover"
               />
               <div className="pt-4 pl-10 pr-10">
                   <h3 className="text-lg font-bold sm:text-xl text-indigo-600">Data‑Driven Scenarios</h3>
@@ -51,8 +56,8 @@ export default function Example() {
             <div className="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]" />
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]">
               <Image
-                src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-speed.png"
-                alt=""
+                src="/images/bento/bento3.png"
+                alt="Predictive Learning & Analytics"
                 width={400}
                 height={300}
                 className="h-80 object-cover object-left"
@@ -68,8 +73,8 @@ export default function Example() {
             <div className="absolute inset-px rounded-lg bg-white" />
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]">
               <Image
-                src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-integrations.png"
-                alt=""
+                src="/images/bento/bento4.png"
+                alt="Component Integration"
                 width={400}
                 height={300}
                 className="h-80 object-cover"
@@ -85,8 +90,8 @@ export default function Example() {
             <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
               <Image
-                src="https://tailwindcss.com/plus-assets/img/component-images/bento-01-network.png"
-                alt=""
+                src="/images/bento/bento5.png"
+                alt="Targeted Training Recommendations"
                 width={400}
                 height={300}
                 className="h-80 object-cover"

@@ -15,8 +15,12 @@ export function RetroGridDemo() {
         with our experts to elevate your aviation training experience.
       </p>
       <div className="flex mt-4 space-x-2 z-10">
-        <Button className="bg-blue-500 text-white">Schedule a Call</Button>
-        <Button variant="outline">Download our Apps</Button>
+        <Button className="bg-blue-500 text-white" asChild>
+          <a href="https://calendly.com/simvizlabs_demo/30min">Schedule a Call</a>
+        </Button>
+        <Button variant="outline" asChild>
+          <a href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071">Download our Apps</a>
+        </Button>
       </div>
 
       <RetroGrid />

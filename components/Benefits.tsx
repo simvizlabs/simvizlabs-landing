@@ -49,6 +49,11 @@ function FeaturesSectionDemo() {
   ];
   return (
     <div id="features" className="container mx-auto max-w-screen-xl w-full relative z-10 py-10">
+      <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto mb-4">
+        <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
+          Advanced Aviation Solutions
+        </div>
+      </div>
       <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
         Maximize Efficiency with Tailored<br className="xs:inline sm:hidden" /> Training Solutions
       </p>

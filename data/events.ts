@@ -18,7 +18,7 @@ export const events: Events = [
     Flight Events and tasks requiring special focus, recommended by TI's and Check Pilots.
 
     Initial Set of Data Collected by running Pilot program utilizing Emulators and LMS initial scenarios.`,
-    image: 'https://placehold.co/600x400',
+    image: '/images/timeline1.png',
   },
   {
     year: 2023,
@@ -37,7 +37,7 @@ export const events: Events = [
     Model identifies and pin points knowledge gaps and need for standardization implementation.
 
     Produces performance based dashboards.`,
-    image: 'https://placehold.co/600x400',
+    image: '/images/timeline2.png',
   },
   {
     year: 2023,
@@ -54,6 +54,6 @@ export const events: Events = [
     Final Recommendations are made to Decision makers and Instructors.
 
     Final LMS courses are Pushed.`,
-    image: 'https://placehold.co/600x400',
+    image: '/images/timeline3.png',
   },
 ];
