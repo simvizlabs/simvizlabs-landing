@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   },
   authors: [
     {
-      name: "Akash Moradiya",
-      url: "https://shadcnui-blocks.com",
+      name: "Sayudh Mukherjee",
+      url: "https://simvizlabs.com",
     },
   ],
-  creator: "Akash Moradiya",
+  creator: "Sayudh Mukherjee",
   icons: [
     {
       rel: "icon",

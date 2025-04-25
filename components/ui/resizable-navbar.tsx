@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconMenu2, IconX, IconChevronDown } from "@tabler/icons-react";
 import {
   motion,
   AnimatePresence,
@@ -15,6 +15,12 @@ interface NavbarProps {
   className?: string;
 }
 
+interface NavItem {
+  name: string;
+  link: string;
+  children?: NavItem[]; // Add children for dropdown
+}
+
 interface NavBodyProps {
   children: React.ReactNode;
   className?: string;
@@ -22,10 +28,7 @@ interface NavBodyProps {
 }
 
 interface NavItemsProps {
-  items: {
-    name: string;
-    link: string;
-  }[];
+  items: NavItem[]; // Use the updated NavItem type
   className?: string;
   onItemClick?: () => void;
 }
@@ -114,31 +117,73 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null); // State for dropdown visibility
 
   return (
     <motion.div
-      onMouseLeave={() => setHovered(null)}
+      onMouseLeave={() => {
+        setHovered(null);
+        setOpenDropdown(null); // Close dropdown on mouse leave
+      }}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
         className,
       )}
     >
       {items.map((item, idx) => (
-        <a
-          onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+        <div
           key={`link-${idx}`}
-          href={item.link}
+          className="relative" // Make container relative for dropdown positioning
+          onMouseEnter={() => {
+            setHovered(idx);
+            if (item.children) {
+              setOpenDropdown(idx); // Open dropdown on hover if children exist
+            }
+          }}
+          
         >
-          {hovered === idx && (
+          <a
+            onClick={onItemClick}
+            className="relative flex items-center gap-1 px-4 py-2 text-neutral-600 dark:text-neutral-300" // Use flex to align text and icon
+            // href={item.link} // Link for the main item (optional if it's just a dropdown trigger)
+          >
+            {hovered === idx && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+              />
+            )}
+            <span className="relative z-20">{item.name}</span>
+            {/* Add ChevronDown icon if item has children */}
+            {item.children && (
+              <IconChevronDown
+                className={`relative z-20 h-4 w-4 transition-transform duration-200 ${
+                  openDropdown === idx ? "rotate-180" : ""
+                }`}
+              />
+            )}
+          </a>
+          {/* Dropdown Menu */}
+          {item.children && openDropdown === idx && (
             <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-            />
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="absolute left-0 top-full z-30 mt-2 w-32 rounded-md bg-white p-2 shadow-lg dark:bg-neutral-800"
+            >
+              {item.children.map((child, childIdx) => (
+                <a
+                  key={`child-${childIdx}`}
+                  href={child.link}
+                  onClick={onItemClick}
+                  className="block px-3 py-2 text-sm text-neutral-600 hover:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-700 rounded"
+                >
+                  {child.name}
+                </a>
+              ))}
+            </motion.div>
           )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
+        </div>
       ))}
     </motion.div>
   );

@@ -34,9 +34,7 @@ const Feature108 = ({
                 Take the Controls with Confidence
               </h3>
               <p className="text-muted-foreground lg:text-lg">
-:start_line:37
--------
-                Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment. For more information, <Link href="/contact">contact us</Link>.
+                Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment.
               </p>
               <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
                 <Link href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071">Check our apps</Link>
