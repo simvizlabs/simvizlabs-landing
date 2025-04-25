@@ -12,6 +12,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { IconSchool, IconPlane, IconBuildingCommunity, IconUser } from "@tabler/icons-react";
 
 export const NavbarLogo = () => {
   return (
@@ -28,20 +29,18 @@ export const NavbarLogo = () => {
 export default function NavbarDemo() {
   const navItems = [
     {
-      name: "Our Products",
-      link: "#", // or remove the link if it's just a dropdown trigger
+      name: "Our Solutions",
+      link: "#",
       children: [
-        { name: "Product 1", link: "#product1" },
-        { name: "Product 2", link: "#product2" },
+        { name: "Type Rating Aviation Schools", link: "#tr-schools", icon: IconSchool },
+        { name: "Airlines", link: "#airlines", icon: IconPlane },
+        { name: "Aeronautical Schools", link: "#aero-schools", icon: IconBuildingCommunity },
+        { name: "Pilots", link: "#pilots", icon: IconUser },
       ],
     },
     {
-      name: "Aeronautical Schools",
-      link: "#feature108",
-      children: [
-        { name: "School 1", link: "#school1" },
-        { name: "School 2", link: "#school2" },
-      ],
+      name: "Training Intelligence System",
+      link: "#training-intel",
     },
   ];
 

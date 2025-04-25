@@ -15,12 +15,6 @@ interface NavbarProps {
   className?: string;
 }
 
-interface NavItem {
-  name: string;
-  link: string;
-  children?: NavItem[]; // Add children for dropdown
-}
-
 interface NavBodyProps {
   children: React.ReactNode;
   className?: string;
@@ -28,7 +22,15 @@ interface NavBodyProps {
 }
 
 interface NavItemsProps {
-  items: NavItem[]; // Use the updated NavItem type
+  items: {
+    name: string;
+    link: string;
+    children?: {
+      name: string;
+      link: string;
+      icon?: React.ElementType;
+    }[];
+  }[];
   className?: string;
   onItemClick?: () => void;
 }
@@ -118,13 +120,36 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null); // State for dropdown visibility
+  const timeoutRef = useRef<number | null>(null);
+
+  const handleMouseEnter = (idx: number) => {
+    setHovered(idx);
+    if (items[idx].children) {
+      setOpenDropdown(idx);
+    }
+  };
+
+  const handleMouseLeave = (idx: number) => {
+    timeoutRef.current = window.setTimeout(() => {
+      setHovered(null);
+      setOpenDropdown(null);
+    }, 100); // Adjust the delay (in milliseconds) as needed
+  };
+
+  const handleDropdownMouseEnter = () => {
+    if (timeoutRef.current) {
+      window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const handleDropdownMouseLeave = () => {
+    setHovered(null);
+    setOpenDropdown(null);
+  };
 
   return (
     <motion.div
-      onMouseLeave={() => {
-        setHovered(null);
-        setOpenDropdown(null); // Close dropdown on mouse leave
-      }}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
         className,
@@ -134,13 +159,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <div
           key={`link-${idx}`}
           className="relative" // Make container relative for dropdown positioning
-          onMouseEnter={() => {
-            setHovered(idx);
-            if (item.children) {
-              setOpenDropdown(idx); // Open dropdown on hover if children exist
-            }
-          }}
-          
+          onMouseEnter={() => handleMouseEnter(idx)}
+          onMouseLeave={() => handleMouseLeave(idx)}
         >
           <a
             onClick={onItemClick}
@@ -169,16 +189,23 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute left-0 top-full z-30 mt-2 w-32 rounded-md bg-white p-2 shadow-lg dark:bg-neutral-800"
+              className="absolute left-0 top-full z-30 mt-2 w-72 rounded-md bg-white p-2 shadow-lg dark:bg-neutral-800"
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
             >
               {item.children.map((child, childIdx) => (
                 <a
                   key={`child-${childIdx}`}
                   href={child.link}
                   onClick={onItemClick}
-                  className="block px-3 py-2 text-sm text-neutral-600 hover:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-700 rounded"
+                  className="flex items-center whitespace-nowrap px-3 py-2 text-sm text-neutral-600 hover:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-700 rounded"
                 >
-                  {child.name}
+                  {child.icon && (
+                    <div className="mr-3 h-6 w-6 flex items-center justify-center">
+                      <child.icon className="h-5 w-5 flex-shrink-0" />
+                    </div>
+                  )}
+                  <span>{child.name}</span>
                 </a>
               ))}
             </motion.div>
@@ -197,10 +224,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "90%" : "100%",
-        paddingRight: visible ? "12px" : "0px",
-        paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
+        width: visible ? "40%" : "100%",
         y: visible ? 20 : 0,
       }}
       transition={{
