@@ -6,18 +6,14 @@ export const events: Events = [
     periodType: "Q",
     periodNumber: 1,
     isChecked: true,
-    tag: "Data Input and Collection",
+    tag: " Intelligent Data Ingestion",
     events: [
       { title: "Project Kickoff", isChecked: true },
       { title: "Initial Design Phase", isChecked: true },
     ],
-    description: `Model receives initial data inputs to establish a baseline for Course development.
-
-    De-identified data received from Training departments requiring focus.
-
-    Flight Events and tasks requiring special focus, recommended by TI's and Check Pilots.
-
-    Initial Set of Data Collected by running Pilot program utilizing Emulators and LMS initial scenarios.`,
+    description: `The system begins by collecting initial training signals from emulators, LMS modules, and de-identified instructor notes. The baseline includes pilot actions, flight events, & checklist behavior flagged by Training Instructors or Check Pilots. 
+    
+Using real-time and pilot program data, our platform builds a foundational view of performance—identifying areas needing improvement and setting the stage for adaptive scenario generation and targeted content development.`,
     image: '/images/timeline1.png',
   },
   {
@@ -25,18 +21,14 @@ export const events: Events = [
     periodType: "Q",
     periodNumber: 2,
     isChecked: true,
-    tag: "Filtering and Selection",
+    tag: "Smart Scenario Generation",
     events: [
       { title: "Frontend Development", isChecked: true },
       { title: "Backend Development", isChecked: true },
     ],
-    description: `Filtering algorithm creates set of initial scenarios consisting of tasks and events requiring focus.
+    description: `Using built-in filtering algorithms, the system evaluates tagged events and performance indicators to isolate weak spots. It selects the most relevant training gaps—such as automation mismanagement, procedure skips, or unstable approaches—and matches them with data-driven training requirements.
 
-    Filtering system selects specific events and tasks to create set of scenarios and recommendation for LMS course.
-
-    Model identifies and pin points knowledge gaps and need for standardization implementation.
-
-    Produces performance based dashboards.`,
+    AI then crafts custom scenarios and learning paths mapped to each pilot’s profile. This stage also creates performance dashboards to highlight systemic gaps and standardization requirements across teams or fleets.`,
     image: '/images/timeline2.png',
   },
   {
@@ -44,16 +36,14 @@ export const events: Events = [
     periodType: "Q",
     periodNumber: 3,
     isChecked: false,
-    tag: "Final Scenarios and Courseware",
+    tag: "Adaptive Deployment & Feedback",
     events: [
       { title: "Testing and QA", isChecked: false },
       { title: "Deployment", isChecked: false },
     ],
-    description: `Model pushes and Runs the Scenarios to Emulators.
-
-    Final Recommendations are made to Decision makers and Instructors.
-
-    Final LMS courses are Pushed.`,
+    description: `Generated scenarios are delivered to emulators or simulator tools, while personalized LMS modules are auto-assigned to the trainee. Recommendations are pushed to decision-makers and instructors via intuitive dashboards.
+    
+    The entire cycle is performance-linked, with scenario results feeding back into the system to continually refine each pilot’s training path. This creates a dynamic, closed-loop learning ecosystem—driven by real data, focused on real outcomes.`,
     image: '/images/timeline3.png',
   },
 ];

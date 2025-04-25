@@ -11,7 +11,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { IconSchool, IconPlane, IconBuildingCommunity, IconUser } from "@tabler/icons-react";
 
 export const NavbarLogo = () => {
@@ -32,19 +32,30 @@ export default function NavbarDemo() {
       name: "Our Solutions",
       link: "#",
       children: [
-        { name: "Type Rating Aviation Schools", link: "#tr-schools", icon: IconSchool },
-        { name: "Airlines", link: "#airlines", icon: IconPlane },
-        { name: "Aeronautical Schools", link: "#aero-schools", icon: IconBuildingCommunity },
-        { name: "Pilots", link: "#pilots", icon: IconUser },
+        { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
+        { name: "Airlines", link: "/airlines", icon: IconPlane },
+        { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
+        { name: "Pilots", link: "/pilots", icon: IconUser },
       ],
     },
     {
       name: "Training Intelligence System",
-      link: "#training-intel",
+      link: "#feature108",
     },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleNavItemClick = useCallback((link: string) => {
+    if (link.startsWith("#")) {
+      if (typeof window !== 'undefined') {
+        const element = document.querySelector(link);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  }, []);
 
   return (
     <div className="relative w-full">
@@ -52,7 +63,7 @@ export default function NavbarDemo() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
+          <NavItems items={navItems} onItemClick={handleNavItemClick} />
           <div className="flex items-center gap-8">
             <NavbarButton variant="primary">
               <Link href="/contact">Contact Us</Link>
@@ -73,27 +84,9 @@ export default function NavbarDemo() {
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
-          >
-            {navItems.map((item, idx) => (
-              <a
-                key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
-              >
-                <span className="block">{item.name}</span>
-              </a>
-            ))}
-            <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Contact Us
-              </NavbarButton>
-            </div>
-          </MobileNavMenu>
+            navItems={navItems}
+            handleNavItemClick={handleNavItemClick}
+          />
         </MobileNav>
       </Navbar>
     </div>

@@ -9,61 +9,40 @@ import Link from "next/link";
 
 const footerSections = [
   {
-    title: "Airline Solutions",
+    title: "Our Solutions",
     links: [
       {
-        title: "ImmersiData",
-        href: "/immersidata",
+        title: "Type Rating Aviation Schools",
+        href: "/type-rating-schools",
       },
       {
-        title: "Distance Learning",
-        href: "/distance-learning",
-      },
-        {
-        title: "FMS Trainer",
-        href: "/fms-trainer",
+        title: "Airlines",
+        href: "/airlines",
       },
       {
-        title: "ACARS Trainer",
-        href: "/acars-trainer",
+        title: "Aeronautical Schools",
+        href: "/aeronautical-schools",
+      },
+      {
+        title: "Pilots",
+        href: "/pilots",
       },
     ],
   },
   {
-    title: "Aeronautical College Solutions",
-    links: [
-      {
-        title: "LMS Course",
-        href: "/lms-course",
-      },
-      {
-        title: "iOS-Based Simulators",
-        href: "/ios-simulators",
-      },
-      {
-        title: "Training Resources",
-        href: "/training-resources",
-      },
-    ],
-  },
-  {
-    title: "iOS Simulators",
+    title: "Our iPad Apps",
     links: [
       {
         title: "B747",
-        href: "/tutorials/747",
+        href: "#",
       },
       {
         title: "B737",
-        href: "/tutorials/737",
+        href: "#",
       },
       {
-        title: "B767",
-        href: "/tutorials/767",
-      },
-      {
-        title: "B757",
-        href: "/tutorials/757",
+        title: "Airbus A320",
+        href: "#",
       },
     ],
   },
@@ -89,8 +68,8 @@ const footerSections = [
 const Footer = () => {
   return (
     <footer className="mt-12 xs:mt-20 dark bg-background border-t">
-      <div className="max-w-screen-xl mx-auto py-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-x-8 gap-y-10 px-6">
-        <div className="col-span-full xl:col-span-2">
+      <div className="max-w-screen-xl mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 px-6">
+        <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
           {/* Logo */}
           <Image
             src="/logo-dark.png"
@@ -109,7 +88,7 @@ const Footer = () => {
         {footerSections.map(({ title, links }) => (
           <div key={title} className="xl:justify-self-end">
             <h6 className="font-semibold text-foreground">{title}</h6>
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-6 space-y-2">
               {links.map(({ title, href }) => (
                 <li key={title}>
                   <Link

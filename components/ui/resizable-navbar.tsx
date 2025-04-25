@@ -9,6 +9,8 @@ import {
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
+import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -21,18 +23,17 @@ interface NavBodyProps {
   visible?: boolean;
 }
 
+interface NavItem {
+  name: string;
+  link: string;
+  children?: NavItem[]; // Add children for dropdown
+  icon?: React.ElementType; // Add icon for dropdown items
+}
+
 interface NavItemsProps {
-  items: {
-    name: string;
-    link: string;
-    children?: {
-      name: string;
-      link: string;
-      icon?: React.ElementType;
-    }[];
-  }[];
+  items: NavItem[]; // Use the updated NavItem type
   className?: string;
-  onItemClick?: () => void;
+  onItemClick?: (link: string) => void;
 }
 
 interface MobileNavProps {
@@ -47,10 +48,15 @@ interface MobileNavHeaderProps {
 }
 
 interface MobileNavMenuProps {
-  children: React.ReactNode;
-  className?: string;
   isOpen: boolean;
-  onClose?: () => void;
+  onClose: () => void;
+  navItems: NavItem[];
+  handleNavItemClick: (link: string) => void;
+}
+
+interface MobileNavToggleProps {
+  isOpen: boolean;
+  onClick: () => void;
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
@@ -121,6 +127,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null); // State for dropdown visibility
   const timeoutRef = useRef<number | null>(null);
+  const router = useRouter();
 
   const handleMouseEnter = (idx: number) => {
     setHovered(idx);
@@ -129,7 +136,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     }
   };
 
-  const handleMouseLeave = (/* idx: number */) => {
+  const handleMouseLeave = () => {
     timeoutRef.current = window.setTimeout(() => {
       setHovered(null);
       setOpenDropdown(null);
@@ -160,12 +167,19 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           key={`link-${idx}`}
           className="relative" // Make container relative for dropdown positioning
           onMouseEnter={() => handleMouseEnter(idx)}
-          onMouseLeave={() => handleMouseLeave()}
+          onMouseLeave={handleMouseLeave}
         >
-          <a
-            onClick={onItemClick}
+          <Link
+            href={item.link}
+            onClick={(e) => {
+              e.preventDefault();
+              if (item.link.startsWith("#")) {
+                onItemClick?.(item.link);
+              } else {
+                router.push(item.link);
+              }
+            }}
             className="relative flex items-center gap-1 px-4 py-2 text-neutral-600 dark:text-neutral-300" // Use flex to align text and icon
-            // href={item.link} // Link for the main item (optional if it's just a dropdown trigger)
           >
             {hovered === idx && (
               <motion.div
@@ -182,7 +196,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 }`}
               />
             )}
-          </a>
+          </Link>
           {/* Dropdown Menu */}
           {item.children && openDropdown === idx && (
             <motion.div
@@ -194,10 +208,17 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               onMouseLeave={handleDropdownMouseLeave}
             >
               {item.children.map((child, childIdx) => (
-                <a
+                <Link
                   key={`child-${childIdx}`}
                   href={child.link}
-                  onClick={onItemClick}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (child.link.startsWith("#")) {
+                      onItemClick?.(child.link);
+                    } else {
+                      router.push(child.link);
+                    }
+                  }}
                   className="flex items-center whitespace-nowrap px-3 py-2 text-sm text-neutral-600 hover:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-700 rounded"
                 >
                   {child.icon && (
@@ -206,7 +227,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                     </div>
                   )}
                   <span>{child.name}</span>
-                </a>
+                </Link>
               ))}
             </motion.div>
           )}
@@ -224,7 +245,10 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "40%" : "100%",
+        width: visible ? "95%" : "100%",
+        paddingRight: visible ? "8px" : "0px",
+        paddingLeft: visible ? "8px" : "0px",
+        borderRadius: visible ? "12px" : "2rem",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -233,7 +257,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-1rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
@@ -260,10 +284,12 @@ export const MobileNavHeader = ({
 };
 
 export const MobileNavMenu = ({
-  children,
-  className,
   isOpen,
+  onClose,
+  navItems,
+  handleNavItemClick,
 }: MobileNavMenuProps) => {
+  const router = useRouter();
   return (
     <AnimatePresence>
       {isOpen && (
@@ -273,29 +299,83 @@ export const MobileNavMenu = ({
           exit={{ opacity: 0 }}
           className={cn(
             "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,255,255,0.1)_inset] dark:bg-neutral-950",
-            className,
           )}
         >
-          {children}
+          {navItems.map((item, idx) => (
+            <div key={`mobile-link-${idx}`} className="w-full">
+              {item.children ? (
+                <div>
+                  <h6 className="font-semibold text-foreground">{item.name}</h6>
+                  <ul className="ml-4 mt-2 space-y-2">
+                    {item.children.map((child) => (
+                      <li key={child.name}>
+                        <Link
+                          href={child.link}
+                          className="text-muted-foreground hover:text-foreground block py-1"
+                          onClick={() => {
+                            onClose();
+                            if (child.link.startsWith('#')) {
+                              handleNavItemClick(child.link);
+                            } else {
+                              router.push(child.link);
+                            }
+                          }}
+                        >
+                          {child.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <Link
+                  href={item.link}
+                  className="text-muted-foreground hover:text-foreground block py-2"
+                  onClick={() => {
+                    onClose();
+                    if (item.link.startsWith('#')) {
+                      handleNavItemClick(item.link);
+                    } else {
+                      router.push(item.link);
+                    }
+                  }}
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+          <div className="flex w-full flex-col gap-4">
+            <NavbarButton
+              onClick={onClose}
+              variant="primary"
+              className="w-full"
+            >
+              Contact Us
+            </NavbarButton>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 };
 
+interface MobileNavToggleProps {
+  isOpen: boolean;
+  onClick: () => void;
+}
+
 export const MobileNavToggle = ({
   isOpen,
   onClick,
-}: {
-  isOpen: boolean;
-  onClick: () => void;
-}) => {
+}: MobileNavToggleProps) => {
   return isOpen ? (
     <IconX className="text-black dark:text-white" onClick={onClick} />
   ) : (
     <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
   );
 };
+
 import Image from "next/image";
 
 export const NavbarLogo = () => {

@@ -13,7 +13,7 @@ export default function VerticalEventTimeline() {
     <div className="mx-auto px-4 py-12 max-w-5xl">
       <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto mb-4">
         <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
-          Advanced Aviation Solutions
+        Training Intelligence System
         </div>
       </div>
       <motion.h1
@@ -31,8 +31,7 @@ export default function VerticalEventTimeline() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Our platform is designed to transform training — combining emulators, interactive LMS,<br />
-        and a seamless data pipeline to craft dynamic scenarios that evolve with your training needs.
+         Our adaptive training engine transforms pilot learning by integrating interactive emulators, a smart LMS, & a real-time data pipeline—enabling dynamic, personalized scenarios that evolve with each user&apos;s performance & training profile.
       </motion.p>
 
       <div className="relative">
@@ -78,6 +77,7 @@ export default function VerticalEventTimeline() {
                       </React.Fragment>
                     ))}
                   </p>
+                  <p className="mt-1 text-sm leading-5 text-gray-500">Here&apos;s what you need to know</p>
                 </div>
               </motion.div>
             </div>
