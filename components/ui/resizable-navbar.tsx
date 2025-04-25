@@ -129,7 +129,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     }
   };
 
-  const handleMouseLeave = (idx: number) => {
+  const handleMouseLeave = (/* idx: number */) => {
     timeoutRef.current = window.setTimeout(() => {
       setHovered(null);
       setOpenDropdown(null);
@@ -160,7 +160,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           key={`link-${idx}`}
           className="relative" // Make container relative for dropdown positioning
           onMouseEnter={() => handleMouseEnter(idx)}
-          onMouseLeave={() => handleMouseLeave(idx)}
+          onMouseLeave={() => handleMouseLeave()}
         >
           <a
             onClick={onItemClick}
