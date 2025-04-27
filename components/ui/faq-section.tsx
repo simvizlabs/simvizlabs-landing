@@ -26,22 +26,24 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
       >
         <div className="container">
           {/* Header */}
+          {/* Increase max-width on lg screens */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto text-center mb-12"
+            className="max-w-2xl lg:max-w-3xl mx-auto text-center mb-12"
           >
             <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto mb-4">
               <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
-                Advanced Aviation Solutions
+              Aviation Knowledge Hub
               </div>
             </div>
             <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
-              What our customers say
+            Common Questions,<br /> Clear Answers
             </p>
-            <p className="text-muted-foreground text-lg font-geist leading-relaxed text-center sm:text-center mx-auto mt-2 mb-16 px-4">
-              We are proud to have helped thousands of customers across the globe. <br className="hidden sm:inline" />Here are some of their stories:
+            {/* Remove explicit line break */}
+            <p className="text-muted-foreground text-lg font-geist leading-relaxed text-center mx-auto mt-2 mb-16 px-4">
+            Explore how our simulators, LMS, and training solutions are designed to streamline your learning experience—from device compatibility to onboarding and support.
             </p>
           </motion.div>
 

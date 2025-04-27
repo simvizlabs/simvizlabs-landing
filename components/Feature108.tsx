@@ -16,7 +16,7 @@ const Feature108 = ({
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto">
             <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
-                Advanced Aviation Solutions
+                Next-Gen Aviation Solutions
             </div>
           </div>
           <h1 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text">
@@ -62,13 +62,13 @@ const Feature108 = ({
             />
             <div className="flex flex-col gap-5">
               <Badge variant="outline" className="w-fit bg-background">
-               For Aeronautical Schools
+               For Schools and Airlines
               </Badge>
               <h3 className="text-3xl font-bold lg:text-4xl">
-              Modernize Your Training Curriculum
+              Elevate Training Standards Across All Operations
               </h3>
               <p className="text-muted-foreground lg:text-lg">
-                Seamlessly integrate our interactive simulators and customizable LMS modules to give students hands‑on avionics experience, accelerate learning outcomes, and produce job‑ready graduates.
+              Seamlessly integrate our high-fidelity simulators, adaptive LMS modules, and data-driven scenario training into your programs—designed to accelerate pilot readiness, standardize airline procedures, and modernize aviation academy curricula.
               </p>
               <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
                 <Link href="/contact">Get in touch</Link>

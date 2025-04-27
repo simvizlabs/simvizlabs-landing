@@ -13,7 +13,7 @@ const DEMO_FAQS = [
   },
   {
     question: "Q3: What devices are supported?",
-    answer: "Our app works on any iPad running iPadOS 14 or later. For optimal usability and button spacing, we recommend a screen size of 10 inches or more.",
+    answer: "Our app works on any iPad running iPadOS 16 or later. For optimal usability and button spacing, we recommend a screen size of 10 inches or more.",
   },
   {
     question: "Q4: Can we customize training scenarios for our syllabus?",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 import { AuroraText } from "@/components/magicui/aurora-text";
@@ -8,7 +8,7 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 const Hero = () => {
   return (
     <div className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center overflow-hidden border-b border-accent">
-      <div className="max-w-screen-xl w-full flex flex-col lg:flex-row mx-auto items-center justify-between gap-y-14 gap-x-10 px-6 py-12 lg:py-0">
+      <div className="max-w-screen-xl w-full flex flex-col lg:flex-row mx-auto items-center justify-between gap-y-6 gap-x-10 px-6 pt-24 pb-12 lg:py-0">
         <div className="max-w-xl">
           
         <div className="pl-2 pr-1 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max">
@@ -31,10 +31,10 @@ const Hero = () => {
             Next-Gen Pilot Training for  <AuroraText>Safer Operations</AuroraText>
           </h1>
           <p className="mt-6 max-w-[60ch] xs:text-lg">
-            Experience aviation distance learning powered by interactive <br />data-driven training. Explore our <Link href="/tutorials/737">B737 Tutorials</Link> and <Link href="/tutorials/747">B747 Tutorials</Link> to enhance pilot performance, training outcomes, and increases operational safety.
+            Experience aviation distance learning powered by interactive simulators, real-world scenario training, and predictive learning analytics—designed to sharpen pilot proficiency and enhance operational safety.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 className="w-full sm:w-auto rounded-full text-base"
@@ -42,10 +42,10 @@ const Hero = () => {
                 Get in touch <ArrowUpRight className="!h-5 !w-5" />
               </Button>
             </Link>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full text-base shadow-none gap-2">
+            {/* <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full text-base shadow-none gap-2">
               <Play className="h-4 w-4" />
               Watch Video
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div className="relative lg:max-w-lg xl:max-w-xl w-full rounded-xl aspect-square flex items-center">

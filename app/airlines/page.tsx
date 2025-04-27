@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head"; // Import Head
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
-import { IconActivity, IconSend, IconSettings, IconLayoutDashboard } from "@tabler/icons-react";
+import { IconActivity, IconSend, IconSettings, IconLayoutDashboard, IconArrowUpRight } from "@tabler/icons-react";
 
 const steps = [
   { title: "Import Syllabus", desc: "Upload your course outline (EASA/FAA Part-121/142) to our LMS." },
@@ -40,25 +41,35 @@ const capabilities = [
 const AirlinesPage = () => {
   return (
     <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist">
+      <Head>
+        <title>Airline Pilot Training Solutions | EBAT & FMC Emulators | SimvizLabs</title>
+        <meta name="description" content="Standardize fleet training with SimvizLabs' tablet FMC emulators, EBAT dashboards, CPDLC/Non-Normal packs, and data-driven refresher solutions for airlines." />
+        <meta name="keywords" content="airline training, pilot training solutions, EBAT system, FMC emulator, CPDLC training, non-normal procedures, flight operations, SimvizLabs" />
+      </Head>
       <NavbarDemo />
       <main className="space-y-16 px-6 py-16 max-w-7xl mx-auto">
         {/* Hero */}
         <section className="grid md:grid-cols-2 items-center gap-8">
           <div className="space-y-4">
-            <h1 className="text-5xl font-extrabold">Fleet-Wide Standardization, Zero Classroom Fatigue</h1>
+            <h1 className="mt-6 max-w-[20ch] text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl font-extrabold !leading-[1.2] tracking-tight">Fleet-Wide Standardization, Zero Classroom Fatigue</h1>
             <p className="text-lg text-muted-foreground dark:text-gray-400">
               Deploy tablet FMC emulators, EBAT dashboards, and data-driven refresher packs across every crew base.
             </p>
             <div className="flex space-x-4">
-              <Button variant="default">
-                <Link href="/contact">Request Demo</Link>
-              </Button>
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto rounded-full text-base"
+                >
+                  Request Demo <IconArrowUpRight className="!h-5 !w-5 ml-1" />
+                </Button>
+              </Link>
             </div>
           </div>
           <div>
             <Image
               src="/placeholder.svg"
-              alt="Airline Training Simulation"
+              alt="Airline operations dashboard showing pilot training analytics by SimvizLabs" // Updated Alt Text
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
@@ -100,7 +111,7 @@ const AirlinesPage = () => {
           <ol className="items-center sm:flex justify-center">
             {steps.map((step, index) => (
               <li key={index} className="relative mb-6 sm:mb-0">
-                <div className="flex items-center">
+                <div className="flex items-center justify-center sm:justify-start">
                   <div className="z-10 flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
                     <span className="text-lg font-bold text-blue-800 dark:text-blue-300">{index + 1}</span>
                   </div>

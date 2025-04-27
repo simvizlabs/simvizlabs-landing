@@ -1,3 +1,6 @@
+"use client"; // Add "use client" directive for useEffect
+
+import { useEffect } from 'react'; // Import useEffect
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import Feature108 from "@/components/Feature108";
@@ -12,6 +15,20 @@ import Head from 'next/head';
 
 export default function Home() {
 
+  useEffect(() => {
+    // Check if there's a hash in the URL after the component mounts
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const id = window.location.hash; // e.g., "#timeline"
+      const element = document.querySelector(id);
+      if (element) {
+        // Wait a brief moment for the layout to settle, then scroll
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100); // Adjust delay if needed
+      }
+    }
+  }, []); // Empty dependency array ensures this runs once on mount
+
   return (
     <>
         <Head>
@@ -22,7 +39,9 @@ export default function Home() {
       <NavbarDemo />
       <Hero />
       <Feature108 />
-      <VerticalEventTimeline />
+      <div id="timeline">
+        <VerticalEventTimeline />
+      </div>
       <BentoGrid />
       <FeaturesSectionDemo />
       <FaqSectionDemo />

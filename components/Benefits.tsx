@@ -11,39 +11,39 @@ import {
 function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Streamlined and Effective",
+      title: "Streamlined Training Workflows",
       description:
-        "Achieve seamless training workflows with optimized tools that save time, enhance precision, and deliver consistent results for operational success.",
+        "Simplify operations with optimized tools that save time, boost precision, and ensure consistent results for pilots and instructors.",
       icon: <Zap />,
     },
     {
-      title: "Data-Driven Insights",
+      title: "Advanced Data Insights",
       description:
-        "Utilize advanced analytics to monitor pilot performance, identify skill gaps, and enable data-driven decision-making for continuous improvement.",
+        "Leverage real-time analytics to track pilot performance, identify knowledge gaps, and drive continuous training improvement.",
       icon: <ChartLine />,
     },
     {
-      title: "Round-the-Clock Support",
+      title: "24/7 Expert Support",
       description:
-        "Benefit from expert support available 24/7, ensuring uninterrupted training sessions and confidence in operations.",
+        "Access dedicated support around the clock, ensuring seamless training operations and immediate assistance whenever needed.",
       icon: <Headphones />,
     },
     {
-      title: "Adaptable Solutions",
+      title: "Flexible Scenario Customization",
       description:
-        "Customize training scenarios to align with specific aircraft needs and operational goals, ensuring maximum adaptability and relevance.",
+        "Tailor training modules to match aircraft types, procedural needs, and operational goals with maximum flexibility.",
       icon: <Palette />,
     },
     {
-      title: "Secure and Reliable",
+      title: "Robust Security & Reliability",
       description:
-        "Trust a secure, reliable platform that ensures uninterrupted, high-quality training sessions and safeguards sensitive data.",
+        "Train with confidence on a platform built for security, ensuring high-quality sessions and protection of sensitive aviation data.",
       icon: <ShieldCheck />,
     },
     {
-      title: "Seamless Integration",
+      title: "Effortless System Integration",
       description:
-        "Easily integrate training systems with existing workflows and developer-friendly APIs for a unified and efficient experience.",
+        "Connect SimVizLabs seamlessly into your existing workflows and platforms using developer-friendly, aviation-grade APIs.",
       icon: <Share />,
     },
   ];
@@ -51,7 +51,7 @@ function FeaturesSectionDemo() {
     <div id="features" className="container mx-auto max-w-screen-xl w-full relative z-10 py-10">
       <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto mb-4">
         <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
-          Advanced Aviation Solutions
+        Optimized Training Workflows
         </div>
       </div>
       <p className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
@@ -103,7 +103,7 @@ const Feature = ({
           {title}
         </span>
       </div>
-      <p className="text-m text-neutral-600 dark:text-neutral-300 max-w-xs relative z-10 px-10">
+      <p className="text-m text-neutral-600 dark:text-neutral-300 relative z-10 px-10">
         {description}
       </p>
     </div>

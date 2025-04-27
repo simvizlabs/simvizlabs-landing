@@ -77,7 +77,6 @@ export default function VerticalEventTimeline() {
                       </React.Fragment>
                     ))}
                   </p>
-                  <p className="mt-1 text-sm leading-5 text-gray-500">Here&apos;s what you need to know</p>
                 </div>
               </motion.div>
             </div>
