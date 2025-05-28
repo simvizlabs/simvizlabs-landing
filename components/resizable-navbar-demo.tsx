@@ -11,23 +11,45 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { IconSchool, IconPlane, IconBuildingCommunity, IconUser } from "@tabler/icons-react";
 import { useRouter, usePathname } from 'next/navigation'; // Import useRouter and usePathname
 
-export const NavbarLogo = () => {
+interface NavbarLogoProps {
+  isScrolled: boolean;
+}
+
+export const NavbarLogo = ({ isScrolled }: NavbarLogoProps) => {
   return (
     <Link
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black font-geist"
+      className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
     >
-      <Image src="/logo.png" alt="SimvizLabs Logo" width={32} height={32} className="mr-2" />
-      <span className="font-bold text-black dark:text-white font-geist">SimvizLabs</span>
+      <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-2 transition-all duration-300" />
+      <span className="font-bold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
     </Link>
   );
 };
 
 export default function NavbarDemo() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   const navItems = [
     {
       name: "Our Solutions",
@@ -78,7 +100,7 @@ export default function NavbarDemo() {
       <Navbar className="font-geist">
         {/* Desktop Navigation */}
         <NavBody>
-          <NavbarLogo />
+          <NavbarLogo isScrolled={isScrolled} />
           <NavItems items={navItems} onItemClick={handleNavItemClick} />
           <div className="flex items-center gap-8">
             <NavbarButton variant="primary">
@@ -90,7 +112,7 @@ export default function NavbarDemo() {
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
-            <NavbarLogo />
+            <NavbarLogo isScrolled={isScrolled} />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
