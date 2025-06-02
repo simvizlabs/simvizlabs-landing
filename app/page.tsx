@@ -1,10 +1,10 @@
 "use client"; // Add "use client" directive for useEffect
 
 import { useEffect } from 'react'; // Import useEffect
+import HeroSection from "@/components/hero-section";
 import Footer from "@/components/footer";
-import Hero from "@/components/hero";
-import Feature108 from "@/components/Feature108";
 import NavbarDemo from "@/components/resizable-navbar-demo";
+import FeatureSection from "@/components/FeatureSection";
 import VerticalEventTimeline from "@/components/timeline";
 import FeaturesSectionDemo from "@/components/Benefits";
 import BentoGrid from "@/components/BentoGrid";
@@ -36,9 +36,12 @@ export default function Home() {
           <meta name="description" content="Experience cutting-edge aviation training with SimvizLabs. Our interactive, data-driven solutions enhance pilot performance and operational safety." />
           <meta name="keywords" content="pilot training, aviation, flight simulation, distance learning, pilot performance, operational safety, SimvizLabs" />
         </Head>
+      
       <NavbarDemo />
-      <Hero />
-      <Feature108 />
+      <HeroSection />
+      
+    
+      <FeatureSection />
       <div id="timeline">
         <VerticalEventTimeline />
       </div>

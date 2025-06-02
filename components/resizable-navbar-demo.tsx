@@ -19,14 +19,27 @@ interface NavbarLogoProps {
   isScrolled: boolean;
 }
 
-export const NavbarLogo = ({ isScrolled }: NavbarLogoProps) => {
+export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps & { mobileView?: boolean }) => {
+  // For desktop view or when mobileView is false, return the original component
+  if (!mobileView) {
+    return (
+      <Link
+        href="/"
+        className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
+      >
+        <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-2 transition-all duration-300" />
+        <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
+      </Link>
+    );
+  }
+  
+  // For mobile view, return only the logo without text
   return (
     <Link
       href="/"
-      className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
+      className={`relative z-20 flex items-center px-0 py-1 transition-all duration-300`}
     >
-      <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-2 transition-all duration-300" />
-      <span className="font-bold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
+      <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 48} height={isScrolled ? 32 : 48} className="transition-all duration-300" />
     </Link>
   );
 };
@@ -62,7 +75,7 @@ export default function NavbarDemo() {
       ],
     },
     {
-      name: "Training Intelligence System",
+      name: "Our Products",
       link: "#timeline", // Changed from #feature108 to #timeline
     },
   ];
@@ -111,8 +124,13 @@ export default function NavbarDemo() {
 
         {/* Mobile Navigation */}
         <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo isScrolled={isScrolled} />
+          <MobileNavHeader className="flex justify-between items-center px-4">
+            <div className="flex items-center">
+              <NavbarLogo isScrolled={isScrolled} mobileView={true} />
+            </div>
+            <div className="flex-1 flex justify-center items-center">
+              <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist text-xl">SimvizLabs</span>
+            </div>
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

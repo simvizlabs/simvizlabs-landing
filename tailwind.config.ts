@@ -82,6 +82,14 @@ export default {
       screens: {
         xs: "375px",
       },
+      extend: {
+        backgroundImage: {
+          'fade-mask': 'linear-gradient(to top, white, transparent)',
+        },
+        clipPath: {
+          'fade-clip': 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%)',
+        }
+      }
     },
     fontFamily: {
       sans: ["Geist", "sans-serif"],

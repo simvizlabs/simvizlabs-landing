@@ -68,6 +68,22 @@ html {
 }
 
 @layer utilities {
+.image-fade-wrapper {
+  position: relative;
+}
+
+.image-fade-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Adjust as needed for the fade height */
+  background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, transparent 100%);
+  mix-blend-mode: lighten;
+  pointer-events: none; /* Allows interaction with elements behind the overlay */
+}
+
   .animate-marquee {
     animation: marquee var(--duration) linear infinite;
   }
