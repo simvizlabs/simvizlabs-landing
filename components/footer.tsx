@@ -30,7 +30,7 @@ const footerSections = [
     ],
   },
   {
-    title: "Our iPad Apps",
+    title: "Our Products",
     links: [
       {
         title: "B747",

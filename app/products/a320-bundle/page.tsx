@@ -18,7 +18,7 @@ const A320BundlePage = () => {
         </div>
         <HeroSection
           heroText="A320 CDU Trainer"
-          heroImage="/images/A320.png"
+          heroImage="/images/a320.png"
           heroDescription="Master Airbus’s MCDU and ATSU systems with this immersive, instructor-crafted training app"
         />
       </div>
