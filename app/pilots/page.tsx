@@ -11,9 +11,9 @@ import { IconBrandAppstore } from "@tabler/icons-react"; // Import App Store Ico
 const PilotsPage = () => {
   // Example App Store URLs - Replace with actual links
   const appStoreUrls = {
-    b747: "https://apps.apple.com/us/app/simviz-747-cdu-trainer/id6463410866",
-    b737: "https://apps.apple.com/us/app/simviz-737-cdu-trainer/id1705562070",
-    a320: "https://apps.apple.com/us/app/simviz-a320-mcdu-trainer/id6478068884", // Example link
+    b747: "https://apps.apple.com/us/app/fms-trainer-b747/id6464125512",
+    b737: "https://apps.apple.com/us/app/fms-trainer-b737/id6740346553",
+    a320: "https://apps.apple.com/us/app/airbus-a320-fms/id6743235055",
   };
 
   return (

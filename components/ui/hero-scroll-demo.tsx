@@ -19,7 +19,7 @@ interface HeroScrollDemoProps {
 
 export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, bundleLink }: HeroScrollDemoProps) {
   return (
-    <div id={id} className="flex flex-col pb-[500px] ">
+    <div id={id} className="flex flex-col pb-[10px] md:pb-[500px]">
       <ContainerScroll
         titleComponent={
           <>
@@ -30,7 +30,7 @@ export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, b
               </span>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400">{description}</p>
-            <div className="flex justify-center items-center w-full gap-4">
+            <div className="flex flex-col sm:flex-row justify-center items-center w-full gap-4">
               <a href={buttonLink} target="_blank" rel="noopener noreferrer">
                 <button type="button" className="flex items-center justify-center w-48 mt-3 mb-6 text-black bg-transparent border border-black h-14 rounded-xl">
                   <div className="mr-3">

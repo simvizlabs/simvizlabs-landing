@@ -7,7 +7,13 @@ import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 
 
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  heroText: string;
+  heroImage: string;
+  heroDescription: string;
+}
+
+export default function HeroSection({ heroText, heroImage, heroDescription }: HeroSectionProps) {
     return (
         <section className="py-20">
             <div className="relative z-10 mx-auto w-full max-w-2xl px-6 lg:px-0">
@@ -19,16 +25,9 @@ export default function HeroSection() {
                         <ArrowLeft className="h-4 w-4" />
                         Back to Products
                     </Link>
-                    <h1 className="mx-auto mt-8 max-w-xl text-balance text-5xl font-bold">B737 CDU Trainer</h1>
+                    <h1 className="mx-auto mt-8 max-w-xl text-balance text-5xl font-bold">{heroText}</h1>
 
-                    <p className="text-muted-foreground mx-auto mb-6 mt-4 text-balance text-xl">Master Boeings FMC and ACARS systems with this realistic, instructor-designed training app.
-
-
-
-
-
-
-</p>
+                    <p className="text-muted-foreground mx-auto mb-6 mt-4 text-balance text-xl">{heroDescription}</p>
 
                     <div className="flex flex-col items-center gap-4 *:w-full sm:flex-row sm:justify-center sm:*:w-auto">
                         
@@ -54,7 +53,7 @@ export default function HeroSection() {
 
                     <div className="rounded-(--radius) relative m-4 overflow-hidden   sm:m-8 md:m-12">
                         <Image
-                            src="/images/737.png"
+                            src={heroImage}
                             alt="app screen"
                             width={2880}
                             height={1842}

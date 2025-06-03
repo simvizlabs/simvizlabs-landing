@@ -16,7 +16,11 @@ const SeventyFourSevenBundlePage = () => {
        <div className="flex justify-center">
           
         </div>
-        <HeroSection />
+        <HeroSection
+          heroText="B747 CDU Trainer"
+          heroImage="/images/747.png"
+          heroDescription="Train like a pro on Boeing’s iconic 747 with this detailed, instructor-developed FMS and ACARS simulation."
+        />
       </div>
       <Pricing />
       <Footer />

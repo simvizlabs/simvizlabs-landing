@@ -16,7 +16,11 @@ const SeventyThreeSevenBundlePage = () => {
        <div className="flex justify-center">
           
         </div>
-        <HeroSection />
+        <HeroSection
+          heroText="B737 CDU Trainer"
+          heroImage="/images/737.png"
+          heroDescription="Master Boeing's FMC and ACARS systems with this realistic, instructor-designed training app."
+        />
       </div>
       <Pricing />
       <Footer />

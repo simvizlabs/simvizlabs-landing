@@ -155,3 +155,7 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+.mask-image-fade-mask {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}

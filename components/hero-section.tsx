@@ -161,8 +161,10 @@ export default function HeroSection() {
                                 }}>
                                 <div className="mt-8 sm:mt-12 md:mt-20">
                                     <div className="relative image-fade-wrapper">
+                                        {/* White background for the fade effect in dark mode */}
+                                        <div className="absolute inset-0 bg-white rounded-2xl hidden dark:block z-0"></div>
                                         <Image
-                                            className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block mask-image-fade-mask"
+                                            className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block mask-image-fade-mask z-10"
                                             src="/dashboard.png"
                                             alt="app screen"
                                             width="2700"
@@ -171,7 +173,7 @@ export default function HeroSection() {
                                     </div>
                                     <div className="relative image-fade-wrapper">
                                         <Image
-                                            className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
+                                            className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden mask-image-fade-mask"
                                             src="/dashboard.png"
                                             alt="app screen"
                                             width="2700"
