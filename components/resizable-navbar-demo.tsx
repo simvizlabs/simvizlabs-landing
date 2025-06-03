@@ -24,7 +24,7 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
   if (!mobileView) {
     return (
       <Link
-        href="/"
+        href={isScrolled ? "/products" : "/"}
         className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
       >
         <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-2 transition-all duration-300" />
@@ -76,7 +76,7 @@ export default function NavbarDemo() {
     },
     {
       name: "Our Products",
-      link: "#timeline", // Changed from #feature108 to #timeline
+      link: "/products",
     },
   ];
 
@@ -116,8 +116,8 @@ export default function NavbarDemo() {
           <NavbarLogo isScrolled={isScrolled} />
           <NavItems items={navItems} onItemClick={handleNavItemClick} />
           <div className="flex items-center gap-8">
-            <NavbarButton variant="primary">
-              <Link href="/contact" className="font-geist">Contact Us</Link>
+            <NavbarButton variant="primary" href="/contact" className="font-geist">
+              Contact Us
             </NavbarButton>
           </div>
         </NavBody>

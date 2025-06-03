@@ -4,6 +4,7 @@ import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 
 interface FeatureSectionProps {
   description?: string;
+  id?: string;
 }
 
 interface Feature {

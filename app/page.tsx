@@ -9,7 +9,7 @@ import VerticalEventTimeline from "@/components/timeline";
 import FeaturesSectionDemo from "@/components/Benefits";
 import BentoGrid from "@/components/BentoGrid";
 import { FaqSectionDemo } from "@/components/FaqSectionDemo";
-import { MarqueeDemo } from "@/components/MarqueeDemo";
+
 import { RetroGridDemo } from "@/components/RetroGridDemo";
 import Head from 'next/head';
 
@@ -41,14 +41,14 @@ export default function Home() {
       <HeroSection />
       
     
-      <FeatureSection />
+      <FeatureSection id="feature-section" />
       <div id="timeline">
         <VerticalEventTimeline />
       </div>
       <BentoGrid />
       <FeaturesSectionDemo />
       <FaqSectionDemo />
-      <MarqueeDemo />
+    
       <RetroGridDemo />
       <Footer />
     </>

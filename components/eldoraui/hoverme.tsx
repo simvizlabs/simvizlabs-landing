@@ -6,8 +6,9 @@ import * as React from "react";
 
 interface HovermeButtonDemoProps extends React.HTMLAttributes<HTMLButtonElement> {
   text: string;
+  icon?: React.ReactNode;
 }
 
-export function HovermeButtonDemo({ text, className, ...props }: HovermeButtonDemoProps) {
-  return <HovermeButton text={text} className={className} {...props} />;
+export function HovermeButtonDemo({ text, className, onClick, icon, ...props }: HovermeButtonDemoProps) {
+  return <HovermeButton text={text} className={className} onClick={onClick} icon={icon} {...props} />;
 }

@@ -129,7 +129,9 @@ export default function HeroSection() {
                                         ...transitionVariants,
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                     <HovermeButtonDemo text="Get Started"  />
+                                     <HovermeButtonDemo text="Get Started" onClick={() => {
+                                        document.getElementById('feature-section')?.scrollIntoView({ behavior: 'smooth' });
+                                      }} />
                                     <Button
                                         key={2}
                                         asChild
@@ -274,4 +276,5 @@ export default function HeroSection() {
         </>
     )
 }
+
 
