@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
 import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 import { AnimatedGroup } from '@/components/ui/animated-group'
+import HeroVideoDialog from './magicui/hero-video-dialog'
 
 const transitionVariants = {
     item: {
@@ -97,6 +98,9 @@ export default function HeroSection() {
                                     </Link>
                                 </AnimatedGroup> */}
 
+
+
+
                                 <TextEffect
                                     preset="fade-in-blur"
                                     speedSegment={0.3}
@@ -128,9 +132,9 @@ export default function HeroSection() {
                                         ...transitionVariants,
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                     <HovermeButtonDemo text="Request a demo" onClick={() => {
+                                    <HovermeButtonDemo text="Request a demo" onClick={() => {
                                         window.open('https://calendly.com/simvizlabs_demo/30min', '_blank');
-                                      }} />
+                                    }} />
                                     <Button
                                         key={2}
                                         asChild
@@ -160,23 +164,20 @@ export default function HeroSection() {
                                 }}>
                                 <div className="mt-8 sm:mt-12 md:mt-20">
                                     <div className="relative image-fade-wrapper">
-                                        {/* White background for the fade effect in dark mode */}
-                                        <div className="absolute inset-0 bg-white rounded-2xl hidden dark:block z-0"></div>
-                                        <Image
-                                            className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block mask-image-fade-mask z-10"
-                                            src="/dashboard.png"
-                                            alt="app screen"
-                                            width="2700"
-                                            height="1440"
+                                        <HeroVideoDialog
+                                            className="block dark:hidden mask-image-fade-mask"
+                                            animationStyle="from-center"
+                                            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                                            thumbnailSrc="/dashboard.png"
+                                            thumbnailAlt="Hero Video"
                                         />
-                                    </div>
-                                    <div className="relative image-fade-wrapper">
-                                        <Image
-                                            className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden mask-image-fade-mask"
-                                            src="/dashboard.png"
-                                            alt="app screen"
-                                            width="2700"
-                                            height="1440"
+                                        <HeroVideoDialog
+                                            className="hidden dark:block mask-image-fade-mask"
+                                            animationStyle="from-center"
+                                            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                                            thumbnailSrc="/dashboard.png"
+                                            thumbnailAlt="Hero Video"
+                                            
                                         />
                                     </div>
                                 </div>
