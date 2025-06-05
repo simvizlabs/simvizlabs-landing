@@ -1,6 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
@@ -132,7 +130,7 @@ export default function HeroSection() {
                                         ...transitionVariants,
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                    <HovermeButtonDemo text="Request a demo" onClick={() => {
+                                     <HovermeButtonDemo text="Schedule a Call" onClick={() => {
                                         window.open('https://calendly.com/simvizlabs_demo/30min', '_blank');
                                     }} />
                                     <Button
