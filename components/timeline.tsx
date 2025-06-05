@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar } from "lucide-react";
+
 import Image from 'next/image';
 import { Badge } from "@/components/ui/badge";
 import { events } from "@/data/events";
