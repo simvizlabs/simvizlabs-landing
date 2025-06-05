@@ -30,9 +30,9 @@ const OurProductsPage = () => {
   return (
     <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist">
       <Head>
-        <title>iPad CDU/FMS Simulators for Pilots | B737, B747, A320 | SimvizLabs</title>
-        <meta name="description" content="Practice realistic B737, B747, and A320 CDU/FMS workflows on your iPad with SimvizLabs' flight simulators. Download free and pro versions for pilot training." />
-        <meta name="keywords" content="pilot training, CDU simulator, FMS simulator, iPad flight sim, B737 training, B747 training, A320 training, SimvizLabs" />
+        <title>Realistic iPad CDU/FMS Simulators for Pilot Training | B737, B747, A320 | SimvizLabs</title>
+        <meta name="description" content="Explore SimvizLabs' range of realistic iPad CDU/FMS flight simulators for B737, B747, and A320 pilot training. Master complex workflows with our free and pro versions." />
+        <meta name="keywords" content="iPad flight simulator, CDU simulator, FMS simulator, pilot training app, B737 training, B747 training, A320 training, SimvizLabs, flight sim, aviation training" />
       </Head>
       <NavbarDemo />
       <main className="space-y-8 px-6 py-16 max-w-7xl mx-auto">

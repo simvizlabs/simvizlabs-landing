@@ -23,12 +23,12 @@ export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, b
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-semibold text-black dark:text-white">
+            <h2 className="text-4xl font-semibold text-black dark:text-white">
               Check out our <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
                 {title}
               </span>
-            </h1>
+            </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">{description}</p>
             <div className="flex flex-col sm:flex-row justify-center items-center w-full gap-4">
               <a href={buttonLink} target="_blank" rel="noopener noreferrer">

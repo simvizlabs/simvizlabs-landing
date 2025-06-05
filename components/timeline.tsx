@@ -22,7 +22,7 @@ export default function VerticalEventTimeline() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        How our Platform works!
+        How our Platform works
       </motion.h1>
 
       <motion.p
@@ -65,7 +65,7 @@ export default function VerticalEventTimeline() {
                     variant="outline"
                     className="text-sm py-1 px-3 bg-primary/5 border-primary/20"
                   >
-                    <Calendar className="w-4 h-4 mr-1" />
+                    
                     {item.tag}
                   </Badge>
                   <p className="text-base mt-2 space-y-2">

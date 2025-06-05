@@ -103,8 +103,7 @@ export default function HeroSection() {
                                     as="h1"
                                     per="line"
                                     className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] font-bold">
-                                    Modern Solutions for
-                                    Aviation Training
+                                    Next Generation Aviation Solutions
                                 </TextEffect>
                                 <TextEffect
                                     preset="fade-in-blur"
@@ -113,7 +112,7 @@ export default function HeroSection() {
                                     as="p"
                                     per="line"
                                     className="mx-auto mt-8 max-w-4xl text-balance text-lg text-center ">
-                                    Experience aviation distance learning powered by interactive simulators, real-world scenario training, and predictive learning analytics—designed to sharpen pilot proficiency and enhance operational safety.
+                                    Optimize training costs, improve proficiency, and enhance operational safety with our solutions.
                                 </TextEffect>
 
                                 <AnimatedGroup
@@ -129,8 +128,8 @@ export default function HeroSection() {
                                         ...transitionVariants,
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                     <HovermeButtonDemo text="Get Started" onClick={() => {
-                                        document.getElementById('feature-section')?.scrollIntoView({ behavior: 'smooth' });
+                                     <HovermeButtonDemo text="Request a demo" onClick={() => {
+                                        window.open('https://calendly.com/simvizlabs_demo/30min', '_blank');
                                       }} />
                                     <Button
                                         key={2}
@@ -138,9 +137,9 @@ export default function HeroSection() {
                                         size="lg"
                                         variant="ghost"
                                         className="h-10.5 rounded-full px-8 py-4">
-                                        <Link href="/request-demo">
+                                        {/* <Link href="/request-demo">
                                             <span className="text-nowrap">Request a demo</span>
-                                        </Link>
+                                        </Link> */}
                                     </Button>
                                 </AnimatedGroup>
                             </div>

@@ -92,15 +92,15 @@ const FeatureSection = ({
              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
              <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist">
-               For Aspiring Pilots
+               Airlines
              </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
-               Take the Controls with Confidence
+             Enhance Your Training Ecosystem
              </p>
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
-               Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment.
+             Seamlessly integrate our application with data-driven scenario training into your training curriculum. Identify knowledge gaps, standardize airline procedures, lower training costs.
              </p>
-               <HovermeButtonDemo text="Know More"  />
+               <HovermeButtonDemo text="Learn More"  />
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">
@@ -139,15 +139,15 @@ const FeatureSection = ({
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
              <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist">
-             For Schools and Airlines
+             Aeronautical Colleges
             </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
-               Enhance Your Training Ecosystem
+             Boost Your Students’ Career Success
              </p>
              
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
-               Seamlessly integrate our high-fidelity simulators, adaptive LMS modules, and data-driven scenario training into your programs—designed to accelerate pilot readiness, standardize airline procedures, and modernize aviation academy curricula. </p>
-               <HovermeButtonDemo text="Know More" className="w-full lg:w-fit" />
+             Give your students a competitive edge in airline interviews with our self-paced LMS course with an integrated FMS trainer. </p>
+               <HovermeButtonDemo text="Learn More" className="w-full lg:w-fit" />
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">
@@ -163,6 +163,47 @@ const FeatureSection = ({
          </div>
         </div>
       </div>
+<div className="overflow-hidden bg-white py-24 sm:py-24">
+       <div className="mx-auto max-w-7xl md:px-6 lg:px-4">
+         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
+           <div className="px-6 md:px-0" >
+             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+             
+             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist">
+             Type Rating Schools
+             </Badge>
+             <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
+            Integrate our Customizable FMS Trainer Solution
+             </p>
+             <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
+             Bridge the gap between legacy and Next Generation FMC and MCP variants with our tailored training solutions.
+             </p>
+               <HovermeButtonDemo text="Learn More"  />
+             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
+               {features.map((feature) => (
+                 <div key={feature.name} className="relative pl-9">
+                   <dt className="inline font-semibold text-gray-900 font-geist">
+                     <feature.icon className="absolute top-1 left-1 size-5 text-indigo-600" aria-hidden="true" />
+                     {feature.name}
+                   </dt>{' '}
+                   <dd className="inline font-geist">{feature.description}</dd>
+                 </div>
+               ))}
+             </dl>
+           </div>
+         </div>
+           <Image
+             src="/images/airline.png"
+             alt="Product screenshot"
+             className="rounded-xl w-full"
+             width={1024}
+             height={1024}
+           />
+        </div>
+      </div>
+      </div>
+
+      
     </div>
       </div>
     </section>
