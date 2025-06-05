@@ -100,7 +100,7 @@ const FeatureSection = ({
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
              Seamlessly integrate our application with data-driven scenario training into your training curriculum. Identify knowledge gaps, standardize airline procedures, lower training costs.
              </p>
-               <HovermeButtonDemo text="Learn More"  />
+               <HovermeButtonDemo text="Learn More" href="/airlines" />
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">
@@ -147,7 +147,7 @@ const FeatureSection = ({
              
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
              Give your students a competitive edge in airline interviews with our self-paced LMS course with an integrated FMS trainer. </p>
-               <HovermeButtonDemo text="Learn More" className="w-full lg:w-fit" />
+               <HovermeButtonDemo text="Learn More" href="/aeronautical-schools" className="w-full lg:w-fit" />
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">
@@ -178,7 +178,7 @@ const FeatureSection = ({
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
              Bridge the gap between legacy and Next Generation FMC and MCP variants with our tailored training solutions.
              </p>
-               <HovermeButtonDemo text="Learn More"  />
+               <HovermeButtonDemo text="Learn More" href="/type-rating-schools" />
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">
