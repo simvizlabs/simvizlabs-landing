@@ -81,7 +81,7 @@ const Footer = () => {
           <p className="mt-2 font-bold text-white">SimvizLabs</p>
 
           <p className="mt-4 text-muted-foreground">
-            Empower your business with our FMS Solutions.
+          Next Generation Aviation Solutions.
           </p>
         </div>
 

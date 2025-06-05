@@ -128,7 +128,7 @@ export default function HeroSection() {
                                         ...transitionVariants,
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                     <HovermeButtonDemo text="Request a demo" onClick={() => {
+                                     <HovermeButtonDemo text="Schedule a Call" onClick={() => {
                                         window.open('https://calendly.com/simvizlabs_demo/30min', '_blank');
                                       }} />
                                     <Button

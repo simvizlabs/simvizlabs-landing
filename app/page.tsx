@@ -5,9 +5,7 @@ import HeroSection from "@/components/hero-section";
 import Footer from "@/components/footer";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import FeatureSection from "@/components/FeatureSection";
-import VerticalEventTimeline from "@/components/timeline";
 import FeaturesSectionDemo from "@/components/Benefits";
-import BentoGrid from "@/components/BentoGrid";
 import { FaqSectionDemo } from "@/components/FaqSectionDemo";
 
 import { RetroGridDemo } from "@/components/RetroGridDemo";
@@ -42,10 +40,7 @@ export default function Home() {
       
     
       <FeatureSection id="feature-section" />
-      <div id="timeline">
-        <VerticalEventTimeline />
-      </div>
-      <BentoGrid />
+    
       <FeaturesSectionDemo />
       <FaqSectionDemo />
     
