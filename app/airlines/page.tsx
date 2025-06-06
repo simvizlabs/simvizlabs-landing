@@ -212,7 +212,7 @@ const AirlinesPage = () => {
            <div className="pb-12">
                <div className="mx-auto max-w-5xl px-6">
                    <div className="space-y-6 text-center">
-                       <h2 className="text-foreground text-balance text-4xl font-semibold lg:text-5xl font-geist">Want to learn more?</h2>
+                       {/* <h2 className="text-foreground text-balance text-4xl font-semibold lg:text-5xl font-geist">Want to learn more?</h2> */}
                        <div className="flex justify-center gap-3 font-geist">
                            <Button
                                asChild
@@ -220,13 +220,13 @@ const AirlinesPage = () => {
                                className="font-geist">
                                <Link href="https://calendly.com/simvizlabs_demo/30min" className="font-geist">Request a Demo</Link>
                            </Button>
-                           <Button
+                           {/* <Button
                                asChild
                                variant="outline"
                                size="lg"
                                className="font-geist">
                                <Link href="/" className="font-geist">Back to home</Link>
-                           </Button>
+                           </Button> */}
                        </div>
                    </div>
                </div>
