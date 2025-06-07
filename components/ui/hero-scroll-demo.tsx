@@ -18,7 +18,7 @@ interface HeroScrollDemoProps {
 
 export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, bundleLink }: HeroScrollDemoProps) {
   return (
-    <div id={id} className="flex flex-col pb-[10px] sm:mt-[10rem] md:mt-[2rem] md:pb-[100px]">
+    <div id={id} className="flex flex-col pb-[10px] sm:mt-[5rem] md:mt-[2rem] md:pb-[50px] flex justify-center">
       <ContainerScroll
         titleComponent={
           <>
@@ -59,8 +59,8 @@ export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, b
           src={imageSrc}
           alt="hero"
           height={1024}
-          width={720}
-          className="mx-auto object-contain object-left-top w-full h-auto max-h-[400px] md:max-h-none"
+          width={1024}
+          className="mx-auto object-contain  w-full h-auto xs:max-h-[350px] sm:max-h-[500px] md:max-h-[600px] lg:max-h-[600px] flex justify-center"
           draggable={false}
         />
       </ContainerScroll>

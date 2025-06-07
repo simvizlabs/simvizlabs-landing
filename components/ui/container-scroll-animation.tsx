@@ -27,20 +27,20 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return isMobile ? [0.8, 0.95] : [1.02, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [15, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
     <div
-      className="h-[50rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
+      className="h-[40rem] sm:h-[50rem] md:h-[60rem] lg:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
       <div
-        className="py-10 md:py-40 w-full relative"
+        className="sm:py-10 md:py-20 w-full relative"
         style={{
           perspective: "1000px",
         }}
@@ -93,7 +93,7 @@ export const Card = ({
       }}
       // className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
-      <div className="rounded-2xl dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
+      <div className="rounded-2xl dark:bg-zinc-900 md:rounded-2xl md:p-4 flex justify-center">
         {children}
       </div>
     </motion.div>

@@ -6,19 +6,23 @@ import { motion } from "framer-motion";
 interface Aircraft {
   name: string;
   imageUrl: string;
+  id: string;
 }
 
 const aircraftData: Aircraft[] = [
   {
     name: "B737 CDU Trainer",
+    id:"b737-trainer-section",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/8e/31/9a8e310f-0d42-2070-2006-127fa312d305/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/460x0w.webp",
   },
   {
     name: "B747 Simulator",
+    id:"B747-Simulator",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/c7/5a/1fc75a0e-10ca-4268-3de5-7fa6566c1ca2/AppIcon-0-0-1x_U007epad-0-1-0-85-220.jpeg/492x0w.webp",
   },
   {
     name: "A320 Simulator",
+    id:"A320-Simulator",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/12/f8/61/12f8616d-8e12-21d3-91a4-0eda47f12777/AppIcon-0-0-1x_U007epad-0-1-85-220.png/460x0w.webp7",
   },
 ];
@@ -31,11 +35,11 @@ const AircraftCardList = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <ul>
+      <ul className="md:w-[29rem] lg:w-[42rem]">
         {aircraftData.map((aircraft, index) => (
           <motion.li
             key={index}
-            className="border-b border-gray-200 last:border-none font-geist"
+            className="border-b border-gray-200 last:border-none font-geist max-w-2xl"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
@@ -55,9 +59,16 @@ const AircraftCardList = () => {
                 <h3 className="text-lg font-semibold text-gray-900 font-geist">{aircraft.name}</h3>
               </div>
               <motion.div
-                className="text-gray-500 hover:text-gray-700 transition-colors font-geist"
+                className="text-gray-500 hover:text-gray-700 transition-colors font-geist cursor-pointer"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById(aircraft.id);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
                 Learn More →
               </motion.div>

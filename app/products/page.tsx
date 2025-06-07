@@ -53,7 +53,7 @@ const OurProductsPage = () => {
       </section>
 
       <section className="flex flex-col space-y-8 md:space-y-12 w-full">
-        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 flex justify-center">
           <HeroScrollDemo
             id="b737-trainer-section"
             imageSrc="/images/737.png"
@@ -63,19 +63,19 @@ const OurProductsPage = () => {
             bundleLink="/products/737-bundle"
           />
         </div>
-        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 flex justify-center">
           <HeroScrollDemo
             imageSrc="/images/747.png"
-            title="B747 Simulator"
+            title="B747-Simulator"
             description="Experience the Queen of the Skies."
             buttonLink={appStoreUrls.b747}
             bundleLink="/products/747-bundle"
           />
         </div>
-        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="w-full mx-auto lg:px-4 sm:px-6 flex justify-center">
           <HeroScrollDemo
             imageSrc="/images/a320.png"
-            title="A320 Simulator"
+            title="A320-Simulator"
             description="Explore the A320 MCDU."
             buttonLink={appStoreUrls.a320}
             bundleLink="/products/a320-bundle"

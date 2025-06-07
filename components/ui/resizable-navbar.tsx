@@ -153,7 +153,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         className,
       )}
     >
-      <div className="flex items-center justify-center gap-1 lg:gap-2">
+      <div className="flex items-center justify-center gap-2 lg:gap-8">
         {items.find(item => item.listMenu)?.listMenu?.map((item, idx) => (
           <div
             key={`link-${idx}`}
