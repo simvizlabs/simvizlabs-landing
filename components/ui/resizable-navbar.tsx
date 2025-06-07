@@ -28,6 +28,7 @@ interface NavItem {
   link: string;
   children?: NavItem[]; // Add children for dropdown
   icon?: React.ElementType; // Add icon for dropdown items
+  listMenu?: NavItem[];
 }
 
 interface NavItemsProps {
@@ -67,19 +68,19 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
   const [visible, setVisible] = useState<boolean>(false);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 100) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
-  });
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   if (latest > 100) {
+  //     setVisible(true);
+  //   } else {
+  //     setVisible(false);
+  //   }
+  // });
 
   return (
     <motion.div
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("fixed inset-x-0 top-0 z-40 w-full", className)}
+      className={cn("fixed bg-white inset-x-0 top-0 z-40 w-full shadow-md ", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -125,7 +126,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null); // State for dropdown visibility
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const router = useRouter();
 
@@ -140,7 +141,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     timeoutRef.current = window.setTimeout(() => {
       setHovered(null);
       setOpenDropdown(null);
-    }, 100); // Adjust the delay (in milliseconds) as needed
+    }, 100);
   };
 
   const handleDropdownMouseEnter = () => {
@@ -158,14 +159,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2 xl:space-x-4",
         className,
       )}
     >
-      {items.map((item, idx) => (
+      {items.find(item => item.listMenu)?.listMenu?.map((item, idx) => (
         <div
           key={`link-${idx}`}
-          className="relative" // Make container relative for dropdown positioning
+          className="relative"
           onMouseEnter={() => handleMouseEnter(idx)}
           onMouseLeave={handleMouseLeave}
         >
@@ -179,58 +180,21 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 router.push(item.link);
               }
             }}
-            className="relative flex items-center gap-1 px-4 py-2 text-neutral-600 dark:text-neutral-300" // Use flex to align text and icon
+            className="relative flex items-center gap-1 px-2 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white sm:px-3 md:px-4"
           >
             {hovered === idx && (
               <motion.div
                 layoutId="hovered"
-                className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+                className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
+                transition={{
+                  type: "spring",
+                  bounce: 0.2,
+                  duration: 0.6
+                }}
               />
             )}
-            <span className="relative z-20">{item.name}</span>
-            {/* Add ChevronDown icon if item has children */}
-            {item.children && (
-              <IconChevronDown
-                className={`relative z-20 h-4 w-4 transition-transform duration-200 ${
-                  openDropdown === idx ? "rotate-180" : ""
-                }`}
-              />
-            )}
+            <span className="relative whitespace-nowrap text-sm sm:text-base">{item.name}</span>
           </Link>
-          {/* Dropdown Menu */}
-          {item.children && openDropdown === idx && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="absolute left-0 top-full z-30 mt-2 w-72 rounded-md bg-white p-2 shadow-lg dark:bg-neutral-800"
-              onMouseEnter={handleDropdownMouseEnter}
-              onMouseLeave={handleDropdownMouseLeave}
-            >
-              {item.children.map((child, childIdx) => (
-                <Link
-                  key={`child-${childIdx}`}
-                  href={child.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (child.link.startsWith("#")) {
-                      onItemClick?.(child.link);
-                    } else {
-                      router.push(child.link);
-                    }
-                  }}
-                  className="flex items-center whitespace-nowrap px-3 py-2 text-sm text-neutral-600 hover:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-700 rounded"
-                >
-                  {child.icon && (
-                    <div className="mr-3 h-6 w-6 flex items-center justify-center">
-                      <child.icon className="h-5 w-5 flex-shrink-0" />
-                    </div>
-                  )}
-                  <span>{child.name}</span>
-                </Link>
-              ))}
-            </motion.div>
-          )}
         </div>
       ))}
     </motion.div>
@@ -290,47 +254,46 @@ export const MobileNavMenu = ({
   handleNavItemClick,
 }: MobileNavMenuProps) => {
   const router = useRouter();
+  const listMenu = navItems.find(item => item.listMenu)?.listMenu;
+
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,255,255,0.1)_inset] dark:bg-neutral-950",
+            "fixed inset-0 z-50 flex w-full flex-col items-start justify-start gap-4 bg-white px-4 py-8 dark:bg-neutral-950",
           )}
         >
-          {navItems.map((item, idx) => (
-            <div key={`mobile-link-${idx}`} className="w-full">
-              {item.children ? (
-                <div>
-                  <h6 className="font-semibold text-foreground">{item.name}</h6>
-                  <ul className="ml-4 mt-2 space-y-2">
-                    {item.children.map((child) => (
-                      <li key={child.name}>
-                        <Link
-                          href={child.link}
-                          className="text-muted-foreground hover:text-foreground block py-1"
-                          onClick={() => {
-                            onClose();
-                            if (child.link.startsWith('#')) {
-                              handleNavItemClick(child.link);
-                            } else {
-                              router.push(child.link);
-                            }
-                          }}
-                        >
-                          {child.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="w-full flex justify-end"
+          >
+            <MobileNavToggle isOpen={isOpen} onClick={onClose} />
+          </motion.div>
+          <div className="w-full flex-1 flex flex-col items-center justify-center">
+            {listMenu?.map((item, idx) => (
+              <motion.div
+                key={`mobile-link-${idx}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ 
+                  duration: 0.3,
+                  delay: isOpen ? idx * 0.1 : (listMenu.length - idx - 1) * 0.1,
+                  ease: "easeOut"
+                }}
+                className="w-full text-center py-4"
+              >
                 <Link
                   href={item.link}
-                  className="text-muted-foreground hover:text-foreground block py-2"
+                  className="text-2xl font-medium text-muted-foreground hover:text-foreground"
                   onClick={() => {
                     onClose();
                     if (item.link.startsWith('#')) {
@@ -342,10 +305,20 @@ export const MobileNavMenu = ({
                 >
                   {item.name}
                 </Link>
-              )}
-            </div>
-          ))}
-          <div className="flex w-full flex-col gap-4">
+              </motion.div>
+            ))}
+          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ 
+              duration: 0.3,
+              delay: isOpen ? (listMenu?.length || 0) * 0.1 : 0,
+              ease: "easeOut"
+            }}
+            className="w-full flex flex-col gap-4 pb-8"
+          >
             <NavbarButton
               onClick={onClose}
               variant="primary"
@@ -353,7 +326,7 @@ export const MobileNavMenu = ({
             >
               Contact Us
             </NavbarButton>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -25,9 +25,9 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
     return (
       <Link
         href={isScrolled ? "/products" : "/"}
-        className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
+        className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 relative ${isScrolled ? 'text-sm' : 'text-3xl'} mr-3 font-normal text-extrabold font-geist transition-all duration-300`}
       >
-        <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-2 transition-all duration-300" />
+        <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
         <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
       </Link>
     );
@@ -78,7 +78,14 @@ export default function NavbarDemo() {
       name: "Our Products",
       link: "/products",
     },
-  ];
+    {listMenu:[
+          { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
+        { name: "Airlines", link: "/airlines", icon: IconPlane },
+        { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
+        { name: "Pilots", link: "/pilots", icon: IconUser },
+      ]
+      }
+   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter(); // Initialize useRouter

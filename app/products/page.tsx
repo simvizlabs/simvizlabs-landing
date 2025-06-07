@@ -48,7 +48,7 @@ const OurProductsPage = () => {
       </div>
       <section>
         <ThreeDPhotoCarouselDemo />
- <HeroScrollDemo
+         <HeroScrollDemo
           id="b737-trainer-section" // Add an ID for scrolling
           imageSrc="/images/737.png"
           title="B737 CDU Trainer"
@@ -70,7 +70,7 @@ const OurProductsPage = () => {
           buttonLink={appStoreUrls.a320}
           bundleLink="/products/a320-bundle"
         />
-      </section>
+       </section>
 </main>
 
       {/* Add the 3D Carousel Demo here */}
