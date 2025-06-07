@@ -1,19 +1,19 @@
 "use client";
 
 import React from "react";
+import AircraftCardList from "@/components/AircraftCardList";
 import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 import Head from "next/head"; // Import Head
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { IconArrowDown } from "@tabler/icons-react"; // Import App Store Icon
-import { ThreeDPhotoCarouselDemo } from "@/components/ui/demo"; // Import the 3D carousel demo component
 import { HeroScrollDemo } from "@/components/ui/hero-scroll-demo";
 import { AuroraText } from "@/components/magicui/aurora-text";
 
 function AuroraTextDemo() {
   return (
     <h1 className="pt-16 text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl">
-      Explore Our  <AuroraText colors={["#0070F3", "#FF8C00"]}>Products</AuroraText>
+      Explore   <AuroraText colors={["#36A5E5", "#1C2180"]}>Our Products</AuroraText>
     </h1>
     
   );
@@ -47,8 +47,12 @@ const OurProductsPage = () => {
 
       </div>
       <section>
-        <ThreeDPhotoCarouselDemo />
-         <HeroScrollDemo
+       
+
+        <div className="mx-auto max-w-3xl pt-6">
+        <AircraftCardList />
+      </div>
+ <HeroScrollDemo
           id="b737-trainer-section" // Add an ID for scrolling
           imageSrc="/images/737.png"
           title="B737 CDU Trainer"
@@ -70,7 +74,8 @@ const OurProductsPage = () => {
           buttonLink={appStoreUrls.a320}
           bundleLink="/products/a320-bundle"
         />
-       </section>
+      </section>
+     
 </main>
 
       {/* Add the 3D Carousel Demo here */}

@@ -2,133 +2,241 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head"; // Import Head
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+
 import { Button } from "@/components/ui/button";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
-import { IconActivity, IconSend, IconSettings, IconLayoutDashboard, IconArrowUpRight } from "@tabler/icons-react";
+import { IconNotebook, IconLayoutDashboard, IconDeviceLaptop, IconShieldHalf, IconGrain, IconRosetteDiscount, IconChartHistogram, IconDeviceAudioTape, IconDeviceTabletQuestion } from "@tabler/icons-react";
 
-const steps = [
-  { title: "Import Syllabus", desc: "Upload your course outline (EASA/FAA Part-121/142) to our LMS." },
-  { title: "Select Aircraft Pack", desc: "Choose B737, B747 & A320 type-rate simulation modules." },
-  { title: "Assign Scenarios", desc: "Push standard and custom exercises to student devices." },
-  { title: "Review Analytics", desc: "Analyze performance dashboards and gap metrics." },
-];
 
-const capabilities = [
+const features = [
   {
-    title: "EBAT System",
-    description: "Comprehensive evidence-based training tools.",
-    icon: IconActivity,
+    name: 'Safety & Procedural Compliance',
+    description:
+      'Target dynamic hot topics and issues using the training scenario generator.',
+    icon: IconShieldHalf,
   },
   {
-    title: "Scenario Push to EFB / iPad",
-    description: "Deliver targeted scenarios directly to pilot devices.",
-    icon: IconSend,
+    name: 'Enhanced Simulator Preparedness',
+    description:
+      'Prepare your pilots for live sessions with our iPad-based training application.',
+    icon: IconDeviceLaptop,
   },
   {
-    title: "CPDLC & Non-Normals Packs",
-    description: "Specialized training modules for critical situations.",
-    icon: IconSettings,
+    name: 'Improved Decision-Making',
+    description:
+      'Reinforce fundamental knowledge of FMS, FCU, MCP and FMA to improve decision-making and automation management during critical flight phases.',
+    icon: IconGrain,
   },
   {
-    title: "Ops Dashboard & BI Export",
-    description: "Gain insights with operational dashboards and data exports.",
-    icon: IconLayoutDashboard,
+    name: 'Reduce Training Cost:',
+    description:
+      'Conserve valuable simulator time with our training tools.',
+    icon: IconRosetteDiscount,
   },
-];
+]
+
+
 
 const AirlinesPage = () => {
   return (
     <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist">
+
       <Head>
-        <title>Airline Pilot Training Solutions | EBAT & FMC Emulators | SimvizLabs</title>
-        <meta name="description" content="Standardize fleet training with SimvizLabs' tablet FMC emulators, EBAT dashboards, CPDLC/Non-Normal packs, and data-driven refresher solutions for airlines." />
-        <meta name="keywords" content="airline training, pilot training solutions, EBAT system, FMC emulator, CPDLC training, non-normal procedures, flight operations, SimvizLabs" />
+        <title className="font-geist">Airline Pilot Training Solutions | EBAT & FMC Emulators | SimvizLabs</title>
+        <meta name="description" content="Standardize fleet training with SimvizLabs' tablet FMC emulators, EBAT dashboards, CPDLC/Non-Normal packs, and data-driven refresher solutions for airlines." className="font-geist" />
+        <meta name="keywords" content="airline training, pilot training solutions, EBAT system, FMC emulator, CPDLC training, non-normal procedures, flight operations, SimvizLabs" className="font-geist" />
       </Head>
       <NavbarDemo />
-      <main className="space-y-16 px-6 py-16 max-w-7xl mx-auto">
+      <main className="space-y-16 py-16">
         {/* Hero */}
-        <section className="grid md:grid-cols-2 items-center gap-8">
-          <div className="space-y-4">
-            <h1 className="mt-6 max-w-[20ch] text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl font-extrabold !leading-[1.2] tracking-tight">Fleet-Wide Standardization, Zero Classroom Fatigue</h1>
-            <p className="text-lg text-muted-foreground dark:text-gray-400">
-              Deploy tablet FMC emulators, EBAT dashboards, and data-driven refresher packs across every crew base.
-            </p>
-            <div className="flex space-x-4">
-              <Link href="/contact" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto rounded-full text-base"
-                >
-                  Request Demo <IconArrowUpRight className="!h-5 !w-5 ml-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div>
-            <Image
-              src="/placeholder.svg"
-              alt="Airline operations dashboard showing pilot training analytics by SimvizLabs" // Updated Alt Text
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
+        <div className="relative isolate overflow-hidden pt-14">
+          <Image
+            alt="Airlines"
+            src="https://images.unsplash.com/photo-1521899922280-eed2230d7be8?q=80&w=3088&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+            layout="fill"
+            objectFit="cover"
+            className="absolute inset-0 -z-10 size-full object-cover"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+              className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-288.75"
             />
           </div>
-        </section>
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+              {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
+                  Announcing our next round of funding.{' '}
+                  <a href="#" className="font-semibold text-white">
+                    <span aria-hidden="true" className="absolute inset-0" />
+                    Read more <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </div> */}
+              <div className="text-center font-geist">
+                <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist">
+                Enhance Your Training Ecosystem
+                </h1>
+                <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8 font-geist">
+                SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics. 
 
-        {/* Key Capabilities */}
-        <section className="space-y-4 text-center">
-          <h2 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-4xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
-            Key Capabilities
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">Explore our advanced capabilities for airline training.</p>
-          <div className="grid md:grid-cols-4 gap-6">
-            {capabilities.map((capability, index) => (
-              <Card key={index} className="bg-white dark:bg-neutral-800">
-                <CardHeader className="flex flex-col items-center">
-                  <capability.icon className="h-8 w-8 mb-2" />
-                  <CardTitle className="text-black dark:text-white flex items-center justify-center">
-                    {capability.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 dark:text-gray-400">
-                    {capability.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+      
+                </p>
+                <div className="mt-10 flex items-center justify-center gap-x-6">
+                  <a
+                    href="https://calendly.com/simvizlabs_demo/30min"
+                    className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                  >
+                    Schedule a Call
+                  </a>
+                  <Link href="#why-choose" className="text-sm/6 font-semibold text-white">
+                    Learn more <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+              className="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-288.75"
+            />
+          </div>
+        </div>
 
-        {/* How It Works */}
-        <section className="space-y-4 text-center">
-          <h2 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-4xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text text-center mx-auto !leading-[1.2]">
-            How Our Platform Works!
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">A streamlined process for effective training.</p>
-          <ol className="items-center sm:flex justify-center">
-            {steps.map((step, index) => (
-              <li key={index} className="relative mb-6 sm:mb-0">
-                <div className="flex items-center justify-center sm:justify-start">
-                  <div className="z-10 flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                    <span className="text-lg font-bold text-blue-800 dark:text-blue-300">{index + 1}</span>
+
+        <div className="bg-white ">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-8">
+            <div className="mx-auto max-w-2xl lg:text-center mt-6" id="why-choose">
+              
+              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">
+              Why Choose SimViz Labs?
+              </p>
+              <p className="mt-6 text-lg/8 text-gray-600 font-geist">
+              Explore our advanced capabilities for airline training
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                {features.map((feature) => (
+                  <div key={feature.name} className="relative pl-16 font-geist">
+                    <dt className="text-base/7 font-semibold text-gray-900 font-geist">
+                      <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-blue-600">
+                        <feature.icon aria-hidden="true" className="size-6 text-white font-geist" />
+                      </div>
+                      {feature.name}
+                    </dt>
+                    <dd className="mt-2 text-base/7 text-gray-600 font-geist">{feature.description}</dd>
                   </div>
-                  <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                </div>
-                <div className="mt-3 sm:pe-8 sm:text-left text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{step.title}</h3>
-                  <p className="text-base font-normal text-gray-500 dark:text-gray-400">{step.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-      </main>
-      <Footer />
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
+   
+   
+           <section className="py-12 font-geist">
+               <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16 font-geist">
+                   <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center  font-geist">
+                       <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">Our Training Management System</h2>
+                       <p className="mt-6 text-lg/8 text-gray-600 font-geist">A streamlined process for effective training.</p>
+                   </div>
+   
+                   <div className="relative mx-auto grid max-w-2xl lg:max-w-7xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3 font-geist">
+                       <div className="space-y-3 font-geist">
+                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                               <IconLayoutDashboard className="size-4 font-geist" />
+                               <h3 className="text-md font-bold font-geist">Learning Management System </h3>
+                           </div>
+                           <p className="text-sm font-geist">Organize, launch, and track eLearning content</p>
+                       </div>
+                       <div className="space-y-2 font-geist">
+                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                               <IconDeviceLaptop className="size-4 font-geist" />
+                               <h3 className="text-md font-bold font-geist">Mobile Solutions</h3>
+                           </div>
+                           <p className="text-sm font-geist">Deploy online/offline training on iPAD (FMS, ACARS Trainer)</p>
+                       </div>
+                       <div className="space-y-2 font-geist">
+                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                               <IconDeviceTabletQuestion className="size-4 font-geist" />
+   
+                               <h3 className="text-md font-bold font-geist">Quiz Generation System (QGS)</h3>
+                           </div>
+                           <p className="text-sm font-geist">Design and manage technical questions, exams, and quizzes</p>
+                       </div>
+                       <div className="space-y-2 font-geist">
+                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                               <IconDeviceAudioTape className="size-4 font-geist" />
+   
+                               <h3 className="text-md font-bold font-geist">Electronic Training Records System </h3>
+                           </div>
+                           <p className="text-sm font-geist">Collect training and assessment data offline for EBT/ATQP/AQP</p>
+                       </div>
+                       <div className="space-y-2 font-geist">
+                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                               <IconChartHistogram className="size-4 font-geist" />
+   
+                               <h3 className="text-md font-bold font-geist">Advanced Analytics</h3>
+                           </div>
+                           <p className="text-sm font-geist">Develop and maintain company-specific analytics and reports</p>
+                       </div>
+                       <div className="space-y-2 font-geist">
+                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                               <IconNotebook className="size-4 font-geist" />
+   
+                               <h3 className="text-md font-bold font-geist">Curriculum Management</h3>
+                           </div>
+                           <p className="text-sm font-geist">Manage and maintain training curriculum</p>
+                       </div>
+                   </div>
+               </div>
+           </section>
+         </main>
+         <section>
+           <div className="pb-12">
+               <div className="mx-auto max-w-5xl px-6">
+                   <div className="space-y-6 text-center">
+                       {/* <h2 className="text-foreground text-balance text-4xl font-semibold lg:text-5xl font-geist">Want to learn more?</h2> */}
+                       <div className="flex justify-center gap-3 font-geist">
+                           <Button
+                               asChild
+                               size="lg"
+                               className="font-geist">
+                               <Link href="https://calendly.com/simvizlabs_demo/30min" className="font-geist">Request a Demo</Link>
+                           </Button>
+                           {/* <Button
+                               asChild
+                               variant="outline"
+                               size="lg"
+                               className="font-geist">
+                               <Link href="/" className="font-geist">Back to home</Link>
+                           </Button> */}
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+         <Footer />
     </div>
   );
 };
 
 export default AirlinesPage;
+
+
