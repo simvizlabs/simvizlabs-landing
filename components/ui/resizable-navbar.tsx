@@ -1,11 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX, IconChevronDown } from "@tabler/icons-react";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
   motion,
   AnimatePresence,
   useScroll,
-  useMotionValueEvent,
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
@@ -62,15 +61,15 @@ interface MobileNavToggleProps {
 
 export const Navbar = ({ children, className }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll({
+  const {  } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, ] = useState<boolean>(false);
 
-  // useMotionValueEvent(scrollY, "change", (latest) => {
+  // useMotionValueEvent(, "change", (latest) => {
   //   if (latest > 100) {
-  //     setVisible(true);
+  //     (true);
   //   } else {
   //     setVisible(false);
   //   }
@@ -131,35 +130,28 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [, ] = useState<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const router = useRouter();
 
   const handleMouseEnter = (idx: number) => {
     setHovered(idx);
     if (items[idx].children) {
-      setOpenDropdown(idx);
+      
     }
   };
 
   const handleMouseLeave = () => {
     timeoutRef.current = window.setTimeout(() => {
       setHovered(null);
-      setOpenDropdown(null);
     }, 100);
   };
 
-  const handleDropdownMouseEnter = () => {
-    if (timeoutRef.current) {
-      window.clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-  };
+  
+    
+  
 
-  const handleDropdownMouseLeave = () => {
-    setHovered(null);
-    setOpenDropdown(null);
-  };
+
 
   return (
     <motion.div

@@ -78,11 +78,13 @@ export default function NavbarDemo() {
       name: "Our Products",
       link: "/products",
     },
-    {listMenu:[
+    {
+      name: "More",
+      link: "#",
+      listMenu:[
       { name: "Airlines", link: "/airlines", icon: IconPlane },
-      { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
+      { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
-        { name: "Pilots", link: "/pilots", icon: IconUser },
         {name:"Products", link:"/products", icon: IconPlane},
       ]
       }
@@ -131,7 +133,7 @@ export default function NavbarDemo() {
         </NavBody>
 
         {/* Mobile Navigation */}
-        <MobileNav>
+        <MobileNav className="lg:hidden">
           <MobileNavHeader className="flex justify-between items-center px-4">
             <div className="flex items-center">
               <NavbarLogo isScrolled={isScrolled} mobileView={true} />
