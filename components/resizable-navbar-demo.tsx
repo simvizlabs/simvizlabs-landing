@@ -121,40 +121,43 @@ export default function NavbarDemo() {
   return (
     <div className="relative w-full font-geist">
       <Navbar className="font-geist">
-        {/* Desktop Navigation */}
-        <NavBody>
-          <NavbarLogo isScrolled={isScrolled} />
-          <NavItems items={navItems} onItemClick={handleNavItemClick} />
-          <div className="flex items-center gap-8">
-            <NavbarButton variant="primary" href="/contact" className="font-geist">
-              Contact Us
-            </NavbarButton>
-          </div>
-        </NavBody>
+        {/* Desktop Navigation - Hidden on mobile */}
+        <div className="hidden lg:block">
+          <NavBody>
+            <NavbarLogo isScrolled={isScrolled} />
+            <NavItems items={navItems} onItemClick={handleNavItemClick} />
+            <div className="flex items-center gap-8">
+              <NavbarButton variant="primary" href="/contact" className="font-geist">
+                Contact Us
+              </NavbarButton>
+            </div>
+          </NavBody>
+        </div>
 
-        {/* Mobile Navigation */}
-        <MobileNav className="lg:hidden">
-          <MobileNavHeader className="flex justify-between items-center px-4">
-            <div className="flex items-center">
-              <NavbarLogo isScrolled={isScrolled} mobileView={true} />
-            </div>
-            <div className="flex-1 flex justify-center items-center">
-              <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist text-xl">SimvizLabs</span>
-            </div>
-            <MobileNavToggle
+        {/* Mobile Navigation - Hidden on desktop */}
+        <div className="lg:hidden">
+          <MobileNav>
+            <MobileNavHeader className="flex justify-between items-center px-4">
+              <div className="flex items-center">
+                <NavbarLogo isScrolled={isScrolled} mobileView={true} />
+              </div>
+              <div className="flex-1 flex justify-center items-center">
+                <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist text-xl">SimvizLabs</span>
+              </div>
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
+            </MobileNavHeader>
+
+            <MobileNavMenu
               isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClose={() => setIsMobileMenuOpen(false)}
+              navItems={navItems}
+              handleNavItemClick={handleNavItemClick}
             />
-          </MobileNavHeader>
-
-          <MobileNavMenu
-            isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
-            navItems={navItems}
-            handleNavItemClick={handleNavItemClick} // Pass the updated handler
-         
-          />
-        </MobileNav>
+          </MobileNav>
+        </div>
       </Navbar>
     </div>
   );

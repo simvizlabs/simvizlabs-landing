@@ -130,15 +130,14 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [, ] = useState<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const router = useRouter();
 
   const handleMouseEnter = (idx: number) => {
-    setHovered(idx);
-    if (items[idx].children) {
-      
+    if (timeoutRef.current) {
+      window.clearTimeout(timeoutRef.current);
     }
+    setHovered(idx);
   };
 
   const handleMouseLeave = () => {
@@ -146,12 +145,6 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       setHovered(null);
     }, 100);
   };
-
-  
-    
-  
-
-
 
   return (
     <motion.div
@@ -178,20 +171,27 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                   router.push(item.link);
                 }
               }}
-              className="relative flex items-center gap-1 px-1.5 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+              className="relative flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
             >
               {hovered === idx && (
                 <motion.div
                   layoutId="hovered"
                   className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
                   transition={{
                     type: "spring",
-                    bounce: 0.2,
-                    duration: 0.6
+                    stiffness: 300,
+                    damping: 25,
+                    mass: 0.5
                   }}
                 />
               )}
-              <span className="relative whitespace-nowrap text-xs lg:text-sm">{item.name}</span>
+              <span className="relative whitespace-nowrap text-sm font-medium transition-all duration-200">
+                {item.name}
+              </span>
+            
             </Link>
           </div>
         ))}
