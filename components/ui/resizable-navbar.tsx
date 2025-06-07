@@ -110,16 +110,21 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         stiffness: 200,
         damping: 50,
       }}
-      style={{
-        minWidth: "800px",
-      }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl grid grid-cols-3 items-center self-start rounded-full bg-transparent px-2 py-2 lg:grid dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
     >
-      {children}
+      <div className="flex justify-start">
+        {React.Children.toArray(children)[0]}
+      </div>
+      <div className="flex justify-center">
+        {React.Children.toArray(children)[1]}
+      </div>
+      <div className="flex justify-end">
+        {React.Children.toArray(children)[2]}
+      </div>
     </motion.div>
   );
 };
@@ -159,44 +164,46 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2 xl:space-x-4",
+        "hidden flex-1 flex-row items-center justify-center lg:flex",
         className,
       )}
     >
-      {items.find(item => item.listMenu)?.listMenu?.map((item, idx) => (
-        <div
-          key={`link-${idx}`}
-          className="relative"
-          onMouseEnter={() => handleMouseEnter(idx)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Link
-            href={item.link}
-            onClick={(e) => {
-              e.preventDefault();
-              if (item.link.startsWith("#")) {
-                onItemClick?.(item.link);
-              } else {
-                router.push(item.link);
-              }
-            }}
-            className="relative flex items-center gap-1 px-2 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white sm:px-3 md:px-4"
+      <div className="flex items-center justify-center gap-1 lg:gap-2">
+        {items.find(item => item.listMenu)?.listMenu?.map((item, idx) => (
+          <div
+            key={`link-${idx}`}
+            className="relative"
+            onMouseEnter={() => handleMouseEnter(idx)}
+            onMouseLeave={handleMouseLeave}
           >
-            {hovered === idx && (
-              <motion.div
-                layoutId="hovered"
-                className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
-                transition={{
-                  type: "spring",
-                  bounce: 0.2,
-                  duration: 0.6
-                }}
-              />
-            )}
-            <span className="relative whitespace-nowrap text-sm sm:text-base">{item.name}</span>
-          </Link>
-        </div>
-      ))}
+            <Link
+              href={item.link}
+              onClick={(e) => {
+                e.preventDefault();
+                if (item.link.startsWith("#")) {
+                  onItemClick?.(item.link);
+                } else {
+                  router.push(item.link);
+                }
+              }}
+              className="relative flex items-center gap-1 px-1.5 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
+                  transition={{
+                    type: "spring",
+                    bounce: 0.2,
+                    duration: 0.6
+                  }}
+                />
+              )}
+              <span className="relative whitespace-nowrap text-xs lg:text-sm">{item.name}</span>
+            </Link>
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 };

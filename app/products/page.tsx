@@ -35,45 +35,52 @@ const OurProductsPage = () => {
         <meta name="keywords" content="iPad flight simulator, CDU simulator, FMS simulator, pilot training app, B737 training, B747 training, A320 training, SimvizLabs, flight sim, aviation training" />
       </Head>
       <NavbarDemo />
-      <main className="space-y-8 px-6 py-16 max-w-7xl mx-auto">
+      <main className="space-y-8 px-4 sm:px-6 md:px-8 py-8 md:py-16 max-w-7xl mx-auto">
       
-      <section className="pt-16 text-center">
+      <section className="pt-8 md:pt-16 text-center">
         <AuroraTextDemo />
       </section>
-<div className="flex justify-center ">
+
+      <div className="flex justify-center">
         <HovermeButtonDemo text="View All" onClick={() => {
             document.getElementById('b737-trainer-section')?.scrollIntoView({ behavior: 'smooth' });
           }} icon={<IconArrowDown className="ml-2 h-4 w-4" />} />
-
       </div>
-      <section>
-       
+      <section className="flex flex-col space-y-8 md:space-y-12 w-full">
+        <div className="mx-auto max-w-3xl pt-6 mb-16">
+          <AircraftCardList />
+        </div>
+      </section>
 
-        <div className="mx-auto max-w-3xl pt-6">
-        <AircraftCardList />
-      </div>
- <HeroScrollDemo
-          id="b737-trainer-section" // Add an ID for scrolling
-          imageSrc="/images/737.png"
-          title="B737 CDU Trainer"
-          description="Master the 737 CDU."
-          buttonLink={appStoreUrls.b737}
-          bundleLink="/products/737-bundle"
-        />
-        <HeroScrollDemo
-          imageSrc="/images/747.png"
-          title="B747 Simulator"
-          description="Experience the Queen of the Skies."
-          buttonLink={appStoreUrls.b747}
-          bundleLink="/products/747-bundle"
-        />
-        <HeroScrollDemo
-          imageSrc="/images/a320.png"
-          title="A320 Simulator"
-          description="Explore the A320 MCDU."
-          buttonLink={appStoreUrls.a320}
-          bundleLink="/products/a320-bundle"
-        />
+      <section className="flex flex-col space-y-8 md:space-y-12 w-full">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+          <HeroScrollDemo
+            id="b737-trainer-section"
+            imageSrc="/images/737.png"
+            title="B737 CDU Trainer"
+            description="Master the 737 CDU."
+            buttonLink={appStoreUrls.b737}
+            bundleLink="/products/737-bundle"
+          />
+        </div>
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+          <HeroScrollDemo
+            imageSrc="/images/747.png"
+            title="B747 Simulator"
+            description="Experience the Queen of the Skies."
+            buttonLink={appStoreUrls.b747}
+            bundleLink="/products/747-bundle"
+          />
+        </div>
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+          <HeroScrollDemo
+            imageSrc="/images/a320.png"
+            title="A320 Simulator"
+            description="Explore the A320 MCDU."
+            buttonLink={appStoreUrls.a320}
+            bundleLink="/products/a320-bundle"
+          />
+        </div>
       </section>
      
 </main>

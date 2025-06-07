@@ -164,7 +164,6 @@ html {
 .mask-image-fade-mask {
   mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
-
 @theme inline {
   @keyframes aurora {
   0% {

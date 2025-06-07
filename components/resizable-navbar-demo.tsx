@@ -79,10 +79,11 @@ export default function NavbarDemo() {
       link: "/products",
     },
     {listMenu:[
-          { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
-        { name: "Airlines", link: "/airlines", icon: IconPlane },
+      { name: "Airlines", link: "/airlines", icon: IconPlane },
+      { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
         { name: "Pilots", link: "/pilots", icon: IconUser },
+        {name:"Products", link:"/products", icon: IconPlane},
       ]
       }
    ];
