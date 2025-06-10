@@ -2,11 +2,11 @@
 
 import React from "react";
 import AircraftCardList from "@/components/AircraftCardList";
-import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
+
 import Head from "next/head"; // Import Head
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
-import { IconArrowDown } from "@tabler/icons-react"; // Import App Store Icon
+
 import { HeroScrollDemo } from "@/components/ui/hero-scroll-demo";
 import { AuroraText } from "@/components/magicui/aurora-text";
 
@@ -42,9 +42,9 @@ const OurProductsPage = () => {
       </section>
 
       <div className="flex justify-center">
-        <HovermeButtonDemo text="View All" onClick={() => {
+        {/* <HovermeButtonDemo text="View All" onClick={() => {
             document.getElementById('b737-trainer-section')?.scrollIntoView({ behavior: 'smooth' });
-          }} icon={<IconArrowDown className="ml-2 h-4 w-4" />} />
+          }} icon={<IconArrowDown className="ml-2 h-4 w-4" />} /> */}
       </div>
       <section className="flex flex-col space-y-8 md:space-y-12 w-full">
         <div className="mx-auto max-w-3xl pt-6 mb-16">
@@ -58,7 +58,7 @@ const OurProductsPage = () => {
             id="b737-trainer-section"
             imageSrc="/images/737.png"
             title="B737 CDU Trainer"
-            description="Master the 737 CDU."
+            description=" "
             buttonLink={appStoreUrls.b737}
             bundleLink="/products/737-bundle"
           />
@@ -67,7 +67,7 @@ const OurProductsPage = () => {
           <HeroScrollDemo
             imageSrc="/images/747.png"
             title="B747-Simulator"
-            description="Experience the Queen of the Skies."
+            description=" "
             buttonLink={appStoreUrls.b747}
             bundleLink="/products/747-bundle"
           />
@@ -76,7 +76,7 @@ const OurProductsPage = () => {
           <HeroScrollDemo
             imageSrc="/images/a320.png"
             title="A320-Simulator"
-            description="Explore the A320 MCDU."
+            description=" "
             buttonLink={appStoreUrls.a320}
             bundleLink="/products/a320-bundle"
           />

@@ -29,7 +29,7 @@ const features = [
     icon: IconGrain,
   },
   {
-    name: 'Reduce Training Cost:',
+    name: 'Reduce Training Costs',
     description:
       'Conserve valuable simulator time with our training tools.',
     icon: IconRosetteDiscount,
@@ -82,10 +82,10 @@ const AirlinesPage = () => {
                 </div>
               </div> */}
               <div className="text-center font-geist">
-                <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist">
+                <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist [text-shadow:_0_0_30px_rgba(255,255,255,0.3)]">
                 Enhance Your Training Ecosystem
                 </h1>
-                <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8 font-geist">
+                <p className="mt-8 text-lg font-medium text-pretty text-gray-200 sm:text-xl/8 font-geist">
                 SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics. 
 
       
@@ -123,8 +123,8 @@ const AirlinesPage = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-8">
             <div className="mx-auto max-w-2xl lg:text-center mt-6" id="why-choose">
               
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">
-              Why Choose SimViz Labs?
+              <p className="mt-2 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist text-center">
+                Why Choose SimVizLabs?
               </p>
               <p className="mt-6 text-lg/8 text-gray-600 font-geist">
               Explore our advanced capabilities for airline training
@@ -202,7 +202,7 @@ const AirlinesPage = () => {
    
                                <h3 className="text-md font-bold font-geist">Curriculum Management</h3>
                            </div>
-                           <p className="text-sm font-geist">Manage and maintain training curriculum</p>
+                           <p className="text-sm font-geist">Manage training curriculums</p>
                        </div>
                    </div>
                </div>

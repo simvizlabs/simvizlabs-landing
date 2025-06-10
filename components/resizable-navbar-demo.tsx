@@ -12,7 +12,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState, useCallback, useEffect } from "react";
-import { IconSchool, IconPlane, IconBuildingCommunity, IconUser } from "@tabler/icons-react";
+import { IconSchool, IconPlane, IconBuildingCommunity } from "@tabler/icons-react";
 import { useRouter, usePathname } from 'next/navigation'; // Import useRouter and usePathname
 
 interface NavbarLogoProps {
@@ -68,10 +68,11 @@ export default function NavbarDemo() {
       name: "Our Solutions",
       link: "#",
       children: [
-        { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
+       
         { name: "Airlines", link: "/airlines", icon: IconPlane },
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
-        { name: "Pilots", link: "/pilots", icon: IconUser },
+        { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
+      
       ],
     },
     {
@@ -83,9 +84,10 @@ export default function NavbarDemo() {
       link: "#",
       listMenu:[
       { name: "Airlines", link: "/airlines", icon: IconPlane },
-      { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
+     
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
-        {name:"Products", link:"/products", icon: IconPlane},
+        { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
+        {name:"Our Products", link:"/products", icon: IconPlane},
       ]
       }
    ];

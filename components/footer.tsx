@@ -11,22 +11,21 @@ const footerSections = [
   {
     title: "Our Solutions",
     links: [
-      {
-        title: "Type Rating Aviation Schools",
-        href: "/type-rating-schools",
-      },
+      
       {
         title: "Airlines",
         href: "/airlines",
       },
+    
       {
         title: "Aeronautical Schools",
         href: "/aeronautical-schools",
       },
       {
-        title: "Pilots",
-        href: "/pilots",
+        title: "Type Rating Organizations",
+        href: "/type-rating-schools",
       },
+      
     ],
   },
   {
@@ -34,15 +33,15 @@ const footerSections = [
     links: [
       {
         title: "B747",
-        href: "#",
+        href: "/products/747-bundle",
       },
       {
         title: "B737",
-        href: "#",
+        href: "/products/737-bundle",
       },
       {
-        title: "Airbus A320",
-        href: "#",
+        title: "A320",
+        href: "/products/a320-bundle",
       },
     ],
   },
