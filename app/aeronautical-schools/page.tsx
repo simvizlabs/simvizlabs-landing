@@ -11,27 +11,27 @@ import { IconNotebook, IconLayoutDashboard, IconDeviceLaptop, IconShieldHalf, Ic
 
 const features = [
   {
-    name: 'Safety & Procedural Compliance',
+    name: 'Scenario-Driven Safety & Compliance',
     description:
-      'Target dynamic hot topics and issues using the training scenario generator.',
+      'Use our dynamic scenario generator to address the latest safety challenges and reinforce procedural standards in realistic, immersive training exercises.',
     icon: IconShieldHalf,
   },
   {
-    name: 'Enhanced Simulator Preparedness',
+    name: 'Advanced Simulator Readiness',
     description:
-      'Prepare your pilots for live sessions with our iPad-based training application.',
+      'Equip pilots with interactive pre-simulator drills via our mobile training app, ensuring they enter full-motion simulators with confidence and proficiency.',
     icon: IconDeviceLaptop,
   },
   {
-    name: 'Improved Decision-Making',
+    name: 'Optimized Decision-Making Skills',
     description:
-      'Reinforce fundamental knowledge of FMS, FCU, MCP and FMA to improve decision-making and automation management during critical flight phases.',
+      'Strengthen understanding of flight management systems and automation logic to enhance critical-phase decision-making and workload management.',
     icon: IconGrain,
   },
   {
-    name: 'Reduce Training Costs',
+    name: 'Training Cost Optimization',
     description:
-      'Conserve valuable simulator time with our training tools.',
+      'Minimize expensive simulator usage by shifting practice scenarios and knowledge drills to our cost-effective digital platform.',
     icon: IconRosetteDiscount,
   },
 ]
@@ -83,10 +83,10 @@ const AeronauticalsPage = () => {
               </div> */}
               <div className="text-center font-geist">
                 <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist [text-shadow:_0_0_30px_rgba(255,255,255,0.3)]">
-                Enhance Your Training Ecosystem
+                Flight Training Reinvented
                 </h1>
                 <p className="mt-8 text-lg font-medium text-pretty text-gray-200 sm:text-xl/8 font-geist">
-                SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics. 
+                A unified platform for course creation, analytics, and delivery.
 
       
                 </p>
@@ -124,10 +124,10 @@ const AeronauticalsPage = () => {
             <div className="mx-auto max-w-2xl lg:text-center mt-6" id="why-choose">
               
               <p className="mt-2 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist text-center">
-                Why Choose SimVizLabs?
+              Why Choose SimVizLabs?
               </p>
               <p className="mt-6 text-lg/8 text-gray-600 font-geist">
-              Explore our advanced capabilities for aeronautical schools training
+              Discover our specialized aviation training tools and services designed to meet the unique needs of aeronautical institutions and drive student success.
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -153,56 +153,56 @@ const AeronauticalsPage = () => {
            <section className="py-12 font-geist">
                <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16 font-geist">
                    <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center  font-geist">
-                       <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">Our Training Management System</h2>
-                       <p className="mt-6 text-lg/8 text-gray-600 font-geist">A streamlined process for effective training.</p>
+                       <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">Comprehensive Training Management Suite</h2>
+                       <p className="mt-6 text-lg/8 text-gray-600 font-geist">Centralize all aspects of aviation training, content delivery, assessment, and analytics, into one unified management suite..</p>
                    </div>
    
                    <div className="relative mx-auto grid max-w-2xl lg:max-w-7xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3 font-geist">
                        <div className="space-y-3 font-geist">
                            <div className="flex items-center gap-2 font-geist w-[300px]">
                                <IconLayoutDashboard className="size-4 font-geist" />
-                               <h3 className="text-md font-bold font-geist">Learning Management System </h3>
-                           </div>
-                           <p className="text-sm font-geist">Organize, launch, and track eLearning content</p>
-                       </div>
+                              <h3 className="text-md font-bold font-geist">Scalable eLearning Platform</h3>
+                          </div>
+                          <p className="text-sm font-geist">Deploy SCORM courses and track progress in real time.</p>
+                      </div>
                        <div className="space-y-2 font-geist">
                            <div className="flex items-center gap-2 font-geist w-[300px]">
                                <IconDeviceLaptop className="size-4 font-geist" />
-                               <h3 className="text-md font-bold font-geist">Mobile Solutions</h3>
+                               <h3 className="text-md font-bold font-geist">Mobile & Offline Training Access</h3>
                            </div>
-                           <p className="text-sm font-geist">Deploy online/offline training on iPAD (FMS, ACARS Trainer)</p>
+                           <p className="text-sm font-geist">Access FMS/ACARS training anytime, on any device.</p>
                        </div>
                        <div className="space-y-2 font-geist">
                            <div className="flex items-center gap-2 font-geist w-[300px]">
                                <IconDeviceTabletQuestion className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Quiz Generation System (QGS)</h3>
+                               <h3 className="text-md font-bold font-geist">Interactive Assessment Engine</h3>
                            </div>
-                           <p className="text-sm font-geist">Design and manage technical questions, exams, and quizzes</p>
+                           <p className="text-sm font-geist">Build scenario-based quizzes to test applied knowledge.</p>
                        </div>
                        <div className="space-y-2 font-geist">
                            <div className="flex items-center gap-2 font-geist w-[300px]">
                                <IconDeviceAudioTape className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Electronic Training Records System </h3>
+                               <h3 className="text-md font-bold font-geist">Cloud-Based Training Records</h3>
                            </div>
-                           <p className="text-sm font-geist">Collect training and assessment data offline for EBT/ATQP/AQP</p>
+                           <p className="text-sm font-geist">Secure, synced training data for audits and compliance.</p>
                        </div>
                        <div className="space-y-2 font-geist">
                            <div className="flex items-center gap-2 font-geist w-[300px]">
                                <IconChartHistogram className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Advanced Analytics</h3>
+                               <h3 className="text-md font-bold font-geist">Real-Time Training Analytics</h3>
                            </div>
-                           <p className="text-sm font-geist">Develop and maintain company-specific analytics and reports</p>
+                           <p className="text-sm font-geist">Monitor performance and trends with live dashboards.</p>
                        </div>
                        <div className="space-y-2 font-geist">
                            <div className="flex items-center gap-2 font-geist w-[300px]">
                                <IconNotebook className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Curriculum Management</h3>
+                               <h3 className="text-md font-bold font-geist">Curriculum & Qualification Management</h3>
                            </div>
-                           <p className="text-sm font-geist">Manage training curriculums</p>
+                           <p className="text-sm font-geist">Version curriculums, track expiries, and ensure compliance.</p>
                        </div>
                    </div>
                </div>

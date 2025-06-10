@@ -65,6 +65,7 @@ const OurProductsPage = () => {
         </div>
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 flex justify-center">
           <HeroScrollDemo
+            id="B747-Simulator"
             imageSrc="/images/747.png"
             title="B747-Simulator"
             description=" "
@@ -74,6 +75,7 @@ const OurProductsPage = () => {
         </div>
         <div className="w-full mx-auto lg:px-4 sm:px-6 flex justify-center">
           <HeroScrollDemo
+            id="A320-Simulator"
             imageSrc="/images/a320.png"
             title="A320-Simulator"
             description=" "

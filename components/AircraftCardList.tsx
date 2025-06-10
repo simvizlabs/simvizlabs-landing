@@ -44,7 +44,7 @@ const AircraftCardList = () => {
             transition={{ duration: 0.2 }}
           >
             <Link
-              href="#"
+              href={`/products#${aircraft.id}`}
               className="flex items-center space-x-4 p-4 hover:bg-gray-100 transition-colors font-geist"
             >
               <div className="relative w-12 h-12 rounded-lg overflow-hidden">
@@ -62,13 +62,7 @@ const AircraftCardList = () => {
                 className="text-gray-500 hover:text-gray-700 transition-colors font-geist cursor-pointer"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById(aircraft.id);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }}
+                
               >
                 Learn More →
               </motion.div>
