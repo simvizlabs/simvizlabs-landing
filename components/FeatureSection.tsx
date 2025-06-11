@@ -143,7 +143,7 @@ const FeatureSection = ({
              Aeronautical Colleges
             </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
-             Boost Your Students’ Career Success
+             Boost Your Students Career Success
              </p>
              
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
@@ -171,7 +171,7 @@ const FeatureSection = ({
              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
              <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist text-gray-600">
-             Type Rating Schools
+             Type Rating Organisations
              </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
             Integrate our Customizable FMS Trainer Solution
