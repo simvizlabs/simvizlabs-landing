@@ -319,6 +319,7 @@ export const MobileNavMenu = ({
             className="w-full flex flex-col gap-4 pb-8"
           >
             <NavbarButton
+              href="/contact"
               onClick={onClose}
               variant="primary"
               className="w-full"

@@ -24,7 +24,7 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
   if (!mobileView) {
     return (
       <Link
-        href={isScrolled ? "/products" : "/"}
+        href="/"
         className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 relative ${isScrolled ? 'text-sm' : 'text-3xl'} mr-3 font-normal text-extrabold font-geist transition-all duration-300`}
       >
         <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
@@ -98,27 +98,23 @@ export default function NavbarDemo() {
 
   const handleNavItemClick = useCallback((link: string) => {
     if (link.startsWith("#")) {
-      if (pathname === '/') { // Checks if on the homepage
-        // Smooth scroll if on the homepage
-        if (typeof window !== 'undefined') {
+      if (pathname === "/") {
+        if (typeof window !== "undefined") {
           const element = document.querySelector(link);
           if (element) {
             // THIS LINE HANDLES THE SMOOTH SCROLL/EASING EFFECT:
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }
       } else {
         // Navigate to homepage with anchor if on another page
         router.push(`/${link}`);
       }
-      // Close mobile menu if open
-      setIsMobileMenuOpen(false);
     } else {
-      // Handle regular links (if any added later)
       router.push(link);
-      setIsMobileMenuOpen(false);
     }
-  }, [pathname, router]); // Add pathname and router to dependencies
+    setIsMobileMenuOpen(false);
+  }, [pathname, router]);
 
   return (
     <div className="relative w-full font-geist">
@@ -155,7 +151,7 @@ export default function NavbarDemo() {
             <MobileNavMenu
               isOpen={isMobileMenuOpen}
               onClose={() => setIsMobileMenuOpen(false)}
-              navItems={navItems}
+              navItems={[...navItems, { name: "Contact Us", link: "/contact" }]}
               handleNavItemClick={handleNavItemClick}
             />
           </MobileNav>

@@ -88,7 +88,6 @@ const AirlinesPage = () => {
                 <p className="mt-8 text-lg font-medium text-pretty text-gray-200 sm:text-xl/8 font-geist">
                 SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics. 
 
-      
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
@@ -157,23 +156,23 @@ const AirlinesPage = () => {
                        <p className="mt-6 text-lg/8 text-gray-600 font-geist">A streamlined process for effective training.</p>
                    </div>
    
-                   <div className="relative mx-auto grid max-w-2xl lg:max-w-7xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3 font-geist">
+                   <div className="relative mx-auto grid max-w-2xl lg:max-w-7xl divide-x divide-y border *:p-6 sm:*:p-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 font-geist">
                        <div className="space-y-3 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconLayoutDashboard className="size-4 font-geist" />
                                <h3 className="text-md font-bold font-geist">Learning Management System </h3>
                            </div>
                            <p className="text-sm font-geist">Organize, launch, and track eLearning content</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconDeviceLaptop className="size-4 font-geist" />
                                <h3 className="text-md font-bold font-geist">Mobile Solutions</h3>
                            </div>
                            <p className="text-sm font-geist">Deploy online/offline training on iPAD (FMS, ACARS Trainer)</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconDeviceTabletQuestion className="size-4 font-geist" />
    
                                <h3 className="text-md font-bold font-geist">Quiz Generation System (QGS)</h3>
@@ -181,7 +180,7 @@ const AirlinesPage = () => {
                            <p className="text-sm font-geist">Design and manage technical questions, exams, and quizzes</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconDeviceAudioTape className="size-4 font-geist" />
    
                                <h3 className="text-md font-bold font-geist">Electronic Training Records System </h3>
@@ -189,7 +188,7 @@ const AirlinesPage = () => {
                            <p className="text-sm font-geist">Collect training and assessment data offline for EBT/ATQP/AQP</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconChartHistogram className="size-4 font-geist" />
    
                                <h3 className="text-md font-bold font-geist">Advanced Analytics</h3>
@@ -197,7 +196,7 @@ const AirlinesPage = () => {
                            <p className="text-sm font-geist">Develop and maintain company-specific analytics and reports</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconNotebook className="size-4 font-geist" />
    
                                <h3 className="text-md font-bold font-geist">Curriculum Management</h3>
@@ -238,5 +237,3 @@ const AirlinesPage = () => {
 };
 
 export default AirlinesPage;
-
-

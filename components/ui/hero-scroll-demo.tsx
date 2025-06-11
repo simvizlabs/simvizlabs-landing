@@ -11,24 +11,23 @@ interface HeroScrollDemoProps {
   id?: string; // Add optional id prop
   imageSrc: string;
   title: string;
-  description: string;
   buttonLink: string;
   bundleLink: string;
+  tutorialLink: string;
 }
 
-export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, bundleLink }: HeroScrollDemoProps) {
+export function HeroScrollDemo({ id, imageSrc, title, buttonLink, bundleLink, tutorialLink }: HeroScrollDemoProps) {
   return (
-    <div id={id} className="flex flex-col pb-[10px] sm:mt-[5rem] md:mt-[2rem] md:pb-[50px] flex justify-center">
+    <div id={id} className="flex flex-col pb-[10px] sm:mt-[5rem] md:mt-[2rem] md:pb-[10px] flex justify-center">
       <ContainerScroll
         titleComponent={
           <>
             <h2 className="text-3xl md:text-4xl font-semibold text-black dark:text-white lg:mt-12">
-              Check out our <br />
+               
               <span className="text-3xl md:text-[4rem] font-bold mt-1 leading-none">
                 {title}
               </span>
             </h2>
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 mt-2">{description}</p>
             <div className="flex flex-col sm:flex-row justify-center items-center w-full gap-4 mt-4">
               <a href={buttonLink} target="_blank" rel="noopener noreferrer">
                 <button type="button" className="flex items-center justify-center w-40 md:w-48 mt-3 mb-6 text-black bg-transparent border border-black h-12 md:h-14 rounded-xl">
@@ -52,6 +51,7 @@ export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, b
                 <PulsatingButton className="h-12 md:h-14 mb-3 rounded-xl" pulseColor="#D4D4D8">Get our Bundle <span className="font-bold text-emerald-400">(20% off)</span></PulsatingButton>
               </Link>
             </div>
+            <Link href={tutorialLink} className=" md:text-lg text-blue-600 dark:text-blue-400 mt-2 font-semibold font-geist hover:font-bold hover:text-blue-800">View our Tutorials → </Link>
           </>
         }
       >
@@ -60,7 +60,7 @@ export function HeroScrollDemo({ id, imageSrc, title, description, buttonLink, b
           alt="hero"
           height={1024}
           width={1024}
-          className="mx-auto object-contain  w-full h-auto xs:max-h-[350px] sm:max-h-[500px] md:max-h-[600px] lg:max-h-[600px] flex justify-center"
+          className="mx-auto object-contain  w-full h-auto xs:max-h-[400px] sm:max-h-[500px] md:max-h-[800px] lg:max-h-[800px] flex justify-center"
           draggable={false}
         />
       </ContainerScroll>

@@ -28,63 +28,12 @@ const FeatureSection = ({
                 Next-Gen Aviation Solutions
             </div>
           </div> */}
-          <h1 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-6xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text">
+          <h1 className="max-w-2xl text-4xl font-geist font-bold xs:text-5xl sm:text-7xl lg:text-[3.25rem] xl:text-6xl tracking-tight leading-tight bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text whitespace-normal">
             Our Products and Solutions
           </h1>
           <p className="text-muted-foreground text-lg font-geist leading-relaxed max-w-[60ch]">{description}</p>
         </div>
-        {/* <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl bg-muted/70 p-6 lg:p-16">
-          <div className="grid place-items-center gap-20 lg:grid-cols-2 lg:gap-10">
-            <div className="flex flex-col gap-5">
-              <Badge variant="outline" className="w-fit bg-background">
-                For Aspiring Pilots
-              </Badge>
-              <h3 className="text-3xl font-bold lg:text-4xl">
-                Take the Controls with Confidence
-              </h3>
-              <p className="text-muted-foreground lg:text-lg">
-                Build real‑world FMC/ACARS proficiency through guided simulation exercises, instant feedback, and scenario‑based challenges—so you’re fully prepared for your first flight deck assignment.
-              </p>
-              <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
-                <Link href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071">Check our apps</Link>
-              </Button>
-            </div>
-            <Image
-              src="/images/airline.png"
-              alt="airline"
-              className="rounded-xl w-full"
-              style={{ order: 1 }}
-              width={1024}
-              height={1024}
-            />
-          </div>
-        </div> */}
-        {/* <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl bg-muted/70 p-6 lg:p-16">
-          <div className="grid place-items-center gap-20 lg:grid-cols-2 lg:gap-10">
-            <Image
-              src="/images/schools.png"
-              alt="schools"
-              className="rounded-xl w-full"
-              style={{ order: 0 }}
-              width={1024}
-              height={1024}
-            />
-            <div className="flex flex-col gap-5">
-              <Badge variant="outline" className="w-fit bg-background">
-               For Schools and Airlines
-              </Badge>
-              <h3 className="text-3xl font-bold lg:text-4xl">
-              Elevate Training Standards Across All Operations
-              </h3>
-              <p className="text-muted-foreground lg:text-lg">
-              Seamlessly integrate our high-fidelity simulators, adaptive LMS modules, and data-driven scenario training into your programs—designed to accelerate pilot readiness, standardize airline procedures, and modernize aviation academy curricula.
-              </p>
-              <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
-                <Link href="/contact">Get in touch</Link>
-              </Button>
-            </div>
-          </div>
-        </div> */}
+        
         <div className="overflow-hidden bg-white py-24 sm:py-24">
        <div className="mx-auto max-w-7xl md:px-6 lg:px-4">
          <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
@@ -125,7 +74,7 @@ const FeatureSection = ({
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl md:px-6 lg:px-4 pt-32">
+      <div className="mx-auto max-w-7xl md:px-6 lg:px-4 py-24 sm:py-24">
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
          <div className=" lg:px-0 order-1 lg:order-0">
            <Image
@@ -140,7 +89,7 @@ const FeatureSection = ({
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
              <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist text-gray-600">
-             Aeronautical Colleges
+             Aeronautical Schools
             </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
              Boost Your Students Career Success
@@ -164,7 +113,7 @@ const FeatureSection = ({
          </div>
         </div>
       </div>
-<div className="overflow-hidden bg-white py-24 sm:py-24">
+<div className="overflow-hidden bg-white ">
        <div className="mx-auto max-w-7xl md:px-6 lg:px-4">
          <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
            <div className="px-6 md:px-0" >

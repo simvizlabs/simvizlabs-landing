@@ -69,7 +69,6 @@ html {
 }
 
 
-
 @layer utilities {
   .animate-marquee {
     animation: marquee var(--duration) linear infinite;

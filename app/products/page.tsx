@@ -58,9 +58,9 @@ const OurProductsPage = () => {
             id="b737-trainer-section"
             imageSrc="/images/737.png"
             title="B737 CDU Trainer"
-            description=" "
             buttonLink={appStoreUrls.b737}
             bundleLink="/products/737-bundle"
+            tutorialLink="/tutorials/737"
           />
         </div>
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 flex justify-center">
@@ -68,9 +68,9 @@ const OurProductsPage = () => {
             id="B747-Simulator"
             imageSrc="/images/747.png"
             title="B747-Simulator"
-            description=" "
             buttonLink={appStoreUrls.b747}
             bundleLink="/products/747-bundle"
+            tutorialLink="/tutorials/747"
           />
         </div>
         <div className="w-full mx-auto lg:px-4 sm:px-6 flex justify-center">
@@ -78,9 +78,9 @@ const OurProductsPage = () => {
             id="A320-Simulator"
             imageSrc="/images/a320.png"
             title="A320-Simulator"
-            description=" "
             buttonLink={appStoreUrls.a320}
             bundleLink="/products/a320-bundle"
+            tutorialLink="/tutorials"
           />
         </div>
       </section>

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@geist-ui/react": "^2.2.5",
+    "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
     "@mux/mux-player-react": "^3.3.4",
     "@radix-ui/react-accordion": "^1.2.3",

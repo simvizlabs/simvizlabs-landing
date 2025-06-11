@@ -2,9 +2,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export default function ContactPage() {
   const [result, setResult] = useState("");
+  const [contactingAs, setContactingAs] = useState("");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,7 +23,7 @@ export default function ContactPage() {
     // Append existing form fields
     // Note: Ensure input names match what Web3Forms expects or adjust here
     // formData.append("name", `${formData.get('first-name')} ${formData.get('last-name')}`); // Example: Combine first/last name if needed
-
+    formData.append("contacting-as", contactingAs);
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData
@@ -190,6 +193,16 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="sm:col-span-2">
+                <div className="grid grid-cols-[1fr_auto] items-center">
+                  <label htmlFor="contacting-as" className="block text-sm font-semibold text-gray-900 mr-3">
+                  Contacting as...
+                  </label>
+                  <div className="w-full">
+                    <ContactingAsDropdown contactingAs={contactingAs} setContactingAs={setContactingAs} />
+                  </div>
+                </div>
+              </div>
+              <div className="sm:col-span-2">
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-900">
                   Message
                 </label>
@@ -204,7 +217,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 flex justify-end sm:col-span-2">
               <button
                 type="submit"
                 className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
@@ -222,5 +235,75 @@ export default function ContactPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+interface ContactingAsDropdownProps {
+  contactingAs: string;
+  setContactingAs: (value: string) => void;
+}
+
+function ContactingAsDropdown({ contactingAs, setContactingAs }: ContactingAsDropdownProps) {
+
+  return (
+    <Menu as="div" className="relative inline-block text-left w-full">
+      <div>
+        <MenuButton className="inline-flex justify-between gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-64">
+          {contactingAs || "Select"}
+          <ChevronDownIcon className="-mr-1 size-5 text-gray-400" aria-hidden="true" />
+        </MenuButton>
+      </div>
+
+      <MenuItems
+        className="absolute left-0 z-10 mt-2 w-72 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+      >
+        <div className="py-1">
+          <MenuItem>
+            {({ active }: { active: boolean }) => (
+              <button
+                onClick={() => {setContactingAs("Airlines")}}
+                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
+                block w-full px-4 py-2 text-left text-sm`}
+              >
+                Airlines
+              </button>
+            )}
+          </MenuItem>
+          <MenuItem>
+            {({ active }: { active: boolean }) => (
+              <button
+                onClick={() => {setContactingAs("Aeronautical Schools")}}
+                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
+                block w-full px-4 py-2 text-left text-sm`}
+              >
+                Aeronautical Schools
+              </button>
+            )}
+          </MenuItem>
+          <MenuItem>
+            {({ active }: { active: boolean }) => (
+              <button
+                onClick={() => {setContactingAs("Type Rating Organisations")}}
+                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
+                block w-full px-4 py-2 text-left text-sm`}
+              >
+                Type Rating Organisations
+              </button>
+            )}
+          </MenuItem>
+          <MenuItem>
+            {({ active }: { active: boolean }) => (
+              <button
+                onClick={() => {setContactingAs("Pilots")}}
+                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
+                block w-full px-4 py-2 text-left text-sm`}
+              >
+                Pilots
+              </button>
+            )}
+          </MenuItem>
+        </div>
+      </MenuItems>
+    </Menu>
   );
 }

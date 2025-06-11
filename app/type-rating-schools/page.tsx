@@ -6,35 +6,35 @@ import Head from "next/head"; // Import Head
 import { Button } from "../../components/ui/button";
 import NavbarDemo from "../../components/resizable-navbar-demo";
 import Footer from "../../components/footer";
-import { IconNotebook, IconLayoutDashboard, IconDeviceLaptop, IconShieldHalf, IconGrain, IconRosetteDiscount, IconChartHistogram, IconDeviceAudioTape, IconDeviceTabletQuestion } from "@tabler/icons-react";
+import { IconNotebook, IconLayoutDashboard, IconDeviceLaptop, IconChartHistogram, IconDeviceAudioTape, IconDeviceTabletQuestion, IconArrowsShuffle, IconGauge, IconSchool } from "@tabler/icons-react";
 
 
 const features = [
   {
-    name: 'Scenario-Based Safety Training',
+    name: 'Single Solution for Multiple Variants',
     description:
-      'Create realistic flight scenarios to reinforce SOPs and safety handling.',
-    icon: IconShieldHalf,
+      'Bridge the gap between older and newer FMS variants with customizable training tools built to support mixed-fleet environments.',
+    icon: IconArrowsShuffle,
   },
   {
-    name: 'Pre-Simulator Proficiency Tools',
+    name: 'Enhanced Simulator Preparedness',
     description:
-      'Equip pilots with hands-on practice before simulator sessions.',
-    icon: IconDeviceLaptop,
+      'Strengthen pilot readiness before live simulator sessions using our immersive iPad-based training app. Reinforce core knowledge of the FMS, FCU, MCP, and FMA, improving automation management and decision-making during critical flight phases.',
+    icon: IconGauge,
   },
   {
-    name: 'Automation & FMS Proficiency',
+    name: 'Empowered Students and Instructors',
     description:
-      'Strengthen FMC/MCP knowledge to enhance automation and judgment.',
-    icon: IconGrain,
+      'Equip both learners and instructors with next-generation iPad-based FMS training designed to boost confidence, retention, and real-world readiness.',
+    icon: IconSchool,
   },
   {
-    name: 'Minimize Simulator Time',
+    name: 'LMS with Integrated Free Playground',
     description:
-      'Shift procedures and practice scenarios to digital pre-sim tools.',
-    icon: IconRosetteDiscount,
+      'Track progress, assign modules, and monitor performance through seamless LMS integration.',
+    icon: IconLayoutDashboard,
   },
-]
+];
 
 
 
@@ -83,7 +83,7 @@ const TypeRatingOrganizationsPage = () => {
               </div> */}
               <div className="text-center font-geist">
                 <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist [text-shadow:_0_0_30px_rgba(255,255,255,0.3)]">
-                Streamline Type Rating Training
+                Elevate Your Training Programs
                 </h1>
                 <p className="mt-8 text-lg font-medium text-pretty text-gray-200 sm:text-xl/8 font-geist">
                 All-in-one platform for managing type rating content, assessments, and performance.
@@ -124,10 +124,10 @@ const TypeRatingOrganizationsPage = () => {
             <div className="mx-auto max-w-2xl lg:text-center mt-6" id="why-choose">
               
               <p className="mt-2 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist text-center">
-                Purpose-Built for Type Rating Organizations
+              Why Choose SimVizLabs?
               </p>
               <p className="mt-6 text-lg/8 text-gray-600 font-geist">
-              Specialized tools to modernize training, prep pilots, and reduce simulator load.
+              Explore our advanced solutions for type rating organizations.
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -150,59 +150,59 @@ const TypeRatingOrganizationsPage = () => {
 
    
    
-           <section className="py-12 font-geist">
+        <section className="py-12 font-geist">
                <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16 font-geist">
                    <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center  font-geist">
-                       <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">Unified Training Management Tools</h2>
-                       <p className="mt-6 text-lg/8 text-gray-600 font-geist">Manage eLearning, assessments, analytics, and records in one place.</p>
+                       <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">Our Training Management System</h2>
+                       <p className="mt-6 text-lg/8 text-gray-600 font-geist">A streamlined process for effective training.</p>
                    </div>
    
-                   <div className="relative mx-auto grid max-w-2xl lg:max-w-7xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3 font-geist">
+                   <div className="relative mx-auto grid max-w-2xl lg:max-w-7xl divide-x divide-y border *:p-6 sm:*:p-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 font-geist">
                        <div className="space-y-3 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconLayoutDashboard className="size-4 font-geist" />
-                               <h3 className="text-md font-bold font-geist">Scalable eLearning Platform</h3>
+                               <h3 className="text-md font-bold font-geist">Learning Management System </h3>
                            </div>
-                           <p className="text-sm font-geist">Launch SCORM content and track pilot progress instantly.</p>
+                           <p className="text-sm font-geist">Organize, launch, and track eLearning content</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconDeviceLaptop className="size-4 font-geist" />
-                               <h3 className="text-md font-bold font-geist">Mobile & Offline Access</h3>
+                               <h3 className="text-md font-bold font-geist">Mobile Solutions</h3>
                            </div>
-                           <p className="text-sm font-geist">Train offline on FMS/ACARS via iPad or desktop.</p>
+                           <p className="text-sm font-geist">Deploy online/offline training on iPAD (FMS, ACARS Trainer)</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconDeviceTabletQuestion className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Scenario-Based Assessments</h3>
+                               <h3 className="text-md font-bold font-geist">Quiz Generation System (QGS)</h3>
                            </div>
-                           <p className="text-sm font-geist">Evaluate applied skills with dynamic, real-world quizzes.</p>
+                           <p className="text-sm font-geist">Design and manage technical questions, exams, and quizzes</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconDeviceAudioTape className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Digital Training Records</h3>
+                               <h3 className="text-md font-bold font-geist">Electronic Training Records System </h3>
                            </div>
-                           <p className="text-sm font-geist">Log sessions and assessments in audit-ready cloud records.</p>
+                           <p className="text-sm font-geist">Collect training and assessment data offline for EBT/ATQP/AQP</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconChartHistogram className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Live Performance Dashboards</h3>
+                               <h3 className="text-md font-bold font-geist">Advanced Analytics</h3>
                            </div>
-                           <p className="text-sm font-geist">Track pilot performance and identify knowledge gaps fast.</p>
+                           <p className="text-sm font-geist">Develop and maintain company-specific analytics and reports</p>
                        </div>
                        <div className="space-y-2 font-geist">
-                           <div className="flex items-center gap-2 font-geist w-[300px]">
+                           <div className="flex items-center gap-2 font-geist">
                                <IconNotebook className="size-4 font-geist" />
    
-                               <h3 className="text-md font-bold font-geist">Curriculum & Compliance Tools</h3>
+                               <h3 className="text-md font-bold font-geist">Curriculum Management</h3>
                            </div>
-                           <p className="text-sm font-geist">Manage curriculums and qualification timelines with ease.</p>
+                           <p className="text-sm font-geist">Manage training curriculums</p>
                        </div>
                    </div>
                </div>
