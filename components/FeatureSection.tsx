@@ -143,7 +143,7 @@ const FeatureSection = ({
            </div>
          </div>
            <Image
-             src="/images/airline.png"
+             src="/images/typerating.png"
              alt="Product screenshot"
              className="rounded-xl w-full"
              width={1024}
