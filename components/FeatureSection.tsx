@@ -23,11 +23,11 @@ const FeatureSection = ({
     <section id="feature108" className="py-16">
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-4 text-center">
-          <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto">
+          {/* <div className="px-4 py-1 rounded-full border border-foreground/10 hover:border-foreground/15 backdrop-blur-lg cursor-pointer flex items-center gap-2.5 select-none w-max mx-auto">
             <div className="bg-[linear-gradient(110deg,#808080,45%,#D3D3D3,55%,#808080)] bg-[length:250%_100%] bg-clip-text animate-background-shine text-transparent font-medium text-sm font-geist">
                 Next-Gen Aviation Solutions
             </div>
-          </div>
+          </div> */}
           <h1 className="max-w-2xl text-3xl font-geist font-bold xs:text-4xl sm:text-6xl lg:text-[2.75rem] xl:text-5xl bg-gradient-to-r from-black to-gray-800 text-transparent bg-clip-text">
             Our Products and Solutions
           </h1>
@@ -91,7 +91,7 @@ const FeatureSection = ({
            <div className="px-6 md:px-0" >
              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
-             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist">
+             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist text-gray-600">
                Airlines
              </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
@@ -100,7 +100,8 @@ const FeatureSection = ({
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
              Seamlessly integrate our application with data-driven scenario training into your training curriculum. Identify knowledge gaps, standardize airline procedures, lower training costs.
              </p>
-               <HovermeButtonDemo text="Learn More" href="/airlines" />
+              
+               <HovermeButtonDemo text="Learn More" href="/airlines" className="w-full lg:w-fit"/>
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">
@@ -126,7 +127,7 @@ const FeatureSection = ({
 
       <div className="mx-auto max-w-7xl md:px-6 lg:px-4 pt-32">
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
-         <div className="px-6 lg:px-0 order-1 lg:order-0">
+         <div className=" lg:px-0 order-1 lg:order-0">
            <Image
              src="/images/schools.png"
              alt="Product screenshot"
@@ -138,7 +139,7 @@ const FeatureSection = ({
          <div className="px-6 md:pl-16 lg:pt-4 lg:pr-2 order-0 lg:order-1">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
-             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist">
+             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist text-gray-600">
              Aeronautical Colleges
             </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
@@ -169,7 +170,7 @@ const FeatureSection = ({
            <div className="px-6 md:px-0" >
              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
              
-             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist">
+             <Badge variant="outline" className="w-fit bg-background text-sm lg:text-lg mb-4 font-geist text-gray-600">
              Type Rating Schools
              </Badge>
              <p className="mt-4 text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl font-geist">
@@ -178,7 +179,7 @@ const FeatureSection = ({
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
              Bridge the gap between legacy and Next Generation FMC and MCP variants with our tailored training solutions.
              </p>
-               <HovermeButtonDemo text="Learn More" href="/type-rating-schools" />
+               <HovermeButtonDemo text="Learn More" href="/type-rating-schools" className="w-full lg:w-fit"/>
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
                  <div key={feature.name} className="relative pl-9">

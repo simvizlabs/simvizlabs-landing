@@ -6,9 +6,7 @@ import Footer from "@/components/footer";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import FeatureSection from "@/components/FeatureSection";
 import FeaturesSectionDemo from "@/components/Benefits";
-import { FaqSectionDemo } from "@/components/FaqSectionDemo";
 
-import { RetroGridDemo } from "@/components/RetroGridDemo";
 import Head from 'next/head';
 
 export default function Home() {
@@ -42,9 +40,7 @@ export default function Home() {
       <FeatureSection id="feature-section" />
     
       <FeaturesSectionDemo />
-      <FaqSectionDemo />
-    
-      <RetroGridDemo />
+      
       <Footer />
     </>
   );
