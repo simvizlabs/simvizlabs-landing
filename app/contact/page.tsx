@@ -195,7 +195,7 @@ export default function ContactPage() {
               <div className="sm:col-span-2">
                 <div className="grid grid-cols-[1fr_auto] items-center">
                   <label htmlFor="contacting-as" className="block text-sm font-semibold text-gray-900 mr-3">
-                  Contacting as...
+                  Organization Type
                   </label>
                   <div className="w-full">
                     <ContactingAsDropdown contactingAs={contactingAs} setContactingAs={setContactingAs} />
@@ -261,44 +261,44 @@ function ContactingAsDropdown({ contactingAs, setContactingAs }: ContactingAsDro
           <MenuItem>
             {({ active }: { active: boolean }) => (
               <button
-                onClick={() => {setContactingAs("Airlines")}}
+                onClick={() => {setContactingAs("Airline")}}
                 className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
                 block w-full px-4 py-2 text-left text-sm`}
               >
-                Airlines
+                Airline
               </button>
             )}
           </MenuItem>
           <MenuItem>
             {({ active }: { active: boolean }) => (
               <button
-                onClick={() => {setContactingAs("Aeronautical Schools")}}
+                onClick={() => {setContactingAs("Aeronautical School")}}
                 className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
                 block w-full px-4 py-2 text-left text-sm`}
               >
-                Aeronautical Schools
+                Aeronautical School
               </button>
             )}
           </MenuItem>
           <MenuItem>
             {({ active }: { active: boolean }) => (
               <button
-                onClick={() => {setContactingAs("Type Rating Organisations")}}
+                onClick={() => {setContactingAs("Type Rating Organisation")}}
                 className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
                 block w-full px-4 py-2 text-left text-sm`}
               >
-                Type Rating Organisations
+                Type Rating Organisation
               </button>
             )}
           </MenuItem>
           <MenuItem>
             {({ active }: { active: boolean }) => (
               <button
-                onClick={() => {setContactingAs("Pilots")}}
+                onClick={() => {setContactingAs("Pilot")}}
                 className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
                 block w-full px-4 py-2 text-left text-sm`}
               >
-                Pilots
+                Pilot
               </button>
             )}
           </MenuItem>

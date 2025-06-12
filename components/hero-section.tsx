@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
 import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 import { AnimatedGroup } from '@/components/ui/animated-group'
-import HeroVideoDialog from './magicui/hero-video-dialog'
+import HeroMuxVideoDialog from './magicui/hero-mux-video-dialog'
 
 const transitionVariants = {
     item: {
@@ -162,20 +162,18 @@ export default function HeroSection() {
                                 }}>
                                 <div className="mt-8 sm:mt-12 md:mt-20">
                                     <div className="relative image-fade-wrapper">
-                                        <HeroVideoDialog
+                                        <HeroMuxVideoDialog
                                             className="block dark:hidden mask-image-fade-mask"
-                                            animationStyle="from-center"
-                                            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                                            playbackId="AFz1Gwx35VWEKspH00026tUn2t1E80200NPqLTbEYNnhs2I"
                                             thumbnailSrc="/dashboard.png"
                                             thumbnailAlt="Hero Video"
                                         />
-                                        <HeroVideoDialog
+                                        <HeroMuxVideoDialog
                                             className="hidden dark:block mask-image-fade-mask"
-                                            animationStyle="from-center"
-                                            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                                            playbackId="AFz1Gwx35VWEKspH00026tUn2t1E80200NPqLTbEYNnhs2I"
                                             thumbnailSrc="/dashboard.png"
                                             thumbnailAlt="Hero Video"
-                                            
+
                                         />
                                     </div>
                                 </div>

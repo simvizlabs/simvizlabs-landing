@@ -25,6 +25,11 @@ const aircraftData: Aircraft[] = [
     id:"A320-Simulator",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/12/f8/61/12f8616d-8e12-21d3-91a4-0eda47f12777/AppIcon-0-0-1x_U007epad-0-1-85-220.png/460x0w.webp7",
   },
+  {
+    name: "A320 LMS",
+    id:"A320-LMS",
+    imageUrl: "/images/LMS-thumb.png",
+  },
 ];
 
 const AircraftCardList = () => {
@@ -64,7 +69,7 @@ const AircraftCardList = () => {
                 transition={{ duration: 0.2 }}
                 
               >
-                Learn More →
+                {aircraft.name === "A320 LMS" ? "Coming Soon" : "Learn More →"}
               </motion.div>
             </Link>
           </motion.li>

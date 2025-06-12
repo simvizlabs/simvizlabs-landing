@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head"; // Import Head
+import { TextEffect } from '@/components/ui/text-effect'
 
 import { Button } from "@/components/ui/button";
 import NavbarDemo from "@/components/resizable-navbar-demo";
@@ -82,13 +83,23 @@ const AirlinesPage = () => {
                 </div>
               </div> */}
               <div className="text-center font-geist">
-                <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist [text-shadow:_0_0_30px_rgba(255,255,255,0.3)]">
-                Enhance Your Training Ecosystem
-                </h1>
-                <p className="mt-8 text-lg font-medium text-pretty text-gray-200 sm:text-xl/8 font-geist">
-                SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics. 
-
-                </p>
+                <TextEffect
+                    preset="fade-in-blur"
+                    speedSegment={0.3}
+                    as="h1"
+                    per="line"
+                    className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl font-geist [text-shadow:_0_0_30px_rgba(255,255,255,0.3)]">
+                    Enhance Your Training Ecosystem
+                </TextEffect>
+                <TextEffect
+                    preset="fade-in-blur"
+                    speedSegment={0.3}
+                    delay={0.5}
+                    as="p"
+                    per="line"
+                    className="mt-8 text-lg font-medium text-pretty text-gray-200 sm:text-xl/8 font-geist">
+                    SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics.
+                </TextEffect>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
                     href="https://calendly.com/simvizlabs_demo/30min"

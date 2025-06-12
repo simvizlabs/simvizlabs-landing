@@ -17,7 +17,7 @@ const features: Feature[] = [
 ]
 
 const FeatureSection = ({
-  description = "Revolutionize Distance learning pilot training with LMS containing interactive playground, Event-based analytics & Data-driven solutions.",
+  description = " ",
 }: FeatureSectionProps) => {
   return (
     <section id="feature108" className="py-16">
@@ -96,7 +96,7 @@ const FeatureSection = ({
              </p>
              
              <p className="my-6 text-base text-gray-600 lg:text-xl/8 font-geist">
-             Give your students a competitive edge in airline interviews with our self-paced LMS course with an integrated FMS trainer. </p>
+             Give your students a competitive edge in airline interviews with our self-paced LMS course and an integrated FMS trainer. </p>
                <HovermeButtonDemo text="Learn More" href="/aeronautical-schools" className="w-full lg:w-fit" />
              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none font-geist">
                {features.map((feature) => (
