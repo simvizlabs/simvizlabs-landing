@@ -11,29 +11,32 @@ import { IconSchool, IconRocket, IconBriefcase, IconUsers, IconNotebook, IconLay
 
 const features = [
   {
-    name: 'Bridge the Gap Between Theoretical Knowledge and Airline Operational Expectations',
+    name: 'Modernize your Training Programs ',
     description:
-      'Modernize your program and improve graduate success by embedding industry-relevant automation skills into your curriculum—without the cost of full simulators.',
+      'Boost graduate success by embedding industry-relevant automation skills — without the cost of full simulators. Providing students with hands-on experience in transport category aircraft systems that are otherwise inaccessible.',
     icon: IconSchool,
+  },
+   {
+    name: 'Enhanced Employability & Curriculum Value',
+    description:
+      'Equip students with practical experience in FMS, FCU/MCP, and FMA operations — key competencies evaluated in airline training and simulator checks.',
+    icon: IconUsers,
   },
   {
     name: 'Empower Instructors',
     description:
-      'Track progress, assign modules, and monitor performance through seamless LMS integration.',
-    icon: IconUsers,
-  },
-  {
-    name: 'Harness Cutting Edge Technology',
-    description:
-      'Enhance your curriculum and optimize resources with state-of-the-art virtual simulations.',
+      'Track student progress, efficiently assign modules, and monitor performance effectively through seamless LMS integration.',
     icon: IconRocket,
   },
+  
   {
-    name: 'Enhanced Employability and Curriculum Value',
+    name: 'Harness Cutting-Edge Technology',
     description:
-      'Equip students with hands-on experience in FMS, FCU/MCP, and FMA operations—core areas evaluated in airline interviews and simulator assessments.',
+      'Enhance your training program and optimize resources with realistic, state-of-the-art virtual simulations, an integrated LMS with content management system, and interactive playground.',
     icon: IconBriefcase,
   },
+ 
+
 ]
 
 
@@ -123,19 +126,19 @@ const AeronauticalsPage = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-8">
             <div className="mx-auto max-w-2xl lg:text-center mt-6" id="why-choose">
               
-              <p className="mt-2 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist text-center">
-              Why Choose SimVizLabs?
+              <p className="mt-2 text-4xl font-bold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance font-geist">
+                Why Choose SimVizLabs?
               </p>
               <p className="mt-6 text-lg/8 text-gray-600 font-geist">
-              Prepare Your Students to give your students competitive edge with our training platform designed to bridge the gap between theoretical knowledge and airline expectations Campus to Cockpit.
+                            Prepare Your Students to give your students competitive edge with our training platform designed to bridge the gap between theoretical knowledge and airline expectations Campus to Cockpit.
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-16 font-geist">
-                    <dt className="text-base/7 font-semibold text-gray-900 font-geist">
-                      <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-blue-600">
+                 {features.map((feature) => (
+                  <div key={feature.name} className="relative font-geist">
+                    <dt className="text-base/7 font-semibold text-gray-900 font-geist flex items-center">
+                      <div className="flex size-10 items-center justify-center rounded-lg bg-blue-600 mr-4">
                         <feature.icon aria-hidden="true" className="size-6 text-white font-geist" />
                       </div>
                       {feature.name}

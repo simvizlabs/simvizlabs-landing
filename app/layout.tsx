@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
-  title: "SimvizLabs - Next-Gen Pilot Training for Safer Operations",
+  title: "SimvizLabs - Next Generation Aviation Solutions",
   description:
     "Experience aviation distance learning powered by interactive data-driven training. Enhance pilot performance and operational safety with SimvizLabs' innovative solutions.",
   keywords: [
@@ -17,18 +17,18 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    siteName: "Shadcn Landing Page",
+    siteName: "SimvizLabs Landing page Landing Page",
     locale: "en_US",
     url: "https://shadcn-landing-page.vercel.app",
-    title: "Shadcn Landing Page",
+    title: "SimvizLabs Landing page ",
     description:
-      "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+      "A beautiful landing for SimvizLabs Landing page.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Shadcn UI Landing Page Preview",
+        alt: "SimvizLabs Landing page",
       },
     ],
   },
