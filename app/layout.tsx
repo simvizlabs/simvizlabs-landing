@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    siteName: "SimvizLabs Landing page Landing Page",
+    siteName: "SimVizLabs",
     locale: "en_US",
-    url: "https://shadcn-landing-page.vercel.app",
-    title: "SimvizLabs Landing page ",
+    url: "https://simvizlabs.com",
+    title: "Simvizlabs",
     description:
-      "A beautiful landing for SimvizLabs Landing page.",
+      "Next Gen Aviation solutions , Digital Pilot Training And Operational Solution",
     images: [
       {
         url: "/og-image.jpg",
@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   },
   authors: [
     {
-      name: "Sayudh Mukherjee",
+      name: "SimvizlabsDev",
       url: "https://simvizlabs.com",
     },
   ],
-  creator: "Sayudh Mukherjee",
+  creator: "simvizlabsdevs",
   icons: [
     {
       rel: "icon",
