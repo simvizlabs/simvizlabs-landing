@@ -57,7 +57,7 @@ const OurProductsPage = () => {
           <HeroScrollDemo
             id="b737-trainer-section"
             imageSrc="/images/737.png"
-            title="B737 CDU Trainer"
+            title="FMS Trainer:B737"
             buttonLink={appStoreUrls.b737}
             bundleLink="/products/737-bundle"
             tutorialLink="/tutorials/737"
@@ -67,7 +67,7 @@ const OurProductsPage = () => {
           <HeroScrollDemo
             id="B747-Simulator"
             imageSrc="/images/747.png"
-            title="B747-Simulator"
+            title="FMS Trainer:B747"
             buttonLink={appStoreUrls.b747}
             bundleLink="/products/747-bundle"
             tutorialLink="/tutorials/747"
@@ -77,7 +77,7 @@ const OurProductsPage = () => {
           <HeroScrollDemo
             id="A320-Simulator"
             imageSrc="/images/a320.png"
-            title="A320-Simulator"
+            title="Airbus A320 FMS"
             buttonLink={appStoreUrls.a320}
             bundleLink="/products/a320-bundle"
             tutorialLink="/tutorials"

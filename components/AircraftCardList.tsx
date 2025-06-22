@@ -11,17 +11,17 @@ interface Aircraft {
 
 const aircraftData: Aircraft[] = [
   {
-    name: "B737 CDU Trainer",
+    name: "FMS Trainer: B737",
     id:"b737-trainer-section",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/8e/31/9a8e310f-0d42-2070-2006-127fa312d305/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/460x0w.webp",
   },
   {
-    name: "B747 Simulator",
+    name: "FMS Trainer: B747",
     id:"B747-Simulator",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/c7/5a/1fc75a0e-10ca-4268-3de5-7fa6566c1ca2/AppIcon-0-0-1x_U007epad-0-1-0-85-220.jpeg/492x0w.webp",
   },
   {
-    name: "A320 Simulator",
+    name: "Airbus A320 FMS",
     id:"A320-Simulator",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/12/f8/61/12f8616d-8e12-21d3-91a4-0eda47f12777/AppIcon-0-0-1x_U007epad-0-1-85-220.png/460x0w.webp7",
   },
