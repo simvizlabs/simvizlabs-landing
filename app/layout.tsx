@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
-  title: "SimvizLabs - Next Generation Aviation Solutions",
+  title: "Simvizlabs- NextGen Pilot Training",
   description:
     "Experience aviation distance learning powered by interactive data-driven training. Enhance pilot performance and operational safety with SimvizLabs' innovative solutions.",
   keywords: [

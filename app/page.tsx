@@ -7,12 +7,13 @@ import NavbarDemo from "@/components/resizable-navbar-demo";
 import FeatureSection from "@/components/FeatureSection";
 import FeaturesSectionDemo from "@/components/Benefits";
 
-import Head from 'next/head';
+
 
 export default function Home() {
 
   useEffect(() => {
-    // Check if there's a hash in the URL after the component mounts
+    // Check if there's a ha
+    //  in the URL after the component mounts
     if (typeof window !== 'undefined' && window.location.hash) {
       const id = window.location.hash; // e.g., "#timeline"
       const element = document.querySelector(id);
@@ -27,11 +28,7 @@ export default function Home() {
 
   return (
     <>
-        <Head>
-          <title>SimvizLabs - Next-Gen Pilot Training</title>
-          <meta name="description" content="Experience cutting-edge aviation training with SimvizLabs. Our interactive, data-driven solutions enhance pilot performance and operational safety." />
-          <meta name="keywords" content="pilot training, aviation, flight simulation, distance learning, pilot performance, operational safety, SimvizLabs" />
-        </Head>
+        
       
       <NavbarDemo />
       <HeroSection />
