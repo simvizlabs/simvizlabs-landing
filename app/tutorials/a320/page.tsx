@@ -24,7 +24,7 @@ const A320Tutorials = () => {
     {
       id: "tutorial-2.1",
       number: "2.1",
-      title: "FMGC Initialisation (DIFRIPPPS)",
+      title: "FMGC Initialisation (DIFRIPPS)",
       description: "A detailed guide on FMGC initialisation.",
       iframe: (
         <iframe
@@ -38,7 +38,7 @@ const A320Tutorials = () => {
     {
       id: "tutorial-2.2",
       number: "2.2",
-      title: "FMGC Initialisation (DIFRIPPPS)",
+      title: "FMGC Initialisation (DIFRIPPS)",
       description: "Continuing the guide on FMGC initialisation.",
       iframe: (
         <iframe
@@ -52,7 +52,7 @@ const A320Tutorials = () => {
     {
       id: "tutorial-2.3",
       number: "2.3",
-      title: "FMGC Initialisation (DIFRIPPPS)",
+      title: "FMGC Initialisation (DIFRIPPS)",
       description: "Final steps of FMGC initialisation.",
       iframe: (
         <iframe
