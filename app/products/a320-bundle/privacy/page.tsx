@@ -65,7 +65,7 @@ const A320BundlePrivacyPage = () => {
                 </li>
                 <li>
                   <strong>Purchase Data:</strong> Subscription status and
-                  transaction identifiers returned by Apple's StoreKit or Google
+                  transaction identifiers returned by Apple&apos;s StoreKit or Google
                   Play Billing to unlock premium A320 Bundle features including
                   MCDU simulation, ATSU functionality, and tutorials.
                 </li>
@@ -189,7 +189,7 @@ const A320BundlePrivacyPage = () => {
             {/* 7. Children's Privacy */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-geist">
-                7.&nbsp;Children's&nbsp;Privacy
+                7.&nbsp;Children&apos;s&nbsp;Privacy
               </h2>
               <p className="mt-4">
                 The A320 Bundle App is intended for users aged 16 and above,

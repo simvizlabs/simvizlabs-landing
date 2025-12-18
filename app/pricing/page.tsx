@@ -1,11 +1,9 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { Check } from "lucide-react";
-import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 
 const PricingPage = () => {
   const router = useRouter();

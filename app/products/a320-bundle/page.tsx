@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowLeft, Shield, FileText, Lock } from "lucide-react";
+import { Check, ArrowLeft, Shield, FileText } from "lucide-react";
 import { HovermeButtonDemo } from '@/components/eldoraui/hoverme';
 
 const A320BundlePage = () => {
@@ -60,7 +60,7 @@ const A320BundlePage = () => {
               A320 CDU Trainer
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 font-geist max-w-3xl mx-auto">
-              Master Airbus's MCDU and ATSU systems with this immersive, instructor-crafted training app. 
+              Master Airbus&apos;s MCDU and ATSU systems with this immersive, instructor-crafted training app. 
               Practice real airline workflows, route validation, and performance initialization to build confidence and proficiency.
             </p>
           </div>
