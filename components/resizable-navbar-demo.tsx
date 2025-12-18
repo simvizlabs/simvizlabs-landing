@@ -80,6 +80,10 @@ export default function NavbarDemo() {
       link: "/products",
     },
     {
+      name:"Pricing",
+      link:"/pricing",
+    },
+    {
       name: "More",
       link: "#",
       listMenu:[
@@ -88,6 +92,7 @@ export default function NavbarDemo() {
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
         { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
         {name:"Our Products", link:"/products", icon: IconPlane},
+        {name:"Pricing", link:"/pricing", icon: IconPlane},
       ]
       }
    ];
