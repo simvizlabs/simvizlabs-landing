@@ -9,8 +9,22 @@ const PricingPage = () => {
   const router = useRouter();
 
   const handleGetStarted = () => {
-    // Redirect to checkout flow
-    router.push("/checkout");
+    // Get LMS base URL from environment variable or use default
+    const lmsBaseUrl = process.env.NEXT_PUBLIC_LMS_URL || "http://localhost:3001";
+    
+    // Create checkout URL with metadata
+    const checkoutUrl = new URL(`${lmsBaseUrl}/checkout`);
+    checkoutUrl.searchParams.set("plan", "professional");
+    checkoutUrl.searchParams.set("amount", "999900"); // Amount in paise (₹9,999)
+    checkoutUrl.searchParams.set("currency", "INR");
+    checkoutUrl.searchParams.set("planName", "Professional Plan");
+    
+    // Create signin URL with redirect_url pointing to checkout
+    const signInUrl = new URL(`${lmsBaseUrl}/sign-in`);
+    signInUrl.searchParams.set("redirect_url", checkoutUrl.toString());
+    
+    // Redirect to lms2 signin
+    window.location.href = signInUrl.toString();
   };
 
   const features = [

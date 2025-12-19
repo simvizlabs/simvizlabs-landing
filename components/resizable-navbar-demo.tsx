@@ -25,7 +25,7 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
     return (
       <Link
         href="/"
-        className={`relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 relative ${isScrolled ? 'text-sm' : 'text-3xl'} mr-3 font-normal text-extrabold font-geist transition-all duration-300`}
+        className={`relative z-20 mr-3 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
       >
         <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
         <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
@@ -46,6 +46,7 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
 
 export default function NavbarDemo() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +62,27 @@ export default function NavbarDemo() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  // Check if user is logged in by checking for Clerk session cookie
+  useEffect(() => {
+    const checkAuthStatus = () => {
+      if (typeof window !== 'undefined') {
+        // Check for Clerk session cookie (__clerk_db_jwt or __session)
+        const cookies = document.cookie.split(';');
+        const hasClerkSession = cookies.some(cookie => 
+          cookie.trim().startsWith('__clerk_db_jwt') || 
+          cookie.trim().startsWith('__session') ||
+          cookie.trim().startsWith('__clerk')
+        );
+        setIsLoggedIn(hasClerkSession);
+      }
+    };
+
+    checkAuthStatus();
+    // Check periodically in case auth status changes
+    const interval = setInterval(checkAuthStatus, 1000);
+    return () => clearInterval(interval);
   }, []);
   
   const navItems = [
@@ -129,10 +151,33 @@ export default function NavbarDemo() {
           <NavBody>
             <NavbarLogo isScrolled={isScrolled} />
             <NavItems items={navItems} onItemClick={handleNavItemClick} />
-            <div className="flex items-center gap-8">
-              <NavbarButton variant="primary" href="/contact" className="font-geist">
-                Contact Us
-              </NavbarButton>
+            <div className="flex items-center gap-4">
+              {isLoggedIn ? (
+                <NavbarButton 
+                  variant="primary" 
+                  href={process.env.NEXT_PUBLIC_LMS_URL ? `${process.env.NEXT_PUBLIC_LMS_URL}/home` : "/home"} 
+                  className="font-geist"
+                >
+                  Dashboard
+                </NavbarButton>
+              ) : (
+                <>
+                  <NavbarButton 
+                    variant="secondary" 
+                    href={process.env.NEXT_PUBLIC_LMS_URL ? `${process.env.NEXT_PUBLIC_LMS_URL}/sign-in` : "/sign-in"} 
+                    className="font-geist"
+                  >
+                    Sign In
+                  </NavbarButton>
+                  <NavbarButton 
+                    variant="primary" 
+                    href={process.env.NEXT_PUBLIC_LMS_URL ? `${process.env.NEXT_PUBLIC_LMS_URL}/sign-in` : "/sign-in"} 
+                    className="font-geist"
+                  >
+                    Start Building
+                  </NavbarButton>
+                </>
+              )}
             </div>
           </NavBody>
         </div>
@@ -159,6 +204,36 @@ export default function NavbarDemo() {
               navItems={[...navItems, { name: "Contact Us", link: "/contact" }]}
               handleNavItemClick={handleNavItemClick}
             />
+            {isMobileMenuOpen && (
+              <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 lg:hidden">
+                {isLoggedIn ? (
+                  <NavbarButton 
+                    variant="primary" 
+                    href={process.env.NEXT_PUBLIC_LMS_URL ? `${process.env.NEXT_PUBLIC_LMS_URL}/home` : "/home"} 
+                    className="font-geist w-full"
+                  >
+                    Dashboard
+                  </NavbarButton>
+                ) : (
+                  <>
+                    <NavbarButton 
+                      variant="secondary" 
+                      href={process.env.NEXT_PUBLIC_LMS_URL ? `${process.env.NEXT_PUBLIC_LMS_URL}/sign-in` : "/sign-in"} 
+                      className="font-geist w-full"
+                    >
+                      Sign In
+                    </NavbarButton>
+                    <NavbarButton 
+                      variant="primary" 
+                      href={process.env.NEXT_PUBLIC_LMS_URL ? `${process.env.NEXT_PUBLIC_LMS_URL}/sign-in` : "/sign-in"} 
+                      className="font-geist w-full"
+                    >
+                      Start Building
+                    </NavbarButton>
+                  </>
+                )}
+              </div>
+            )}
           </MobileNav>
         </div>
       </Navbar>
