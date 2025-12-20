@@ -1,12 +1,10 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { Check } from "lucide-react";
 
 const PricingPage = () => {
-  const router = useRouter();
 
   const handleGetStarted = () => {
     // Get LMS base URL from environment variable or use default
