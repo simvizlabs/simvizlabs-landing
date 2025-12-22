@@ -45,7 +45,7 @@ const TermsAndConditionsPage = () => {
               </li>
             </ul>
             <p className="mt-4">
-              For the purpose of payment collection in India, <strong>Ahuja and Sons</strong>, an Indian entity, is authorized by SimViz Labs to collect payments on its behalf through PhonePe and other supported Indian payment methods.
+              For the purpose of payment collection in India, <strong>M/S AHUJA & SONS</strong>, an Indian entity, is authorized by SimViz Labs to collect payments on its behalf through PhonePe and other supported Indian payment methods.
             </p>
             <p className="mt-4">
               These Terms govern your access to and use of:

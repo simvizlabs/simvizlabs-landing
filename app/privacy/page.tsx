@@ -37,7 +37,7 @@ const PrivacyPolicyPage = () => {
               This Privacy Policy outlines the practices of <strong>SimViz Labs</strong>, a software and digital services brand operated from the United States (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), regarding the collection, use, and disclosure of personal information when you use our Services.
             </p>
             <p className="mt-4">
-              For the purpose of payment collection in India, <strong>Ahuja and Sons</strong> acts as an authorized payment collection entity on behalf of SimViz Labs through PhonePe and other supported Indian payment methods.
+              For the purpose of payment collection in India, <strong>M/S AHUJA & SONS</strong> acts as an authorized payment collection entity on behalf of SimViz Labs through PhonePe and other supported Indian payment methods.
             </p>
             <p className="mt-4">
               This Privacy Policy applies to your use of:
