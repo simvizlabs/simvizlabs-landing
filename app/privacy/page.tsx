@@ -2,16 +2,8 @@
 import React from "react";
 import Link from "next/link";
 import NavbarDemo from "@/components/resizable-navbar-demo";
+import Footer from "@/components/footer";
 import { ArrowLeft } from "lucide-react";
-
-// Placeholder Footer component – replace with your actual footer
-const Footer = () => (
-  <footer className="bg-gray-200 dark:bg-neutral-800 text-center py-4">
-    <p className="text-sm text-gray-500 dark:text-gray-400">
-      &copy; {new Date().getFullYear()} Simviz Labs. All rights reserved.
-    </p>
-  </footer>
-);
 
 const PrivacyPolicyPage = () => {
   return (
@@ -34,7 +26,7 @@ const PrivacyPolicyPage = () => {
           Privacy&nbsp;Policy
         </h1>
         <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          Last updated: 30&nbsp;Jun&nbsp;2025
+          Last updated: 22nd December 2025
         </p>
 
         {/* Content */}
@@ -42,209 +34,198 @@ const PrivacyPolicyPage = () => {
           {/* Intro */}
           <div>
             <p className="text-lg">
-              This Privacy Policy describes how <strong>Simviz&nbsp;Labs</strong>{" "}
-              (“we”, “our”, “us”) collects, uses, and protects the information
-              you provide when you use the <strong>FMC-ACARS Preflight&nbsp;Trainer</strong>{" "}
-              mobile application (the “App”). Your continued use of the App
-              signifies acceptance of this Policy.
+              This Privacy Policy outlines the practices of <strong>SimViz Labs</strong>, a software and digital services brand operated from the United States (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), regarding the collection, use, and disclosure of personal information when you use our Services.
+            </p>
+            <p className="mt-4">
+              For the purpose of payment collection in India, <strong>Ahuja and Sons</strong> acts as an authorized payment collection entity on behalf of SimViz Labs through PhonePe and other supported Indian payment methods.
+            </p>
+            <p className="mt-4">
+              This Privacy Policy applies to your use of:
+            </p>
+            <ul className="list-disc pl-5 mt-2 space-y-2">
+              <li>Our website: <a href="https://simvizlabs.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">https://simvizlabs.com</a></li>
+              <li>Our mobile applications available on the Apple App Store</li>
+              <li>Any related digital products, software, subscriptions, or services</li>
+            </ul>
+            <p className="mt-4">
+              (collectively, the &quot;Services&quot;)
+            </p>
+            <p className="mt-4">
+              By accessing or using our Services, you agree to the collection and use of information in accordance with this Privacy Policy.
             </p>
           </div>
 
           {/* Sections */}
           <div className="space-y-8">
-            {/* 1. Data We Collect */}
+            {/* Section 1 */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                1.&nbsp;Data&nbsp;We&nbsp;Collect
-              </h2>
-              <ul className="list-disc pl-5 mt-4 space-y-2">
-                <li>
-                  <strong>Account & Identity Data:</strong> Apple ID display
-                  name and email (if you sign in with Apple or contact support).
-                </li>
-                <li>
-                  <strong>Device Data:</strong> Device model, OS version,
-                  language, and settings — used strictly for diagnostics and UX
-                  optimisation.
-                </li>
-                <li>
-                  <strong>Purchase Data:</strong> Subscription status and
-                  transaction identifiers returned by Apple’s StoreKit to unlock
-                  premium features.
-                </li>
-                <li>
-                  <strong>Usage Data&nbsp;(anonymous):</strong> In-app screen
-                  events and crash logs stored locally; no third-party analytics
-                  SDKs are integrated.
-                </li>
-              </ul>
-            </section>
-
-            {/* 2. How We Use Your Data */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                2.&nbsp;How&nbsp;We&nbsp;Use&nbsp;Your&nbsp;Data
-              </h2>
-              <ul className="list-disc pl-5 mt-4 space-y-2">
-                <li>Deliver core flight-training functionality.</li>
-                <li>Validate and manage in-app purchases and Subscriptions.</li>
-                <li>Diagnose bugs and improve performance.</li>
-                <li>Respond to support requests you initiate.</li>
-              </ul>
-            </section>
-
-            {/* 3. Analytics & Tracking */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                3.&nbsp;Analytics&nbsp;& Tracking
+                1. Information We Collect
               </h2>
               <p className="mt-4">
-                The App does <strong>not</strong> use third-party advertising,
-                tracking, or analytics SDKs, nor does it share data for
-                cross-app tracking. Crash diagnostics are processed locally and
-                sent to us only if you choose to email a log via the built-in
-                support screen.
+                We may collect the following types of information:
               </p>
-            </section>
-
-            {/* 4. Data Sharing */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                4.&nbsp;Data&nbsp;Sharing
-              </h2>
-              <p className="mt-4">
-                We do <strong>not</strong> sell or rent personal data. Limited
-                information is shared with:
-              </p>
-              <ul className="list-disc pl-5 mt-2 space-y-2">
-                <li>
-                  <strong>Apple Inc.</strong> – to process payments, manage
-                  Subscriptions, and restore purchases.
-                </li>
-                <li>
-                  <strong>Service Providers</strong> (e.g., cloud backup) bound
-                  by confidentiality and used solely to provide core services.
-                </li>
-                <li>
-                  Authorities when legally required (e.g., court order).
-                </li>
-              </ul>
-            </section>
-
-            {/* 5. Data Retention & Deletion */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                5.&nbsp;Data&nbsp;Retention&nbsp;& Deletion
-              </h2>
-              <p className="mt-4">
-                We retain account and purchase data for as long as your
-                Subscription remains active and for a maximum of 12 months
-                thereafter, unless a longer period is required by law. You may
-                request deletion at any time from the in-app “Delete Account”
-                button or by emailing us.
-              </p>
-            </section>
-
-            {/* 6. Your Rights */}
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                6.&nbsp;Your&nbsp;Rights
-              </h2>
-              <p className="mt-4">
-                Depending on where you live, you may have rights to access,
-                correct, delete, restrict, or port your personal data:
-              </p>
-              <ul className="list-disc pl-5 mt-2 space-y-2">
-                <li><strong>GDPR&nbsp;(EEA/UK)</strong> – Articles 15-21.</li>
-                <li><strong>CCPA&nbsp;/ CPRA&nbsp;(California)</strong> – Civil Code §1798.</li>
-              </ul>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-4">
+                a. Contact Information
+              </h3>
               <p className="mt-2">
-                To exercise any right, email{" "}
-                <a
-                  href="mailto:info@simvizlabs.com"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  info@simvizlabs.com
-                </a>
-                .
+                Such as name, email address, or other details you voluntarily provide when contacting us or registering for Services.
+              </p>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-4">
+                b. Usage Data
+              </h3>
+              <p className="mt-2">
+                Information about how you access and use the Services, including device information, IP address, app usage patterns, and interactions with features.
+              </p>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-4">
+                c. Cookies and Tracking Technologies
+              </h3>
+              <p className="mt-2">
+                We may use cookies or similar technologies to improve functionality, analyze usage, and enhance user experience on our website.
               </p>
             </section>
 
-            {/* 7. Children’s Privacy */}
+            {/* Section 2 */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                7.&nbsp;Children’s&nbsp;Privacy
+                2. How We Collect Information
               </h2>
               <p className="mt-4">
-                The App is intended for users aged 16 and above. We do not
-                knowingly collect personal data from children under 13. If you
-                believe such data has been collected, contact us so we can
-                delete it promptly.
+                We collect information through:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-2">
+                <li><strong>Direct Interaction:</strong> When you voluntarily provide information by contacting us, registering, or using features.</li>
+                <li><strong>Automated Technologies:</strong> Through cookies, analytics tools, and usage tracking when you access the website or applications.</li>
+              </ul>
+            </section>
+
+            {/* Section 3 */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                3. Purpose of Data Collection
+              </h2>
+              <p className="mt-4">
+                We collect and use your information for the following purposes:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-2">
+                <li>To provide, operate, and maintain the Services</li>
+                <li>To notify users about changes or updates to the Services</li>
+                <li>To allow participation in features and functionality</li>
+                <li>To improve user experience, performance, and reliability</li>
+                <li>To comply with legal and regulatory obligations</li>
+              </ul>
+            </section>
+
+            {/* Section 4 */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                4. Sharing of Your Information
+              </h2>
+              <p className="mt-4">
+                We do <strong>not</strong> sell your personal information.
+              </p>
+              <p className="mt-4">
+                We may share your information only:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-2">
+                <li>With trusted service providers who assist in operating the Services (such as hosting, analytics, or payment processing)</li>
+                <li>With payment service providers (including PhonePe and Apple) solely for transaction processing</li>
+                <li>With legal or regulatory authorities if required by law, court order, or governmental request</li>
+              </ul>
+            </section>
+
+            {/* Section 5 */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                5. Data Retention
+              </h2>
+              <p className="mt-4">
+                We retain personal data only for as long as necessary to fulfill the purposes outlined in this Privacy Policy or to comply with legal obligations.
+              </p>
+              <p className="mt-4">
+                When data is no longer required, we take reasonable steps to delete or anonymize it.
               </p>
             </section>
 
-            {/* 8. International Transfers */}
+            {/* Section 6 */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                8.&nbsp;International&nbsp;Transfers
+                6. Your Rights
               </h2>
               <p className="mt-4">
-                We are based in Switzerland. If you access the App from outside
-                Switzerland, your information may be transferred, stored, and
-                processed there. Where required, we rely on adequacy decisions
-                or Standard Contractual Clauses to safeguard transfers.
+                You may have the right to:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-2">
+                <li>Access the personal data we hold about you</li>
+                <li>Request correction or updates to your personal data</li>
+                <li>Request deletion of your personal data, where legally permissible</li>
+              </ul>
+              <p className="mt-4">
+                You may exercise these rights by contacting us using the details provided below.
               </p>
             </section>
 
-            {/* 9. Security */}
+            {/* Section 7 */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                9.&nbsp;Security
+                7. Security
               </h2>
               <p className="mt-4">
-                We employ industry-standard encryption in transit and at rest
-                and restrict access to personal data on a need-to-know basis.
-                However, no system is 100 % secure; use the App at your own
-                risk.
+                We use reasonable technical and organizational measures to protect your personal information from unauthorized access, misuse, loss, or disclosure.
+              </p>
+              <p className="mt-4">
+                However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.
               </p>
             </section>
 
-            {/* 10. Changes */}
+            {/* Section 8 */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                10.&nbsp;Changes&nbsp;to&nbsp;This&nbsp;Policy
+                8. Payments, Refunds, and Cancellations
               </h2>
               <p className="mt-4">
-                We may update this Policy from time to time. Material changes
-                are announced in-app. Continued use after the effective date
-                constitutes acceptance of the revised Policy.
+                All Services provided by SimViz Labs are digital in nature.
+              </p>
+              <p className="mt-4">
+                For the Services provided, we offer no refunds, except where required by applicable law.
+              </p>
+              <p className="mt-4">
+                Refunds and cancellations for purchases made through the Apple App Store are governed exclusively by Apple&apos;s policies.
+              </p>
+              <p className="mt-4">
+                Payments collected via PhonePe are subject to the terms communicated at the time of purchase.
               </p>
             </section>
 
-            {/* 11. Contact */}
+            {/* Section 9 */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                11.&nbsp;Contact&nbsp;Us
+                9. Changes to This Privacy Policy
               </h2>
               <p className="mt-4">
-                Questions about privacy? Email&nbsp;
-                <a
-                  href="mailto:info@simvizlabs.com"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  info@simvizlabs.com
-                </a>
-                &nbsp;or visit&nbsp;
-                <a
-                  href="https://simvizlabs.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  simvizlabs.com
-                </a>
-                .
+                We may update this Privacy Policy from time to time.
               </p>
+              <p className="mt-4">
+                Any changes will be posted on this page with an updated &quot;Last updated&quot; date. Continued use of the Services after changes constitutes acceptance of the updated policy.
+              </p>
+            </section>
+
+            {/* Section 10 */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                10. Contact Information
+              </h2>
+              <p className="mt-4">
+                For any questions, concerns, or requests related to this Privacy Policy, you may contact us through:
+              </p>
+              <ul className="list-none pl-0 mt-4 space-y-2">
+                <li>
+                  🌐 Website: <a href="https://simvizlabs.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">https://simvizlabs.com</a>
+                </li>
+                <li>
+                  📧 Email: info@simvizlabs.com
+                </li>
+              </ul>
             </section>
           </div>
         </div>
