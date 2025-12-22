@@ -1,5 +1,4 @@
 {
-  
   "style": "new-york",
   "rsc": true,
   "tsx": true,
@@ -10,6 +9,7 @@
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -17,5 +17,8 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "iconLibrary": "lucide"
+  "registries": {
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
+  }
 }

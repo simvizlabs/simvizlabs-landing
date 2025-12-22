@@ -66,7 +66,7 @@ const footerSections = [
 
 const Footer = () => {
   return (
-    <footer className="mt-12 xs:mt-20 dark bg-background border-t">
+    <footer className=" dark bg-black">
       <div className="max-w-screen-xl mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 px-6">
         <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
           {/* Logo */}
