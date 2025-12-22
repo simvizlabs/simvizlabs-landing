@@ -187,7 +187,7 @@ const PrivacyPolicyPage = () => {
                 All Services provided by SimViz Labs are digital in nature.
               </p>
               <p className="mt-4">
-                For the Services provided, we offer no refunds, except where required by applicable law.
+                For the Services provided, we offer <strong>no refunds</strong>, except where required by applicable law.
               </p>
               <p className="mt-4">
                 Refunds and cancellations for purchases made through the Apple App Store are governed exclusively by Apple&apos;s policies.
