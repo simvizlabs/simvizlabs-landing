@@ -37,7 +37,7 @@ const PrivacyPolicyPage = () => {
               This Privacy Policy outlines the practices of <strong>SimViz Labs</strong>, a software and digital services brand operated from the United States (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), regarding the collection, use, and disclosure of personal information when you use our Services.
             </p>
             <p className="mt-4">
-              For the purpose of payment collection in India, <strong>M/S AHUJA & SONS</strong> acts as an authorized payment collection entity on behalf of SimViz Labs through PhonePe and other supported Indian payment methods.
+              For the purpose of payment collection in India, <strong>MS AHUJA & SONS</strong> acts as an authorized payment collection entity on behalf of SimViz Labs through PhonePe and other supported Indian payment methods.
             </p>
             <p className="mt-4">
               This Privacy Policy applies to your use of:
@@ -220,10 +220,13 @@ const PrivacyPolicyPage = () => {
               </p>
               <ul className="list-none pl-0 mt-4 space-y-2">
                 <li>
-                  🌐 Website: <a href="https://simvizlabs.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">https://simvizlabs.com</a>
+                  Website: <a href="https://simvizlabs.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">https://simvizlabs.com</a>
                 </li>
                 <li>
-                  📧 Email: info@simvizlabs.com
+                  Email: <a href="mailto:info@simvizlabs.com" className="text-blue-600 dark:text-blue-400 hover:underline">info@simvizlabs.com</a>
+                </li>
+                <li>
+                  Phone: +1 (623)-428-4149 &nbsp;|&nbsp; +91 8931902560
                 </li>
               </ul>
             </section>
