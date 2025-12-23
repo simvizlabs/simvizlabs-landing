@@ -1,66 +1,13 @@
 "use client";
 
 import React, { useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { Check, Play, CheckCircle, CircleCheck, Info } from "lucide-react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
-import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack'
-import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
- 
- 
-const content = [
-  {
-    title: "Collaborative Editing",
-    description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
-    content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Collaborative Editing
-      </div>
-    ),
-  },
-  {
-    title: "Real time changes",
-    description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
-    content: (
-      <div className="flex h-full w-full items-center justify-center text-white">
-        <img
-          src="/linear.webp"
-          width={300}
-          height={300}
-          className="h-full w-full object-cover"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "Version control",
-    description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
-    content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-        Version control
-      </div>
-    ),
-  },
-  {
-    title: "Running out of content",
-    description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
-    content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Running out of content
-      </div>
-    ),
-  },
-];
+import { CircleCheck, Info } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const StickyScrollRevealSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -98,23 +45,23 @@ const StickyScrollRevealSection = () => {
   ];
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-white dark:bg-neutral-900">
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="flex flex-col items-center gap-10">
+    <section ref={containerRef} className="relative min-h-[400vh] bg-white dark:bg-neutral-900 pt-16 sm:pt-20 md:pt-24">
+      <div className="sticky top-0 min-h-screen flex items-center justify-center overflow-hidden py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
             {/* Text content - centered */}
-            <div className="w-full max-w-4xl space-y-4 text-center">
+            <div className="w-full max-w-4xl space-y-2 md:space-y-4 text-center px-4">
               <div>
-                <h2 className="text-[64px] font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-geist">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                   Master The FMS
                 </h2>
-                <h2 className="text-[64px] font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-geist">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                   Before Your Jet Transition
                 </h2>
               </div>
               
               {/* Single paragraph container - paragraphs replace each other */}
-              <div className="relative h-40 flex items-center justify-center">
+              <div className="relative h-32 md:h-40 flex items-center justify-center">
                 {paragraphs.map((text, index) => (
                   <motion.div
                     key={index}
@@ -123,7 +70,7 @@ const StickyScrollRevealSection = () => {
                       y: paragraphStyles[index].y,
                       position: 'absolute',
                     }}
-                    className="flex items-start gap-4 w-full max-w-xl px-4"
+                    className="flex items-start gap-2 md:gap-4 w-full max-w-xl px-2 md:px-4"
                   >
                     {/* Vertical line with circular bubble */}
                     <div className="flex flex-col items-center flex-shrink-0 pt-1">
@@ -132,18 +79,18 @@ const StickyScrollRevealSection = () => {
                         style={{
                           opacity: paragraphStyles[index].opacity,
                         }}
-                        className="w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-400 border-2 border-white dark:border-gray-900 shadow-lg"
+                        className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-blue-600 dark:bg-blue-400 border-2 border-white dark:border-gray-900 shadow-lg"
                       />
                       {/* Vertical line */}
                       <div 
-                        className="w-0.5 h-full min-h-[80px]" 
+                        className="w-0.5 h-full min-h-[60px] md:min-h-[80px]" 
                         style={{
                           background: 'linear-gradient(to bottom, rgba(19, 129, 229, 1), rgba(217, 217, 217, 1))'
                         }}
                       />
                     </div>
                     {/* Paragraph text */}
-                    <p className="text-base lg:text-xl leading-8 font-normal text-black font-medium dark:text-gray-300 font-geist flex-1 pt-1">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-6 md:leading-8 font-medium text-black dark:text-gray-300 font-geist flex-1 pt-1">
                       {text}
                     </p>
                   </motion.div>
@@ -152,14 +99,14 @@ const StickyScrollRevealSection = () => {
             </div>
 
             {/* Image below content - Fixed */}
-            <div className="relative w-full max-w-4xl">
+            <div className="relative w-full max-w-4xl px-4">
               <div className="relative w-full">
                 <Image
                   src="/images/in/a320/1.png"
                   alt="A320 FMS Simulator Interface"
                   width={1256}
                   height={800}
-                  className=" w-full h-auto"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
@@ -197,64 +144,27 @@ const HorizontalScrollRevealSection = () => {
   ];
 
   // Calculate container translateX - slides left to reveal next cards
-  // We have 4 cards, show 3 at a time, so we need to slide by 1 card width
-  // Slide by calc(-100% / 3) which is one card width
+  // We have 4 cards, show 3 at a time on desktop
+  // To reveal the 4th card, we slide by: 1 card width + 1 gap
+  // On desktop (lg+): card is calc(33.333% - 1.5rem), gap is 2rem (lg:gap-8)
+  // So we slide by: calc(33.333% + 0.5rem)
   const containerX = useTransform(
     scrollYProgress,
     [0, 1],
-    ['0%', 'calc(-100% / 3)']
+    ['0%', 'calc(-33.333% - 0.5rem)'] // Slide by one card width + gap adjustment
   );
-
-  // Calculate opacity for each card - fade in as it comes into view
-  const getCardOpacity = (index: number) => {
-    const totalCards = attributes.length;
-    const scrollPerCard = 1 / totalCards;
-    const startScroll = index * scrollPerCard;
-    const endScroll = Math.min((index + 1) * scrollPerCard, 1);
-    
-    // First 3 cards are visible from start
-    if (index < 3) {
-      return useTransform(
-        scrollYProgress,
-        [0, startScroll + 0.1],
-        [1, 1]
-      );
-    }
-    
-    // Last card fades in as we scroll
-    return useTransform(
-      scrollYProgress,
-      [startScroll - 0.1, startScroll, endScroll],
-      [0, 1, 1]
-    );
-  };
-
-  const card0Opacity = getCardOpacity(0);
-  const card1Opacity = getCardOpacity(1);
-  const card2Opacity = getCardOpacity(2);
-  const card3Opacity = getCardOpacity(3);
-
-  const cardOpacities = [
-    card0Opacity,
-    card1Opacity,
-    card2Opacity,
-    card3Opacity,
-  ];
 
   return (
     <section 
       ref={containerRef} 
-      className="relative h-[400vh]"
-      style={{
-        background: 'linear-gradient(to bottom, rgba(25, 23, 22, 1), rgba(43, 51, 68, 1))'
-      }}
+      className="relative min-h-[400vh] bg-[#191716] pt-16 sm:pt-20 md:pt-24"
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="flex flex-col items-center gap-12">
+      <div className="sticky top-0 min-h-screen flex items-center justify-center overflow-hidden py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex flex-col items-center gap-8 md:gap-12">
             {/* Heading */}
-            <div className="text-center">
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl font-geist">
+            <div className="text-center px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white font-geist">
                 Demonstrated FMS Competence Signals Four Critical Attributes:
               </h2>
             </div>
@@ -262,26 +172,23 @@ const HorizontalScrollRevealSection = () => {
             {/* Cards Container - Horizontal Scroll */}
             <div className="relative w-full overflow-hidden">
               <motion.div 
-                className="flex gap-8 justify-center md:justify-start"
+                className="flex gap-4 md:gap-6 lg:gap-8"
                 style={{ x: containerX }}
               >
                 {attributes.map((attr, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    style={{
-                      opacity: cardOpacities[index],
-                    }}
-                    className="flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[280px] max-w-[400px]"
+                    className="flex-shrink-0 w-[85vw] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.5rem)] xl:w-[calc(33.333%-2rem)] min-w-[280px] max-w-[400px]"
                   >
-                    <div className="bg-gray-800 dark:bg-neutral-900 rounded-xl p-6 h-full">
-                      <h3 className="text-xl font-bold text-white mb-4 font-geist">
+                    <div className="bg-gray-800 dark:bg-neutral-900 rounded-xl p-4 md:p-6 h-full">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-3 md:mb-4 font-geist">
                         {attr.title}
                       </h3>
-                      <p className="text-gray-300 dark:text-gray-400 font-geist">
+                      <p className="text-xs sm:text-sm md:text-base text-gray-300 dark:text-gray-400 font-geist leading-relaxed">
                         {attr.description}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </motion.div>
             </div>
@@ -365,7 +272,7 @@ const A320FMSLandingPage = () => {
       
       <main>
         {/* Hero Section - Fullscreen with Background Video */}
-        <section className="relative h-screen w-full overflow-hidden">
+        <section className="relative h-[95vh] w-full overflow-hidden">
           {/* Background Video */}
           <video
             autoPlay
@@ -384,19 +291,19 @@ const A320FMSLandingPage = () => {
           {/* <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-purple-800/30 to-purple-900/50" /> */}
           <div className="absolute inset-0 bg-[#E7E7FF]"/>
           {/* Content */}
-          <div className="relative z-10 flex h-full items-end justify-center pb-16 md:pb-24">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+          <div className="relative z-10 flex h-full items-end justify-center pb-8 sm:pb-12 md:pb-16 lg:pb-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
               <div className="mx-auto text-center">
-                <h1 className="text-5xl font-bold tracking-tight text-[#252121] sm:text-6xl lg:text-[96px] font-geist drop-shadow-lg">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[96px] font-bold tracking-tight text-[#252121] font-geist drop-shadow-lg">
                   A320 FMS Simulator
                 </h1>
-                <p className="mt-6 text-[32px] leading-8 text-[#252121] font-geist drop-shadow-md">
+                <p className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[32px] leading-6 sm:leading-7 md:leading-8 text-[#252121] font-geist drop-shadow-md px-4">
                   Land Your Dream Airline Job with Complete FMS and Automation Mastery
                 </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
+                <div className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 px-4">
                   <Button
                     size="lg"
-                    className="bg-[#1381E5] hover:bg-blue-700 rounded-[24px] font-semibold text-white px-8 py-6 text-lg font-geist "
+                    className="bg-[#1381E5] hover:bg-blue-700 rounded-[24px] font-semibold text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-geist w-full sm:w-auto"
                     onClick={() => router.push("/checkout")}
                   >
                     Start Training
@@ -404,13 +311,13 @@ const A320FMSLandingPage = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-[1px] border-[#1381E5] bg-white/10 rounded-[24px] backdrop-blur-sm text-[#1381E5] hover:bg-white/20 px-8 py-6 text-lg font-geist"
+                    className="border-[1px] border-[#1381E5] bg-white/10 rounded-[24px] backdrop-blur-sm text-[#1381E5] hover:bg-white/20 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-geist w-full sm:w-auto"
                   >
                     {/* <Play className="mr-2 h-5 w-5" /> */}
                     Watch Demo
                   </Button>
                 </div>
-                <p className="mt-2 text-[16px] text-[#252121] font-bold font-geist drop-shadow-md">
+                <p className="mt-2 text-sm sm:text-base text-[#252121] font-bold font-geist drop-shadow-md px-4">
                 One plan. Full access. ₹9,000/year.
                 </p>
               </div>
@@ -427,8 +334,8 @@ const A320FMSLandingPage = () => {
        
 
         {/* A320 FMS Simulator Advantage - Dark Grey Background */}
-        <section className="py-24" style={{ background: 'linear-gradient(to bottom, rgba(34, 33, 33, 1), rgba(25, 23, 22, 1))' }}>
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24" style={{ background: 'linear-gradient(to bottom, rgba(34, 33, 33, 1), rgba(25, 23, 22, 1))' }}>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center">
               <div className="relative w-full text-center max-w-5xl">       
                 <Image
@@ -436,17 +343,17 @@ const A320FMSLandingPage = () => {
                   alt="A320 FMS Control Display Unit"
                   width={1256}
                   height={900}
-                  className="rounded-xl max-w-[759px] max-h-[990px] shadow-2xl"
+                  className="rounded-xl w-full max-w-[759px] h-auto shadow-2xl"
                 />
               </div>
             </div>
-            <div className="max-w-3xl my-24">
-              <h2 className="text-7xl font-bold tracking-tight text-white sm:text-5xl font-geist">
+            <div className="max-w-3xl my-12 sm:my-16 md:my-20 lg:my-24">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white font-geist">
                 A320 FMS Simulator Advantage
               </h2>
             </div>
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                 {advantageCards.map((card, index) => (
                   <div
                     key={index}
@@ -454,15 +361,15 @@ const A320FMSLandingPage = () => {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      padding: '20px 36px',
-                      height: '313px',
+                      padding: '16px 24px',
+                      minHeight: '250px',
                       justifyContent: 'space-between',
                     }}
                   >
-                    <span className="text-3xl font-bold text-white font-geist block mb-4">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-geist block mb-3 sm:mb-4">
                       {card.number}.
                     </span>
-                    <p className="text-2xl text-white font-geist">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-geist leading-relaxed">
                       {card.text}
                     </p>
                   </div>
@@ -473,39 +380,39 @@ const A320FMSLandingPage = () => {
         </section>
 
         {/* Training Platform Overview - Dark Grey Background */}
-        <section className="bg-[#222121] dark:bg-neutral-950 h-screen flex items-center justify-center">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
-            <div className="max-w-3xl text-left mb-16">
-              <h2 className="text-6xl font-bold tracking-tight text-white sm:text-5xl font-geist">
+        <section className="bg-[#222121] dark:bg-neutral-950 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-3xl text-left mb-8 sm:mb-12 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white font-geist">
                 Training Platform Overview
               </h2>
             </div>
-            <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
               {trainingPlatformCards.map((card, index) => (
-                <div key={index} className="bg-[#272727] dark:bg-neutral-900 rounded-[36px] p-8">
-                    <div className="mb-6">
+                <div key={index} className="bg-[#272727] dark:bg-neutral-900 rounded-2xl sm:rounded-[36px] p-4 sm:p-6 md:p-8">
+                    <div className="mb-4 sm:mb-6">
                     <Image
                       src={card.image}
                       alt={card.imageAlt}
                       width={600}
                       height={400}
-                      className="rounded-lg"
+                      className="rounded-lg w-full h-auto"
                     />
                   </div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <h3 className="text-3xl font-bold text-white font-geist">{card.title}</h3>
-                    <Info className="h-8 w-8 text-white" />
+                  <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white font-geist">{card.title}</h3>
+                    <Info className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-8 lg:w-8 text-white flex-shrink-0" />
                   </div>
-                  <p className="text-gray-300 text-lg dark:text-gray-400 mb-6 font-geist">
+                  <p className="text-gray-300 text-sm sm:text-base md:text-lg dark:text-gray-400 mb-4 sm:mb-6 font-geist leading-relaxed">
                     {card.description}
                   </p>
 
                   <div>
-                    <p className="text-white font-semibold mb-3 font-geist">{card.featuresLabel}</p>
+                    <p className="text-white font-semibold mb-2 sm:mb-3 text-xs sm:text-sm md:text-base font-geist">{card.featuresLabel}</p>
                   <hr className="border-gray-400 mb-1" />
                     <ul className="space-y-2 text-gray-300 dark:text-gray-400 font-geist">
                       {card.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex text-lg text-[#FFFFFFB2] opacity-70 font-normal items-center gap-2">
+                        <li key={featureIndex} className="flex text-xs sm:text-sm md:text-base lg:text-lg text-[#FFFFFFB2] opacity-70 font-normal items-center gap-2 leading-relaxed">
                            {feature}
                         </li>
                       ))}
@@ -518,29 +425,29 @@ const A320FMSLandingPage = () => {
         </section>
 
         {/* Train for Real-World Airline Interviews - White Background */}
-        <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl bg-white grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:p-28 rounded-[24px]">
+        <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center p-6 sm:p-8 md:p-12 lg:p-20 xl:p-28 rounded-xl sm:rounded-2xl lg:rounded-[24px]">
               <div>
                 <Image
                   src="/images/in/a320/candidate_screening.png"
                   alt="Pilot Interview Training"
                   width={600}
                   height={400}
-                  className="rounded-xl shadow-lg"
+                  className="rounded-xl shadow-lg w-full h-auto"
                 />
               </div>
-              <div >
-                <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-geist mb-6">
+              <div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
                   Train for Real-World Airline Interviews
                 </h2>
-                <p className="text-lg leading-8 font-medium text-gray-700 dark:text-gray-300 font-geist mb-6">
+                <p className="text-sm sm:text-base md:text-lg leading-6 sm:leading-7 md:leading-8 font-medium text-gray-700 dark:text-gray-300 font-geist mb-4 sm:mb-6">
                   The platform prepares pilots for common airline technical interview questions, including:
                 </p>
-                <ul className="space-y-3 text-gray-700 dark:text-gray-300 font-geist">
+                <ul className="space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300 font-geist">
                   {interviewTopics.map((topic, index) => (
-                    <li key={index} className="flex items-center gap-2 text-lg font-medium">
-                      <CircleCheck className="h-5 w-5 flex-shrink-0" />
+                    <li key={index} className="flex items-center gap-2 text-sm sm:text-base md:text-lg font-medium">
+                      <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />
                       {topic}
                     </li>
                   ))}
@@ -551,134 +458,134 @@ const A320FMSLandingPage = () => {
         </section>
 
         {/* A320 FMS Simulator Is Built For - White Background */}
-        <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center mb-16">
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-geist">
+        {/* <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                 A320 FMS Simulator Is Built For
               </h2>
             </div>
-            <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="text-center">
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <Image
                     src="/images/airline.png"
                     alt="CPL Holders"
                     width={300}
                     height={300}
-                    className="rounded-xl mx-auto"
+                    className="rounded-xl mx-auto w-full max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] h-auto"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
                   CPL Holders
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 font-geist">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-geist">
                   Looking for their first airline job.
                 </p>
               </div>
               <div className="text-center">
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <Image
                     src="/images/airline.png"
                     alt="Pilots"
                     width={300}
                     height={300}
-                    className="rounded-xl mx-auto"
+                    className="rounded-xl mx-auto w-full max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] h-auto"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
                   Pilots
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 font-geist">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-geist">
                   Seeking type rating preparation.
                 </p>
               </div>
               <div className="text-center">
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <Image
                     src="/images/airline.png"
                     alt="Airline Pilots"
                     width={300}
                     height={300}
-                    className="rounded-xl mx-auto"
+                    className="rounded-xl mx-auto w-full max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] h-auto"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
                   Airline Pilots
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 font-geist">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-geist">
                   Looking for recurrent training.
                 </p>
               </div>
               <div className="text-center">
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <Image
                     src="/images/airline.png"
                     alt="Aviation Professionals"
                     width={300}
                     height={300}
-                    className="rounded-xl mx-auto"
+                    className="rounded-xl mx-auto w-full max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] h-auto"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
                   Aviation Professionals
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 font-geist">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-geist">
                   Enhancing their skills and knowledge.
                 </p>
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Turn Expensive Simulator Time Into Effective Training - White Background */}
-        <section className="bg-[#F5F5F7] dark:bg-neutral-900 h-screen flex items-center justify-center">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+        <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="flex flex-col items-center justify-center">
-              <div className="mx-auto max-w-4xl text-center mb-12">
-                <h2 className="lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-geist mb-6">
+              <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10 md:mb-12 px-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
                   Turn Expensive Simulator Time Into Effective Training
                 </h2>
-                <div className="space-y-2 text-2xl font-normal text-gray-700 dark:text-gray-300 font-geist">
+                <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-normal text-gray-700 dark:text-gray-300 font-geist">
                   <p>Traditional type rating cost ~₹3,000,000. </p>
                   <p>Add  ₹800,000 – ₹1,200,000 for additional simulator session.</p>
                 </div>
               </div>
-              <div className="rounded-2xl px-20 mx-24 ">
-                <div className=" border-2 border-[#1381E5] bg-white rounded-[24px] px-48 py-16">
-                  <h3 className="text-2xl font-bold text-[#1381E5] dark:text-white mb-2 font-geist text-center">
+              <div className="rounded-2xl w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+                <div className="border-2 border-[#1381E5] bg-white rounded-xl sm:rounded-2xl lg:rounded-[24px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 2xl:px-48 py-6 sm:py-8 md:py-12 lg:py-16">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#1381E5] dark:text-white mb-2 font-geist text-center">
                   For individuals
                   </h3>
-                  <div className="text-center mb-6">
-                    <span className="lg:text-7xl font-bold text-gray-900 dark:text-white font-geist">₹9,000</span>
+                  <div className="text-center mb-4 sm:mb-6">
+                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white font-geist">₹9,000</span>
                     <br/>
-                    <span className="text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
+                    <span className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
                   </div>
                   <div className="text-center w-full">
                   <Button
                     size="lg"
-                    className="max-w-64 rounded-[24px] bg-[#1381E5] hover:bg-blue-700 text-white mb-6 font-geist"
+                    className="w-full sm:max-w-64 rounded-xl sm:rounded-2xl lg:rounded-[24px] bg-[#1381E5] hover:bg-blue-700 text-white mb-4 sm:mb-6 font-geist"
                     onClick={() => router.push("/checkout")}
                   >
                     Get Started
                   </Button>
                   </div>
-                  <hr className="border-gray-400 my-6" />
-                  <ul className="space-y-3 text-gray-700 dark:text-gray-300 font-geist">
-                    <li className="flex lg:text-xl items-start gap-2">
-                      <CircleCheck className="h-5 w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <hr className="border-gray-400 my-4 sm:my-6" />
+                  <ul className="space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300 font-geist">
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                      <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>Complete A320 FMS and auto flight simulator</span>
                     </li>
-                    <li className="flex lg:text-xl items-start gap-2">
-                      <CircleCheck className="h-5 w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                      <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>All learning and training modules</span>
                     </li>
-                    <li className="flex lg:text-xl items-start gap-2">
-                      <CircleCheck className="h-5 w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                      <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>Airline interview preparation content</span>
                     </li>
-                    <li className="flex lg:text-xl items-start gap-2">
-                      <CircleCheck className="h-5 w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                      <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>Unlimited practice with no usage limits</span>
                     </li>
                   </ul>
@@ -710,15 +617,15 @@ const A320FMSLandingPage = () => {
                     alt="About SimvizLabs"
                     width={1200}
                     height={600}
-                    className="w-full"
+                    className="w-full h-auto"
                 />
-           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
            
-            <div className="mx-auto max-w-5xl text-center bg-black py-52">
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl font-geist mb-6">
+            <div className="mx-auto max-w-5xl text-center bg-black py-12 sm:py-16 md:py-24 lg:py-32 xl:py-52 px-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white font-geist mb-4 sm:mb-6">
                 About SimvizLabs
               </h2>
-              <p className="text-xl leading-8 text-gray-300 dark:text-gray-400 font-geist">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-6 sm:leading-7 md:leading-8 text-gray-300 dark:text-gray-400 font-geist">
               Our mission is to democratize professional aviation training by enabling pilots to maximize the value of expensive simulator time through early system mastery.              </p>
             </div>
           </div>
