@@ -5,14 +5,14 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Image from "next/image";
 import Link from "next/link";
 
-import { PulsatingButton } from "@/components/magicui/pulsating-button";
+// import { PulsatingButton } from "@/components/magicui/pulsating-button";
 
 interface HeroScrollDemoProps {
   id?: string; // Add optional id prop
   imageSrc: string;
   title: string;
   buttonLink: string;
-  bundleLink: string;
+  bundleLink?: string;
   tutorialLink: string;
 }
 
