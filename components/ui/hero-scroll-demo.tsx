@@ -47,9 +47,9 @@ export function HeroScrollDemo({ id, imageSrc, title, buttonLink, bundleLink, tu
                   </div>
                 </button>
               </a>
-              <Link href={bundleLink} passHref>
+              {/* <Link href={bundleLink} passHref>
                 <PulsatingButton className="h-12 md:h-14 mb-3 rounded-xl" pulseColor="#D4D4D8">Get our Bundle <span className="font-bold text-emerald-400">(20% off)</span></PulsatingButton>
-              </Link>
+              </Link> */}
             </div>
             <Link href={tutorialLink} className=" md:text-lg text-blue-600 dark:text-blue-400 mt-2 font-semibold font-geist hover:font-bold hover:text-blue-800">View our Tutorials → </Link>
           </>
