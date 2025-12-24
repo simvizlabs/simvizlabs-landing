@@ -46,7 +46,7 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
 
 export default function NavbarDemo() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -65,25 +65,26 @@ export default function NavbarDemo() {
   }, []);
 
   // Check if user is logged in by checking for Clerk session cookie
-  useEffect(() => {
-    const checkAuthStatus = () => {
-      if (typeof window !== 'undefined') {
-        // Check for Clerk session cookie (__clerk_db_jwt or __session)
-        const cookies = document.cookie.split(';');
-        const hasClerkSession = cookies.some(cookie => 
-          cookie.trim().startsWith('__clerk_db_jwt') || 
-          cookie.trim().startsWith('__session') ||
-          cookie.trim().startsWith('__clerk')
-        );
-        setIsLoggedIn(hasClerkSession);
-      }
-    };
+  // COMMENTED OUT - Authorization disabled
+  // useEffect(() => {
+  //   const checkAuthStatus = () => {
+  //     if (typeof window !== 'undefined') {
+  //       // Check for Clerk session cookie (__clerk_db_jwt or __session)
+  //       const cookies = document.cookie.split(';');
+  //       const hasClerkSession = cookies.some(cookie => 
+  //         cookie.trim().startsWith('__clerk_db_jwt') || 
+  //         cookie.trim().startsWith('__session') ||
+  //         cookie.trim().startsWith('__clerk')
+  //       );
+  //       setIsLoggedIn(hasClerkSession);
+  //     }
+  //   };
 
-    checkAuthStatus();
-    // Check periodically in case auth status changes
-    const interval = setInterval(checkAuthStatus, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  //   checkAuthStatus();
+  //   // Check periodically in case auth status changes
+  //   const interval = setInterval(checkAuthStatus, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
   
   const navItems = [
     {
@@ -101,10 +102,10 @@ export default function NavbarDemo() {
       name: "Our Products",
       link: "/products",
     },
-    {
-      name:"Pricing",
-      link:"/pricing",
-    },
+    // {
+    //   name:"Pricing",
+    //   link:"/pricing",
+    // },
     {
       name: "More",
       link: "#",
@@ -114,7 +115,7 @@ export default function NavbarDemo() {
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
         { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
         {name:"Our Products", link:"/products", icon: IconPlane},
-        {name:"Pricing", link:"/pricing", icon: IconPlane},
+        // {name:"Pricing", link:"/pricing", icon: IconPlane}, // HIDDEN - Pricing removed
       ]
       }
    ];
@@ -151,7 +152,8 @@ export default function NavbarDemo() {
           <NavBody>
             <NavbarLogo isScrolled={isScrolled} />
             <NavItems items={navItems} onItemClick={handleNavItemClick} />
-            <div className="flex items-center gap-4">
+            {/* HIDDEN - Sign In/Sign Up buttons commented out */}
+            {/* <div className="flex items-center gap-4">
               {isLoggedIn ? (
                 <NavbarButton 
                   variant="primary" 
@@ -178,7 +180,7 @@ export default function NavbarDemo() {
                   </NavbarButton>
                 </>
               )}
-            </div>
+            </div> */}
           </NavBody>
         </div>
 
@@ -204,7 +206,8 @@ export default function NavbarDemo() {
               navItems={[...navItems, { name: "Contact Us", link: "/contact" }]}
               handleNavItemClick={handleNavItemClick}
             />
-            {isMobileMenuOpen && (
+            {/* HIDDEN - Mobile Sign In/Sign Up buttons commented out */}
+            {/* {isMobileMenuOpen && (
               <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 lg:hidden">
                 {isLoggedIn ? (
                   <NavbarButton 
@@ -233,7 +236,7 @@ export default function NavbarDemo() {
                   </>
                 )}
               </div>
-            )}
+            )} */}
           </MobileNav>
         </div>
       </Navbar>

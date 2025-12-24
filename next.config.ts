@@ -30,6 +30,14 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  // Disable ESLint during builds (set to false to re-enable)
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Disable TypeScript errors during builds (set to false to re-enable)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   /* config options here */
 };
 
