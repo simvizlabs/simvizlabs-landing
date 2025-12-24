@@ -101,10 +101,11 @@ export default function NavbarDemo() {
       name: "Our Products",
       link: "/products",
     },
-    {
-      name:"Pricing",
-      link:"/pricing",
-    },
+    // HIDDEN - Pricing removed
+    // {
+    //   name:"Pricing",
+    //   link:"/pricing",
+    // },
     {
       name: "More",
       link: "#",
@@ -114,7 +115,8 @@ export default function NavbarDemo() {
         { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
         { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
         {name:"Our Products", link:"/products", icon: IconPlane},
-        {name:"Pricing", link:"/pricing", icon: IconPlane},
+        // HIDDEN - Pricing removed
+        // {name:"Pricing", link:"/pricing", icon: IconPlane},
       ]
       }
    ];
@@ -151,7 +153,8 @@ export default function NavbarDemo() {
           <NavBody>
             <NavbarLogo isScrolled={isScrolled} />
             <NavItems items={navItems} onItemClick={handleNavItemClick} />
-            <div className="flex items-center gap-4">
+            {/* HIDDEN - Sign In/Sign Up buttons removed */}
+            {/* <div className="flex items-center gap-4">
               {isLoggedIn ? (
                 <NavbarButton 
                   variant="primary" 
@@ -178,7 +181,7 @@ export default function NavbarDemo() {
                   </NavbarButton>
                 </>
               )}
-            </div>
+            </div> */}
           </NavBody>
         </div>
 
@@ -204,7 +207,8 @@ export default function NavbarDemo() {
               navItems={[...navItems, { name: "Contact Us", link: "/contact" }]}
               handleNavItemClick={handleNavItemClick}
             />
-            {isMobileMenuOpen && (
+            {/* HIDDEN - Mobile Sign In/Sign Up buttons removed */}
+            {/* {isMobileMenuOpen && (
               <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 lg:hidden">
                 {isLoggedIn ? (
                   <NavbarButton 
@@ -233,7 +237,7 @@ export default function NavbarDemo() {
                   </>
                 )}
               </div>
-            )}
+            )} */}
           </MobileNav>
         </div>
       </Navbar>
