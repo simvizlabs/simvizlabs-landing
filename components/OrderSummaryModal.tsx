@@ -42,9 +42,10 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
     if (!userId || !isLoaded) {
       setError("Please sign in to continue");
       // Redirect to sign-in
-      const currentUrl = window.location.href;
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("openOrderModal", "true");
       const signInUrl = new URL("/sign-in", window.location.origin);
-      signInUrl.searchParams.set("redirect_url", currentUrl);
+      signInUrl.searchParams.set("redirect_url", currentUrl.toString());
       router.push(signInUrl.toString());
       return;
     }
