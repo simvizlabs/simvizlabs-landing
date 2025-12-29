@@ -231,20 +231,35 @@ const PilotCard = ({ pilot }: { pilot: { image: string; alt: string; title: stri
   );
 };
 
+
+import { useAuth } from "@clerk/nextjs";
+
+// ...
+
 const A320FMSLandingContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+  const { userId, isLoaded } = useAuth();
 
   useEffect(() => {
     if (searchParams.get("openOrderModal") === "true") {
       setIsOrderModalOpen(true);
-      // Optional: Cleanup URL
-      // const newUrl = new URL(window.location.href);
-      // newUrl.searchParams.delete("openOrderModal");
-      // router.replace(newUrl.toString(), { scroll: false }); 
     }
   }, [searchParams]);
+
+  const handleStartTraining = () => {
+    if (isLoaded && !userId) {
+      // Redirect to sign-in
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("openOrderModal", "true");
+      const signInUrl = new URL("/sign-in", window.location.origin);
+      signInUrl.searchParams.set("redirect_url", currentUrl.toString());
+      router.push(signInUrl.toString());
+    } else {
+      setIsOrderModalOpen(true);
+    }
+  };
 
   // Interview preparation topics
   const interviewTopics = [
@@ -384,7 +399,7 @@ const A320FMSLandingContent = () => {
                   <Button
                     size="lg"
                     className="bg-[#1381E5] hover:bg-blue-700 rounded-[24px] font-semibold text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-geist w-full sm:w-auto"
-                    onClick={() => setIsOrderModalOpen(true)}
+                    onClick={() => handleStartTraining()}
                   >
                     Start Training
                   </Button>
@@ -580,7 +595,7 @@ const A320FMSLandingContent = () => {
                   <Button
                     size="lg"
                     className="w-full sm:max-w-64 rounded-xl sm:rounded-2xl lg:rounded-[24px] bg-[#1381E5] hover:bg-blue-700 text-white mb-4 sm:mb-6 font-geist"
-                    onClick={() => setIsOrderModalOpen(true)}
+                    onClick={() => handleStartTraining()}
                   >
                     Get Started
                   </Button>
