@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { CircleCheck, Info } from "lucide-react";
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { motion, useScroll, useTransform } from "motion/react";
+import { OrderSummaryModal } from "@/components/OrderSummaryModal";
 
 const StickyScrollRevealSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,10 +54,10 @@ const StickyScrollRevealSection = () => {
             {/* Text content - centered */}
             <div className="w-full max-w-4xl space-y-2 md:space-y-4 text-center px-4">
               <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl   2xl:text-8xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                   Master The FMS
                 </h2>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl  2xl:text-8xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                   Before Your Jet Transition
                 </h2>
               </div>
@@ -90,7 +92,7 @@ const StickyScrollRevealSection = () => {
                       />
                     </div>
                     {/* Paragraph text */}
-                    <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-6 md:leading-8 font-medium text-black dark:text-gray-300 font-geist flex-1 pt-1">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg leading-6 md:leading-8 font-medium text-black dark:text-gray-300 font-geist flex-1 pt-1">
                       {text}
                     </p>
                   </motion.div>
@@ -159,11 +161,11 @@ const HorizontalScrollRevealSection = () => {
           <div className="relative">
             {/* Heading */}
             <div className="mb-20 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  2xl:text-7xl font-bold tracking-tight text-white font-geist">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
                 <span className="inline-block">D</span>
                 <span className="inline-block">emonstrated FMS Competence</span>
               </h2>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
                 Signals Four Critical Attributes:
               </h2>
             </div>
@@ -194,11 +196,11 @@ const Card = ({ attr }: { attr: { title: string; description: string } }) => {
   return (
     <div className="flex-shrink-0 w-full md:w-[calc(55%-1rem)] lg:w-[calc(55%-1.5rem)] xl:w-[calc(55%-2rem)]">
       <div className="rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 h-full">
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl  font-bold text-white mb-3 md:mb-4 font-geist">
+        <h3 className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl font-bold text-white mb-3 md:mb-4 font-geist">
           {attr.title}
         </h3>
         <hr className="border-gray-400 mb-3 md:mb-4" />
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl  2xl:text-2xl text-gray-300 dark:text-gray-400 font-geist leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-2xl text-gray-300 dark:text-gray-400 font-geist leading-relaxed">
           {attr.description}
         </p>
       </div>
@@ -230,6 +232,7 @@ const PilotCard = ({ pilot }: { pilot: { image: string; alt: string; title: stri
 
 const A320FMSLandingPage = () => {
   const router = useRouter();
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   // Interview preparation topics
   const interviewTopics = [
@@ -268,6 +271,13 @@ const A320FMSLandingPage = () => {
       image: "/images/in/a320/fms_mock.png",
       imageAlt: "FMS Simulator Interface",
       featuresLabel: "Key Features:",
+      info:true,
+      infoDetails: [{
+        id: 1,
+        name: "Minimum Requirements",
+        designation: "iPadOS 16.0+ \n MacOs Venture 13.0 (Apple Silicon Only)",
+        icon: Info  
+      }],
       features: [
         "Full MCDU functionality",
         "Complete preflight programming (DIFRIPPS)",
@@ -284,6 +294,7 @@ const A320FMSLandingPage = () => {
       image: "/images/in/a320/lms_mock.png",
       imageAlt: "Structured LMS Interface",
       featuresLabel: "Training modules:",
+      info:false,
       features: [
         "FMS fundamentals and phases of flight",
         "Pre‑flight setup and performance planning",
@@ -351,17 +362,17 @@ const A320FMSLandingPage = () => {
           <div className="relative z-10 flex h-full items-end justify-center pb-8 sm:pb-12 md:pb-16 lg:pb-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
               <div className="mx-auto text-center">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl  2xl:text-8xl font-bold tracking-tight text-[#252121] font-geist drop-shadow-lg">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold tracking-tight text-[#252121] font-geist drop-shadow-lg">
                   A320 FMS Simulator
                 </h1>
-                <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl  2xl:text-4xl leading-6 sm:leading-7 md:leading-8 text-[#252121] font-geist drop-shadow-md px-4">
+                <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-4xl leading-6 sm:leading-7 md:leading-8 text-[#252121] font-geist drop-shadow-md px-4">
                   Land Your Dream Airline Job with Complete FMS and Automation Mastery
                 </p>
                 <div className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 px-4">
                   <Button
                     size="lg"
                     className="bg-[#1381E5] hover:bg-blue-700 rounded-[24px] font-semibold text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-geist w-full sm:w-auto"
-                    onClick={() => router.push("/checkout?product=A320 FMS Simulator&amount=9000&productId=a320-bundle")}
+                    onClick={() => setIsOrderModalOpen(true)}
                   >
                     Start Training
                   </Button>
@@ -405,7 +416,7 @@ const A320FMSLandingPage = () => {
               </div>
             </div>
             <div className="max-w-3xl my-12 sm:my-16 md:my-20 lg:my-24">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl  2xl:text-8xl font-bold tracking-tight text-white font-geist">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
                 A320 FMS Simulator Advantage
               </h2>
             </div>
@@ -423,10 +434,10 @@ const A320FMSLandingPage = () => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white font-geist block mb-3 sm:mb-4">
+                    <span className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl font-bold text-white font-geist block mb-3 sm:mb-4">
                       {card.number}.
                     </span>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-geist leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl text-white font-geist leading-relaxed">
                       {card.text}
                     </p>
                   </div>
@@ -440,7 +451,7 @@ const A320FMSLandingPage = () => {
         <section className="bg-[#222121] dark:bg-neutral-950 py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl text-left mb-8 sm:mb-12 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl  2xl:text-8xl font-bold tracking-tight text-white font-geist">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
                 Training Platform Overview
               </h2>
             </div>
@@ -457,10 +468,10 @@ const A320FMSLandingPage = () => {
                     />
                   </div>
                   <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl  font-bold text-white font-geist">{card.title}</h3>
-                    <Info className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-8 lg:w-8  text-white flex-shrink-0" />
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-white font-geist">{card.title}</h3>
+                    {card.info && card.infoDetails ? <AnimatedTooltip items={card.infoDetails} /> : null}
                   </div>
-                  <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl dark:text-gray-400 mb-4 sm:mb-6 font-geist leading-relaxed">
+                  <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg dark:text-gray-400 mb-4 sm:mb-6 font-geist leading-relaxed">
                     {card.description}
                   </p>
 
@@ -469,7 +480,7 @@ const A320FMSLandingPage = () => {
                   <hr className="border-gray-400 mb-1" />
                     <ul className="space-y-2 text-gray-300 dark:text-gray-400 font-geist">
                       {card.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex text-xs sm:text-sm md:text-base lg:text-lg text-[#FFFFFFB2] opacity-70 font-normal items-center gap-2 leading-relaxed">
+                        <li key={featureIndex} className="flex text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-[#FFFFFFB2] opacity-70 font-normal items-center gap-2 leading-relaxed">
                            {feature}
                         </li>
                       ))}
@@ -495,10 +506,10 @@ const A320FMSLandingPage = () => {
                 />
               </div>
               <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  2xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
                   Train for Real-World Airline Interviews
                 </h2>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-6 sm:leading-7 md:leading-8 font-medium text-gray-700 dark:text-gray-300 font-geist mb-4 sm:mb-6">
+                <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg leading-6 sm:leading-7 md:leading-8 font-medium text-gray-700 dark:text-gray-300 font-geist mb-4 sm:mb-6">
                   The platform prepares pilots for common airline technical interview questions, including:
                 </p>
                 <ul className="space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300 font-geist">
@@ -518,7 +529,7 @@ const A320FMSLandingPage = () => {
         <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                 A320 FMS Simulator Is Built For
               </h2>
             </div>
@@ -535,48 +546,48 @@ const A320FMSLandingPage = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="flex flex-col items-center justify-center">
               <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10 md:mb-12 px-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
                   Turn Expensive Simulator Time Into Effective Training
                 </h2>
-                <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-lg lg:text-xl  2xl:text-3xl font-normal text-gray-700 dark:text-gray-300 font-geist">
+                <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-3xl font-normal text-gray-700 dark:text-gray-300 font-geist">
                   <p>Traditional type rating cost ~₹3,000,000. </p>
                   <p>Add  ₹800,000 – ₹1,200,000 for additional simulator session.</p>
                 </div>
               </div>
               <div className="rounded-2xl w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16  2xl:px-24">
                 <div className="border-2 border-[#1381E5] bg-white rounded-xl sm:rounded-2xl lg:rounded-[24px] px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-24 py-6 sm:py-8 md:py-12 lg:py-16">
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#1381E5] dark:text-white mb-2 font-geist text-center">
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-[#1381E5] dark:text-white mb-2 font-geist text-center">
                   For individuals
                   </h3>
                   <div className="text-center mb-4 sm:mb-6">
-                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl  2xl:text-8xl font-bold text-gray-900 dark:text-white font-geist">₹9,000</span>
+                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold text-gray-900 dark:text-white font-geist">₹9,000</span>
                     <br/>
-                    <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
+                    <span className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
                   </div>
                   <div className="text-center w-full">
                   <Button
                     size="lg"
                     className="w-full sm:max-w-64 rounded-xl sm:rounded-2xl lg:rounded-[24px] bg-[#1381E5] hover:bg-blue-700 text-white mb-4 sm:mb-6 font-geist"
-                    onClick={() => router.push("/checkout?product=A320 FMS Simulator&amount=9000&productId=a320-bundle")}
+                    onClick={() => setIsOrderModalOpen(true)}
                   >
                     Get Started
                   </Button>
                   </div>
                   <hr className="border-gray-400 my-4 sm:my-6" />
                   <ul className="space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300 font-geist">
-                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg items-start gap-2 leading-relaxed">
                       <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>Complete A320 FMS and auto flight simulator</span>
                     </li>
-                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg items-start gap-2 leading-relaxed">
                       <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>All learning and training modules</span>
                     </li>
-                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg items-start gap-2 leading-relaxed">
                       <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>Airline interview preparation content</span>
                     </li>
-                    <li className="flex text-sm sm:text-base md:text-lg lg:text-xl items-start gap-2 leading-relaxed">
+                    <li className="flex text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg items-start gap-2 leading-relaxed">
                       <CircleCheck className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <span>Unlimited practice with no usage limits</span>
                     </li>
@@ -614,10 +625,10 @@ const A320FMSLandingPage = () => {
            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
            
             <div className="mx-auto max-w-5xl text-center bg-black py-12 sm:py-16 md:py-24 lg:py-32  2xl:py-52 px-4">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl   2xl:text-6xl font-bold tracking-tight text-white font-geist mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-6xl font-bold tracking-tight text-white font-geist mb-4 sm:mb-6">
                 About SimvizLabs
               </h2>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl  leading-6 sm:leading-7 md:leading-8 text-gray-300 dark:text-gray-400 font-geist">
+              <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg leading-6 sm:leading-7 md:leading-8 text-gray-300 dark:text-gray-400 font-geist">
               Our mission is to democratize professional aviation training by enabling pilots to maximize the value of expensive simulator time through early system mastery.              </p>
             </div>
           </div>
@@ -627,6 +638,12 @@ const A320FMSLandingPage = () => {
     <div className="-m-[1px]" >
       <Footer />
       </div>
+      
+      {/* Order Summary Modal */}
+      <OrderSummaryModal
+        open={isOrderModalOpen}
+        onOpenChange={setIsOrderModalOpen}
+      />
     </div>
   );
 };

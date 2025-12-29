@@ -81,14 +81,20 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn("fixed bg-white inset-x-0 top-0 z-40 w-full shadow-md ", className)}
     >
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
-            )
-          : child,
-      )}
+      {React.Children.map(children, (child) => {
+        if (!React.isValidElement(child)) {
+          return child;
+        }
+        // Only pass visible prop to components that accept it, not to DOM elements
+        const isDOMElement = typeof child.type === 'string';
+        if (isDOMElement) {
+          return child;
+        }
+        return React.cloneElement(
+          child as React.ReactElement<{ visible?: boolean }>,
+          { visible },
+        );
+      })}
     </motion.div>
   );
 };

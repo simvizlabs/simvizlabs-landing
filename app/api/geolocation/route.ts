@@ -1,42 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Indian locale codes
-const INDIAN_LOCALES = ['en-IN', 'hi-IN', 'ta-IN', 'te-IN', 'kn-IN', 'ml-IN', 'mr-IN', 'gu-IN', 'pa-IN', 'bn-IN', 'or-IN', 'as-IN', 'ne-IN', 'ur-IN'];
-
 /**
- * Detect if user is from India based on Accept-Language header
+ * Detect if user is from India using CloudFront Viewer Country
  */
-function isIndianLocale(req: NextRequest): boolean {
-  const acceptLanguage = req.headers.get('accept-language') || '';
-  
-  // Check for Indian locale codes
-  for (const locale of INDIAN_LOCALES) {
-    if (acceptLanguage.includes(locale)) {
-      return true;
-    }
+function isIndiaUser(req: NextRequest): {
+  isIndia: boolean;
+  method: string;
+} {
+  const cfCountry = req.headers.get('cloudfront-viewer-country');
+
+  if (cfCountry) {
+    return {
+      isIndia: cfCountry === 'IN',
+      method: 'cloudfront-viewer-country',
+    };
   }
-  
-  // Check for 'IN' country code in locale string
-  if (acceptLanguage.match(/[-_]IN\b/i)) {
-    return true;
-  }
-  
-  // Check for common Indian language codes
-  const indianLanguages = ['hi', 'ta', 'te', 'kn', 'ml', 'mr', 'gu', 'pa', 'bn', 'or', 'as', 'ne', 'ur'];
-  const languages = acceptLanguage.toLowerCase().split(',').map(lang => lang.split(';')[0].trim().split('-')[0]);
-  
-  for (const lang of languages) {
-    if (indianLanguages.includes(lang)) {
-      return true;
-    }
-  }
-  
-  return false;
+
+  // Header missing (local dev / non-CloudFront)
+  return {
+    isIndia: false,
+    method: 'cloudfront-header-missing',
+  };
 }
 
 export async function GET(request: NextRequest) {
   try {
-    // Check for test parameter first
+    // 🧪 Explicit test override
     const testIndia = request.nextUrl.searchParams.get('testIndia');
     if (testIndia === 'true') {
       return NextResponse.json({
@@ -45,47 +34,43 @@ export async function GET(request: NextRequest) {
         country: 'India',
         countryCode: 'IN',
         method: 'test-parameter',
-        locale: 'en-IN'
+        locale: 'en-IN',
       });
     }
 
-    // Use i18n locale detection (preferred method)
-    const isIndia = isIndianLocale(request);
-    
-    if (isIndia) {
-      const acceptLanguage = request.headers.get('accept-language') || '';
-      const locale = acceptLanguage.split(',')[0].trim();
-      
+    const result = isIndiaUser(request);
+    const acceptLanguage = request.headers.get('accept-language') || '';
+
+    if (result.isIndia) {
       return NextResponse.json({
         success: true,
         isIndia: true,
         country: 'India',
         countryCode: 'IN',
-        method: 'i18n-locale',
-        locale: locale,
-        acceptLanguage: acceptLanguage
+        method: result.method,
+        locale: acceptLanguage.split(',')[0]?.trim(),
+        acceptLanguage,
       });
     }
 
-    // If not Indian locale, return false
-    const acceptLanguage = request.headers.get('accept-language') || '';
-    
     return NextResponse.json({
       success: true,
       isIndia: false,
       country: 'Unknown',
       countryCode: 'XX',
-      method: 'i18n-locale',
-      locale: acceptLanguage.split(',')[0].trim() || 'en',
-      acceptLanguage: acceptLanguage
+      method: result.method,
+      locale: acceptLanguage.split(',')[0]?.trim() || 'en',
+      acceptLanguage,
     });
   } catch (error: any) {
     console.error('Geolocation route error:', error);
-    return NextResponse.json({
-      success: false,
-      isIndia: false,
-      error: error.message
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        success: false,
+        isIndia: false,
+        error: error.message,
+      },
+      { status: 500 }
+    );
   }
 }
-
