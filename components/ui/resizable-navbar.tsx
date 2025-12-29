@@ -313,7 +313,7 @@ export const MobileNavMenu = ({
               </motion.div>
             ))}
           </div>
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -332,7 +332,7 @@ export const MobileNavMenu = ({
             >
               Contact Us
             </NavbarButton>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       )}
     </AnimatePresence>

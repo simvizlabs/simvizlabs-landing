@@ -124,6 +124,7 @@ const HorizontalScrollRevealSection = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "end end"],
   });
 
   const attributes = [
@@ -147,7 +148,7 @@ const HorizontalScrollRevealSection = () => {
 
   // Adjust transform for wider cards (50% width each, show 2 at a time)
   // To show all 4 cards, move by approximately 100% (2 card widths)
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-98%"]);
+  const x = useTransform(scrollYProgress, [0.15, 1], ["1%", "-115%"]);
 
   return (
     <section 
@@ -442,8 +443,8 @@ const A320FMSLandingContent = () => {
                 />
               </div>
             </div>
-            <div className="max-w-3xl my-12 sm:my-16 md:my-20 lg:my-24">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
+            <div className="max-w-7xl my-12 sm:my-16 md:my-20 lg:my-24">
+              <h2 className="sm:text-2xl md:text-2xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
                 A320 FMS Simulator Advantage
               </h2>
             </div>
