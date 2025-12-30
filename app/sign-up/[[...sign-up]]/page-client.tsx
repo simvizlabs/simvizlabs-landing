@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function SignUpPageClient() {
   const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get('redirect_url') || '/checkout';
+  const redirectUrl = searchParams.get('redirect_url') || '/dashboard';
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-white dark:bg-neutral-900 font-geist">

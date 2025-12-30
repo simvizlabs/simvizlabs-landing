@@ -163,9 +163,14 @@ const DashboardPage = () => {
   return (
     <div className="min-h-screen mt-24 bg-white dark:bg-neutral-900 font-geist">
       <NavbarDemo />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <main className="">
         {/* Active Subscription Section */}
-        <section className="mb-12">
+        
+        <section className="bg-gray-100 py-20 px-[9em]">
+          <div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Profile</h2>
+          </div>
+          <hr className="mb-10"/>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
             Hi, {userFullName}
           </h2>
@@ -174,75 +179,62 @@ const DashboardPage = () => {
           </h3>
 
           {hasActiveSubscription ? (
-            <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 sm:p-8 shadow-sm">
-              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
-                {/* Product Image */}
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/images/in/a320/fms_simulator.png"
-                    alt="A320 FMS Simulator"
-                    width={400}
-                    height={300}
-                    className="rounded-lg w-full max-w-[400px] h-auto"
-                  />
+            <div className="grid grid-cols-1 lg:grid-cols-3">
+              {/* Column 1: Plan Details */}
+              <div className="bg-white dark:bg-neutral-800 dark:border-blue-600 p-6 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    {subscriptionProductName}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    Included in The Plan
+                  </p>
+                  <ul className="space-y-2 mb-6 text-sm text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start gap-2">
+                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                       <span>Complete A320 FMS and auto flight simulator</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                       <span>All learning and training modules</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                       <span>Airline interview preparation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                       <span>Unlimited practice with no usage limits</span>
+                    </li>
+                  </ul>
                 </div>
 
-                {/* Product Details */}
-                <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-                    <div>
-                      <h4 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-                        {subscriptionProductName}
-                      </h4>
-                      {activeSubscription && (
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                            activeSubscription.isActive 
-                              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                              : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
-                          }`}>
-                            {activeSubscription.status.toUpperCase()}
-                          </span>
-                          {subscriptionEndDate && (
-                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                              Expires: {subscriptionEndDate}
-                            </span>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                    <Button
-                      className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6 py-2 w-full sm:w-auto"
-                    >
-                      Go To LMS
-                    </Button>
-                  </div>
-
-                  {/* Activation Key */}
+                <div>
+                   {/* Activation Key */}
                   <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                         Share Activation Key
                       </span>
-                    </div>
-                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-neutral-700 rounded-lg p-3">
-                      <span className="flex-1 font-mono text-sm text-gray-900 dark:text-white">
-                        {isKeyVisible ? activationKey : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
-                      </span>
                       <button
                         onClick={toggleKeyVisibility}
-                        className="p-2 hover:bg-gray-200 dark:hover:bg-neutral-600 rounded transition-colors"
+                        className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                         aria-label="Toggle key visibility"
                       >
-                        {isKeyVisible ? (
-                          <EyeOff className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                         {isKeyVisible ? (
+                          <EyeOff className="h-4 w-4" />
                         ) : (
-                          <Eye className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                          <Eye className="h-4 w-4" />
                         )}
                       </button>
-                      <button
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="flex-1 font-mono text-sm text-gray-900 dark:text-white break-all">
+                        {isKeyVisible ? activationKey : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+                      </span>
+                       <button
                         onClick={copyToClipboard}
-                        className="p-2 hover:bg-gray-200 dark:hover:bg-neutral-600 rounded transition-colors"
+                        className="p-1 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded transition-colors"
                         aria-label="Copy activation key"
                       >
                         {isCopied ? (
@@ -254,28 +246,66 @@ const DashboardPage = () => {
                     </div>
                   </div>
 
-                  {/* Subscription Details */}
-                  <div className="space-y-2 text-sm sm:text-base">
-                    <div className="text-gray-700 dark:text-gray-300">
-                      <span className="font-semibold">{formatAmount(subscriptionAmount)}/year</span>
-                    </div>
-                    {activeSubscription?.paymentId && (
-                      <div className="text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">Payment ID: {activeSubscription.paymentId}</span>
-                      </div>
-                    )}
-                    {activePayment?.transactionId && (
-                      <div className="text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">Transaction ID: {activePayment.transactionId}</span>
-                      </div>
-                    )}
-                    {activeSubscription?.startDate && (
-                      <div className="text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">Start Date: {new Date(activeSubscription.startDate).toLocaleDateString()}</span>
-                      </div>
+                  <div className="flex items-center justify-between text-sm pt-4 border-t border-gray-100 dark:border-gray-700">
+                    <span className="text-blue-600 dark:text-blue-400 font-medium">
+                        {formatAmount(subscriptionAmount)}/year
+                    </span>
+                    {subscriptionEndDate && (
+                         <span className="text-gray-500 dark:text-gray-400">
+                           Active until {subscriptionEndDate}
+                         </span>
                     )}
                   </div>
                 </div>
+              </div>
+
+              {/* Column 2: FMS Simulator */}
+              <div className="bg-white dark:bg-neutral-800dark:border-gray-700  p-6 flex flex-col">
+                <div className="mb-6 flex-grow flex items-center justify-center dark:bg-neutral-900 rounded-lg p-4">
+                   <Image
+                    src="/images/in/a320/fms_mock.png"
+                    alt="A320 FMS Simulator"
+                    width={400}
+                    height={300}
+                    className="rounded-lg w-full h-auto object-cover"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  FMS Simulator
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
+                  Complete access to all training solutions and features.
+                </p>
+                 <Button
+                    className=" bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
+                  >
+                  Access Simulator
+                </Button>
+              </div>
+
+               {/* Column 3: LMS */}
+              <div className="bg-white dark:bg-neutral-800  dark:border-gray-700  p-6 flex flex-col">
+                 <div className="mb-6 flex-grow flex items-center justify-center dark:bg-neutral-900 rounded-lg p-4">
+                   <Image
+                    src="/images/in/a320/lms_mock.png"
+                    alt="LMS"
+                    width={400}
+                    height={300}
+                    className="rounded-lg w-full h-auto object-cover"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  LMS
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
+                  Complete access to learning and training modules.
+                </p>
+                 <Button
+                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
+                    onClick={() => router.push("https://lms.simvizlabs.com")}
+                  >
+                  Access LMS
+                </Button>
               </div>
             </div>
           ) : (
@@ -295,7 +325,7 @@ const DashboardPage = () => {
 
         {/* All Subscriptions Section */}
         {userData && userData.subscriptions.length > 0 && (
-          <section className="mb-12">
+          <section className="px-[9em]  py-10">
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               All Subscriptions ({userData.totalSubscriptions})
             </h3>
@@ -346,12 +376,12 @@ const DashboardPage = () => {
 
         {/* Transaction History Section */}
         {payments.length > 0 && (
-          <section className="mb-12">
+          <section className="px-[9em]  py-10">
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Transaction History ({payments.length})
             </h3>
             <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto overflow-y-auto max-h-[500px]">
                 <table className="w-full">
                   <thead className="bg-gray-50 dark:bg-neutral-700">
                     <tr>
@@ -402,48 +432,49 @@ const DashboardPage = () => {
         )}
 
         {/* Profile Setting Section */}
-        <section>
-          <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-            Profile Setting
+        <section className="px-[9em]  py-10">
+          <h3 className="text-3xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-6">
+            Profile Settings
           </h3>
 
           <div className="space-y-8">
             {/* User Information */}
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            {/* User Information */}
+            <div className="flex flex-col md:flex-row md:gap-8 w-full">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white md:w-48 shrink-0">
                 User Information
               </h4>
-              <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+              <div className="flex-1 bg-white dark:bg-neutral-800 p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
                       First Name
                     </label>
-                    <p className="text-gray-900 dark:text-white">{user.firstName || "N/A"}</p>
+                    <p className="text-gray-900 dark:text-white font-normal">{user.firstName || "N/A"}</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
                       Last Name
                     </label>
-                    <p className="text-gray-900 dark:text-white">{user.lastName || "N/A"}</p>
+                    <p className="text-gray-900 dark:text-white font-normal">{user.lastName || "N/A"}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Payment */}
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <div className="flex flex-col md:flex-row md:gap-8 w-full">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white md:w-48 shrink-0">
                 Payment
               </h4>
-              <div className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+              <div className="flex-1 bg-white dark:bg-neutral-800 p-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Billing Contact */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                       Billing Contact
                     </label>
-                    <div className="space-y-1 text-sm text-gray-900 dark:text-white">
+                    <div className="space-y-1 text-sm text-gray-900 dark:text-white font-normal">
                       <p>{userFullName}</p>
                       <p>{userEmail || "N/A"}</p>
                       <p>{userPhone || "N/A"}</p>
@@ -452,10 +483,10 @@ const DashboardPage = () => {
 
                   {/* Billing Address */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                       Billing Address
                     </label>
-                    <div className="space-y-1 text-sm text-gray-900 dark:text-white">
+                    <div className="space-y-1 text-sm text-gray-900 dark:text-white font-normal">
                       {activePayment ? (
                         <>
                           <p>{userFullName}</p>
@@ -469,10 +500,10 @@ const DashboardPage = () => {
 
                   {/* Payment Method */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
                       Payment Method
                     </label>
-                    <div className="space-y-1 text-sm text-gray-900 dark:text-white">
+                    <div className="space-y-1 text-sm text-gray-900 dark:text-white font-normal">
                       {activePayment ? (
                         <>
                           <p>PhonePe</p>

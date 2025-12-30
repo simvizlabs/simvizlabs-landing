@@ -159,21 +159,21 @@ const HorizontalScrollRevealSection = () => {
       }}
     >
       <div className="md:sticky md:top-0 flex min-h-0 md:min-h-screen items-start md:items-center overflow-hidden py-12 sm:py-16 md:py-20">
-        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12  2xl:px-24">
+        <div className="max-w-7xl m-auto overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12  2xl:px-24">
           <div className="relative">
             {/* Heading */}
             <div className="mb-20 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
                 <span className="inline-block">D</span>
                 <span className="inline-block">emonstrated FMS Competence</span>
               </h2>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-white font-geist">
                 Signals Four Critical Attributes:
               </h2>
             </div>
 
             {/* Desktop: Horizontal Scroll Cards */}
-            <div className="hidden md:block lg:mt-24 relative pl-[0.5em] sm:pl-[0.6em] md:pl-[0.7em] lg:pl-[0.8em]">
+            <div className="hidden md:block lg:mt-24 relative">
               <motion.div style={{ x }} className="flex gap-4 md:gap-6 lg:gap-8">
                 {attributes.map((attr, index) => (
                   <Card key={index} attr={attr} />
@@ -212,7 +212,7 @@ const Card = ({ attr }: { attr: { title: string; description: string } }) => {
 
 const PilotCard = ({ pilot }: { pilot: { image: string; alt: string; title: string; description: string } }) => {
   return (
-    <div className="text-center">
+    <div className="">
       <div className="mb-3 sm:mb-4">
         <Image
           src={pilot.image}
@@ -222,7 +222,7 @@ const PilotCard = ({ pilot }: { pilot: { image: string; alt: string; title: stri
           className="rounded-xl mx-auto w-full max-w-[200px] sm:max-w-[250px] lg:max-w-[300px] h-auto"
         />
       </div>
-      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 font-geist">
+      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white font-geist">
         {pilot.title}
       </h3>
       <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-geist">
@@ -303,7 +303,7 @@ const A320FMSLandingContent = () => {
       infoDetails: [{
         id: 1,
         name: "Minimum Requirements",
-        designation: "iPadOS 16.0+ \n MacOs Venture 13.0 (Apple Silicon Only)",
+        designation: "iPadOS 16.0+ \n MacOs Ventura 13.0 (Apple Silicon Only)",
         icon: Info  
       }],
       features: [
@@ -340,25 +340,25 @@ const A320FMSLandingContent = () => {
       image: "/images/in/a320/pilot/pilot1.png",
       alt: "CPL Holders",
       title: "CPL Holders",
-      description: "Looking for their first airline job.",
+      description: "Preparing for airline interviews",
     },
     {
       image: "/images/in/a320/pilot/pilot2.png",
       alt: "Pilots",
       title: "Pilots",
-      description: "Seeking type rating preparation.",
+      description: "Planning A320 type ratings",
     },
     {
       image: "/images/in/a320/pilot/pilot3.png",
       alt: "Airline Pilots",
       title: "Airline Pilots",
-      description: "Looking for recurrent training.",
+      description: "Transitioning to Airbus",
     },
     {
       image: "/images/in/a320/pilot/pilot4.png",
-      alt: "Aviation Professionals",
-      title: "Aviation Professionals",
-      description: "Enhancing their skills and knowledge.",
+      alt: "Flight Instructors",
+      title: "Flight Instructors",
+      description: "Upgrading System Knowledge",
     },
   ];
 
@@ -413,7 +413,7 @@ const A320FMSLandingContent = () => {
                     Watch Demo
                   </Button>
                 </div>
-                <p className="mt-2 text-sm sm:text-base text-[#252121] font-bold font-geist drop-shadow-md px-4">
+                <p className="mt-2 text-sm sm:text-base text-[#252121] font-bold font-geist px-4">
                 One plan. Full access. ₹9,000/year.
                 </p>
               </div>
@@ -433,7 +433,7 @@ const A320FMSLandingContent = () => {
         <section className="py-12 sm:py-16 md:py-20 lg:py-24" style={{ background: 'linear-gradient(to bottom, rgba(34, 33, 33, 1), rgba(25, 23, 22, 1))' }}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center">
-              <div className="relative w-full text-center max-w-5xl">       
+              <div className="">       
                 <Image
                   src="/images/in/a320/fms_simulator.png"
                   alt="A320 FMS Control Display Unit"
@@ -444,7 +444,7 @@ const A320FMSLandingContent = () => {
               </div>
             </div>
             <div className="max-w-7xl my-12 sm:my-16 md:my-20 lg:my-24">
-              <h2 className="sm:text-2xl md:text-2xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
+              <h2 className="sm:text-2xl md:text-4xl lg:text-7xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
                 A320 FMS Simulator Advantage
               </h2>
             </div>
@@ -534,7 +534,7 @@ const A320FMSLandingContent = () => {
                 />
               </div>
               <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
                   Train for Real-World Airline Interviews
                 </h2>
                 <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg leading-6 sm:leading-7 md:leading-8 font-medium text-gray-700 dark:text-gray-300 font-geist mb-4 sm:mb-6">
@@ -556,7 +556,7 @@ const A320FMSLandingContent = () => {
         {/* A320 FMS Simulator Is Built For - White Background */}
         <section className="bg-[#F5F5F7] dark:bg-neutral-900 py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12 md:mb-16">
+            <div className="mx-auto max-w-7xl mb-8 sm:mb-12 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist">
                 A320 FMS Simulator Is Built For
               </h2>
@@ -574,7 +574,7 @@ const A320FMSLandingContent = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="flex flex-col items-center justify-center">
               <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10 md:mb-12 px-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-xl 2xl:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-geist mb-4 sm:mb-6">
                   Turn Expensive Simulator Time Into Effective Training
                 </h2>
                 <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-3xl font-normal text-gray-700 dark:text-gray-300 font-geist">
