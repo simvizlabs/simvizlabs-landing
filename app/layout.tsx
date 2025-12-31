@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
@@ -92,6 +93,7 @@ export default async function RootLayout({
         <body className={`antialiased font-geist`}>
           <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
