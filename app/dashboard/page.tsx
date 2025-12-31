@@ -166,7 +166,7 @@ const DashboardPage = () => {
       <main className="">
         {/* Active Subscription Section */}
         
-        <section className="bg-gray-100 py-20 px-[9em]">
+        <section className="bg-gray-100 py-20 px-4 md:px-10 lg:px-20 xl:px-32">
           <div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Profile</h2>
           </div>
@@ -325,7 +325,7 @@ const DashboardPage = () => {
 
         {/* All Subscriptions Section */}
         {userData && userData.subscriptions.length > 0 && (
-          <section className="px-[9em]  py-10">
+          <section className="px-4 md:px-10 lg:px-20 xl:px-32 py-10">
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               All Subscriptions ({userData.totalSubscriptions})
             </h3>
@@ -376,7 +376,7 @@ const DashboardPage = () => {
 
         {/* Transaction History Section */}
         {payments.length > 0 && (
-          <section className="px-[9em]  py-10">
+          <section className="px-4 md:px-10 lg:px-20 xl:px-32 py-10">
             <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Transaction History ({payments.length})
             </h3>
@@ -432,7 +432,7 @@ const DashboardPage = () => {
         )}
 
         {/* Profile Setting Section */}
-        <section className="px-[9em]  py-10">
+        <section className="px-4 md:px-10 lg:px-20 xl:px-32 py-10">
           <h3 className="text-3xl sm:text-3xl font-semibold text-gray-900 dark:text-white mb-6">
             Profile Settings
           </h3>
