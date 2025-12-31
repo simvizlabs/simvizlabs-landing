@@ -30,28 +30,64 @@ function PaymentStatusContent() {
   useEffect(() => {
     if (!isLoaded) return;
     
-    // Simulate loading or fetch real status if needed
-    // For now, derive from params or fallback
-    setLoading(true);
-
-    const timer = setTimeout(() => {
-        if (statusParam) {
-            if (statusParam.toUpperCase().includes("SUCCESS") || statusParam.toUpperCase() === "COMPLETED") {
-                setStatusState("SUCCESS");
-            } else if (statusParam.toUpperCase().includes("FAIL") || statusParam.toUpperCase().includes("ERROR")) {
-                setStatusState("FAILURE");
-            } else {
-                setStatusState("PENDING");
-            }
+    const checkPaymentStatus = async () => {
+      setLoading(true);
+      
+      try {
+        if (!merchantOrderId) {
+            console.error("No merchant order ID found");
+            setStatusState("FAILURE");
+            setLoading(false);
+            return;
         }
-        
-        setOrderId(merchantOrderId || "XXXXXXXXXXXXXXXX");
-        setOrderDate(new Date().toLocaleDateString("en-GB")); // DD/MM/YYYY format
-        setLoading(false);
-    }, 500);
 
-    return () => clearTimeout(timer);
-  }, [searchParams, isLoaded, statusParam, merchantOrderId]);
+        setOrderId(merchantOrderId);
+        setOrderDate(new Date().toLocaleDateString("en-GB"));
+
+        // Get token for authenticated request if available
+        const token = await getToken();
+        
+        const response = await fetch(`/api/payments/status/${merchantOrderId}`, {
+            headers: {
+                "Content-Type": "application/json",
+                ...(token && { Authorization: `Bearer ${token}` }),
+            }
+        });
+
+        const data = await response.json();
+        console.log("Payment status response:", data);
+
+        if (data.success && data.data) {
+            const paymentState = data.data.state;
+            const statusUpper = paymentState ? paymentState.toUpperCase() : "";
+            
+            if (statusUpper === "PAYMENT_SUCCESS" || statusUpper === "COMPLETED") {
+                setStatusState("SUCCESS");
+            } else if (statusUpper === "PAYMENT_PENDING" || statusUpper === "PENDING") {
+                setStatusState("PENDING");
+            } else {
+                // Covers PAYMENT_ERROR, PAYMENT_DECLINED, FAILED, etc.
+                setStatusState("FAILURE");
+            }
+        } else {
+             // Fallback if API fails or returns error
+             console.error("Payment status check failed:", data.message);
+             // If we have a status param from URL as fallback, use it cautiously?
+             // Ideally we trust the API. If API fails, it's likely a failure or pending.
+             setStatusState("PENDING"); 
+        }
+
+      } catch (error) {
+          console.error("Error checking payment status:", error);
+          setStatusState("PENDING");
+      } finally {
+          setLoading(false);
+      }
+    };
+
+    checkPaymentStatus();
+
+  }, [isLoaded, merchantOrderId, getToken]);
 
 
   const renderStatusIcon = () => {

@@ -138,7 +138,7 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
           <div className="space-y-4">
             {/* A320 FMS Simulator */}
             <div className="flex gap-4">
-              <div className="relative w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div className="relative w-20 h-20 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                 <Image
                   src="/images/in/a320/1.png"
                   alt="A320 FMS Simulator"
@@ -148,10 +148,10 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-gray-900 dark:text-white font-geist text-xl">
+                <h3 className="font-bold text-gray-900 dark:text-white font-geist text-base sm:text-xl">
                   A320 FMS Simulator
                 </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 font-geist mt-1">
+                <p className="text-sm sm:text-lg text-gray-600 dark:text-gray-400 font-geist mt-1">
                   Complete access to all training solutions and features.
                 </p>
               </div>
@@ -159,7 +159,7 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
 
             {/* A320 LMS */}
             <div className="flex gap-4">
-              <div className="relative w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <div className="relative w-20 h-20 sm:w-32 sm:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                 <Image
                   src="/images/in/a320/lms_mock.png"
                   alt="A320 LMS"
@@ -169,10 +169,10 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-gray-900 dark:text-white font-geist text-xl">
+                <h3 className="font-bold text-gray-900 dark:text-white font-geist text-base sm:text-xl">
                   A320 LMS
                 </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 font-geist mt-1">
+                <p className="text-sm sm:text-lg text-gray-600 dark:text-gray-400 font-geist mt-1">
                   Complete access to learning and training modules.
                 </p>
               </div>
