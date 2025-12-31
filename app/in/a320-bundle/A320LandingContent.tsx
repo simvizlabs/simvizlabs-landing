@@ -212,7 +212,7 @@ const Card = ({ attr }: { attr: { title: string; description: string } }) => {
 
 const PilotCard = ({ pilot }: { pilot: { image: string; alt: string; title: string; description: string } }) => {
   return (
-    <div className="">
+    <div className="text-center sm:text-left">
       <div className="mb-3 sm:mb-4">
         <Image
           src={pilot.image}
@@ -443,8 +443,8 @@ const A320FMSLandingContent = () => {
                 />
               </div>
             </div>
-            <div className="max-w-7xl my-12 sm:my-16 md:my-20 lg:my-24">
-              <h2 className="sm:text-2xl md:text-4xl lg:text-7xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
+            <div className="max-w-7xl mx-auto text-center my-12 sm:my-16 md:my-20 lg:my-24">
+              <h2 className="sm:text-2xltext-center md:text-4xl lg:text-7xl 2xl:text-8xl font-bold tracking-tight text-white font-geist">
                 A320 FMS Simulator Advantage
               </h2>
             </div>
