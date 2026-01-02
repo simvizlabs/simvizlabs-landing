@@ -81,14 +81,20 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn("fixed bg-white inset-x-0 top-0 z-40 w-full shadow-md ", className)}
     >
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
-            )
-          : child,
-      )}
+      {React.Children.map(children, (child) => {
+        if (!React.isValidElement(child)) {
+          return child;
+        }
+        // Only pass visible prop to components that accept it, not to DOM elements
+        const isDOMElement = typeof child.type === 'string';
+        if (isDOMElement) {
+          return child;
+        }
+        return React.cloneElement(
+          child as React.ReactElement<{ visible?: boolean }>,
+          { visible },
+        );
+      })}
     </motion.div>
   );
 };
@@ -307,7 +313,7 @@ export const MobileNavMenu = ({
               </motion.div>
             ))}
           </div>
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -326,7 +332,7 @@ export const MobileNavMenu = ({
             >
               Contact Us
             </NavbarButton>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       )}
     </AnimatePresence>
@@ -358,7 +364,7 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
       <Image src="/logo.png" alt="SimvizLabs Logo" width={32} height={32} className="mr-2" />
-      <span className="font-bold text-black dark:text-white">SimvizLabs</span>
+      <span className="font-bold text-black dark:text-white">SimViz Labs</span>
     </a>
   );
 };

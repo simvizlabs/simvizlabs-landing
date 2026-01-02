@@ -10,7 +10,7 @@ export async function GET(
   try {
     // Await params in Next.js 15
     const { orderId } = await params;
-
+    console.log("Order id", orderId);
     // Get authenticated user from Clerk
     const { userId } = await auth();
 
@@ -24,7 +24,7 @@ export async function GET(
     // Get Clerk session token to pass to payments API
     const authObj = await auth();
     const token = await authObj.getToken();
-
+    console.log(token);
     // Call payments API
     const response = await fetch(
       `${PAYMENTS_API_URL}/api/payments/status/${orderId}`,
@@ -38,7 +38,7 @@ export async function GET(
     );
 
     const data = await response.json();
-
+    console.log("Api response for payment status", data);
     if (!response.ok) {
       return NextResponse.json(
         { success: false, message: data.message || 'Failed to get payment status' },

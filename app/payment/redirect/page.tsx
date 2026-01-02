@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import Footer from "@/components/footer";
@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2, XCircle, AlertCircle } from "lucide-react";
 import { formatAmount } from "@/lib/payments";
 import Link from "next/link";
+import NavbarDemo from "@/components/resizable-navbar-demo";
 
 type PaymentStatus = "checking" | "success" | "failed" | "pending" | "error";
 
-const PaymentRedirectPage = () => {
+const PaymentRedirectContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { user, isLoaded } = useUser();
@@ -274,5 +275,24 @@ const PaymentRedirectPage = () => {
   );
 };
 
-export default PaymentRedirectPage;
+export default function PaymentRedirectPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist min-h-screen">
+          <NavbarDemo />
+          <div className="flex items-center justify-center min-h-screen">
+            <div className="flex flex-col items-center justify-center space-y-4">
+              <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+              <p className="text-sm text-gray-600 dark:text-gray-300 font-geist">Loading payment status...</p>
+            </div>
+          </div>
+          <Footer />
+        </div>
+      }
+    >
+      <PaymentRedirectContent />
+    </Suspense>
+  );
+}
 

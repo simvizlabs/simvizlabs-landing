@@ -1,5 +1,5 @@
 export const Logo = () => (
   <div>
-    SimvizLabs
+    SimViz Labs
   </div>
 );
