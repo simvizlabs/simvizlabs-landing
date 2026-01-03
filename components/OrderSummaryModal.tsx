@@ -20,6 +20,13 @@ import { cn } from "@/lib/utils";
 interface OrderSummaryModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  planDetails?: {
+    id: string;
+    name: string;
+    amount: number;
+    interval: string;
+    currency: string;
+  };
 }
 
 const formatAmountDisplay = (amount: number) => {
@@ -29,6 +36,7 @@ const formatAmountDisplay = (amount: number) => {
 export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
   open,
   onOpenChange,
+  planDetails,
 }) => {
   const { getToken, userId, isLoaded } = useAuth();
   const router = useRouter();
@@ -36,10 +44,10 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
   const [error, setError] = useState<string | null>(null);
   const isDesktop = useMediaQuery("(min-width: 640px)");
 
-  const productName = "A320 FMS Simulator";
-  const productAmount = 9000;
-  const productId = "a320-bundle";
-  const amountInPaise = rupeesToPaise(productAmount);
+  const productName = planDetails ? planDetails.name : "A320 FMS Simulator";
+  const productAmount = planDetails ? (planDetails.amount / 100) : 9000; // planDetails.amount is in paise
+  const productId = planDetails ? planDetails.id : "a320-bundle";
+  const amountInPaise = planDetails ? planDetails.amount : rupeesToPaise(productAmount);
 
   const handlePayment = async () => {
     if (!userId || !isLoaded) {
@@ -61,6 +69,7 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
 
       const paymentData = {
         amount: amountInPaise,
+        planId: planDetails?.id, // Send planId if available
         metadata: {
           userId: userId,
           productId: productId,
@@ -72,7 +81,7 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
             Date.now() + 365 * 24 * 60 * 60 * 1000
           ).toISOString(), // 1 year from now
           amount: amountInPaise,
-          currency: "INR",
+          currency: planDetails?.currency || "INR",
         },
       };
 
