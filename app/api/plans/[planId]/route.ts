@@ -5,10 +5,10 @@ const PAYMENTS_API_URL = process.env.NEXT_PUBLIC_PAYMENTS_API_URL || 'http://loc
 
 export async function GET(
     request: NextRequest,
-    { params }: { params: { planId: string } }
+    { params }: { params: Promise<{ planId: string }> }
 ) {
     try {
-        const { planId } = params;
+        const { planId } = await params;
 
         if (!planId) {
             return NextResponse.json(

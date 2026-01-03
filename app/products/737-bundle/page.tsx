@@ -1,19 +1,24 @@
-import React from 'react';
-import Head from "next/head";
+import { Metadata } from 'next';
 import NavbarDemo from "@/components/resizable-navbar-demo";
 
 import Footer from "@/components/footer";
 import HeroSection from '@/components/HeroSection';
 import Pricing from '@/components/pricing';
 
+export const metadata: Metadata = {
+  title: 'B737 Simulator | High-Fidelity FMC Trainer | SimvizLabs',
+  description: 'Master the B737 FMC and automation with our aircraft-level accuracy simulator. Features precise LNAV/VNAV, AI CPDLC, customizable ACARS, and MCP/FMA training.',
+  keywords: ['B737 Simulator', 'FMC Trainer', 'Boeing Training', 'CPDLC', 'ACARS', 'MCP Training', 'Flight Simulation', 'Pilot Training'],
+  openGraph: {
+    title: 'B737 Simulator | High-Fidelity FMC Trainer',
+    description: 'Precise FMC simulation, AI-powered CPDLC, and integrated Boeing systems training.',
+    type: 'website',
+  }
+};
+
 const SeventyThreeSevenBundlePage = () => {
   return (
     <>
-      <Head>
-        <title>B737 CDU Trainer for iPad | Realistic Pilot Training App | SimvizLabs</title>
-        <meta name="description" content="Master the Boeing 737 CDU and FMC with SimvizLabs' realistic iPad training app. Designed for pilots to practice procedures and workflows." />
-        <meta name="keywords" content="B737 CDU trainer, B737 FMS trainer, iPad pilot training, flight simulator app, Boeing 737, pilot training, aviation training, SimvizLabs" />
-      </Head>
       <div>
         <NavbarDemo />
         <div className="container mx-auto ">
