@@ -249,7 +249,32 @@ const A320FMSLandingContent = () => {
     }
   }, [searchParams]);
 
-  const handleStartTraining = () => {
+  const [planDetails, setPlanDetails] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchPlan = async () => {
+      try {
+        const res = await fetch('/api/plans/1');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.data) {
+              setPlanDetails({
+                  id: data.data.planId,
+                  name: data.data.name,
+                  amount: data.data.amount,
+                  interval: data.data.interval,
+                  currency: data.data.currency
+              });
+          }
+        }
+      } catch (e) {
+        console.error("Failed to fetch plan", e);
+      }
+    };
+    fetchPlan();
+  }, []);
+
+  const handleStartTraining = async () => {
     if (isLoaded && !userId) {
       // Redirect to sign-in
       const currentUrl = new URL(window.location.href);
@@ -258,6 +283,26 @@ const A320FMSLandingContent = () => {
       signInUrl.searchParams.set("redirect_url", currentUrl.toString());
       router.push(signInUrl.toString());
     } else {
+      // Check for active subscription
+      try {
+        const res = await fetch(`/api/payments/user/${userId}`);
+        if (res.ok) {
+           const data = await res.json();
+           if (data.success && data.data && data.data.user && data.data.user.activeSubscriptions) {
+               const hasActiveSubscription = data.data.user.activeSubscriptions.some(
+                   (sub: any) => sub.productId === 'a320-bundle' || sub.planId === (planDetails?.id || '1') || sub.productId === (planDetails?.id || '1')
+               );
+
+               if (hasActiveSubscription) {
+                   router.push('/dashboard');
+                   return;
+               }
+           }
+        }
+      } catch (error) {
+          console.error("Error checking subscription:", error);
+          // Fall through to open modal on error
+      }
       setIsOrderModalOpen(true);
     }
   };
@@ -588,7 +633,9 @@ const A320FMSLandingContent = () => {
                   For individuals
                   </h3>
                   <div className="text-center mb-4 sm:mb-6">
-                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold text-gray-900 dark:text-white font-geist">₹9,000</span>
+                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold text-gray-900 dark:text-white font-geist">
+                      {planDetails ? `₹${(planDetails.amount / 100).toLocaleString("en-IN")}` : "₹9,000"}
+                    </span>
                     <br/>
                     <span className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
                   </div>
@@ -671,6 +718,7 @@ const A320FMSLandingContent = () => {
       <OrderSummaryModal
         open={isOrderModalOpen}
         onOpenChange={setIsOrderModalOpen}
+        planDetails={planDetails}
       />
     </div>
   );
