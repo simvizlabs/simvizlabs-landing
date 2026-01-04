@@ -1,44 +1,59 @@
-"use client"; // Add "use client" directive for useEffect
 
-import { useEffect } from 'react'; // Import useEffect
-import HeroSection from "@/components/hero-section";
-import Footer from "@/components/footer";
 import NavbarDemo from "@/components/resizable-navbar-demo";
-import FeatureSection from "@/components/FeatureSection";
-import FeaturesSectionDemo from "@/components/Benefits";
+import { BenefitsSection } from "@/components/landing/BenefitsSection";
+import Footer from "@/components/footer";
+import { HeroSection } from "@/components/landing/HeroSection";
+import { LandingNavbar } from "@/components/landing/LandingNavbar";
+import { MultiPlatformSection } from "@/components/landing/MultiPlatformSection";
+import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+  title: "SimvizLabs - Train Smarter, Fly Safer",
+  description: "Boost pilot readiness and elevate operational confidence with SimvizLabs simulators.",
+};
 
 export default function Home() {
-
-  useEffect(() => {
-    // Check if there's a ha
-    //  in the URL after the component mounts
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const id = window.location.hash; // e.g., "#timeline"
-      const element = document.querySelector(id);
-      if (element) {
-        // Wait a brief moment for the layout to settle, then scroll
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100); // Adjust delay if needed
-      }
-    }
-  }, []); // Empty dependency array ensures this runs once on mount
-
   return (
-    <>
-        
-      
+    <main className="min-h-screen bg-white">
       <NavbarDemo />
       <HeroSection />
-      
-    
-      <FeatureSection id="feature-section" />
-    
-      <FeaturesSectionDemo />
-      
-      <Footer />
-    </>
+
+
+      {/* Sticky Product Flow */}
+      <StickyProductFlow
+        products={[
+          {
+            title: "A320 FMS Simulator",
+            subtitle: "iPad Based",
+            image: "/landing/a320/a320_fms_simulator.png",
+            orientation: "left"
+          },
+          {
+            title: "B737 FMS Simulator",
+            subtitle: "iPad Based",
+            image: "/landing/b737/b737_fms_simulator.png",
+            orientation: "right"
+          },
+          {
+            title: "B747 FMS Simulator",
+            subtitle: "iPad Based",
+            image: "/landing/b747/b747_fms_simulator.png",
+            orientation: "left"
+          },
+          {
+            title: "A new way to train like a pro.",
+            subtitle: "ATR 72-600",
+            image: "/landing/atr/atr.png",
+            orientation: "right",
+            isComingSoon: true
+          }
+        ]}
+      />
+      <MultiPlatformSection />
+      <BenefitsSection />
+      {/* <Footer theme="light" className="bg-[#F5F5F7] border-black/5" /> */}
+      <Footer theme="light" />
+    </main>
   );
 }

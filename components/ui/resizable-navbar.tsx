@@ -52,6 +52,7 @@ interface MobileNavMenuProps {
   onClose: () => void;
   navItems: NavItem[];
   handleNavItemClick: (link: string) => void;
+  className?: string;
 }
 
 interface MobileNavToggleProps {
@@ -61,11 +62,11 @@ interface MobileNavToggleProps {
 
 export const Navbar = ({ children, className }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const {  } = useScroll({
+  const { } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const [visible, ] = useState<boolean>(false);
+  const [visible,] = useState<boolean>(false);
 
   // useMotionValueEvent(, "change", (latest) => {
   //   if (latest > 100) {
@@ -197,7 +198,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               <span className="relative whitespace-nowrap text-sm font-medium transition-all duration-200">
                 {item.name}
               </span>
-            
+
             </Link>
           </div>
         ))}
@@ -257,6 +258,7 @@ export const MobileNavMenu = ({
   onClose,
   navItems,
   handleNavItemClick,
+  className,
 }: MobileNavMenuProps) => {
   const router = useRouter();
   const listMenu = navItems.find(item => item.listMenu)?.listMenu;
@@ -271,9 +273,10 @@ export const MobileNavMenu = ({
           transition={{ duration: 0.3 }}
           className={cn(
             "fixed inset-0 z-50 flex w-full flex-col items-start justify-start gap-4 bg-white px-4 py-8 dark:bg-neutral-950",
+            className
           )}
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -289,7 +292,7 @@ export const MobileNavMenu = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ 
+                transition={{
                   duration: 0.3,
                   delay: isOpen ? idx * 0.1 : (listMenu.length - idx - 1) * 0.1,
                   ease: "easeOut"
@@ -342,16 +345,18 @@ export const MobileNavMenu = ({
 interface MobileNavToggleProps {
   isOpen: boolean;
   onClick: () => void;
+  className?: string;
 }
 
 export const MobileNavToggle = ({
   isOpen,
   onClick,
+  className,
 }: MobileNavToggleProps) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className={cn("text-black dark:text-white", className)} onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className={cn("text-black dark:text-white", className)} onClick={onClick} />
   );
 };
 
@@ -383,9 +388,9 @@ export const NavbarButton = ({
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
 } & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+    | React.ComponentPropsWithoutRef<"a">
+    | React.ComponentPropsWithoutRef<"button">
+  )) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 

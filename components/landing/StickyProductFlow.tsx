@@ -30,7 +30,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
     const step = 1 / products.length;
     const start = index * step;
     const end = start + step;
-    
+
     // Fade transitions with overlap
     const fadeInStart = Math.max(0, start - step * 0.3);
     const fadeInEnd = start + step * 0.2;
@@ -82,81 +82,69 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
   };
 
   return (
-    <div 
-      ref={containerRef} 
-      style={{ height: `${products.length * 100}vh` }} 
+    <div
+      ref={containerRef}
+      style={{ height: `${products.length * 100}vh` }}
       className="relative bg-black"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        <section className="bg-black py-24 text-white overflow-hidden h-full w-full">
-          <div className="container mx-auto px-4 sm:px-8 h-full">
-            <div className="flex flex-col items-center justify-center gap-16 h-full">
-              {/* Text Content - Animated per product */}
-              <div className="flex-0 space-y-4 text-center z-10 relative h-32 md:h-40 mt-16">
-                {products.map((product, index) => {
-                  const styles = getProductStyles(index);
-                  return (
-                    <motion.div
-                      key={`text-${index}`}
-                      style={{
-                        opacity: styles.opacity,
-                        y: styles.y,
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                      }}
-                      className="flex flex-col items-center gap-2"
-                    >
+        <section className="bg-black py-4 md:py-12 text-white overflow-hidden h-full w-full relative">
+          <div className="container mx-auto px-4 sm:px-8 h-full flex flex-col">
+            <div className="relative h-full w-full max-w-[1600px] mx-auto">
+              {products.map((product, index) => {
+                const styles = getProductStyles(index);
+                return (
+                  <motion.div
+                    key={index}
+                    style={{
+                      opacity: styles.opacity,
+                      y: styles.y,
+                      position: 'absolute',
+                      inset: 0,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                    className="px-4"
+                  >
+                    {/* Text Content */}
+                    <div className="flex flex-col items-center gap-3 md:gap-4 text-center mb-8 md:mb-12 z-10">
                       {product.isComingSoon && (
-                        <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-medium text-[#0099FF] backdrop-blur-sm">
+                        <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-[10px] md:text-xs font-medium text-[#0099FF] backdrop-blur-sm">
                           Launching Soon
                         </span>
                       )}
                       <div>
-                        <p className="text-lg font-medium text-white/60 mb-1">{product.subtitle}</p>
-                        <h2 className="text-3xl font-bold leading-tight sm:text-4xl">{product.title}</h2>
+                        <p className="text-sm md:text-lg font-medium text-white/60 mb-1">{product.subtitle}</p>
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">{product.title}</h2>
                       </div>
                       {product.description && (
-                        <p className="text-base text-white/70 max-w-lg mx-auto">
+                        <p className="text-sm md:text-base text-white/70 max-w-lg mx-auto hidden sm:block">
                           {product.description}
                         </p>
                       )}
                       {!product.isComingSoon && (
-                        <Button className="bg-[#0099FF] text-white hover:bg-[#007acc] rounded-full px-8 h-10 text-sm">
+                        <Button className="bg-[#0099FF] text-white hover:bg-[#007acc] rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2">
                           Learn More
                         </Button>
                       )}
-                    </motion.div>
-                  );
-                })}
-              </div>
+                    </div>
 
-              {/* Product Image - Animated per product */}
-              <div className="flex-1 w-full flex justify-center items-center relative" style={{ minHeight: '400px' }}>
-                {products.map((product, index) => {
-                  const styles = getProductStyles(index);
-                  return (
-                    <motion.div
-                      key={`image-${index}`}
-                      style={{
-                        opacity: styles.opacity,
-                        y: styles.y,
-                        position: 'absolute',
-                        inset: 0,
-                      }}
-                      className="flex items-center justify-center"
-                    >
-                      <Image 
-                        src={product.image} 
+                    {/* Product Image */}
+                    <div className="relative w-full flex justify-center items-center">
+                      <Image
+                        src={product.image}
                         alt={product.title}
-                        width={800}
-                        height={600}
-                        className="w-full max-w-[700px] h-auto object-contain" 
+                        width={1200}
+                        height={800}
+                        className="w-auto h-auto scale-[1.3] left-[20px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh] drop-shadow-2xl"
+                        priority={index === 0}
                       />
-                    </motion.div>
-                  );
-                })}
-              </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

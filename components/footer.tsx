@@ -6,17 +6,18 @@ import {
   Linkedin,
 } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const footerSections = [
   {
     title: "Our Solutions",
     links: [
-      
+
       {
         title: "Airlines",
         href: "/airlines",
       },
-    
+
       {
         title: "Aeronautical Schools",
         href: "/aeronautical-schools",
@@ -25,7 +26,7 @@ const footerSections = [
         title: "Type Rating Organizations",
         href: "/type-rating-schools",
       },
-      
+
     ],
   },
   {
@@ -64,23 +65,37 @@ const footerSections = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({
+  className,
+  theme = "dark"
+}: {
+  className?: string;
+  theme?: "dark" | "light";
+}) => {
+  const isDark = theme === "dark";
+
   return (
-    <footer className=" dark bg-black">
+    <footer className={cn(
+      "border-t font-geist",
+      isDark ? "dark bg-black border-white/10" : "bg-white",
+      className
+    )}>
       <div className="max-w-screen-xl mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 px-6">
         <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
           {/* Logo */}
-          <Image
-            src="/logo-dark.png"
-            alt="SimvizLabs"
-            width={48}
-            height={48}
-            className="fill-foreground"
-          />
-          <p className="mt-2 font-bold text-white">SimvizLabs</p>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/logo-dark.png"
+              alt="SimvizLabs"
+              width={48}
+              height={48}
+              className={cn(isDark ? "" : "invert")}
+            />
+          </div>
+          <p className={cn("mt-2 font-bold", isDark ? "text-white" : "text-black")}>SimvizLabs</p>
 
           <p className="mt-4 text-muted-foreground">
-          Next Generation Aviation Solutions.
+            Next Generation Aviation Solutions.
           </p>
         </div>
 
@@ -92,7 +107,7 @@ const Footer = () => {
                 <li key={title}>
                   <Link
                     href={href}
-                    className="text-muted-foreground hover:text-foreground"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {title}
                   </Link>
@@ -102,7 +117,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <Separator />
+      <Separator className={isDark ? "bg-white/10" : "bg-black/10"} />
       <div className="max-w-screen-xl mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
         {/* Copyright */}
         <span className="text-muted-foreground text-center xs:text-start">
@@ -111,13 +126,13 @@ const Footer = () => {
         </span>
 
         <div className="flex items-center gap-5 text-muted-foreground">
-          <Link href="https://www.instagram.com/simvizlabs/" target="_blank">
+          <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className="hover:text-foreground transition-colors">
             <Instagram className="h-5 w-5" />
           </Link>
-          <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank">
+          <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank" className="hover:text-foreground transition-colors">
             <Linkedin className="h-5 w-5" />
           </Link>
-          <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank">
+          <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className="hover:text-foreground transition-colors">
             <Facebook className="h-5 w-5" />
           </Link>
         </div>

@@ -18,7 +18,7 @@ function isIndiaUser(req: NextRequest): {
 
   // Header missing (local dev / non-CloudFront)
   return {
-    isIndia: false,
+    isIndia: true,
     method: 'cloudfront-header-missing',
   };
 }
