@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 
 export default function NewLandingPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-white">
       <LandingNavbar />
       <HeroSection />
-      {/* <MultiPlatformSection /> */}
-      {/* <BenefitsSection /> */}
+      <MultiPlatformSection />
+      <BenefitsSection />
       
       {/* Sticky Product Flow */}
-      <StickyProductFlow 
+      {/* <StickyProductFlow 
         products={[
             {
                 title: "A320 FMS Simulator",
@@ -48,7 +48,7 @@ export default function NewLandingPage() {
                 isComingSoon: true
             }
         ]}
-      />
+      /> */}
       
       <Footer />
     </main>
