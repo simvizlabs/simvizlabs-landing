@@ -1,19 +1,24 @@
-import React from 'react';
-import Head from "next/head";
+import { Metadata } from 'next';
 import NavbarDemo from "@/components/resizable-navbar-demo";
 
 import Footer from "@/components/footer";
 import HeroSection from '@/components/HeroSection';
 import Pricing from '@/components/pricing';
 
+export const metadata: Metadata = {
+  title: 'B747 Simulator | High-Fidelity FMC Trainer | SimvizLabs',
+  description: 'Master the B747 FMC and automation. Features aircraft-level accuracy for long-range nav, AI CPDLC, customizable ACARS, and complex MCP/FMA operations.',
+  keywords: ['B747 Simulator', 'FMC Trainer', 'Boeing Wide-body', 'CPDLC', 'ACARS', 'Pilot Training', 'Aviation', 'Long-range Navigation'],
+  openGraph: {
+    title: 'B747 Simulator | High-Fidelity FMC Trainer',
+    description: 'Precise FMC simulation, AI-powered CPDLC, and integrated Boeing systems training for wide-body operations.',
+    type: 'website',
+  }
+};
+
 const SeventyFourSevenBundlePage = () => {
   return (
     <>
-      <Head>
-        <title>B747 FMS Trainer for iPad | Realistic Pilot Training App | SimvizLabs</title>
-        <meta name="description" content="Train like a pro on Boeing’s iconic 747 with SimvizLabs' detailed, instructor-developed FMS and ACARS simulation for iPad." />
-        <meta name="keywords" content="B747 FMS trainer, B747 CDU trainer, iPad pilot training, flight simulator app, Boeing 747, pilot training, aviation training, SimvizLabs" />
-      </Head>
       <div>
         <NavbarDemo />
         <div className="container mx-auto ">

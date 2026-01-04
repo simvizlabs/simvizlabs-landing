@@ -17,12 +17,14 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { amount, merchantOrderId, redirectUrl, metadata } = body;
+    const { amount, metadata, planId } = body;
 
     // Validate required fields
-    if (!amount || amount <= 0) {
+    // If planId is present, amount might be determined by backend, so we can be looser here
+    // But for now let's keep it simple or allow 0 if planId is there (backend validates)
+    if ((!amount || amount <= 0) && !planId) {
       return NextResponse.json(
-        { success: false, message: 'Amount is required and must be greater than 0' },
+        { success: false, message: 'Amount is required and must be greater than 0, or planId must be provided' },
         { status: 400 }
       );
     }
@@ -40,6 +42,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         amount,
+        planId,
         merchantOrderId,
         redirectUrl: redirectUrl || `${request.nextUrl.origin}/payment/redirect`,
         metadata: {
