@@ -304,7 +304,7 @@ const DashboardPage = () => {
                     className="bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
                     onClick={() => router.push("https://lms.simvizlabs.com")}
                   >
-                  Access LMS
+                  Access LMS+P
                 </Button>
               </div>
             </div>
