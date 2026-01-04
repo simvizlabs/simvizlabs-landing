@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { amount, metadata, planId } = body;
+    const { amount, metadata, planId, redirectUrl } = body;
 
     // Validate required fields
     // If planId is present, amount might be determined by backend, so we can be looser here
@@ -43,7 +43,6 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         amount,
         planId,
-        merchantOrderId,
         redirectUrl: redirectUrl || `${request.nextUrl.origin}/payment/redirect`,
         metadata: {
           ...metadata,
