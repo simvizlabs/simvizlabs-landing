@@ -9,6 +9,7 @@ import TrainingManagementSectionFeatures from "@/constants/TrainingManagementSec
 
 const imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11 = "/assets/ato/ato-header.png";
 
+
 const content = {
     title: "Elevate your training programs.",
     description: "All-in-one platform for managing type rating content, assessments, and performance.",
