@@ -233,7 +233,7 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="primary"
                         href="/sign-up"
-                        className="bg-white text-black hover:bg-white/90 font-geist"
+                        className="bg-[#1381e5] text-white hover:bg-[#1381e5]/90 font-geist"
                       >
                         Sign Up
                       </NavbarButton>
@@ -301,7 +301,7 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="primary"
                         href="/sign-up"
-                        className="bg-white text-black w-full"
+                        className="bg-[#1381e5] text-white hover:bg-[#1381e5]/90 w-full font-geist"
                       >
                         Sign Up
                       </NavbarButton>

@@ -84,7 +84,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
   return (
     <div
       ref={containerRef}
-      style={{ height: `${products.length * 100}vh` }}
+      style={{ height: `${products.length * 250}vh` }}
       className="relative bg-black"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
