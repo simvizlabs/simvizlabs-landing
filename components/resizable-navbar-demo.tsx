@@ -136,7 +136,7 @@ export default function NavbarDemo() {
     },
     {
       name: "Our Products",
-      link: "/products",
+      link: "/our-products",
     },
     // {
     //   name:"Pricing",
@@ -150,7 +150,7 @@ export default function NavbarDemo() {
 
         { name: "Flying Schools", link: "/flying-schools", icon: IconBuildingCommunity },
         { name: "Approved Training Organisations", link: "/approved-training-organisations", icon: IconSchool },
-        { name: "Our Products", link: "/products", icon: IconPlane },
+        { name: "Our Products", link: "/our-products", icon: IconPlane },
         // {name:"Pricing", link:"/pricing", icon: IconPlane}, // HIDDEN - Pricing removed
       ]
     }

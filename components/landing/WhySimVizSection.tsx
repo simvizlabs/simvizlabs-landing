@@ -5,7 +5,9 @@ import React from "react";
 const FeatureCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
     return (
         <div className="bg-white rounded-[24px] p-8 flex flex-col gap-6 h-full shadow-sm hover:shadow-md transition-shadow">
-            <span className="text-[24px] font-bold text-[#191716]">{number}</span>
+            <div>
+                <span className="text-[24px] font-bold text-[#191716]">{number}</span>
+            </div>
             <div className="flex flex-col gap-4">
                 <h3 className="text-[24px] font-bold leading-tight text-[#191716] max-w-[80%]">
                     {title}

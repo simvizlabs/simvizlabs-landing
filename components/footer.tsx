@@ -19,12 +19,12 @@ const footerSections = [
       },
 
       {
-        title: "Aeronautical Schools",
-        href: "/aeronautical-schools",
+        title: "Flying Schools",
+        href: "/flying-schools",
       },
       {
-        title: "Type Rating Organizations",
-        href: "/type-rating-schools",
+        title: "Approved Training Organisations",
+        href: "/approved-training-organisations",
       },
 
     ],
