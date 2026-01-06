@@ -49,7 +49,7 @@ const PaymentRedirectContent = () => {
 
       const pollStatus = async () => {
         attempts++;
-        
+
         const response = await fetch(`/api/payments/status/${merchantOrderId}`);
         const data = await response.json();
 
@@ -223,7 +223,7 @@ const PaymentRedirectContent = () => {
                       Go to Dashboard
                     </Button>
                     <Link
-                      href="/contact"
+                      href="/contact-us"
                       className="flex-1"
                     >
                       <Button

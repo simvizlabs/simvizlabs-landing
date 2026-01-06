@@ -1,0 +1,313 @@
+"use client";
+
+import React, { useState } from "react";
+import { Check, ChevronDown, Loader2 } from "lucide-react";
+import NavbarDemo from "@/components/resizable-navbar-demo";
+import Footer from "@/components/footer";
+
+const BENEFITS = [
+    {
+        title: "Enhance pilot training",
+        description: "Improve procedural understanding and systems knowledge through high-fidelity, interactive simulations.",
+    },
+    {
+        title: "Accelerate learning outcomes",
+        description: "Reduce training time and increase retention with visual, scenario-based learning.",
+    },
+    {
+        title: "Standardize training quality",
+        description: "Deliver consistent, repeatable training experiences across instructors, fleets, and locations.",
+    },
+    {
+        title: "Train with confidence",
+        description: "Make data-driven training decisions using accurate system logic and real-world operational scenarios.",
+    },
+];
+
+const ORG_TYPES = [
+    "Airline",
+    "Flying School",
+    "Training Organisation",
+    "Individuals",
+];
+
+const SOLUTIONS = ["A320", "B737", "B747", "ATR72"];
+
+export default function ContactUsPage() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submissionStatus, setSubmissionStatus] = useState<"idle" | "success" | "error">("idle");
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        orgType: "",
+        region: "",
+        country: "",
+        solution: "",
+        additionalInfo: "",
+    });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSelection = (field: "orgType" | "solution", value: string) => {
+        setFormData((prev) => ({ ...prev, [field]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmissionStatus("idle");
+
+        try {
+            const formPayload = new FormData();
+            formPayload.append("access_key", "bb52624a-5b2f-4c6d-8835-5543a8100e22");
+            formPayload.append("subject", `New Inquiry: ${formData.orgType} - ${formData.firstName} ${formData.lastName}`);
+            formPayload.append("from_name", "SimViz Labs Contact Form");
+
+            Object.entries(formData).forEach(([key, value]) => {
+                formPayload.append(key, value);
+            });
+
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formPayload,
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                setSubmissionStatus("success");
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    orgType: "",
+                    region: "",
+                    country: "",
+                    solution: "",
+                    additionalInfo: "",
+                });
+            } else {
+                setSubmissionStatus("error");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            setSubmissionStatus("error");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-white font-sans text-[#191716]">
+            <NavbarDemo />
+
+            <main className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 lg:gap-32">
+                {/* Left Side: Content */}
+                <div className="flex flex-col gap-10">
+                    <div className="flex flex-col gap-6">
+                        <h2 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-[#1381e5] to-[#5ea2ef] bg-clip-text text-transparent leading-[1.1]">
+                            Connect <br /> with SimViz Labs
+                        </h2>
+                        <p className="text-xl text-neutral-600 leading-relaxed max-w-xl">
+                            Learn how SimVizLabs help airlines, flying schools, and training organizations train smarter, faster, and with confidence.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col gap-8">
+                        {BENEFITS.map((benefit, idx) => (
+                            <div key={idx} className="flex gap-4 group">
+                                <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-neutral-300 flex items-center justify-center group-hover:border-[#1381e5] group-hover:bg-[#1381e5]/5 transition-colors">
+                                    <Check className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#1381e5]" />
+                                </div>
+                                <div className="flex flex-col gap-1">
+                                    <h3 className="font-bold text-lg">{benefit.title}</h3>
+                                    <p className="text-neutral-500 leading-relaxed max-w-md">{benefit.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Right Side: Form */}
+                <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">First Name*</label>
+                            <input
+                                required
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleInputChange}
+                                className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">Last Name*</label>
+                            <input
+                                required
+                                type="text"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleInputChange}
+                                className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Email*</label>
+                        <input
+                            required
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Phone Number*</label>
+                        <input
+                            required
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <label className="text-sm font-semibold opacity-70">Who are you inquiring on behalf of?*</label>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                            {ORG_TYPES.map((type) => (
+                                <button
+                                    key={type}
+                                    type="button"
+                                    onClick={() => handleSelection("orgType", type)}
+                                    className={`h-14 rounded-2xl border px-6 text-left transition-all ${formData.orgType === type
+                                        ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold text-[#1381e5]"
+                                        : "border-neutral-200 hover:border-neutral-300 bg-white"
+                                        }`}
+                                >
+                                    {type}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">Region*</label>
+                            <div className="relative">
+                                <select
+                                    required
+                                    name="region"
+                                    value={formData.region}
+                                    onChange={handleInputChange}
+                                    className="w-full h-14 rounded-2xl border border-neutral-200 px-6 appearance-none focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                                >
+                                    <option value="" disabled>Please select a region</option>
+                                    <option value="Americas">Americas</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia Pacific">Asia Pacific</option>
+                                    <option value="Middle East & Africa">Middle East & Africa</option>
+                                </select>
+                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-40 pointer-events-none" />
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">Country*</label>
+                            <div className="relative">
+                                <select
+                                    required
+                                    name="country"
+                                    value={formData.country}
+                                    onChange={handleInputChange}
+                                    className="w-full h-14 rounded-2xl border border-neutral-200 px-6 appearance-none focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                                >
+                                    <option value="" disabled>Please select a country</option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="India">India</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-40 pointer-events-none" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <label className="text-sm font-semibold opacity-70">Which pilot training solution are you interested in?*</label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            {SOLUTIONS.map((sol) => (
+                                <button
+                                    key={sol}
+                                    type="button"
+                                    onClick={() => handleSelection("solution", sol)}
+                                    className={`h-14 rounded-2xl border flex items-center justify-center transition-all ${formData.solution === sol
+                                        ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold text-[#1381e5]"
+                                        : "border-neutral-200 hover:border-neutral-300 bg-white"
+                                        }`}
+                                >
+                                    {sol}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Additional Information</label>
+                        <textarea
+                            name="additionalInfo"
+                            value={formData.additionalInfo}
+                            onChange={handleInputChange}
+                            rows={4}
+                            className="w-full rounded-2xl border border-neutral-200 p-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30 resize-none"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-4 mt-6">
+                        <button
+                            disabled={isSubmitting}
+                            type="submit"
+                            className="h-16 rounded-full bg-[#1381e5] text-white font-bold text-xl hover:bg-[#106bc0] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-500/10 active:scale-[0.98]"
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                    Sending...
+                                </>
+                            ) : (
+                                "Submit"
+                            )}
+                        </button>
+                        <p className="text-xs text-neutral-400 text-center px-8">
+                            Make sure you've completed all required fields marked with * before submitting.
+                        </p>
+                    </div>
+
+                    {submissionStatus === "success" && (
+                        <div className="p-6 rounded-2xl bg-green-50 border border-green-100 text-green-700 text-center font-semibold">
+                            Thank you! Your inquiry has been sent successfully. We'll be in touch soon.
+                        </div>
+                    )}
+                    {submissionStatus === "error" && (
+                        <div className="p-6 rounded-2xl bg-red-50 border border-red-100 text-red-700 text-center font-semibold">
+                            Oops! Something went wrong. Please try again or contact us directly.
+                        </div>
+                    )}
+                </form>
+            </main>
+            <Footer theme="light" />
+        </div>
+    );
+}

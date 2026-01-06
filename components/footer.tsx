@@ -59,7 +59,7 @@ const footerSections = [
       },
       {
         title: "Contact",
-        href: "/contact",
+        href: "/contact-us",
       },
     ],
   },

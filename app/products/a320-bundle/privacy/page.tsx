@@ -9,7 +9,7 @@ const A320BundlePrivacyPage = () => {
   return (
     <div className="relative isolate bg-white dark:bg-neutral-900 font-geist min-h-screen">
       <NavbarDemo />
-      
+
       {/* Container */}
       <div className="mx-auto max-w-5xl px-6 lg:px-8 pt-32 pb-32 sm:pb-40">
         {/* Back Button */}
@@ -286,7 +286,7 @@ const A320BundlePrivacyPage = () => {
           <p className="text-center text-gray-600 dark:text-gray-400 font-geist">
             Need help?{" "}
             <Link
-              href="/contact"
+              href="/contact-us"
               className="text-blue-600 dark:text-blue-400 font-semibold hover:underline font-geist"
             >
               Contact&nbsp;Us
