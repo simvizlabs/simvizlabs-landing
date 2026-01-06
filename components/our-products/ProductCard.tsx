@@ -74,7 +74,7 @@ export function ProductCard({
                     {btn.text} {btn.icon}
                   </Link>
                 ) : (
-                  <span className="flex items-center gap-2">{btn.text} {btn.icon}</span>
+                  <span className="flex items-center">{btn.text} {btn.icon}</span>
                 )}
               </Button>
             ))}

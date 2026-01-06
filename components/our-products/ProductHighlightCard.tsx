@@ -66,7 +66,7 @@ export function ProductHighlightCard({
                             asChild={!!secondaryButton.href}
                             onClick={secondaryButton.onClick}
                             className={cn(
-                                "rounded-full px-8 py-4 text-lg font-medium border-black/20 text-black hover:bg-black/5 transition-all",
+                                "rounded-3xl px-8 py-4 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all",
                                 secondaryButton.className
                             )}
                         >
@@ -84,7 +84,7 @@ export function ProductHighlightCard({
                             asChild={!!primaryButton.href}
                             onClick={primaryButton.onClick}
                             className={cn(
-                                "rounded-full px-8 py-4 text-lg font-medium bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-2 transition-all",
+                                "rounded-3xl px-8 py-4 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all",
                                 primaryButton.className
                             )}
                         >

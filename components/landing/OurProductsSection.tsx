@@ -40,14 +40,14 @@ function OurProductsContent() {
         buttons: [
           {
             text: "Watch Demo",
-            class: "rounded-full px-10 py-7 text-lg font-semibold border-black/10 text-black hover:bg-black/5 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
             onClick: () => { window.location.href = "/demo"; }
           },
           {
             text: "Contact Us",
             onClick: () => { setExpandedId(null); },
-            class: "rounded-full px-10 py-7 text-lg font-semibold bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
             variant: "default" as const,
             icon: <ChevronUp className="w-5 h-5" />
           }
@@ -74,14 +74,14 @@ function OurProductsContent() {
         buttons: [
           {
             text: "Watch Demo",
-            class: "rounded-full px-10 py-7 text-lg font-semibold border-black/10 text-black hover:bg-black/5 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
             onClick: () => { window.location.href = "/demo"; }
           },
           {
             text: "Contact Us",
             onClick: () => { setExpandedId(null); },
-            class: "rounded-full px-10 py-7 text-lg font-semibold bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
             variant: "default" as const,
             icon: <ChevronUp className="w-5 h-5" />
           }
@@ -109,14 +109,14 @@ function OurProductsContent() {
         buttons: [
           {
             text: "Watch Demo",
-            class: "rounded-full px-10 py-7 text-lg font-semibold border-black/10 text-black hover:bg-black/5 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
             onClick: () => { window.location.href = "/demo"; }
           },
           {
             text: "Contact Us",
             onClick: () => { setExpandedId(null); },
-            class: "rounded-full px-10 py-7 text-lg font-semibold bg-[#3b82f6] hover:bg-[#2563eb] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
             variant: "default" as const,
             icon: <ChevronUp className="w-5 h-5" />
           }
