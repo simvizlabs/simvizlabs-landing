@@ -70,50 +70,7 @@ const A320ProductPage = () => {
 
     return (
         <div className="bg-white text-black min-h-screen flex flex-col font-sans selection:bg-[#3b82f6]/30">
-            <NavbarDemo />
             <SimulatorProductsLarge featureCards={featureCards} headImage={headImage} content={content} />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto my-4 md:my-8">
-                {/* B737 Card - Node 2052:3168 */}
-                <ProductCard
-                    title="B737 FMS Simulator"
-                    description="Realistic B737 FMC and MCP training focused on precise LNAV/VNAV logic, CDU workflows, and line-operations realism."
-                    imageSrc={b737Image}
-                    badgeSrc={appStoreBadge}
-                    buttons={[
-                        {
-                            text: "Watch Demo",
-                            href: "#",
-                            variant: "outline",
-                        },
-                        {
-                            text: "Learn more",
-                            href: "/737-bundle",
-                            variant: "solid",
-                        },
-                    ]}
-                />
-
-                {/* B747 Card - Node 2052:3178 */}
-                <ProductCard
-                    title="B747 FMS Simulator"
-                    description="High-fidelity B747 FMC training designed for long-range navigation, complex automation, and wide-body airline operations."
-                    imageSrc={b747Image}
-                    badgeSrc={appStoreBadge}
-                    buttons={[
-                        {
-                            text: "Watch Demo",
-                            href: "#",
-                            variant: "outline",
-                        },
-                        {
-                            text: "Learn More",
-                            href: "/747-bundle",
-                            variant: "solid",
-                        },
-                    ]}
-                />
-            </div>
-            <Footer theme="light" />
         </div>
     );
 };

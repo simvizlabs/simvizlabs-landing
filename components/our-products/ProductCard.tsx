@@ -2,8 +2,10 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export interface ProductCardProps {
+  id?: string;
   title: string;
   description: string;
   imageSrc: string;
@@ -12,50 +14,68 @@ export interface ProductCardProps {
   buttons?: {
     text: string;
     href?: string;
+    onClick?: () => void;
     variant: "outline" | "solid";
     icon?: React.ReactNode;
+    className?: string;
   }[];
+  layoutId?: string;
 }
 
 export function ProductCard({
+  id,
   title,
   description,
   imageSrc,
   badgeSrc,
   className,
   buttons,
+  layoutId,
 }: ProductCardProps) {
   return (
-    <div
+    <motion.div
+      layoutId={layoutId}
       className={cn(
         "bg-[#f5f5f7] flex flex-col items-center justify-between rounded-3xl px-4 py-6 md:px-6 md:py-8 text-center h-full",
         className
       )}
     >
       <div className="flex flex-col items-center gap-5 w-full max-w-xl">
-        <h3 className="text-[#191716] text-3xl md:text-5xl font-semibold leading-tight font-sans">
+        <motion.h3
+          layoutId={`title-${layoutId}`}
+          className="text-[#191716] text-3xl md:text-5xl font-semibold leading-tight font-sans"
+        >
           {title}
-        </h3>
-        <p className="text-[#191716] text-lg md:text-2xl leading-normal font-sans text-center max-w-xl">
+        </motion.h3>
+        <motion.p
+          layoutId={`desc-${layoutId}`}
+          className="text-[#191716] text-lg md:text-2xl leading-normal font-sans text-center max-w-xl"
+        >
           {description}
-        </p>
+        </motion.p>
 
         {buttons && buttons.length > 0 && (
-          <div className="flex flex-wrap gap-5 md:gap-8 justify-center mt-2">
+          <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 justify-center mt-2 w-full">
             {buttons.map((btn, index) => (
               <Button
                 key={index}
-                asChild
+                asChild={!!btn.href}
+                onClick={btn.onClick}
                 className={cn(
-                  "rounded-3xl px-8 py-4 text-lg font-semibold transition-colors duration-200",
+                  "rounded-3xl px-8 py-4 text-lg font-semibold transition-colors duration-200 flex-shrink-0",
                   btn.variant === "outline"
                     ? "bg-transparent border border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10"
-                    : "bg-[#1381e5] text-white hover:bg-[#106bc0]"
+                    : "bg-[#1381e5] text-white hover:bg-[#106bc0]",
+                  btn.className
                 )}
               >
-                <Link href={btn.href || "#"}>
-                  {btn.text} {btn.icon}
-                </Link>
+                {btn.href ? (
+                  <Link href={btn.href}>
+                    {btn.text} {btn.icon}
+                  </Link>
+                ) : (
+                  <span className="flex items-center gap-2">{btn.text} {btn.icon}</span>
+                )}
               </Button>
             ))}
           </div>
@@ -63,7 +83,10 @@ export function ProductCard({
       </div>
 
       <div className="relative w-full mt-12 md:mt-20 flex flex-col items-center gap-8">
-        <div className="relative w-full aspect-[16/10] max-w-5xl">
+        <motion.div
+          layoutId={`image-${layoutId}`}
+          className="relative w-full aspect-[16/10] max-w-5xl"
+        >
           <Image
             src={imageSrc}
             alt={title}
@@ -71,7 +94,7 @@ export function ProductCard({
             className="object-contain"
             priority
           />
-        </div>
+        </motion.div>
 
         {badgeSrc && (
           <div className="relative w-52 h-10 md:w-64 md:h-12">
@@ -84,6 +107,6 @@ export function ProductCard({
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

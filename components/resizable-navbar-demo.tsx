@@ -190,14 +190,14 @@ export default function NavbarDemo() {
               <div className="flex items-center">
                 <Link href="/" className="flex items-center gap-2">
                   <Image src="/logo.svg" alt="SimvizLabs Logo" width={32} height={32} className="mr-1" />
-                  <span className="text-xl font-bold text-white">SimvizLabs</span>
+                  <span className="text-xl font-bold text-white">SimVizLabs</span>
                 </Link>
               </div>
 
               <NavItems
                 items={navItems}
                 onItemClick={handleNavItemClick}
-                className="text-sm font-medium text-white/80 transition-colors hover:text-white"
+                className="text-sm font-medium text-white/80 transition-colors text-white hover:text-white"
               />
 
               {/* Show auth buttons/avatar only for Indian IP addresses */}
@@ -208,7 +208,7 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="primary"
                         href="/dashboard"
-                        className="text-white hover:bg-white/10 hover:text-white font-geist"
+                        className="text-black hover:bg-white/10 hover:text-white font-geist"
                       >
                         Dashboard
                       </NavbarButton>
@@ -226,7 +226,7 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="secondary"
                         href="/sign-in"
-                        className="text-white hover:bg-white/10 hover:text-white font-geist"
+                        className="text-white hover:bg-white hover:text-black font-geist"
                       >
                         Sign In
                       </NavbarButton>

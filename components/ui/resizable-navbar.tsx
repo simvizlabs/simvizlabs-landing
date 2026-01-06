@@ -178,7 +178,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                   router.push(item.link);
                 }
               }}
-              className="relative flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+              className="relative text-white font-bold flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
             >
               {hovered === idx && (
                 <motion.div
@@ -195,7 +195,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                   }}
                 />
               )}
-              <span className="relative whitespace-nowrap text-sm font-medium transition-all duration-200">
+              <span className="font-bold relative whitespace-nowrap text-sm font-medium transition-all duration-200">
                 {item.name}
               </span>
 
@@ -272,7 +272,7 @@ export const MobileNavMenu = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           className={cn(
-            "fixed inset-0 z-50 flex w-full flex-col items-start justify-start gap-4 bg-white px-4 py-8 dark:bg-neutral-950",
+            "fixed inset-0 z-50 flex w-full flex-col items-start justify-start gap-4 bg-black/90 backdrop-blur-md px-4 py-8",
             className
           )}
         >
@@ -283,7 +283,7 @@ export const MobileNavMenu = ({
             transition={{ duration: 0.3 }}
             className="w-full flex justify-end"
           >
-            <MobileNavToggle isOpen={isOpen} onClick={onClose} />
+            <MobileNavToggle isOpen={isOpen} onClick={onClose} className="text-white" />
           </motion.div>
           <div className="w-full flex-1 flex flex-col items-center justify-center">
             {listMenu?.map((item, idx) => (
@@ -301,7 +301,7 @@ export const MobileNavMenu = ({
               >
                 <Link
                   href={item.link}
-                  className="text-2xl font-medium text-muted-foreground hover:text-foreground"
+                  className="text-2xl font-medium text-muted-foreground hover:text-white"
                   onClick={() => {
                     onClose();
                     if (item.link.startsWith('#')) {

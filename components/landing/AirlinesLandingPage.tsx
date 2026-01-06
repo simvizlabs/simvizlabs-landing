@@ -10,7 +10,7 @@ import { Button } from "../ui/button";
 const AirlinesLandingPage = ({ ImageBackground, content }) => {
     return (
         <section className="relative w-full flex flex-col">
-            <div className="relative w-full h-[450px] shrink-0">
+            <div className="relative w-full top-10 h-[650px] shrink-0">
                 <Image
                     src={ImageBackground}
                     alt="Cockpit background"

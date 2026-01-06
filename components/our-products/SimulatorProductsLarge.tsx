@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ProductButton from "./ProductButton";
+import { motion } from "framer-motion";
+import { ChevronUp } from "lucide-react";
 
 interface SimulatorProductsLargeProps {
     featureCards: {
@@ -20,38 +22,53 @@ interface SimulatorProductsLargeProps {
             class: string;
             variant: any;
             onClick: () => void;
+            icon?: React.ReactNode;
         }[];
         subtitle: string;
         subscriptionContentIncluded: boolean;
     };
+    onClose?: () => void;
+    layoutId?: string;
 }
 
-const SimulatorProductsLarge = ({ featureCards, headImage, content }: SimulatorProductsLargeProps) => {
+const SimulatorProductsLarge = ({ featureCards, headImage, content, onClose, layoutId }: SimulatorProductsLargeProps) => {
     return (
-        <main className="flex-grow max-w-7xl mx-auto pt-24 md:pt-32">
-            <h2 className="text-lg mb-2 md:text-xl font-bold tracking-tight text-black leading-[1.1]">Our Products</h2>
-            <hr className="mb-4" />
+        <motion.div
+            layoutId={layoutId}
+            className="flex-grow mx-auto relative bg-white rounded-3xl overflow-hidden"
+        >
             <section
-                className="px-4 md:px-8 max-w-7xl mx-auto text-center space-y-12 pb-16 md:pb-24 rounded-3xl overflow-hidden"
+                className="px-4 md:px-8 mx-auto text-center space-y-12 pb-16 md:pb-24 rounded-3xl overflow-hidden"
                 style={{ background: "linear-gradient(180deg, #F5F5F7 50%, #1381E5 471.65%)" }}
             >
-                <div className="relative w-full aspect-[16/10] max-w-4xl mx-auto mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 mt-16">
-                    <Image
-                        src={content.headImage}
-                        alt="A320 FMS Simulator"
-                        fill
-                        className="object-contain drop-shadow-2xl"
-                        priority
-                    />
+                <div className="relative w-full aspect-[16/10] max-w-4xl mx-auto mb-8 mt-16">
+                    <motion.div
+                        layoutId={`image-${layoutId}`}
+                        className="relative w-full h-full"
+                    >
+                        <Image
+                            src={content.headImage}
+                            alt={content.title}
+                            fill
+                            className="object-contain drop-shadow-2xl"
+                            priority
+                        />
+                    </motion.div>
                 </div>
 
                 <div className="space-y-6 max-w-4xl mx-auto px-4">
-                    <h1 className="text-5xl md:text-5xl font-bold tracking-tight text-black leading-[1.1]">
+                    <motion.h1
+                        layoutId={`title-${layoutId}`}
+                        className="text-5xl md:text-5xl font-bold tracking-tight text-black leading-[1.1]"
+                    >
                         {content.title}
-                    </h1>
-                    <p className="text-xl md:text-2xl text-black/60 max-w-3xl mx-auto leading-relaxed font-medium">
+                    </motion.h1>
+                    <motion.p
+                        layoutId={`desc-${layoutId}`}
+                        className="text-xl md:text-2xl text-black/60 max-w-3xl mx-auto leading-relaxed font-medium"
+                    >
                         {content.description}
-                    </p>
+                    </motion.p>
                 </div>
 
                 <div className="flex flex-wrap gap-5 justify-center mt-4">
@@ -62,7 +79,7 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content }: SimulatorP
                             className={button.class}
                             onClick={button.onClick}
                         >
-                            {button.text}
+                            {button.text} {button.icon}
                         </ProductButton>
                     ))}
                 </div>
@@ -128,7 +145,7 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content }: SimulatorP
             {/* Features Section */}
 
 
-        </main>
+        </motion.div>
     );
 };
 

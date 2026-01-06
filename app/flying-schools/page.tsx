@@ -71,7 +71,7 @@ const AeronauticalsPage = () => {
         <WhySimVizSection features={features} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures} />
       </main>
-      <Footer />
+      <Footer theme="light" />
     </div>
   );
 };
