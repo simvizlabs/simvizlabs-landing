@@ -258,9 +258,6 @@ export const MobileNavMenu = ({
   handleNavItemClick,
   className,
 }: MobileNavMenuProps) => {
-  const router = useRouter();
-  const listMenu = navItems.find(item => item.listMenu)?.listMenu;
-
   return (
     <AnimatePresence mode="wait">
       {isOpen && (
@@ -284,7 +281,7 @@ export const MobileNavMenu = ({
             <MobileNavToggle isOpen={isOpen} onClick={onClose} className="text-white" />
           </motion.div>
           <div className="w-full flex-1 flex flex-col items-center justify-center">
-            {listMenu?.map((item, idx) => (
+            {navItems.map((item, idx) => (
               <motion.div
                 key={`mobile-link-${idx}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -292,7 +289,7 @@ export const MobileNavMenu = ({
                 exit={{ opacity: 0, y: -20 }}
                 transition={{
                   duration: 0.3,
-                  delay: isOpen ? idx * 0.1 : (listMenu.length - idx - 1) * 0.1,
+                  delay: isOpen ? idx * 0.1 : (navItems.length - idx - 1) * 0.1,
                   ease: "easeOut"
                 }}
                 className="w-full text-center py-4"
@@ -315,26 +312,6 @@ export const MobileNavMenu = ({
               </motion.div>
             ))}
           </div>
-          {/* <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ 
-              duration: 0.3,
-              delay: isOpen ? (listMenu?.length || 0) * 0.1 : 0,
-              ease: "easeOut"
-            }}
-            className="w-full flex flex-col gap-4 pb-8"
-          >
-            <NavbarButton
-              href="/contact"
-              onClick={onClose}
-              variant="primary"
-              className="w-full"
-            >
-              Contact Us
-            </NavbarButton>
-          </motion.div> */}
         </motion.div>
       )}
     </AnimatePresence>
