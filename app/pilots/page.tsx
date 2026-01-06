@@ -19,9 +19,9 @@ const PilotsPage = () => {
   return (
     <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist">
       <Head>
-        <title>iPad CDU/FMS Simulators for Pilots | B737, B747, A320 | SimvizLabs</title>
-        <meta name="description" content="Practice realistic B737, B747, and A320 CDU/FMS workflows on your iPad with SimvizLabs' flight simulators. Download free and pro versions for pilot training." />
-        <meta name="keywords" content="pilot training, CDU simulator, FMS simulator, iPad flight sim, B737 training, B747 training, A320 training, SimvizLabs" />
+        <title>iPad CDU/FMS Simulators for Pilots | B737, B747, A320 | SimViz Labs</title>
+        <meta name="description" content="Practice realistic B737, B747, and A320 CDU/FMS workflows on your iPad with SimViz Labs' flight simulators. Download free and pro versions for pilot training." />
+        <meta name="keywords" content="pilot training, CDU simulator, FMS simulator, iPad flight sim, B737 training, B747 training, A320 training, SimViz Labs" />
       </Head>
       <NavbarDemo />
       <main className="space-y-16 px-6 py-16 max-w-7xl mx-auto">
@@ -40,7 +40,7 @@ const PilotsPage = () => {
           <div>
             <Image
               src="/placeholder.svg"
-              alt="Pilot using SimvizLabs CDU simulator on an iPad" // Updated Alt Text
+              alt="Pilot using SimViz Labs CDU simulator on an iPad" // Updated Alt Text
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
@@ -76,7 +76,7 @@ const PilotsPage = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                 <Button asChild>
+                <Button asChild>
                   <Link href={appStoreUrls.b737} target="_blank" rel="noopener noreferrer">
                     <IconBrandAppstore className="mr-2 h-4 w-4" /> Download
                   </Link>
@@ -90,9 +90,9 @@ const PilotsPage = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                 <Button asChild>
+                <Button asChild>
                   <Link href={appStoreUrls.a320} target="_blank" rel="noopener noreferrer">
-                     <IconBrandAppstore className="mr-2 h-4 w-4" /> Download
+                    <IconBrandAppstore className="mr-2 h-4 w-4" /> Download
                   </Link>
                 </Button>
               </CardContent>
@@ -103,12 +103,12 @@ const PilotsPage = () => {
         {/* Final CTA */}
         <section className="text-center py-16">
           <h3 className="text-2xl font-semibold mb-4">Ready to Master the Box?</h3>
-           <Button size="lg" asChild>
-             {/* Link to a general App Store page or the most popular app */}
-             <Link href={appStoreUrls.b737} target="_blank" rel="noopener noreferrer">
-               <IconBrandAppstore className="mr-2 h-4 w-4" /> Download Now
-             </Link>
-           </Button>
+          <Button size="lg" asChild>
+            {/* Link to a general App Store page or the most popular app */}
+            <Link href={appStoreUrls.b737} target="_blank" rel="noopener noreferrer">
+              <IconBrandAppstore className="mr-2 h-4 w-4" /> Download Now
+            </Link>
+          </Button>
         </section>
       </main>
       <Footer />

@@ -4,8 +4,10 @@ import { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductData {
+  id: string;
   title: string;
   subtitle: string;
   description?: string;
@@ -78,7 +80,12 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
       );
     }
 
-    return { opacity, y };
+    const pointerEvents = useTransform(
+      opacity,
+      (o) => (o > 0.1 ? ("auto" as const) : ("none" as const))
+    );
+
+    return { opacity, y, pointerEvents };
   };
 
   return (
@@ -99,6 +106,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                     style={{
                       opacity: styles.opacity,
                       y: styles.y,
+                      pointerEvents: styles.pointerEvents,
                       position: 'absolute',
                       inset: 0,
                       display: 'flex',
@@ -125,8 +133,10 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         </p>
                       )}
                       {!product.isComingSoon && (
-                        <Button className="bg-[#0099FF] text-white hover:bg-[#007acc] rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2">
-                          Learn More
+                        <Button asChild className="bg-[#0099FF] text-white hover:bg-[#007acc] cursor-pointer rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2">
+                          <Link href={`/our-products?product=${product.id}`}>
+                            Learn More
+                          </Link>
                         </Button>
                       )}
                     </div>

@@ -86,7 +86,7 @@ const Footer = ({
           <div className="flex items-center gap-2">
             <Image
               src="/logo-dark.png"
-              alt="SimvizLabs"
+              alt="SimViz Labs"
               width={48}
               height={48}
               className={cn(isDark ? "" : "invert")}

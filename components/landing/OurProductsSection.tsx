@@ -3,12 +3,29 @@
 import { ProductCard } from "@/components/our-products/ProductCard";
 import { ProductHighlightCard } from "@/components/our-products/ProductHighlightCard";
 import SimulatorProductsLarge from "@/components/our-products/SimulatorProductsLarge";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 export function OurProductsSection() {
-  const [expandedId, setExpandedId] = useState<string | null>("a320");
+  return (
+    <Suspense fallback={<div>Loading products...</div>}>
+      <OurProductsContent />
+    </Suspense>
+  );
+}
+
+function OurProductsContent() {
+  const searchParams = useSearchParams();
+  const [expandedId, setExpandedId] = useState<string | null>("");
+
+  useEffect(() => {
+    const productId = searchParams.get("product");
+    if (productId && ["a320", "b737", "b747"].includes(productId)) {
+      handleLearnMore(productId);
+    }
+  }, [searchParams]);
 
   const appStoreBadge = "/app_store_badge.png";
 
@@ -50,9 +67,10 @@ export function OurProductsSection() {
       id: "b737",
       imageSrc: "/assets/our-products/eda6f0f09e9c208ab7cefc56ddfa2662695ae550.png",
       content: {
-        headImage: "/assets/our-products/eda6f0f09e9c208ab7cefc56ddfa2662695ae550.png",
+        headImage: "/assets/our-products/b737/b737_simulator_landscape.png",
         title: "B737 FMS Simulator",
         description: "Realistic B737 FMC and MCP training focused on precise LNAV/VNAV logic, CDU workflows, and line-operations realism.",
+        rotateImage: "90",
         buttons: [
           {
             text: "Watch Demo",
@@ -72,18 +90,22 @@ export function OurProductsSection() {
         subscriptionContentIncluded: false,
       },
       featureCards: [
-        { title: "LNAV/VNAV Precision", description: "Detailed LNAV/VNAV path calculation and vertical profile management." },
-        { title: "CDU Mastery", description: "Comprehensive CDU page training including PERF INIT, LEGS, and PROG." },
-        { title: "Dual FMC Simulation", description: "Realistic dual FMC operations and data synchronization logic." }
+        { title: "Precise FMC simulation", description: "Performance calculations, flight planning, and automation logic that matches the real B737 FMC, including LNAV/VNAV modes and CDU programming" },
+        { title: "AI-powered CPDLC", description: "Master datalink clearances, route amendments, and controller communications with intelligent guidance through the CDU interface." },
+        { title: "Customizable ACARS module", description: "Configurable AOC menus tailored to your airline's specific dispatch procedures, message formats, and operational workflows via CDU." },
+        { title: "MCP and FMA training", description: "Master Mode Control Panel operations and Flight Mode Annunciator interpretation for precise auto flight understanding in complex terminal environments and for each phase of flight." },
+        { title: "Integrated boeing systems", description: "Learn how FMC, MCP, datalink, flight guidance (autopilot/autothrottle), and aircraft systems work together in realistic airline operations." }
       ]
     },
     b747: {
       id: "b747",
       imageSrc: "/assets/our-products/b0738e33683cda336533d7d62466166f6fa760af.png",
       content: {
-        headImage: "/assets/our-products/b0738e33683cda336533d7d62466166f6fa760af.png",
+        headImage: "/assets/our-products/b747/b747_simulator_landscape.png",
         title: "B747 FMS Simulator",
         description: "High-fidelity B747 FMC training designed for long-range navigation, complex automation, and wide-body airline operations.",
+        rotateImage: "90",
+
         buttons: [
           {
             text: "Watch Demo",
@@ -103,9 +125,11 @@ export function OurProductsSection() {
         subscriptionContentIncluded: false,
       },
       featureCards: [
-        { title: "Long-Range Nav", description: "Advanced fuel management and trans-oceanic navigation workflows." },
-        { title: "Heavy Ops", description: "Massive weight and performance envelope handling for the B747-8/400." },
-        { title: "Complex Automation", description: "Mastering the Queen's specialized autothrottle and flight director modes." }
+        { title: "Precise FMC simulation", description: "Performance calculations, flight planning, and automation logic that matches the real B747 FMC, including long-range navigation planning and CDU operations." },
+        { title: "AI-powered CPDLC", description: "Master datalink clearances, route amendments, and controller communications with intelligent guidance through the CDU interface." },
+        { title: "Customizable ACARS module", description: "Configurable AOC menus tailored to your airline's specific dispatch procedures, message formats, and operational workflows via CDU." },
+        { title: "MCP and FMA training", description: "Master Mode Control Panel operations and Flight Mode Annunciator interpretation for precise auto flight understanding in complex terminal environments and for each phase of flight." },
+        { title: "Integrated boeing systems", description: "Learn how FMC, MCP, datalink, flight guidance (autopilot/autothrottle), and complex aircraft systems work together in realistic wide-body operations." }
       ]
     }
   };

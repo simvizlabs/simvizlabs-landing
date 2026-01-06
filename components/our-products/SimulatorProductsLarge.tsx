@@ -26,6 +26,7 @@ interface SimulatorProductsLargeProps {
         }[];
         subtitle: string;
         subscriptionContentIncluded: boolean;
+        rotateImage?: string;
     };
     onClose?: () => void;
     layoutId?: string;
@@ -51,6 +52,7 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content, onClose, lay
                             alt={content.title}
                             fill
                             className="object-contain drop-shadow-2xl"
+                            style={{ transform: content.rotateImage ? `rotate(${content.rotateImage}deg)` : undefined }}
                             priority
                         />
                     </motion.div>
@@ -121,19 +123,19 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content, onClose, lay
                                     src="/assets/our-products/a320/a320_simualtor_landscape.png"
                                     alt="FMS Simulator"
                                     fill
-                                    className="object-contain p-4"
+                                    className="object-contain"
                                 />
                             </div>
                             <p className="text-lg font-bold text-black/40 uppercase tracking-widest">FMS Simulator</p>
                         </div>
 
                         <div className="group space-y-8">
-                            <div className="relative aspect-[4/3] w-full max-w-[500px] transition-transform duration-500">
+                            <div className="relative aspect-[4/3] w-full max-w-[600px] transition-transform duration-500">
                                 <Image
                                     src="/assets/our-products/a320/cpdlc.png"
                                     alt="CPDLC"
                                     fill
-                                    className="object-contain p-4"
+                                    className="object-contain"
                                 />
                             </div>
                             <p className="text-lg font-bold text-black/40 uppercase tracking-widest">CPDLC</p>

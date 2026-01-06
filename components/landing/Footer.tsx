@@ -81,7 +81,7 @@ export function Footer({
 
         <div className={cn("mt-16 border-t pt-8 flex flex-col items-center justify-between gap-4 sm:flex-row", isDark ? "border-white/10" : "border-black/10")}>
           <p className="text-sm">
-            © 2025 SimvizLabs LLC. All rights reserved.
+            © 2025 SimViz Labs LLC. All rights reserved.
           </p>
           <div className="flex gap-4">
             {/* Social Icons Placeholders */}

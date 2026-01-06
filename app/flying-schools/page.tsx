@@ -61,9 +61,9 @@ const AeronauticalsPage = () => {
     <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist">
 
       <Head>
-        <title className="font-geist">Aeronautical Schools Training Solutions | EBAT & FMC Emulators | SimvizLabs</title>
-        <meta name="description" content="Specialized training solutions for aeronautical schools, featuring SimvizLabs' tablet FMC emulators, EBAT dashboards, CPDLC/Non-Normal packs, and data-driven refresher solutions." className="font-geist" />
-        <meta name="keywords" content="aeronautical school training, pilot training solutions, EBAT system, FMC emulator, CPDLC training, non-normal procedures, flight operations, SimvizLabs" className="font-geist" />
+        <title className="font-geist">Aeronautical Schools Training Solutions | EBAT & FMC Emulators | SimViz Labs</title>
+        <meta name="description" content="Specialized training solutions for aeronautical schools, featuring SimViz Labs' tablet FMC emulators, EBAT dashboards, CPDLC/Non-Normal packs, and data-driven refresher solutions." className="font-geist" />
+        <meta name="keywords" content="aeronautical school training, pilot training solutions, EBAT system, FMC emulator, CPDLC training, non-normal procedures, flight operations, SimViz Labs" className="font-geist" />
       </Head>
       <NavbarDemo />
       <main className="flex-grow">

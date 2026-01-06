@@ -28,8 +28,8 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
         href="/"
         className={`relative z-20 mr-3 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
       >
-        <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
-        <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
+        <Image src="/logo.svg" alt="SimViz Labs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
+        <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimViz Labs</span>
       </Link>
     );
   }
@@ -40,7 +40,7 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
       href="/"
       className={`relative z-20 flex items-center px-0 py-1 transition-all duration-300`}
     >
-      <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 48} height={isScrolled ? 32 : 48} className="transition-all duration-300" />
+      <Image src="/logo.svg" alt="SimViz Labs Logo" width={isScrolled ? 32 : 48} height={isScrolled ? 32 : 48} className="transition-all duration-300" />
     </Link>
   );
 };
@@ -124,36 +124,21 @@ export default function NavbarDemo() {
 
   const navItems = [
     {
-      name: "Our Solutions",
-      link: "#",
-      children: [
-
-        { name: "Airlines", link: "/airlines", icon: IconPlane },
-        { name: "Flying Schools", link: "/flying-schools", icon: IconBuildingCommunity },
-        { name: "Approved Training Organisations", link: "/approved-training-organisations", icon: IconSchool },
-
-      ],
+      name: "Airlines",
+      link: "/airlines",
+    },
+    {
+      name: "Flying Schools",
+      link: "/flying-schools",
+    },
+    {
+      name: "Approved Training Organisations",
+      link: "/approved-training-organisations",
     },
     {
       name: "Our Products",
       link: "/our-products",
     },
-    // {
-    //   name:"Pricing",
-    //   link:"/pricing",
-    // },
-    {
-      name: "More",
-      link: "#",
-      listMenu: [
-        { name: "Airlines", link: "/airlines", icon: IconPlane },
-
-        { name: "Flying Schools", link: "/flying-schools", icon: IconBuildingCommunity },
-        { name: "Approved Training Organisations", link: "/approved-training-organisations", icon: IconSchool },
-        { name: "Our Products", link: "/our-products", icon: IconPlane },
-        // {name:"Pricing", link:"/pricing", icon: IconPlane}, // HIDDEN - Pricing removed
-      ]
-    }
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -189,8 +174,8 @@ export default function NavbarDemo() {
             <NavBody className="w-full max-w-full">
               <div className="flex items-center">
                 <Link href="/" className="flex items-center gap-2">
-                  <Image src="/logo.svg" alt="SimvizLabs Logo" width={32} height={32} className="mr-1" />
-                  <span className="text-xl font-bold text-white">SimVizLabs</span>
+                  <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} className="mr-1" />
+                  <span className="text-xl font-bold text-white">SimViz Labs</span>
                 </Link>
               </div>
 
@@ -249,8 +234,8 @@ export default function NavbarDemo() {
             <MobileNav>
               <MobileNavHeader className="flex justify-between items-center w-full">
                 <Link href="/" className="flex items-center gap-2">
-                  <Image src="/logo.svg" alt="SimvizLabs Logo" width={32} height={32} />
-                  <span className="text-lg font-bold text-white">SimvizLabs</span>
+                  <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} />
+                  <span className="text-lg font-bold text-white">SimViz Labs</span>
                 </Link>
                 <MobileNavToggle
                   isOpen={isMobileMenuOpen}

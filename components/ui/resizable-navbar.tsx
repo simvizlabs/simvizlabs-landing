@@ -161,9 +161,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       <div className="flex items-center justify-center gap-2 lg:gap-8">
-        {items.find(item => item.listMenu)?.listMenu?.map((item, idx) => (
+        {items.map((item, idx) => (
           <div
-            key={`link-${idx}`}
+            key={`${item.name}-${idx}`}
             className="relative"
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={handleMouseLeave}
@@ -171,12 +171,11 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             <Link
               href={item.link}
               onClick={(e) => {
-                e.preventDefault();
                 if (item.link.startsWith("#")) {
+                  e.preventDefault();
                   onItemClick?.(item.link);
-                } else {
-                  router.push(item.link);
                 }
+                // For non-hash links, let next/link handle it natively
               }}
               className="relative text-white font-bold flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
             >
@@ -198,7 +197,6 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               <span className="font-bold relative whitespace-nowrap text-sm font-medium transition-all duration-200">
                 {item.name}
               </span>
-
             </Link>
           </div>
         ))}
@@ -302,12 +300,13 @@ export const MobileNavMenu = ({
                 <Link
                   href={item.link}
                   className="text-2xl font-medium text-muted-foreground hover:text-white"
-                  onClick={() => {
-                    onClose();
+                  onClick={(e) => {
                     if (item.link.startsWith('#')) {
+                      e.preventDefault();
                       handleNavItemClick(item.link);
                     } else {
-                      router.push(item.link);
+                      // Standard link, just close menu
+                      onClose();
                     }
                   }}
                 >
