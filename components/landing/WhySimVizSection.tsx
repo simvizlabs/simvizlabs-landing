@@ -1,17 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
-const FeatureCard = ({ number, title, description, direction }: { number: string; title: string; description: string; direction: 'left' | 'right' }) => {
+const FeatureCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, x: direction === 'right' ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ amount: 0.2 }}
-            className="bg-white rounded-[24px] p-8 flex flex-col gap-6 h-full shadow-sm hover:shadow-md transition-shadow"
-        >
+        <div className="bg-white rounded-[24px] p-8 flex flex-col gap-6 h-full shadow-sm hover:shadow-md transition-shadow">
             <div>
                 <span className="text-[24px] font-bold text-[#191716]">{number}</span>
             </div>
@@ -23,32 +16,12 @@ const FeatureCard = ({ number, title, description, direction }: { number: string
                     {description}
                 </p>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
 const WhySimVizSection = ({ features }) => {
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-    const [activeIndex, setActiveIndex] = React.useState(0);
-    const [direction, setDirection] = React.useState<'left' | 'right'>('right');
-
-    const handleScroll = () => {
-        if (scrollContainerRef.current) {
-            const { scrollLeft, clientWidth } = scrollContainerRef.current;
-            // On mobile clientWidth is 100%, index is easy.
-            // On desktop it's more complex, but we can approximate by dividing scrollLeft by the width of one visible card group
-            const index = Math.round(scrollLeft / clientWidth);
-            setActiveIndex(index);
-        }
-    };
-
-    React.useEffect(() => {
-        const container = scrollContainerRef.current;
-        if (container) {
-            container.addEventListener('scroll', handleScroll);
-            return () => container.removeEventListener('scroll', handleScroll);
-        }
-    }, []);
 
 
     const smoothScroll = (element: HTMLElement, target: number, duration: number) => {
@@ -77,7 +50,6 @@ const WhySimVizSection = ({ features }) => {
 
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
-            setDirection('left');
             const target = scrollContainerRef.current.scrollLeft - 400;
             smoothScroll(scrollContainerRef.current, target, 800); // 800ms duration
         }
@@ -85,7 +57,6 @@ const WhySimVizSection = ({ features }) => {
 
     const scrollRight = () => {
         if (scrollContainerRef.current) {
-            setDirection('right');
             const target = scrollContainerRef.current.scrollLeft + 400;
             smoothScroll(scrollContainerRef.current, target, 800); // 800ms duration
         }
@@ -111,7 +82,6 @@ const WhySimVizSection = ({ features }) => {
                                 number={feature.number}
                                 title={feature.title}
                                 description={feature.description}
-                                direction={direction}
                             />
                         </div>
                     ))}
@@ -121,13 +91,10 @@ const WhySimVizSection = ({ features }) => {
                 <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 mt-4">
                     {/* Dots - Just visual placeholders from design */}
                     <div className="flex gap-2 bg-[#e5e5e5] px-4 py-2 rounded-full">
-                        {features.map((_: any, idx: number) => (
-                            <div
-                                key={idx}
-                                className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${activeIndex === idx ? "bg-[#525252]" : "bg-[#a3a3a3]"
-                                    } items-center justify-center`}
-                            />
-                        ))}
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#525252]"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#a3a3a3]"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#a3a3a3]"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#a3a3a3]"></div>
                     </div>
 
                     <div className="flex gap-2">

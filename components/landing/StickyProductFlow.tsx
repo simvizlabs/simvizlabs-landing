@@ -96,7 +96,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <section className="bg-black py-4 md:py-12 text-white overflow-hidden h-full w-full relative">
-          <div className="container mx-auto px-4 sm:px-8 h-full flex flex-col">
+          <div className="mx-auto px-4 sm:px-8 h-full flex flex-col">
             <div className="relative h-full w-full max-w-[1600px] mx-auto">
               {products.map((product, index) => {
                 const styles = getProductStyles(index);
@@ -148,7 +148,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         alt={product.title}
                         width={1200}
                         height={800}
-                        className="w-auto h-auto scale-[1.3] left-[20px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh] drop-shadow-2xl"
+                        className="w-auto h-auto relative scale-[1.5] left-[25px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh] drop-shadow-2xl"
                         priority={index === 0}
                       />
                     </div>
