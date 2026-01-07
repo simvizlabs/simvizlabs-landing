@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import AirlinesLandingPage from "@/components/landing/AirlinesLandingPage";
@@ -8,6 +9,12 @@ import TrainingManagementSection from "@/components/landing/TrainingManagementSe
 import TrainingManagementSectionFeatures from "@/constants/TrainingManagementSectionFeatures";
 
 const img = "/assets/new-airlines/0405ef7ef781aee2424caa7e8b47e1295c72a1b6.png";
+
+export const metadata: Metadata = {
+  title: "Airline Pilot Training Solutions | Reduce Simulator Costs",
+  description: "Optimize your training budget with scalable, tablet-based FMS simulators. A320 & B737 solutions for ease of deployment and lower operational costs.",
+};
+
 
 const content = {
   title: "Enhance your training ecosystem.",

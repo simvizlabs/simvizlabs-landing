@@ -61,4 +61,9 @@ const ATOPage = () => {
     );
 };
 
-export default AirlinesPage;
+export const metadata = {
+    title: "ATO Training Software | CBTA Compliant FMS Tools",
+    description: "Enhance your Approved Training Organisation's curriculum with modern, EASA/ICAO compliant FMS simulators. Improve student pass rates today.",
+};
+
+export default ATOPage;
