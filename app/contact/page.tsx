@@ -1,309 +1,307 @@
 "use client";
-import Link from 'next/link';
-import { useState } from 'react';
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-export default function ContactPage() {
-  const [result, setResult] = useState("");
-  const [contactingAs, setContactingAs] = useState("");
+import React, { useState } from "react";
+import { Check, ChevronDown, Loader2 } from "lucide-react";
+import NavbarDemo from "@/components/resizable-navbar-demo";
+import Footer from "@/components/footer";
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target as HTMLFormElement);
+const BENEFITS = [
+    {
+        title: "Enhance pilot training",
+        description: "Improve procedural understanding and systems knowledge through high-fidelity, interactive simulations.",
+    },
+    {
+        title: "Accelerate learning outcomes",
+        description: "Reduce training time and increase retention with visual, scenario-based learning.",
+    },
+    {
+        title: "Standardize training quality",
+        description: "Deliver consistent, repeatable training experiences across instructors, fleets, and locations.",
+    },
+    {
+        title: "Train with confidence",
+        description: "Make data-driven training decisions using accurate system logic and real-world operational scenarios.",
+    },
+];
 
-    formData.append("access_key", "bb52624a-5b2f-4c6d-8835-5543a8100e22"); // Your Web3Forms Access Key
+const ORG_TYPES = [
+    "Airline",
+    "Flying School",
+    "Training Organisation",
+    "Individuals",
+];
 
-    // Add subject and from_name if desired
-    formData.append("subject", "New Contact Form Submission from SimViz Labs Landing");
-    formData.append("from_name", "SimViz Labs Contact Form");
+const SOLUTIONS = ["A320", "B737", "B747", "ATR72"];
 
-    // Append existing form fields
-    // Note: Ensure input names match what Web3Forms expects or adjust here
-    // formData.append("name", `${formData.get('first-name')} ${formData.get('last-name')}`); // Example: Combine first/last name if needed
-    formData.append("contacting-as", contactingAs);
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
+export default function ContactUsPage() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submissionStatus, setSubmissionStatus] = useState<"idle" | "success" | "error">("idle");
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        orgType: "",
+        region: "",
+        country: "",
+        solution: "",
+        additionalInfo: "",
     });
 
-    const data = await response.json();
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
 
-    if (data.success) {
-      setResult("Form Submitted Successfully!");
-      (event.target as HTMLFormElement).reset(); // Reset form fields
-      setTimeout(() => setResult(""), 5000); // Clear message after 5 seconds
-    } else {
-      console.error("Error submitting form:", data);
-      setResult(`Error: ${data.message}`);
-    }
-  };
+    const handleSelection = (field: "orgType" | "solution", value: string) => {
+        setFormData((prev) => ({ ...prev, [field]: value }));
+    };
 
-  return (
-    <div className="relative isolate bg-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-        
-        {/* Contact Information Section */}
-        <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
-          <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            {/* Background Pattern */}
-            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
-              <svg
-                aria-hidden="true"
-                className="absolute inset-0 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-              >
-                <defs>
-                  <pattern
-                    x="100%"
-                    y={-1}
-                    id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
-                    width={200}
-                    height={200}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path d="M130 200V.5M.5 .5H200" fill="none" />
-                  </pattern>
-                </defs>
-                <rect fill="white" width="100%" height="100%" strokeWidth={0} />
-                <svg x="100%" y={-1} className="overflow-visible fill-gray-50">
-                  <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
-                </svg>
-                <rect fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" width="100%" height="100%" strokeWidth={0} />
-              </svg>
-            </div>
-           {/* Back Button */}
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmissionStatus("idle");
 
-<div className="flex items-center space-x-2 mb-4">
-  <Link
-    href="/"
-    className="flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-5 h-5 mr-1"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 19.5L8.25 12l7.5-7.5"
-      />
-    </svg>
-    Back to Home
-  </Link>
-</div>
-{/* Schedule a Call Button */}
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-<h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-  Get in touch
-</h2>
-            <p className="mt-6 text-lg text-gray-600">
-  Have questions or need assistance? Reach out to us for support with our products and services.
-</p>
+            const result = await response.json();
+            if (result.success) {
+                setSubmissionStatus("success");
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    orgType: "",
+                    region: "",
+                    country: "",
+                    solution: "",
+                    additionalInfo: "",
+                });
+            } else {
+                setSubmissionStatus("error");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            setSubmissionStatus("error");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
-{/* Schedule a Call Button */}
-<div className="mt-6">
-  <a
-    href="https://calendly.com/simvizlabs_demo/30min"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-  >
-    Schedule a Call
-  </a>
-</div>
+    return (
+        <div className="min-h-screen bg-white font-sans text-[#191716]">
+            <NavbarDemo />
 
-<dl className="mt-10 space-y-4 text-base text-gray-600">
-  <div className="flex gap-x-4">
-    <dt>
-      <PhoneIcon className="h-7 w-6 text-gray-400" />
-    </dt>
-    <dd>
-      <a href="tel:+1 (623)-428-4149" className="hover:text-gray-900">
-        +1 (623)-428-4149
-      </a>
-    </dd>
-  </div>
-  <div className="flex gap-x-4">
-    <dt>
-      <EnvelopeIcon className="h-7 w-6 text-gray-400" />
-    </dt>
-    <dd>
-      <a href="mailto:info@simvizlabs.com" className="hover:text-gray-900">
-        info@simvizlabs.com
-      </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
+            <main className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 lg:gap-32">
+                {/* Left Side: Content */}
+                <div className="flex flex-col gap-10">
+                    <div className="flex flex-col gap-6">
+                        <h2 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-[#1381e5] to-[#5ea2ef] bg-clip-text text-transparent leading-[1.1]">
+                            Connect <br /> with SimViz Labs
+                        </h2>
+                        <p className="text-xl text-neutral-600 leading-relaxed max-w-xl">
+                            Learn how SimVizLabs help airlines, flying schools, and training organizations train smarter, faster, and with confidence.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col gap-8">
+                        {BENEFITS.map((benefit, idx) => (
+                            <div key={idx} className="flex gap-4 group">
+                                <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-neutral-300 flex items-center justify-center group-hover:border-[#1381e5] group-hover:bg-[#1381e5]/5 transition-colors">
+                                    <Check className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#1381e5]" />
+                                </div>
+                                <div className="flex flex-col gap-1">
+                                    <h3 className="font-bold text-lg">{benefit.title}</h3>
+                                    <p className="text-neutral-500 leading-relaxed max-w-md">{benefit.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Right Side: Form */}
+                <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">First Name*</label>
+                            <input
+                                required
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleInputChange}
+                                className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">Last Name*</label>
+                            <input
+                                required
+                                type="text"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleInputChange}
+                                className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Email*</label>
+                        <input
+                            required
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Phone Number*</label>
+                        <input
+                            required
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <label className="text-sm font-semibold opacity-70">Who are you inquiring on behalf of?*</label>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                            {ORG_TYPES.map((type) => (
+                                <button
+                                    key={type}
+                                    type="button"
+                                    onClick={() => handleSelection("orgType", type)}
+                                    className={`h-14 rounded-2xl border px-6 text-left transition-all ${formData.orgType === type
+                                        ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold text-[#1381e5]"
+                                        : "border-neutral-200 hover:border-neutral-300 bg-white"
+                                        }`}
+                                >
+                                    {type}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">Region*</label>
+                            <div className="relative">
+                                <select
+                                    required
+                                    name="region"
+                                    value={formData.region}
+                                    onChange={handleInputChange}
+                                    className="w-full h-14 rounded-2xl border border-neutral-200 px-6 appearance-none focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                                >
+                                    <option value="" disabled>Please select a region</option>
+                                    <option value="Americas">Americas</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia Pacific">Asia Pacific</option>
+                                    <option value="Middle East & Africa">Middle East & Africa</option>
+                                </select>
+                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-40 pointer-events-none" />
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">Country*</label>
+                            <div className="relative">
+                                <select
+                                    required
+                                    name="country"
+                                    value={formData.country}
+                                    onChange={handleInputChange}
+                                    className="w-full h-14 rounded-2xl border border-neutral-200 px-6 appearance-none focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
+                                >
+                                    <option value="" disabled>Please select a country</option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="India">India</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-40 pointer-events-none" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <label className="text-sm font-semibold opacity-70">Which pilot training solution are you interested in?*</label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            {SOLUTIONS.map((sol) => (
+                                <button
+                                    key={sol}
+                                    type="button"
+                                    onClick={() => handleSelection("solution", sol)}
+                                    className={`h-14 rounded-2xl border flex items-center justify-center transition-all ${formData.solution === sol
+                                        ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold text-[#1381e5]"
+                                        : "border-neutral-200 hover:border-neutral-300 bg-white"
+                                        }`}
+                                >
+                                    {sol}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Additional Information</label>
+                        <textarea
+                            name="additionalInfo"
+                            value={formData.additionalInfo}
+                            onChange={handleInputChange}
+                            rows={4}
+                            className="w-full rounded-2xl border border-neutral-200 p-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30 resize-none"
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-4 mt-6">
+                        <button
+                            disabled={isSubmitting}
+                            type="submit"
+                            className="h-16 rounded-full bg-[#1381e5] text-white font-bold text-xl hover:bg-[#106bc0] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-500/10 active:scale-[0.98]"
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                    Sending...
+                                </>
+                            ) : (
+                                "Submit"
+                            )}
+                        </button>
+                        <p className="text-xs text-neutral-400 text-center px-8">
+                            Make sure you've completed all required fields marked with * before submitting.
+                        </p>
+                    </div>
+
+                    {submissionStatus === "success" && (
+                        <div className="p-6 rounded-2xl bg-green-50 border border-green-100 text-green-700 text-center font-semibold">
+                            Thank you! Your inquiry has been sent successfully. We'll be in touch soon.
+                        </div>
+                    )}
+                    {submissionStatus === "error" && (
+                        <div className="p-6 rounded-2xl bg-red-50 border border-red-100 text-red-700 text-center font-semibold">
+                            Oops! Something went wrong. Please try again or contact us directly.
+                        </div>
+                    )}
+                </form>
+            </main>
+            <Footer theme="light" />
         </div>
-        {/* Contact Form Section */}
-        <form onSubmit={onSubmit} className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-          <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              {/* Input fields need 'name' attributes for FormData */}
-              <div>
-                <label htmlFor="first-name" className="block text-sm font-semibold text-gray-900">
-                  First name
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    id="first-name"
-                    name="first-name" // Ensure name attribute is present
-                    type="text"
-                    autoComplete="given-name"
-                    required // Added required attribute
-                    className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="last-name" className="block text-sm font-semibold text-gray-900">
-                  Last name
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    id="last-name"
-                    name="last-name" // Ensure name attribute is present
-                    type="text"
-                    autoComplete="family-name"
-                    required // Added required attribute
-                    className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
-                  />
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900">
-                  Email
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    id="email"
-                    name="email" // Ensure name attribute is present
-                    type="email"
-                    autoComplete="email"
-                    required // Added required attribute
-                    className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
-                  />
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <div className="grid grid-cols-[1fr_auto] items-center">
-                  <label htmlFor="contacting-as" className="block text-sm font-semibold text-gray-900 mr-3">
-                  Organization Type
-                  </label>
-                  <div className="w-full">
-                    <ContactingAsDropdown contactingAs={contactingAs} setContactingAs={setContactingAs} />
-                  </div>
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900">
-                  Message
-                </label>
-                <div className="mt-2.5">
-                  <textarea
-                    id="message"
-                    name="message" // Ensure name attribute is present
-                    rows={4}
-                    required // Added required attribute
-                    className="block w-full rounded-md bg-white px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:ring-blue-600 focus:border-blue-600"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-end sm:col-span-2">
-              <button
-                type="submit"
-                className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-              >
-                Send message
-              </button>
-            </div>
-            {/* Display submission result */}
-            {result && (
-              <p className={`mt-4 text-sm ${result.startsWith('Error') ? 'text-red-600' : 'text-green-600'}`}>
-                {result}
-              </p>
-            )}
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-interface ContactingAsDropdownProps {
-  contactingAs: string;
-  setContactingAs: (value: string) => void;
-}
-
-function ContactingAsDropdown({ contactingAs, setContactingAs }: ContactingAsDropdownProps) {
-
-  return (
-    <Menu as="div" className="relative inline-block text-left w-full">
-      <div>
-        <MenuButton className="inline-flex justify-between gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 w-64">
-          {contactingAs || "Select"}
-          <ChevronDownIcon className="-mr-1 size-5 text-gray-400" aria-hidden="true" />
-        </MenuButton>
-      </div>
-
-      <MenuItems
-        className="absolute left-0 z-10 mt-2 w-72 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
-      >
-        <div className="py-1">
-          <MenuItem>
-            {({ active }: { active: boolean }) => (
-              <button
-                onClick={() => {setContactingAs("Airline")}}
-                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
-                block w-full px-4 py-2 text-left text-sm`}
-              >
-                Airline
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ active }: { active: boolean }) => (
-              <button
-                onClick={() => {setContactingAs("Aeronautical School")}}
-                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
-                block w-full px-4 py-2 text-left text-sm`}
-              >
-                Aeronautical School
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ active }: { active: boolean }) => (
-              <button
-                onClick={() => {setContactingAs("Type Rating Organisation")}}
-                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
-                block w-full px-4 py-2 text-left text-sm`}
-              >
-                Type Rating Organisation
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ active }: { active: boolean }) => (
-              <button
-                onClick={() => {setContactingAs("Pilot")}}
-                className={`${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
-                block w-full px-4 py-2 text-left text-sm`}
-              >
-                Pilot
-              </button>
-            )}
-          </MenuItem>
-        </div>
-      </MenuItems>
-    </Menu>
-  );
+    );
 }

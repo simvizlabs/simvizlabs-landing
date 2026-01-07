@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
@@ -92,8 +93,10 @@ export default async function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={`antialiased font-geist`}>
           <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
-            {children}
-            <Toaster />
+            <SmoothScrollProvider>
+              {children}
+              <Toaster />
+            </SmoothScrollProvider>
           </ThemeProvider>
         </body>
       </html>

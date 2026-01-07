@@ -24,24 +24,28 @@ export default function Home() {
       <StickyProductFlow
         products={[
           {
+            id: "a320",
             title: "A320 FMS Simulator",
             subtitle: "iPad Based",
             image: "/landing/a320/a320_fms_simulator.png",
             orientation: "left"
           },
           {
+            id: "b737",
             title: "B737 FMS Simulator",
             subtitle: "iPad Based",
             image: "/landing/b737/b737_fms_simulator.png",
             orientation: "right"
           },
           {
+            id: "b747",
             title: "B747 FMS Simulator",
             subtitle: "iPad Based",
             image: "/landing/b747/b747_fms_simulator.png",
             orientation: "left"
           },
           {
+            id: "atr72",
             title: "A new way to train like a pro.",
             subtitle: "ATR 72-600",
             image: "/landing/atr/atr.png",

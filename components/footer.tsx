@@ -19,12 +19,12 @@ const footerSections = [
       },
 
       {
-        title: "Aeronautical Schools",
-        href: "/aeronautical-schools",
+        title: "Flying Schools",
+        href: "/flying-schools",
       },
       {
-        title: "Type Rating Organizations",
-        href: "/type-rating-schools",
+        title: "Approved Training Organisations",
+        href: "/approved-training-organisations",
       },
 
     ],
@@ -59,7 +59,7 @@ const footerSections = [
       },
       {
         title: "Contact",
-        href: "/contact",
+        href: "/contact-us",
       },
     ],
   },
@@ -86,7 +86,7 @@ const Footer = ({
           <div className="flex items-center gap-2">
             <Image
               src="/logo-dark.png"
-              alt="SimvizLabs"
+              alt="SimViz Labs"
               width={48}
               height={48}
               className={cn(isDark ? "" : "invert")}

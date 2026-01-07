@@ -43,7 +43,7 @@ function FeaturesSectionDemo() {
     {
       title: "Effortless System Integration",
       description:
-        "Connect SimVizLabs seamlessly into your existing workflows and platforms using developer-friendly, aviation-grade APIs.",
+        "Connect SimViz Labs seamlessly into your existing workflows and platforms using developer-friendly, aviation-grade APIs.",
       icon: <Share />,
     },
   ];

@@ -161,9 +161,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       <div className="flex items-center justify-center gap-2 lg:gap-8">
-        {items.find(item => item.listMenu)?.listMenu?.map((item, idx) => (
+        {items.map((item, idx) => (
           <div
-            key={`link-${idx}`}
+            key={`${item.name}-${idx}`}
             className="relative"
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={handleMouseLeave}
@@ -171,14 +171,13 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             <Link
               href={item.link}
               onClick={(e) => {
-                e.preventDefault();
                 if (item.link.startsWith("#")) {
+                  e.preventDefault();
                   onItemClick?.(item.link);
-                } else {
-                  router.push(item.link);
                 }
+                // For non-hash links, let next/link handle it natively
               }}
-              className="relative flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+              className="relative text-white font-bold flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
             >
               {hovered === idx && (
                 <motion.div
@@ -195,10 +194,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                   }}
                 />
               )}
-              <span className="relative whitespace-nowrap text-sm font-medium transition-all duration-200">
+              <span className="font-bold relative whitespace-nowrap text-sm font-medium transition-all duration-200">
                 {item.name}
               </span>
-
             </Link>
           </div>
         ))}
@@ -260,9 +258,6 @@ export const MobileNavMenu = ({
   handleNavItemClick,
   className,
 }: MobileNavMenuProps) => {
-  const router = useRouter();
-  const listMenu = navItems.find(item => item.listMenu)?.listMenu;
-
   return (
     <AnimatePresence mode="wait">
       {isOpen && (
@@ -272,7 +267,7 @@ export const MobileNavMenu = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           className={cn(
-            "fixed inset-0 z-50 flex w-full flex-col items-start justify-start gap-4 bg-white px-4 py-8 dark:bg-neutral-950",
+            "fixed inset-0 z-50 flex w-full flex-col items-start justify-start gap-4 bg-black/90 backdrop-blur-md px-4 py-8",
             className
           )}
         >
@@ -283,10 +278,10 @@ export const MobileNavMenu = ({
             transition={{ duration: 0.3 }}
             className="w-full flex justify-end"
           >
-            <MobileNavToggle isOpen={isOpen} onClick={onClose} />
+            <MobileNavToggle isOpen={isOpen} onClick={onClose} className="text-white" />
           </motion.div>
           <div className="w-full flex-1 flex flex-col items-center justify-center">
-            {listMenu?.map((item, idx) => (
+            {navItems.map((item, idx) => (
               <motion.div
                 key={`mobile-link-${idx}`}
                 initial={{ opacity: 0, y: 20 }}
@@ -294,20 +289,21 @@ export const MobileNavMenu = ({
                 exit={{ opacity: 0, y: -20 }}
                 transition={{
                   duration: 0.3,
-                  delay: isOpen ? idx * 0.1 : (listMenu.length - idx - 1) * 0.1,
+                  delay: isOpen ? idx * 0.1 : (navItems.length - idx - 1) * 0.1,
                   ease: "easeOut"
                 }}
                 className="w-full text-center py-4"
               >
                 <Link
                   href={item.link}
-                  className="text-2xl font-medium text-muted-foreground hover:text-foreground"
-                  onClick={() => {
-                    onClose();
+                  className="text-2xl font-medium text-muted-foreground hover:text-white"
+                  onClick={(e) => {
                     if (item.link.startsWith('#')) {
+                      e.preventDefault();
                       handleNavItemClick(item.link);
                     } else {
-                      router.push(item.link);
+                      // Standard link, just close menu
+                      onClose();
                     }
                   }}
                 >
@@ -316,26 +312,6 @@ export const MobileNavMenu = ({
               </motion.div>
             ))}
           </div>
-          {/* <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ 
-              duration: 0.3,
-              delay: isOpen ? (listMenu?.length || 0) * 0.1 : 0,
-              ease: "easeOut"
-            }}
-            className="w-full flex flex-col gap-4 pb-8"
-          >
-            <NavbarButton
-              href="/contact"
-              onClick={onClose}
-              variant="primary"
-              className="w-full"
-            >
-              Contact Us
-            </NavbarButton>
-          </motion.div> */}
         </motion.div>
       )}
     </AnimatePresence>

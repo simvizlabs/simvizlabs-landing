@@ -4,8 +4,10 @@ import { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductData {
+  id: string;
   title: string;
   subtitle: string;
   description?: string;
@@ -78,7 +80,12 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
       );
     }
 
-    return { opacity, y };
+    const pointerEvents = useTransform(
+      opacity,
+      (o) => (o > 0.1 ? ("auto" as const) : ("none" as const))
+    );
+
+    return { opacity, y, pointerEvents };
   };
 
   return (
@@ -89,7 +96,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <section className="bg-black py-4 md:py-12 text-white overflow-hidden h-full w-full relative">
-          <div className="container mx-auto px-4 sm:px-8 h-full flex flex-col">
+          <div className="mx-auto px-4 sm:px-8 h-full flex flex-col">
             <div className="relative h-full w-full max-w-[1600px] mx-auto">
               {products.map((product, index) => {
                 const styles = getProductStyles(index);
@@ -99,6 +106,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                     style={{
                       opacity: styles.opacity,
                       y: styles.y,
+                      pointerEvents: styles.pointerEvents,
                       position: 'absolute',
                       inset: 0,
                       display: 'flex',
@@ -125,8 +133,10 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         </p>
                       )}
                       {!product.isComingSoon && (
-                        <Button className="bg-[#0099FF] text-white hover:bg-[#007acc] rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2">
-                          Learn More
+                        <Button asChild className="bg-[#0099FF] text-white hover:bg-[#007acc] cursor-pointer rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2">
+                          <Link href={`/our-products?product=${product.id}`}>
+                            Learn More
+                          </Link>
                         </Button>
                       )}
                     </div>
@@ -138,7 +148,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         alt={product.title}
                         width={1200}
                         height={800}
-                        className="w-auto h-auto scale-[1.3] left-[20px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh] drop-shadow-2xl"
+                        className="w-auto h-auto relative scale-[1.5] left-[25px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh] drop-shadow-2xl"
                         priority={index === 0}
                       />
                     </div>

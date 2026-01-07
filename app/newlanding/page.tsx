@@ -7,8 +7,8 @@ import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SimvizLabs - Train Smarter, Fly Safer",
-  description: "Boost pilot readiness and elevate operational confidence with SimvizLabs simulators.",
+  title: "SimViz Labs - Train Smarter, Fly Safer",
+  description: "Boost pilot readiness and elevate operational confidence with SimViz Labs simulators.",
 };
 
 export default function NewLandingPage() {

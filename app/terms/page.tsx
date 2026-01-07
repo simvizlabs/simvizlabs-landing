@@ -317,14 +317,14 @@ const TermsAndConditionsPage = () => {
               </p>
               <ul className="list-none pl-0 mt-4 space-y-2">
                 <li>
-                 Website: <a href="https://www.simvizlabs.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">https://www.simvizlabs.com</a>
+                  Website: <a href="https://www.simvizlabs.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">https://www.simvizlabs.com</a>
                 </li>
                 <li>
-                 Email: <a href="mailto:info@simvizlabs.com" className="text-blue-600 dark:text-blue-400 hover:underline">info@simvizlabs.com</a>
+                  Email: <a href="mailto:info@simvizlabs.com" className="text-blue-600 dark:text-blue-400 hover:underline">info@simvizlabs.com</a>
                 </li>
                 <li>
-                 Phone: +1 (623)-428-4149 &nbsp;|&nbsp; +91 8931902560
-                  
+                  Phone: +1 (623)-428-4149 &nbsp;|&nbsp; +91 8931902560
+
                 </li>
               </ul>
             </section>
@@ -336,7 +336,7 @@ const TermsAndConditionsPage = () => {
           <p className="text-center text-gray-600 dark:text-gray-400">
             Need help?{" "}
             <Link
-              href="/contact"
+              href="/contact-us"
               className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
             >
               Contact&nbsp;Us
