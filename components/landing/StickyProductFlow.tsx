@@ -33,50 +33,47 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
     const start = index * step;
     const end = start + step;
 
-    // Fade transitions with overlap
-    const fadeInStart = Math.max(0, start - step * 0.3);
-    const fadeInEnd = start + step * 0.2;
-    const fadeOutStart = end - step * 0.3;
-    const fadeOutEnd = Math.min(1, end + step * 0.1);
-
     let opacity: MotionValue<number>;
     let y: MotionValue<number>;
 
+    // Sharp boundaries for "immediate" appearance
+    const epsilon = 0.001;
+
     if (index === 0) {
-      // First item starts visible, fades out towards the end of its slot
+      // First item starts visible, stays visible until its end, then instantly disappears
       opacity = useTransform(
         scrollYProgress,
-        [0, fadeOutStart, fadeOutEnd],
+        [0, end - epsilon, end],
         [1, 1, 0]
       );
       y = useTransform(
         scrollYProgress,
-        [0, fadeOutEnd],
-        [0, -30]
+        [0, end - epsilon, end],
+        [0, 0, -20]
       );
     } else if (index === products.length - 1) {
-      // Last item fades in, stays visible
+      // Last item instantly appears at its start, stays visible
       opacity = useTransform(
         scrollYProgress,
-        [fadeInStart, fadeInEnd, 1],
+        [start - epsilon, start, 1],
         [0, 1, 1]
       );
       y = useTransform(
         scrollYProgress,
-        [fadeInStart, fadeInEnd],
-        [50, 0]
+        [start - epsilon, start],
+        [20, 0]
       );
     } else {
-      // Middle items fade in then fade out
+      // Middle items instantly appear and disappear at their boundaries
       opacity = useTransform(
         scrollYProgress,
-        [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
+        [start - epsilon, start, end - epsilon, end],
         [0, 1, 1, 0]
       );
       y = useTransform(
         scrollYProgress,
-        [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
-        [50, 0, 0, -30]
+        [start - epsilon, start, end - epsilon, end],
+        [20, 0, 0, -20]
       );
     }
 

@@ -29,9 +29,10 @@ const ORG_TYPES = [
     "Flying School",
     "Training Organisation",
     "Individuals",
+    "OTHERS"
 ];
 
-const SOLUTIONS = ["A320", "B737", "B747", "ATR72"];
+const SOLUTIONS = ["A320", "B737", "B747", "ATR 72-600", "LMS"];
 
 export default function ContactUsPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,17 +45,33 @@ export default function ContactUsPage() {
         orgType: "",
         region: "",
         country: "",
-        solution: "",
+        solutions: [] as string[],
         additionalInfo: "",
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+
+        if (name === "phone") {
+            const numericValue = value.replace(/[^0-9]/g, "");
+            setFormData((prev) => ({ ...prev, [name]: numericValue }));
+        } else {
+            setFormData((prev) => ({ ...prev, [name]: value }));
+        }
     };
 
-    const handleSelection = (field: "orgType" | "solution", value: string) => {
-        setFormData((prev) => ({ ...prev, [field]: value }));
+    const handleSelection = (field: "orgType" | "solutions", value: string) => {
+        if (field === "solutions") {
+            setFormData((prev) => {
+                const currentSolutions = prev.solutions;
+                const newSolutions = currentSolutions.includes(value)
+                    ? currentSolutions.filter((s) => s !== value)
+                    : [...currentSolutions, value];
+                return { ...prev, solutions: newSolutions };
+            });
+        } else {
+            setFormData((prev) => ({ ...prev, [field]: value }));
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -63,6 +80,14 @@ export default function ContactUsPage() {
         setSubmissionStatus("idle");
 
         try {
+            // Basic email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                setSubmissionStatus("error");
+                setIsSubmitting(false);
+                return;
+            }
+
             const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: {
@@ -82,7 +107,7 @@ export default function ContactUsPage() {
                     orgType: "",
                     region: "",
                     country: "",
-                    solution: "",
+                    solutions: [],
                     additionalInfo: "",
                 });
             } else {
@@ -167,9 +192,8 @@ export default function ContactUsPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <label className="text-sm font-semibold opacity-70">Phone Number*</label>
+                        <label className="text-sm font-semibold opacity-70">Phone Number</label>
                         <input
-                            required
                             type="tel"
                             name="phone"
                             value={formData.phone}
@@ -241,13 +265,13 @@ export default function ContactUsPage() {
 
                     <div className="flex flex-col gap-4">
                         <label className="text-sm font-semibold opacity-70">Which pilot training solution are you interested in?*</label>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
                             {SOLUTIONS.map((sol) => (
                                 <button
                                     key={sol}
                                     type="button"
-                                    onClick={() => handleSelection("solution", sol)}
-                                    className={`h-14 rounded-2xl border flex items-center justify-center transition-all ${formData.solution === sol
+                                    onClick={() => handleSelection("solutions", sol)}
+                                    className={`h-14 rounded-2xl border flex items-center justify-center transition-all ${formData.solutions.includes(sol)
                                         ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold text-[#1381e5]"
                                         : "border-neutral-200 hover:border-neutral-300 bg-white"
                                         }`}

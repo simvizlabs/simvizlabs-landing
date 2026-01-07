@@ -34,15 +34,15 @@ const footerSections = [
     links: [
       {
         title: "B747",
-        href: "/products/747-bundle",
+        href: "/our-products?product=747-bundle",
       },
       {
         title: "B737",
-        href: "/products/737-bundle",
+        href: "/our-products?product=737-bundle",
       },
       {
         title: "A320",
-        href: "/products/a320-bundle",
+        href: "/our-products?product=a320-bundle",
       },
     ],
   },

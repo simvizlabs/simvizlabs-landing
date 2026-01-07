@@ -6,7 +6,7 @@ export interface ContactInquiry {
   orgType: string;
   region: string;
   country: string;
-  solution: string;
+  solutions: string[];
   additionalInfo: string;
 }
 
@@ -80,8 +80,8 @@ export function formatContactEmailHtml(data: ContactInquiry) {
           <td style="padding: 10px; border: 1px solid #eee;">${data.country}</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #eee; font-weight: bold;">Training Solution</td>
-          <td style="padding: 10px; border: 1px solid #eee;">${data.solution}</td>
+          <td style="padding: 10px; border: 1px solid #eee; font-weight: bold;">Training Solutions</td>
+          <td style="padding: 10px; border: 1px solid #eee;">${data.solutions.join(", ") || "None selected"}</td>
         </tr>
       </table>
       

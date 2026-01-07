@@ -31,12 +31,12 @@ export function HeroSection() {
         </p>
 
         <div className="mt-8 sm:mt-10">
-          <Button
-            size="lg"
-            className="h-10 sm:h-12 bg-[#0099FF] text-white hover:bg-[#007acc] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full"
+          <a
+            href="/contact"
+            className="h-10 sm:h-12 bg-[#0099FF] text-white p-4 hover:bg-[#007acc] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full"
           >
             Schedule a Demo
-          </Button>
+          </a>
         </div>
       </div>
     </section>
