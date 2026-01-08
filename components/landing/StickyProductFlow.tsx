@@ -44,7 +44,6 @@ function ProductImage({ product, priority }: { product: ProductData, priority: b
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0 z-0 flex items-center justify-center"
           >
-            <div className="w-[80vw] max-w-[800px] aspect-[16/10] bg-white/5 rounded-3xl backdrop-blur-sm border border-white/10" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -55,7 +54,7 @@ function ProductImage({ product, priority }: { product: ProductData, priority: b
           opacity: isLoaded ? 1 : 0,
           scale: isLoaded ? 1 : 0.95
         }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="w-full flex justify-center"
       >
         <Image

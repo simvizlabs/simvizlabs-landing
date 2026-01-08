@@ -15,8 +15,13 @@ export async function getGraphAccessToken() {
   const clientId = process.env.AZURE_AD_CLIENT_ID;
   const clientSecret = process.env.AZURE_AD_CLIENT_SECRET;
 
-  if (!tenantId || !clientId || !clientSecret) {
-    throw new Error("Missing Azure AD environment variables");
+  const missingVars = [];
+  if (!tenantId) missingVars.push("AZURE_AD_TENANT_ID");
+  if (!clientId) missingVars.push("AZURE_AD_CLIENT_ID");
+  if (!clientSecret) missingVars.push("AZURE_AD_CLIENT_SECRET");
+
+  if (missingVars.length > 0) {
+    throw new Error(`Missing Azure AD environment variables: ${missingVars.join(", ")}`);
   }
 
   const url = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`;
@@ -35,9 +40,9 @@ export async function getGraphAccessToken() {
   });
 
   if (!response.ok) {
-    const error = await response.json();
-    console.error("Graph OAuth error:", error);
-    throw new Error("Failed to obtain Microsoft Graph access token");
+    const errorBody = await response.json().catch(() => ({}));
+    console.error("Graph OAuth error detail:", JSON.stringify(errorBody, null, 2));
+    throw new Error(`Graph OAuth failed (${response.status}): ${errorBody.error_description || errorBody.error || "Unknown error"}`);
   }
 
   const data = await response.json();
@@ -102,7 +107,11 @@ export async function sendEmailViaGraph(accessToken: string, data: ContactInquir
   const recipientMail = process.env.CONTACT_RECIPIENT_MAIL || senderMail;
 
   if (!senderMail) {
-    throw new Error("Missing AZURE_AD_SENDER_MAIL environment variable");
+    throw new Error("Missing Microsoft Graph sender email: AZURE_AD_SENDER_MAIL environment variable is not set");
+  }
+
+  if (!recipientMail) {
+    throw new Error("Missing Microsoft Graph recipient email: CONTACT_RECIPIENT_MAIL is not set and AZURE_AD_SENDER_MAIL is also missing");
   }
 
   const url = `https://graph.microsoft.com/v1.0/users/${senderMail}/sendMail`;

@@ -86,11 +86,11 @@ const Footer = ({
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Image
-              src="/logo-dark.png"
+              src={isDark ? "/logo-dark.png" : "/logo.svg"}
               alt="SimViz Labs"
               width={48}
               height={48}
-              className={cn(isDark ? "" : "invert")}
+              className={cn(isDark ? "" : "")}
             />
           </div>
           <p className={cn("mt-2 font-bold", isDark ? "text-white" : "text-black")}>SimViz Labs</p>
