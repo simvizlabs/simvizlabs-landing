@@ -34,7 +34,7 @@ const Hero = () => {
             Experience aviation distance learning powered by interactive simulators, real-world scenario training, and predictive learning analytics—designed to sharpen pilot proficiency and enhance operational safety.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/contact-us" className="w-full sm:w-auto">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 className="w-full sm:w-auto rounded-full text-base"

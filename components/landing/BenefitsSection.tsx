@@ -50,9 +50,9 @@ export function BenefitsSection() {
                   {benefit.title}
                 </h3>
                 {benefit.description && (
-                  <p className="text-black/70 leading-relaxed text-sm sm:text-base">
+                  <span className="text-black/70 leading-relaxed text-sm sm:text-base">
                     {benefit.description}
-                  </p>
+                  </span>
                 )}
               </div>
             </div>

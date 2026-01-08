@@ -22,8 +22,8 @@ const content = {
   button: [
     {
       heading: "Schedule a Demo",
-      redirect: "/contact-us",
-      class: "px-9 py-7 rounded-[24px] border-[#1381e5] hover:border-[#1381e5] hover:text-[#1381e5] font-sans font-semibold leading-[normal] not-italic text-[17px] text-[#1381e5] text-nowrap"
+      redirect: "/contact",
+      class: "px-9 py-7 rounded-[24px] bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-[17px] text-nowrap"
     }
   ]
 }

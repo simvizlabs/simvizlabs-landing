@@ -4,6 +4,7 @@ import {
   Facebook,
   Instagram,
   Linkedin,
+  YoutubeIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -33,16 +34,16 @@ const footerSections = [
     title: "Our Products",
     links: [
       {
-        title: "B747",
-        href: "/our-products?product=747-bundle",
+        title: "A320",
+        href: "/our-products?product=a320",
       },
       {
         title: "B737",
-        href: "/our-products?product=737-bundle",
+        href: "/our-products?product=b737",
       },
       {
-        title: "A320",
-        href: "/our-products?product=a320-bundle",
+        title: "B747",
+        href: "/our-products?product=b747",
       },
     ],
   },
@@ -59,7 +60,7 @@ const footerSections = [
       },
       {
         title: "Contact",
-        href: "/contact-us",
+        href: "/contact",
       },
     ],
   },
@@ -92,11 +93,23 @@ const Footer = ({
               className={cn(isDark ? "" : "invert")}
             />
           </div>
-          <p className={cn("mt-2 font-bold", isDark ? "text-white" : "text-black")}>SimvizLabs</p>
+          <p className={cn("mt-2 font-bold", isDark ? "text-white" : "text-black")}>SimViz Labs</p>
 
           <p className="mt-4 text-muted-foreground">
             Next Generation Aviation Solutions.
           </p>
+          {/* <p className="mt-4 text-muted-foreground">
+            HeadQuaters
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            USA
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            Next Generation Aviation Solutions.
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            Next Generation Aviation Solutions.
+          </p> */}
         </div>
 
         {footerSections.map(({ title, links }) => (
@@ -122,7 +135,7 @@ const Footer = ({
         {/* Copyright */}
         <span className="text-muted-foreground text-center xs:text-start">
           &copy; {new Date().getFullYear()}{" "}
-          SimvizLabs LLC. All rights reserved.
+          SimViz Labs LLC. All rights reserved.
         </span>
 
         <div className="flex items-center gap-5 text-muted-foreground">
@@ -135,9 +148,12 @@ const Footer = ({
           <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className="hover:text-foreground transition-colors">
             <Facebook className="h-5 w-5" />
           </Link>
+          <Link href="https://www.youtube.com/@simvizlabs" target="_blank" className="hover:text-foreground transition-colors">
+            <YoutubeIcon className="h-5 w-5" />
+          </Link>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

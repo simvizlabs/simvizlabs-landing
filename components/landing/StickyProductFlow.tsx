@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { useScroll, useTransform, motion, MotionValue, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +18,59 @@ interface ProductData {
 
 interface StickyProductFlowProps {
   products: ProductData[];
+}
+
+function ProductImage({ product, priority }: { product: ProductData, priority: boolean }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Check if image is already in cache on mount
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  return (
+    <div className="relative w-full flex justify-center items-center">
+      {/* Skeleton / Placeholder */}
+      <AnimatePresence>
+        {!isLoaded && (
+          <motion.div
+            key="skeleton"
+            initial={{ opacity: 0.5 }}
+            animate={{ opacity: [0.4, 0.6, 0.4] }}
+            exit={{ opacity: 0 }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 z-0 flex items-center justify-center"
+          >
+            <div className="w-[80vw] max-w-[800px] aspect-[16/10] bg-white/5 rounded-3xl backdrop-blur-sm border border-white/10" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{
+          opacity: isLoaded ? 1 : 0,
+          scale: isLoaded ? 1 : 0.95
+        }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full flex justify-center"
+      >
+        <Image
+          ref={imgRef}
+          src={product.image}
+          alt={product.title}
+          width={1200}
+          height={800}
+          onLoad={() => setIsLoaded(true)}
+          className="w-auto h-auto relative scale-[1.5] left-[25px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh]"
+        // priority={priority}
+        />
+      </motion.div>
+    </div>
+  );
 }
 
 export function StickyProductFlow({ products }: StickyProductFlowProps) {
@@ -138,17 +191,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                       )}
                     </div>
 
-                    {/* Product Image */}
-                    <div className="relative w-full flex justify-center items-center">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        width={1200}
-                        height={800}
-                        className="w-auto h-auto relative scale-[1.5] left-[25px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh] drop-shadow-2xl"
-                        priority={index === 0}
-                      />
-                    </div>
+                    <ProductImage product={product} priority={index <= 1} />
                   </motion.div>
                 );
               })}

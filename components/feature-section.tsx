@@ -71,7 +71,7 @@ const Feature108 = ({
                 Seamlessly integrate our high-fidelity simulators, adaptive LMS modules, and data-driven scenario training into your programs—designed to accelerate pilot readiness, standardize airline procedures, and modernize aviation academy curricula.
               </p>
               <Button className="mt-2.5 w-fit gap-2" size="lg" asChild>
-                <Link href="/contact-us">Get in touch</Link>
+                <Link href="/contact">Get in touch</Link>
               </Button>
             </div>
           </div>

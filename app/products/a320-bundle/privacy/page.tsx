@@ -286,7 +286,7 @@ const A320BundlePrivacyPage = () => {
           <p className="text-center text-gray-600 dark:text-gray-400 font-geist">
             Need help?{" "}
             <Link
-              href="/contact-us"
+              href="/contact"
               className="text-blue-600 dark:text-blue-400 font-semibold hover:underline font-geist"
             >
               Contact&nbsp;Us

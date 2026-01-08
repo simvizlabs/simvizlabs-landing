@@ -344,7 +344,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <Image src="/logo.png" alt="SimvizLabs Logo" width={32} height={32} className="mr-2" />
+      <Image src="/logo.png" alt="SimViz Labs Logo" width={32} height={32} className="mr-2" />
       <span className="font-bold text-black dark:text-white">SimViz Labs</span>
     </a>
   );

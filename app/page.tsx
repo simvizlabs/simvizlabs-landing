@@ -9,7 +9,7 @@ import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SimvizLabs | Aviation Training Software & FMS Simulators",
+  title: "SimViz Labs | Aviation Training Software & FMS Simulators",
   description: "Reduce training costs with iPad-based FMS simulators for A320, B737, and B747. CBTA compliant pilot training solutions for airlines and ATOs.",
 };
 

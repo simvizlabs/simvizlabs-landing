@@ -133,7 +133,7 @@ export default function ContactUsPage() {
                             Connect <br /> with SimViz Labs
                         </h2>
                         <p className="text-xl text-neutral-600 leading-relaxed max-w-xl">
-                            Learn how SimVizLabs help airlines, flying schools, and training organizations train smarter, faster, and with confidence.
+                            Learn how SimViz Labs help airlines, flying schools, and training organizations train smarter, faster, and with confidence.
                         </p>
                     </div>
 

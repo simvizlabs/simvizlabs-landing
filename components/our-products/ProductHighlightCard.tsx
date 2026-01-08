@@ -40,6 +40,7 @@ export function ProductHighlightCard({
 }: ProductHighlightCardProps) {
     return (
         <motion.div
+            id={id}
             layoutId={layoutId}
             className={cn(
                 "bg-[#f5f5f7] rounded-3xl p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 overflow-hidden",
@@ -66,7 +67,7 @@ export function ProductHighlightCard({
                             asChild={!!secondaryButton.href}
                             onClick={secondaryButton.onClick}
                             className={cn(
-                                "rounded-3xl px-8 py-4 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all",
+                                "rounded-3xl px-8 py-4 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5] transition-all",
                                 secondaryButton.className
                             )}
                         >

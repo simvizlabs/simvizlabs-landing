@@ -223,7 +223,7 @@ const PaymentRedirectContent = () => {
                       Go to Dashboard
                     </Button>
                     <Link
-                      href="/contact-us"
+                      href="/contact"
                       className="flex-1"
                     >
                       <Button

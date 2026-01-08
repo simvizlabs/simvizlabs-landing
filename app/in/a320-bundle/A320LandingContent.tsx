@@ -688,7 +688,7 @@ const A320FMSLandingContent = () => {
           </div>
         </section> */}
 
-        {/* About SimvizLabs - Dark Grey Background */}
+        {/* About SimViz Labs - Dark Grey Background */}
         <section className="bg-black">
           <Image
             src="/images/in/a320/aviation_academy_meeting.png"

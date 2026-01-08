@@ -29,21 +29,21 @@ export default function Home() {
 
   return (
     <>
-        <Head>
-          <title>SimvizLabs - Next-Gen Pilot Training</title>
-          <meta name="description" content="Experience cutting-edge aviation training with SimvizLabs. Our interactive, data-driven solutions enhance pilot performance and operational safety." />
-          <meta name="keywords" content="pilot training, aviation, flight simulation, distance learning, pilot performance, operational safety, SimvizLabs" />
-        </Head>
-      
+      <Head>
+        <title>SimViz Labs - Next-Gen Pilot Training</title>
+        <meta name="description" content="Experience cutting-edge aviation training with SimViz Labs. Our interactive, data-driven solutions enhance pilot performance and operational safety." />
+        <meta name="keywords" content="pilot training, aviation, flight simulation, distance learning, pilot performance, operational safety, SimViz Labs" />
+      </Head>
+
       <NavbarDemo />
       <HeroSection />
-      
-    
+
+
       <FeatureSection id="feature-section" />
-    
+
       <FeaturesSectionDemo />
-     
-    
+
+
 
       <Footer />
     </>

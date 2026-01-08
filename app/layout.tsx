@@ -7,7 +7,7 @@ import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvide
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
-  title: "Simvizlabs- NextGen Pilot Training",
+  title: "SimViz Labs- NextGen Pilot Training",
   description:
     "Experience aviation distance learning powered by interactive data-driven training. Enhance pilot performance and operational safety with SimvizLabs' innovative solutions.",
   keywords: [
@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    siteName: "SimVizLabs",
+    siteName: "SimViz Labs",
     locale: "en_US",
     url: "https://simvizlabs.com",
-    title: "Simvizlabs",
+    title: "SimViz Labs",
     description:
       "Next Gen Aviation solutions , Digital Pilot Training And Operational Solution",
     images: [
@@ -31,17 +31,17 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SimvizLabs Landing page",
+        alt: "SimViz Labs Landing page",
       },
     ],
   },
   authors: [
     {
-      name: "SimvizlabsDev",
+      name: "SimViz Labs Dev",
       url: "https://simvizlabs.com",
     },
   ],
-  creator: "simvizlabsdevs",
+  creator: "SimViz Labs Dev",
   icons: [
     {
       rel: "icon",

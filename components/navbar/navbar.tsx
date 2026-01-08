@@ -20,7 +20,7 @@ const Navbar = () => {
             <a href="https://apps.apple.com/us/developer/simviz-labs-llc/id1705562071" target="_blank" rel="noopener noreferrer">iPad Apps</a>
           </Button>
           <Button className="hidden xs:inline-flex" asChild>
-            <Link href="/contact-us">Contact Us</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
 
           {/* Mobile Menu */}

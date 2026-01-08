@@ -336,7 +336,7 @@ const TermsAndConditionsPage = () => {
           <p className="text-center text-gray-600 dark:text-gray-400">
             Need help?{" "}
             <Link
-              href="/contact-us"
+              href="/contact"
               className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
             >
               Contact&nbsp;Us
