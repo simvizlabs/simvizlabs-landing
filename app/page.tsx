@@ -1,5 +1,6 @@
 
 import NavbarDemo from "@/components/resizable-navbar-demo";
+import TailoredSolutionsSection from "@/components/landing/TailoredSolutionsSection";
 import { BenefitsSection } from "@/components/landing/BenefitsSection";
 import Footer from "@/components/footer";
 import { HeroSection } from "@/components/landing/HeroSection";

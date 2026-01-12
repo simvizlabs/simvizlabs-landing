@@ -107,7 +107,25 @@ const enablesFeatures = [
   },
 ];
 
+const customizations = [
+    "SOP-aligned procedures and flows.",
+    "Fleet and avionics configuration (options, variants, training constraints).",
+    "Syllabus mapping and lesson gating (phases, competencies, proficiency standards).",
+    "Instructor dashboards and reporting (KPIs, exports, cohort analytics).",
+    "Integrations (SSO, LMS connectivity, MDM requirements).",
+    "Scenario packs (tailored scenario for your company routes).",
+];
 
+const AirlinesCTASectionContent = {
+  benefits: [
+    "Your crews master procedures before simulator sessions.",
+    "Your instructors get objective proficiency data.",
+    "Your training department gains consistent standards across fleets and bases."
+  ],
+  subtitle: "iPad Based",
+  title: <><span className="text-[#5ea2ef]">FMS</span> Simulator</>,
+  imageSrc: "/landing/a320/a320_fms_simulator.png"
+}
 
 
 const AirlinesPage = () => {
@@ -118,9 +136,9 @@ const AirlinesPage = () => {
         <AirlinesLandingPage ImageBackground={img} content={content} />
         <WhySimVizSection features={features} content={content} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-        <TailoredSolutionsSection />
+        <TailoredSolutionsSection customizations={customizations} />
         <AirlinesOverviewSection />
-        <AirlinesCTASection />
+        <AirlinesCTASection content={AirlinesCTASectionContent} />
       </main>
       <Footer theme="light" />
     </div>

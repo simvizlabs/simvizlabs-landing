@@ -41,6 +41,8 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
     const displayHeading = heading || content?.whySimvizSection?.heading || content?.simvizEnables?.heading || content?.heading || (
         <>Why <span className="text-[#5ea2ef]">SimViz Labs</span>?</>
     );
+
+    console.log(displayHeading,"displayHeading",content?.simvizEnables?.heading)
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);
@@ -119,7 +121,7 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                 >
                     {features.map((feature, index) => (
                         <div key={index} className="min-w-[100%] sm:min-w-[calc(50%-8px)] lg:min-w-[calc(33.333%-16px)] snap-start">
-                            {content?.id === "airlines" ? <FeatureCard2 description={feature.description} /> : <FeatureCard
+                            {content?.id === "airlines" || content?.id === "ato" ? <FeatureCard2 description={feature.description} /> : <FeatureCard
                                 number={feature.number}
                                 title={feature.title}
                                 description={feature.description}

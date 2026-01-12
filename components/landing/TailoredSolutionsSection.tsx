@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { CircleCheck } from "lucide-react";
 
-const customizations = [
+const defaultCustomizations = [
     "SOP-aligned procedures and flows.",
     "Fleet and avionics configuration (options, variants, training constraints).",
     "Syllabus mapping and lesson gating (phases, competencies, proficiency standards).",
@@ -13,48 +13,64 @@ const customizations = [
     "Scenario packs (tailored scenario for your company routes).",
 ];
 
-const TailoredSolutionsSection = () => {
+const TailoredSolutionsSection = ({ customizations = defaultCustomizations }: { customizations?: string[] }) => {
     return (
-        <section className="relative w-full flex flex-col overflow-hidden bg-white">
-            {/* Top Part: Clear Engine */}
-            <div className="relative w-full">
-                <Image
-                    src="/assets/new-airlines/clear_engine.png"
-                    alt="Tailored Solutions Hero"
-                    width={1920}
-                    height={1080}
-                    className="w-full h-auto object-contain"
-                    priority
-                />
-            </div>
-
-            {/* Bottom Part: Blur Engine */}
-            <div className="relative w-full py-20 md:py-32">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/assets/new-airlines/blur_engine.png"
-                        alt="Tailored Solutions Background"
+        <section className="w-full flex flex-col bg-white max-w-7xl mx-auto">
+            {/* Part 1: Hero Section (Node 2175:858) */}
+            <div className="sticky top-0 z-0 relative w-full h-[917px] sm:h-[600px] md:h-[800px] lg:h-[917px] flex flex-col justify-end items-end px-6 md:px-[136px] py-12 md:py-[88px] overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 pointer-events-none">
+                     <Image
+                        src="/assets/new-airlines/1.png"
+                        alt="Tailored Solutions Hero Background"
                         fill
-                        className="object-cover object-center scale-110 md:scale-125"
+                        className="object-cover "
+                        priority
                     />
                 </div>
 
-                <div className="relative z-10 max-w-[1440px] mx-auto w-full flex flex-col gap-12">
-                    <h3 className="text-[20px] md:text-[24px] font-bold text-black font-geist">
+                {/* Content */}
+                {/* <div className="relative z-10 flex flex-col gap-6 md:gap-[41px] text-[#191716] max-w-[674px] w-full text-left md:text-right">
+                    <div className="flex flex-col text-[32px] md:text-[64px] font-semibold leading-tight font-['Inter',sans-serif]">
+                        <span>Tailored solutions</span>
+                        <span>for your airline</span>
+                    </div>
+                    <p className="text-[20px] md:text-[32px] font-semibold leading-tight font-['Inter',sans-serif]">
+                        The system is positioned for growth alongside your fleet plan and training strategy.
+                    </p>
+                </div> */}
+            </div>
+
+            {/* Part 2: Customizations List (Node 2175:934) */}
+            <div className="relative z-10 w-full min-h-[950px] flex flex-col justify-center py-20 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 pointer-events-none">
+                     <Image
+                        src="/assets/new-airlines/blur_engine.png"
+                        alt="Tailored Solutions List Background"
+                        fill
+                        className="object-cover"
+                    />
+                </div>
+                {/* Overlay */}
+                 <div className="absolute inset-0 bg-white/10 backdrop-blur-[16.4px]" />
+
+                {/* Content */}
+                <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[280px]">
+                    <h3 className="text-[24px] md:text-[32px] font-semibold text-[#191716] mb-[20px] md:mb-[50px] font-['Inter',sans-serif]">
                         Typical airline customizations include:
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                        {customizations.map((item, index) => (
-                            <div key={index} className="flex items-start gap-4 group">
-                                <div className="mt-1 p-1 rounded-full border border-black/10 transition-colors">
-                                    <CheckCircle2 className="w-5 h-5 text-black" />
-                                </div>
-                                <p className="text-[17px] md:text-[20px] text-black leading-relaxed font-medium font-geist">
+                    <div className="flex gap-[21px] items-start text-[#191716] text-[16px] md:text-[24px]">
+                        {/* Text Column */}
+                        <div className="flex flex-col gap-0 font-['Inter',sans-serif] font-medium leading-[1.36]">
+                            {customizations.map((item, index) => (
+                                <span key={index} className="mb-0 flex-row flex align-center items-center">   
+                                <CircleCheck/>
                                     {item}
-                                </p>
-                            </div>
-                        ))}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

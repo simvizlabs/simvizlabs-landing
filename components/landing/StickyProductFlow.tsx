@@ -87,6 +87,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
 
     let opacity: MotionValue<number>;
     let y: MotionValue<number>;
+    let blurValue: MotionValue<number>;
 
     // Sharp boundaries for "immediate" appearance
     const epsilon = 0.001;
@@ -103,6 +104,11 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
         [0, end - epsilon, end],
         [0, 0, -20]
       );
+      blurValue = useTransform(
+        scrollYProgress,
+        [0, end - epsilon, end],
+        [0, 0, 10]
+      );
     } else if (index === products.length - 1) {
       // Last item instantly appears at its start, stays visible
       opacity = useTransform(
@@ -114,6 +120,11 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
         scrollYProgress,
         [start - epsilon, start],
         [20, 0]
+      );
+      blurValue = useTransform(
+        scrollYProgress,
+        [start - epsilon, start, 1],
+        [10, 0, 0]
       );
     } else {
       // Middle items instantly appear and disappear at their boundaries
@@ -127,20 +138,27 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
         [start - epsilon, start, end - epsilon, end],
         [20, 0, 0, -20]
       );
+      blurValue = useTransform(
+        scrollYProgress,
+        [start - epsilon, start, end - epsilon, end],
+        [10, 0, 0, 10]
+      );
     }
+
+    const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
 
     const pointerEvents = useTransform(
       opacity,
       (o) => (o > 0.1 ? ("auto" as const) : ("none" as const))
     );
 
-    return { opacity, y, pointerEvents };
+    return { opacity, y, filter, pointerEvents };
   };
 
   return (
     <div
       ref={containerRef}
-      style={{ height: `${products.length * 250}vh` }}
+      style={{ height: `${products.length * 125}vh` }}
       className="relative bg-black"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
@@ -155,6 +173,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                     style={{
                       opacity: styles.opacity,
                       y: styles.y,
+                      filter: styles.filter,
                       pointerEvents: styles.pointerEvents,
                       position: 'absolute',
                       inset: 0,

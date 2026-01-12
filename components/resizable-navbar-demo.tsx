@@ -185,9 +185,9 @@ export default function NavbarDemo() {
                 className="text-sm font-medium text-white/80 transition-colors text-white hover:text-white"
               />
 
-              {/* Show auth buttons/avatar only for Indian IP addresses */}
+              {/* Show auth buttons/avatar only for Indian IP addresses AND on the specific path */}
               <div className="flex items-center gap-4 justify-end">
-                {!geoLoading && isIndia && (
+                {!geoLoading && isIndia && pathname === "/in/a320-bundle" && (
                   userLoaded && user ? (
                     <div className="flex items-center gap-3">
                       <NavbarButton
@@ -252,7 +252,7 @@ export default function NavbarDemo() {
                 className="bg-black text-white border-l border-white/10"
               />
               {/* Show auth buttons/avatar only for Indian IP addresses - Mobile */}
-              {!geoLoading && isIndia && isMobileMenuOpen && (
+              {!geoLoading && isIndia && pathname === "/in/a320-bundle" && isMobileMenuOpen && (
                 <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 lg:hidden">
                   {userLoaded && user ? (
                     <>
