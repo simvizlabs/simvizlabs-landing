@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const FeatureCard = ({ title, description, imageSrc }: { title: string; description: string; imageSrc: string }) => {
+const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; description: string; imageSrc: string; rotate?: string }) => {
     const [isLoaded, setIsLoaded] = React.useState(false);
     const imgRef = React.useRef<HTMLImageElement>(null);
 
@@ -35,13 +35,14 @@ const FeatureCard = ({ title, description, imageSrc }: { title: string; descript
                     fill
                     onLoad={() => setIsLoaded(true)}
                     className={`object-contain transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    style={rotate ? { transform: `rotate(${rotate}deg)` } : {}}
                 />
             </div>
         </div>
     );
 };
 
-const TrainingManagementSection = ({ features }: { features: { title: string; description: string; imageSrc: string }[] }) => {
+const TrainingManagementSection = ({ features }: { features: { title: string; description: string; imageSrc: string; rotate?: string }[] }) => {
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);
@@ -127,6 +128,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
                                 title={feature.title}
                                 description={feature.description}
                                 imageSrc={feature.imageSrc}
+                                rotate={feature.rotate}
                             />
                         </div>
                     ))}
@@ -134,7 +136,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
 
                 {numDots > 1 && (
                     <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 mt-4">
-                        <div className="flex gap-2 bg-[#e5e5e5] px-4 py-2 rounded-full">
+                        {/* <div className="flex gap-2 bg-[#e5e5e5] px-4 py-2 rounded-full">
                             {Array.from({ length: numDots }).map((_, idx) => (
                                 <button
                                     key={idx}
@@ -144,7 +146,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
                                     aria-label={`Go to slide ${idx + 1}`}
                                 />
                             ))}
-                        </div>
+                        </div> */}
 
                         <div className="flex gap-2">
                             <button

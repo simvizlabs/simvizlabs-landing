@@ -20,7 +20,27 @@ const FeatureCard = ({ number, title, description }: { number: string; title: st
     );
 };
 
-const WhySimVizSection = ({ features }) => {
+const FeatureCard2 = ({ description }: { description: string }) => {
+    return (
+        <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left h-full aspect-square shadow-sm hover:shadow-md transition-all duration-300">
+            <span className="font-semibold text-2xl md:text-3xl leading-snug text-[#191716]">
+                {description}
+            </span>
+        </div>
+    );
+};
+
+interface WhySimVizSectionProps {
+    features: any[];
+    content?: any;
+    heading?: React.ReactNode;
+    reducedTopPadding?: boolean;
+}
+
+const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: WhySimVizSectionProps) => {
+    const displayHeading = heading || content?.whySimvizSection?.heading || content?.simvizEnables?.heading || content?.heading || (
+        <>Why <span className="text-[#5ea2ef]">SimViz Labs</span>?</>
+    );
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);
@@ -84,11 +104,11 @@ const WhySimVizSection = ({ features }) => {
     };
 
     return (
-        <section className="bg-[#f5f5f7] py-16 md:py-24 px-4 sm:px-8 md:px-12 w-full">
+        <section className={`bg-[#f5f5f7] ${reducedTopPadding ? 'pt-0 pb-16 md:pb-24' : 'py-16 md:py-24'} px-4 sm:px-8 md:px-12 w-full`}>
             <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-16">
                 {/* Header */}
                 <h2 className="text-[36px] md:text-[56px] font-semibold text-[#191716] leading-tight text-center md:text-left">
-                    Why <span className="text-[#5ea2ef]">SimViz Labs</span>?
+                    {displayHeading}
                 </h2>
 
                 {/* Carousel Container */}
@@ -99,11 +119,11 @@ const WhySimVizSection = ({ features }) => {
                 >
                     {features.map((feature, index) => (
                         <div key={index} className="min-w-[100%] sm:min-w-[calc(50%-8px)] lg:min-w-[calc(33.333%-16px)] snap-start">
-                            <FeatureCard
+                            {content?.id === "airlines" ? <FeatureCard2 description={feature.description} /> : <FeatureCard
                                 number={feature.number}
                                 title={feature.title}
                                 description={feature.description}
-                            />
+                            />}
                         </div>
                     ))}
                 </div>

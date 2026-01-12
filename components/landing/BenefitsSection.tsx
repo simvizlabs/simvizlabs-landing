@@ -11,7 +11,7 @@ const benefits = [
     description: "Hands-on practice with true FMC logic and CPDLC exchanges—not screenshots.",
   },
   {
-    title: "Real 424 Data for actual scenarios specific for your flying environment.",
+    title: "Worldwide ARINC 424 navigation Database to power realistic, route-accurate scenarios and procedures.",
     description: "",
   },
 ];

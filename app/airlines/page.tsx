@@ -6,9 +6,12 @@ import AirlinesLandingPage from "@/components/landing/AirlinesLandingPage";
 // import Hero from "@/components/hero";A
 import WhySimVizSection from "@/components/landing/WhySimVizSection";
 import TrainingManagementSection from "@/components/landing/TrainingManagementSection";
-import TrainingManagementSectionFeatures from "@/constants/TrainingManagementSectionFeatures";
+import AirlinesOverviewSection from "@/components/landing/AirlinesOverviewSection";
+import AirlinesCTASection from "@/components/landing/AirlinesCTASection";
+import { TrainingManagementSectionFeatures2 } from "@/constants/TrainingManagementSectionFeatures";
+import TailoredSolutionsSection from "@/components/landing/TailoredSolutionsSection";
 
-const img = "/assets/new-airlines/0405ef7ef781aee2424caa7e8b47e1295c72a1b6.png";
+const img = "/assets/new-airlines/airlines-header.png";
 
 export const metadata: Metadata = {
   title: "Airline Pilot Training Solutions | Reduce Simulator Costs",
@@ -17,40 +20,90 @@ export const metadata: Metadata = {
 
 
 const content = {
-  title: "Enhance your training ecosystem.",
-  description: "SimViz Labs offers a flexible training management system with access to experts in aviation course development, software development, and learning analytics.",
+  id: "airlines",
+  title: "Move FMS Training out of expensive simulators into unlimited, measurable practice.",
+  description: "SimViz Labs delivers airline-scale FMS training software: high-fidelity simulator, integrated LMS that standardizes proficiency, reduces simulator dependency, AI-guided practice, and proves readiness with analytics.",
   button: [
     {
       heading: "Schedule a Demo",
       redirect: "/contact",
       class: "px-9 py-7 rounded-[24px] bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-[17px] text-nowrap"
     }
-  ]
+  ],
+  // whySimvizSection: {
+  //   heading: <>Why <span className="text-[#5ea2ef]">SimViz Labs</span>?</>
+  // },
+  simvizEnables: {
+    heading: <>What <span className="text-[#5ea2ef]">SimViz Labs</span> Enables?</>
+  }
 }
+
+
+// const features = [
+//   {
+//     number: "1.",
+//     title: "Safety & Procedural Compliance",
+//     description:
+//       "Address dynamic hot topics and emerging issues with our machine learning recommender system, ensuring robust safety practices and procedural consistency.",
+//   },
+//   {
+//     number: "2.",
+//     title: "Enhanced Simulator Preparedness",
+//     description:
+//       "Prepare your pilots for live simulator sessions effectively utilizing our advanced iPad-based training applications & LMS for optimal simulator readiness.",
+//   },
+//   {
+//     number: "3.",
+//     title: "Improved Decision-Making",
+//     description:
+//       "Reinforce fundamental knowledge of FMS, FCU, MCP and FMA to improve decision-making and automation management during critical flight phases.",
+//   },
+//   {
+//     number: "4.",
+//     title: "DReduce Training Costs & Time",
+//     description: "Conserve valuable simulator time and significantly reduce training costs through the efficient use of our comprehensive and effective training tools."
+//   },
+// ];
 
 const features = [
   {
+    id: 1,
+    description: "Reduces cost by moving FMS training outside the full flight simulator."
+  },
+  {
+    id: 2,
+    description: "Inbuilt LMS solution allows for tailored lesson plans and scenarios for company specific routes."
+  },
+  {
+    id: 3,
+    description: "Unlimited self-paced familiarization without cost anxiety."
+  },
+  {
+    id: 4,
+    description: "Distance learning capability."
+  },
+]
+
+const enablesFeatures = [
+  {
     number: "1.",
-    title: "Safety & Procedural Compliance",
-    description:
-      "Address dynamic hot topics and emerging issues with our machine learning recommender system, ensuring robust safety practices and procedural consistency.",
+    title: "Cost Efficiency",
+    description: "Significantly reduce simulator hours and operational costs by shifting early-stage training to high-fidelity desktop and tablet solutions.",
   },
   {
     number: "2.",
-    title: "Enhanced Simulator Preparedness",
-    description:
-      "Prepare your pilots for live simulator sessions effectively utilizing our advanced iPad-based training applications & LMS for optimal simulator readiness.",
+    title: "Standardized Proficiency",
+    description: "Ensure every pilot reaches a consistent level of proficiency with automated tracking and performance analytics before they enter the simulator.",
   },
   {
     number: "3.",
-    title: "Improved Decision-Making",
-    description:
-      "Reinforce fundamental knowledge of FMS, FCU, MCP and FMA to improve decision-making and automation management during critical flight phases.",
+    title: "Global Scalability",
+    description: "Deploy training across your entire fleet instantly with our worldwide ARINC 424 navigation database and cloud-integrated LMS.",
   },
   {
     number: "4.",
-    title: "DReduce Training Costs & Time",
-    description: "Conserve valuable simulator time and significantly reduce training costs through the efficient use of our comprehensive and effective training tools."
+    title: "Real-World Readiness",
+    description: "Train with authentic FMS logic and CPDLC workflows, not just static screen captures, preparing pilots for real operational challenges.",
   },
 ];
 
@@ -63,8 +116,11 @@ const AirlinesPage = () => {
       <NavbarDemo />
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
-        <WhySimVizSection features={features} />
-        <TrainingManagementSection features={TrainingManagementSectionFeatures} />
+        <WhySimVizSection features={features} content={content} />
+        <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
+        <TailoredSolutionsSection />
+        <AirlinesOverviewSection />
+        <AirlinesCTASection />
       </main>
       <Footer theme="light" />
     </div>
