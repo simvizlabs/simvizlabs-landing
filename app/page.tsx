@@ -46,8 +46,8 @@ export default function Home() {
           },
           {
             id: "atr72",
-            title: "A new way to train like a pro.",
-            subtitle: "ATR 72-600",
+            title: "ATR 72-600 FMS Simulator",
+            subtitle: "iPad Based",
             image: "/landing/atr/atr.png",
             orientation: "right",
             isComingSoon: true
