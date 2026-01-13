@@ -89,58 +89,58 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
     let y: MotionValue<number>;
     let blurValue: MotionValue<number>;
 
-    // Sharp boundaries for "immediate" appearance
-    const epsilon = 0.001;
+    // Smooth transition buffer
+    const transitionDuration = 0.08; // 8% of the scroll section per transition
 
     if (index === 0) {
-      // First item starts visible, stays visible until its end, then instantly disappears
+      // First item starts visible, stays visible until its end
       opacity = useTransform(
         scrollYProgress,
-        [0, end - epsilon, end],
-        [1, 1, 0]
+        [end - transitionDuration, end],
+        [1, 0]
       );
       y = useTransform(
         scrollYProgress,
-        [0, end - epsilon, end],
-        [0, 0, -20]
+        [end - transitionDuration, end],
+        [0, -40]
       );
       blurValue = useTransform(
         scrollYProgress,
-        [0, end - epsilon, end],
-        [0, 0, 10]
+        [end - transitionDuration, end],
+        [0, 10]
       );
     } else if (index === products.length - 1) {
-      // Last item instantly appears at its start, stays visible
+      // Last item fades in
       opacity = useTransform(
         scrollYProgress,
-        [start - epsilon, start, 1],
-        [0, 1, 1]
+        [start, start + transitionDuration],
+        [0, 1]
       );
       y = useTransform(
         scrollYProgress,
-        [start - epsilon, start],
-        [20, 0]
+        [start, start + transitionDuration],
+        [40, 0]
       );
       blurValue = useTransform(
         scrollYProgress,
-        [start - epsilon, start, 1],
-        [10, 0, 0]
+        [start, start + transitionDuration],
+        [10, 0]
       );
     } else {
-      // Middle items instantly appear and disappear at their boundaries
+      // Middle items fade in and out
       opacity = useTransform(
         scrollYProgress,
-        [start - epsilon, start, end - epsilon, end],
+        [start, start + transitionDuration, end - transitionDuration, end],
         [0, 1, 1, 0]
       );
       y = useTransform(
         scrollYProgress,
-        [start - epsilon, start, end - epsilon, end],
-        [20, 0, 0, -20]
+        [start, start + transitionDuration, end - transitionDuration, end],
+        [40, 0, 0, -40]
       );
       blurValue = useTransform(
         scrollYProgress,
-        [start - epsilon, start, end - epsilon, end],
+        [start, start + transitionDuration, end - transitionDuration, end],
         [10, 0, 0, 10]
       );
     }
