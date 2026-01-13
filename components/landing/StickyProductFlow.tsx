@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { useScroll, useTransform, motion, MotionValue, AnimatePresence } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,13 +34,18 @@ function ProductImage({ product, priority }: { product: ProductData, priority: b
   return (
     <div className="relative w-full flex justify-center items-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.96 }}
         animate={{
           opacity: isLoaded ? 1 : 0,
-          scale: isLoaded ? 1 : 0.95
+          scale: isLoaded ? 1 : 0.96
         }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ 
+          duration: 0.5, 
+          ease: [0.25, 0.1, 0.25, 1],
+          opacity: { duration: 0.4 }
+        }}
         className="w-full flex justify-center"
+        style={{ willChange: 'opacity, transform' }}
       >
         <Image
           ref={imgRef}
@@ -73,10 +78,9 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
     let opacity: MotionValue<number>;
     let y: MotionValue<number>;
     let scale: MotionValue<number>;
-    // Smooth transition buffer
-    // Overlapping transition: 8% transition duration.
-    // Overlap handled by starting/ending at +/- half duration from the boundary
-    const transitionDuration = 0.04; 
+    // Smooth transition buffer - increased for smoother crossfades
+    // Overlapping transition: 15% transition duration for smoother blending
+    const transitionDuration = 0.15; 
     const halfDuration = transitionDuration / 2;
 
     if (index === 0) {
@@ -85,17 +89,20 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
       opacity = useTransform(
         scrollYProgress,
         [end - halfDuration, end + halfDuration],
-        [1, 0]
+        [1, 0],
+        { clamp: false }
       );
       y = useTransform(
         scrollYProgress,
         [end - halfDuration, end + halfDuration],
-        [0, -40]
+        [0, -20],
+        { clamp: false }
       );
       scale = useTransform(
         scrollYProgress,
         [end - halfDuration, end + halfDuration],
-        [1, 0.9] // Scale down as it disappears
+        [1, 0.96],
+        { clamp: false }
       );
     } else if (index === products.length - 1) {
       // Last item fades in
@@ -103,17 +110,20 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
       opacity = useTransform(
         scrollYProgress,
         [start - halfDuration, start + halfDuration],
-        [0, 1]
+        [0, 1],
+        { clamp: false }
       );
       y = useTransform(
         scrollYProgress,
         [start - halfDuration, start + halfDuration],
-        [40, 0]
+        [20, 0],
+        { clamp: false }
       );
       scale = useTransform(
         scrollYProgress,
         [start - halfDuration, start + halfDuration],
-        [0.9, 1] // Scale up as it appears? Or just stay 1? User said "while disappearing... move inwards". Use 1 for appeared.
+        [0.96, 1],
+        { clamp: false }
       );
     } else {
       // Middle items fade in and out
@@ -123,7 +133,8 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
           start - halfDuration, start + halfDuration,
           end - halfDuration, end + halfDuration
         ],
-        [0, 1, 1, 0]
+        [0, 1, 1, 0],
+        { clamp: false }
       );
       y = useTransform(
         scrollYProgress,
@@ -131,7 +142,8 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
           start - halfDuration, start + halfDuration,
           end - halfDuration, end + halfDuration
         ],
-        [40, 0, 0, -40]
+        [20, 0, 0, -20],
+        { clamp: false }
       );
       scale = useTransform(
         scrollYProgress,
@@ -139,7 +151,8 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
           start - halfDuration, start + halfDuration, // Entry
           end - halfDuration, end + halfDuration      // Exit
         ],
-        [1, 1, 1, 0.9] // Scale down only on exit
+        [0.96, 1, 1, 0.96],
+        { clamp: false }
       );
     }
 
@@ -177,6 +190,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      willChange: 'opacity, transform',
                     }}
                     className="px-4"
                   >

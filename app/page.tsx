@@ -24,7 +24,7 @@ export default function Home() {
 
       {/* Sticky Product Flow */}
       {/* Sticky Product Flow */}
-      <StickyProductFlow2
+      <StickyProductFlow
         products={[ 
           {
             id: "a320",
