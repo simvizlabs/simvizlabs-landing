@@ -33,21 +33,6 @@ function ProductImage({ product, priority }: { product: ProductData, priority: b
 
   return (
     <div className="relative w-full flex justify-center items-center">
-      {/* Skeleton / Placeholder */}
-      <AnimatePresence>
-        {!isLoaded && (
-          <motion.div
-            key="skeleton"
-            initial={{ opacity: 0.5 }}
-            animate={{ opacity: [0.4, 0.6, 0.4] }}
-            exit={{ opacity: 0 }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="absolute inset-0 z-0 flex items-center justify-center"
-          >
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{
@@ -87,72 +72,83 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
 
     let opacity: MotionValue<number>;
     let y: MotionValue<number>;
-    let blurValue: MotionValue<number>;
-
+    let scale: MotionValue<number>;
     // Smooth transition buffer
-    const transitionDuration = 0.08; // 8% of the scroll section per transition
+    // Overlapping transition: 8% transition duration.
+    // Overlap handled by starting/ending at +/- half duration from the boundary
+    const transitionDuration = 0.04; 
+    const halfDuration = transitionDuration / 2;
 
     if (index === 0) {
       // First item starts visible, stays visible until its end
+      // Fades out from [end - half, end + half]
       opacity = useTransform(
         scrollYProgress,
-        [end - transitionDuration, end],
+        [end - halfDuration, end + halfDuration],
         [1, 0]
       );
       y = useTransform(
         scrollYProgress,
-        [end - transitionDuration, end],
+        [end - halfDuration, end + halfDuration],
         [0, -40]
       );
-      blurValue = useTransform(
+      scale = useTransform(
         scrollYProgress,
-        [end - transitionDuration, end],
-        [0, 10]
+        [end - halfDuration, end + halfDuration],
+        [1, 0.9] // Scale down as it disappears
       );
     } else if (index === products.length - 1) {
       // Last item fades in
+      // Fades in from [start - half, start + half]
       opacity = useTransform(
         scrollYProgress,
-        [start, start + transitionDuration],
+        [start - halfDuration, start + halfDuration],
         [0, 1]
       );
       y = useTransform(
         scrollYProgress,
-        [start, start + transitionDuration],
+        [start - halfDuration, start + halfDuration],
         [40, 0]
       );
-      blurValue = useTransform(
+      scale = useTransform(
         scrollYProgress,
-        [start, start + transitionDuration],
-        [10, 0]
+        [start - halfDuration, start + halfDuration],
+        [0.9, 1] // Scale up as it appears? Or just stay 1? User said "while disappearing... move inwards". Use 1 for appeared.
       );
     } else {
       // Middle items fade in and out
       opacity = useTransform(
         scrollYProgress,
-        [start, start + transitionDuration, end - transitionDuration, end],
+        [
+          start - halfDuration, start + halfDuration,
+          end - halfDuration, end + halfDuration
+        ],
         [0, 1, 1, 0]
       );
       y = useTransform(
         scrollYProgress,
-        [start, start + transitionDuration, end - transitionDuration, end],
+        [
+          start - halfDuration, start + halfDuration,
+          end - halfDuration, end + halfDuration
+        ],
         [40, 0, 0, -40]
       );
-      blurValue = useTransform(
+      scale = useTransform(
         scrollYProgress,
-        [start, start + transitionDuration, end - transitionDuration, end],
-        [10, 0, 0, 10]
+        [
+          start - halfDuration, start + halfDuration, // Entry
+          end - halfDuration, end + halfDuration      // Exit
+        ],
+        [1, 1, 1, 0.9] // Scale down only on exit
       );
     }
-
-    const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
 
     const pointerEvents = useTransform(
       opacity,
       (o) => (o > 0.1 ? ("auto" as const) : ("none" as const))
     );
 
-    return { opacity, y, filter, pointerEvents };
+    return { opacity, y, scale, pointerEvents };
   };
 
   return (
@@ -173,7 +169,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                     style={{
                       opacity: styles.opacity,
                       y: styles.y,
-                      filter: styles.filter,
+                      scale: styles.scale,
                       pointerEvents: styles.pointerEvents,
                       position: 'absolute',
                       inset: 0,
@@ -217,6 +213,32 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
           </div>
         </section>
       </div>
+
+      {/* Scroll Snap Targets */}
+      {products.map((_, index) => {
+        // Calculate the snap position to align exactly when the product becomes fully opaque
+        // Total scrollable height in vh
+        const totalScrollHeight = products.length * 125 - 200;
+        const step = 1 / products.length;
+        const transitionDuration = 0.1;
+        const halfDuration = transitionDuration / 2;
+        
+        // Snap to point where item is fully opaque (start + halfDuration)
+        const snapTopVh = index === 0 
+          ? 0 
+          : (index * step + halfDuration) * totalScrollHeight;
+
+        return (
+          <div
+            key={`snap-${index}`}
+            className="absolute w-full snap-start"
+            style={{
+              height: '100vh',
+              top: `${snapTopVh}vh`
+            }}
+          />
+        );
+      })}
     </div>
   );
 }

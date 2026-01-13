@@ -6,8 +6,9 @@ import Footer from "@/components/footer";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { LandingNavbar } from "@/components/landing/LandingNavbar";
 import { MultiPlatformSection } from "@/components/landing/MultiPlatformSection";
-import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
+import { StickyProductFlow2 } from "@/components/landing/StickyProductFlow2";
 import { Metadata } from "next";
+import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
 
 export const metadata: Metadata = {
   title: "SimViz Labs | Aviation Training Software & FMS Simulators",
@@ -22,8 +23,9 @@ export default function Home() {
 
 
       {/* Sticky Product Flow */}
-      <StickyProductFlow
-        products={[
+      {/* Sticky Product Flow */}
+      <StickyProductFlow2
+        products={[ 
           {
             id: "a320",
             title: "A320 FMS Simulator",
@@ -53,9 +55,9 @@ export default function Home() {
             orientation: "right",
             isComingSoon: true
           }
-        ]}
+        ]}  
       />
-      <MultiPlatformSection />
+          <MultiPlatformSection />
       <BenefitsSection />
       {/* <Footer theme="light" className="bg-[#F5F5F7] border-black/5" /> */}
       <Footer theme="light" />

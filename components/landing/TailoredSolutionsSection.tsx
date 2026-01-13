@@ -61,16 +61,16 @@ const TailoredSolutionsSection = () => {
                     </h3>
 
                     <div className="">
-                        {customizations.map((item, index) => (
+                        {defaultCustomizations.map((item, index) => (
                             <div key={index} className="flex items-start gap-4 group">
                                 <div className="mt-1 p-1 rounded-full border border-black/10 transition-colors">
                                     <CheckCircle2 className="w-5 h-5 text-black" />
                                 </div>
                                 <p className="text-[17px] md:text-[20px] text-black leading-relaxed font-medium font-geist">
                                     {item}
-                                </span>
-                            ))}
+                                </p>
                             </div>
+                        ))}
                     </div>
                 </div>
             </div>
