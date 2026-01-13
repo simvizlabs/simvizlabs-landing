@@ -23,7 +23,14 @@ function OurProductsContent() {
   useEffect(() => {
     const productId = searchParams.get("product");
     if (productId && ["a320", "b737", "b747"].includes(productId)) {
-      handleLearnMore(productId);
+      setExpandedId(productId);
+      // Scroll to the specific product after a short delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(`product-${productId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 200);
     }
   }, [searchParams]);
 
@@ -40,7 +47,7 @@ function OurProductsContent() {
         buttons: [
           {
             text: "Watch Demo",
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5]/70 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
             onClick: () => { window.location.href = "/demo"; }
           },
@@ -53,7 +60,7 @@ function OurProductsContent() {
           }
         ],
         subtitle: "High-fidelity A320 FMS Simulator built to aircraft-level accuracy:",
-        subscriptionContentIncluded: true,
+        subscriptionContentIncluded: false,
       },
       featureCards: [
         { title: "Precise FMGC simulation", description: "Performance calculations, flight planning, and automation logic matches real A320 FMGC." },
@@ -74,7 +81,7 @@ function OurProductsContent() {
         buttons: [
           {
             text: "Watch Demo",
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
+            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5]/70 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
             onClick: () => { window.location.href = "/demo"; }
           },
@@ -136,11 +143,14 @@ function OurProductsContent() {
 
   const handleLearnMore = (id: string) => {
     setExpandedId(id);
-    // Smooth scroll to top of section when expanding
-    const element = document.getElementById('our-products-heading');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Smooth scroll to the specific product when expanding
+    // Use setTimeout to ensure the DOM has updated with the expanded view
+    setTimeout(() => {
+      const element = document.getElementById(`product-${id}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   return (
@@ -157,7 +167,7 @@ function OurProductsContent() {
 
         <div className="flex flex-col gap-12">
           {/* A320 Row */}
-          <div className="w-full">
+          <div className="w-full" id="product-a320">
             <AnimatePresence mode="wait">
               {expandedId === "a320" ? (
                 <motion.div
@@ -240,7 +250,7 @@ function OurProductsContent() {
           ) : (
             <div className="flex flex-col gap-12">
               {[products.b737, products.b747].map(product => (
-                <div key={product.id} className="w-full">
+                <div key={product.id} className="w-full" id={`product-${product.id}`}>
                   <AnimatePresence mode="wait">
                     {expandedId === product.id ? (
                       <motion.div
