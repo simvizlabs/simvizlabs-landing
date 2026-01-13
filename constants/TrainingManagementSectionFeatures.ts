@@ -24,7 +24,7 @@ export const TrainingManagementSectionFeatures2 = [
     {
         title: "High-fidelity FMC/FMS",
         description:
-            "OAccurate system logic workflow with comprehensive avionics displays and controls aligned to training objectives.",
+            "Accurate system logic workflow with comprehensive avionics displays and controls aligned to training objectives.",
         imageSrc: "/assets/training-management/1.png",
         rotate: "90"
     },
@@ -58,7 +58,7 @@ export const TrainingManagementSectionFeatures2 = [
     {
         title: "Advanced Learning Analytics",
         description:
-            "Tracks pilot interactions to identify knowledge gaps and support effective instructor briefings and debriefings.",
+            "Tracks pilot interactions to identify knowledge gaps and actionable insights.",
         imageSrc: "/assets/training-management/6.png",
     },
 ];

@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { CircleCheck } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const defaultCustomizations = [
     "SOP-aligned procedures and flows.",
@@ -13,64 +14,63 @@ const defaultCustomizations = [
     "Scenario packs (tailored scenario for your company routes).",
 ];
 
-const TailoredSolutionsSection = ({ customizations = defaultCustomizations }: { customizations?: string[] }) => {
-    return (
-        <section className="w-full flex flex-col bg-white max-w-7xl mx-auto">
-            {/* Part 1: Hero Section (Node 2175:858) */}
-            <div className="sticky top-0 z-0 relative w-full h-[917px] sm:h-[600px] md:h-[800px] lg:h-[917px] flex flex-col justify-end items-end px-6 md:px-[136px] py-12 md:py-[88px] overflow-hidden">
-                {/* Background Image */}
-                <div className="absolute inset-0 pointer-events-none">
-                     <Image
-                        src="/assets/new-airlines/1.png"
-                        alt="Tailored Solutions Hero Background"
-                        fill
-                        className="object-cover "
-                        priority
-                    />
-                </div>
+const TailoredSolutionsSection = () => {
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    });
 
-                {/* Content */}
-                {/* <div className="relative z-10 flex flex-col gap-6 md:gap-[41px] text-[#191716] max-w-[674px] w-full text-left md:text-right">
-                    <div className="flex flex-col text-[32px] md:text-[64px] font-semibold leading-tight font-['Inter',sans-serif]">
-                        <span>Tailored solutions</span>
-                        <span>for your airline</span>
-                    </div>
-                    <p className="text-[20px] md:text-[32px] font-semibold leading-tight font-['Inter',sans-serif]">
-                        The system is positioned for growth alongside your fleet plan and training strategy.
-                    </p>
-                </div> */}
+    const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+    return (
+        <section ref={sectionRef} className="relative w-full overflow-visible bg-white">
+            {/* Top Part: Clear Engine (Sticky) */}
+            <div className="sticky top-0 z-0 w-full border-b border-black/5 bg-white">
+                <Image
+                    src="/assets/new-airlines/1.png"
+                    alt="Tailored Solutions Hero"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto object-contain"
+                    priority
+                />
             </div>
 
-            {/* Part 2: Customizations List (Node 2175:934) */}
-            <div className="relative z-10 w-full min-h-[950px] flex flex-col justify-center py-20 overflow-hidden">
-                {/* Background Image */}
-                <div className="absolute inset-0 pointer-events-none">
-                     <Image
-                        src="/assets/new-airlines/blur_engine.png"
-                        alt="Tailored Solutions List Background"
-                        fill
-                        className="object-cover"
-                    />
+            {/* Bottom Part: Parallax Engine (Scrolling Overlay) */}
+            <div className="relative z-10 w-full py-20 md:py-32 min-h-[600px] flex items-center bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                    <motion.div
+                        style={{ y }}
+                        className="absolute inset-0 scale-110"
+                    >
+                        <Image
+                            src="/assets/new-airlines/blur_engine.png"
+                            alt="Tailored Solutions Background"
+                            fill
+                            className="object-cover object-center"
+                        />
+                    </motion.div>
                 </div>
                 {/* Overlay */}
-                 <div className="absolute inset-0 bg-white/10 backdrop-blur-[16.4px]" />
+                <div className="absolute inset-0 bg-white/10 backdrop-blur-[16.4px]" />
 
-                {/* Content */}
-                <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[280px]">
-                    <h3 className="text-[24px] md:text-[32px] font-semibold text-[#191716] mb-[20px] md:mb-[50px] font-['Inter',sans-serif]">
+                <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-8 md:px-12 flex flex-col gap-12">
+                    <h3 className="text-[20px] md:text-[24px] font-bold text-black font-geist">
                         Typical airline customizations include:
                     </h3>
 
-                    <div className="flex gap-[21px] items-start text-[#191716] text-[16px] md:text-[24px]">
-                        {/* Text Column */}
-                        <div className="flex flex-col gap-0 font-['Inter',sans-serif] font-medium leading-[1.36]">
-                            {customizations.map((item, index) => (
-                                <span key={index} className="mb-0 flex-row flex align-center items-center">   
-                                <CircleCheck/>
+                    <div className="">
+                        {customizations.map((item, index) => (
+                            <div key={index} className="flex items-start gap-4 group">
+                                <div className="mt-1 p-1 rounded-full border border-black/10 transition-colors">
+                                    <CheckCircle2 className="w-5 h-5 text-black" />
+                                </div>
+                                <p className="text-[17px] md:text-[20px] text-black leading-relaxed font-medium font-geist">
                                     {item}
                                 </span>
                             ))}
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>

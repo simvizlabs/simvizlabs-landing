@@ -8,7 +8,7 @@ import {
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from "next/link";
 
 interface NavbarProps {
@@ -139,6 +139,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleMouseEnter = (idx: number) => {
     if (timeoutRef.current) {
@@ -161,45 +162,64 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       <div className="flex items-center justify-center gap-2 lg:gap-8">
-        {items.map((item, idx) => (
-          <div
-            key={`${item.name}-${idx}`}
-            className="relative"
-            onMouseEnter={() => handleMouseEnter(idx)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link
-              href={item.link}
-              onClick={(e) => {
-                if (item.link.startsWith("#")) {
-                  e.preventDefault();
-                  onItemClick?.(item.link);
-                }
-                // For non-hash links, let next/link handle it natively
-              }}
-              className="relative text-white font-bold flex items-center gap-1 px-3 py-2 text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+        {items.map((item, idx) => {
+          const isActive = pathname === item.link;
+          return (
+            <div
+              key={`${item.name}-${idx}`}
+              className="relative"
+              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseLeave={handleMouseLeave}
             >
-              {hovered === idx && (
-                <motion.div
-                  layoutId="hovered"
-                  className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 25,
-                    mass: 0.5
-                  }}
-                />
-              )}
-              <span className="font-bold relative whitespace-nowrap text-sm font-medium transition-all duration-200">
-                {item.name}
-              </span>
-            </Link>
-          </div>
-        ))}
+              <Link
+                href={item.link}
+                onClick={(e) => {
+                  if (item.link.startsWith("#")) {
+                    e.preventDefault();
+                    onItemClick?.(item.link);
+                  }
+                  // For non-hash links, let next/link handle it natively
+                }}
+                className={cn(
+                  "relative font-bold flex items-center gap-1 px-3 py-2 transition-colors duration-200",
+                  isActive
+                    ? "text-white"
+                    : "text-white/60 hover:text-white dark:text-neutral-300 dark:hover:text-white"
+                )}
+              >
+                {hovered === idx && (
+                  <motion.div
+                    layoutId="hovered"
+                    className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 25,
+                      mass: 0.5
+                    }}
+                  />
+                )}
+
+                {isActive && (
+                  <motion.div
+                    layoutId="active-indicator"
+                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-white rounded-full"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+
+                <span className="font-bold relative whitespace-nowrap text-sm font-medium transition-all duration-200">
+                  {item.name}
+                </span>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </motion.div>
   );
@@ -258,6 +278,8 @@ export const MobileNavMenu = ({
   handleNavItemClick,
   className,
 }: MobileNavMenuProps) => {
+  const pathname = usePathname();
+
   return (
     <AnimatePresence mode="wait">
       {isOpen && (
@@ -281,36 +303,42 @@ export const MobileNavMenu = ({
             <MobileNavToggle isOpen={isOpen} onClick={onClose} className="text-white" />
           </motion.div>
           <div className="w-full flex-1 flex flex-col items-center justify-center">
-            {navItems.map((item, idx) => (
-              <motion.div
-                key={`mobile-link-${idx}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{
-                  duration: 0.3,
-                  delay: isOpen ? idx * 0.1 : (navItems.length - idx - 1) * 0.1,
-                  ease: "easeOut"
-                }}
-                className="w-full text-center py-4"
-              >
-                <Link
-                  href={item.link}
-                  className="text-2xl font-medium text-muted-foreground hover:text-white"
-                  onClick={(e) => {
-                    if (item.link.startsWith('#')) {
-                      e.preventDefault();
-                      handleNavItemClick(item.link);
-                    } else {
-                      // Standard link, just close menu
-                      onClose();
-                    }
+            {navItems.map((item, idx) => {
+              const isActive = pathname === item.link;
+              return (
+                <motion.div
+                  key={`mobile-link-${idx}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: isOpen ? idx * 0.1 : (navItems.length - idx - 1) * 0.1,
+                    ease: "easeOut"
                   }}
+                  className="w-full text-center py-4"
                 >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    href={item.link}
+                    className={cn(
+                      "text-2xl font-medium transition-colors",
+                      isActive ? "text-white font-bold" : "text-neutral-400 hover:text-white"
+                    )}
+                    onClick={(e) => {
+                      if (item.link.startsWith('#')) {
+                        e.preventDefault();
+                        handleNavItemClick(item.link);
+                      } else {
+                        // Standard link, just close menu
+                        onClose();
+                      }
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       )}

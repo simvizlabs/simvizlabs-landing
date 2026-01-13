@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Check, ChevronDown, Loader2 } from "lucide-react";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
+import { CountrySelector } from "@/components/ui/CountrySelector";
 
 const BENEFITS = [
     {
@@ -27,9 +28,9 @@ const BENEFITS = [
 const ORG_TYPES = [
     "Airline",
     "Flying School",
-    "Training Organisation",
+    "Approved Training Organisation",
     "Individuals",
-    "OTHERS"
+
 ];
 
 const SOLUTIONS = ["A320", "B737", "B747", "ATR 72-600", "LMS"];
@@ -43,7 +44,7 @@ export default function ContactUsPage() {
         email: "",
         phone: "",
         orgType: "",
-        region: "",
+        // region: "",
         country: "",
         solutions: [] as string[],
         additionalInfo: "",
@@ -105,7 +106,7 @@ export default function ContactUsPage() {
                     email: "",
                     phone: "",
                     orgType: "",
-                    region: "",
+                    // region: "",
                     country: "",
                     solutions: [],
                     additionalInfo: "",
@@ -133,7 +134,7 @@ export default function ContactUsPage() {
                             Connect <br /> with SimViz Labs
                         </h2>
                         <p className="text-xl text-neutral-600 leading-relaxed max-w-xl">
-                            Learn how SimViz Labs help airlines, flying schools, and training organizations train smarter, faster, and with confidence.
+                            Learn how SimViz Labs helps airlines, flying schools, and approved training organizations train smarter, faster, and with confidence.
                         </p>
                     </div>
 
@@ -210,9 +211,9 @@ export default function ContactUsPage() {
                                     key={type}
                                     type="button"
                                     onClick={() => handleSelection("orgType", type)}
-                                    className={`h-14 rounded-2xl border px-6 text-left transition-all ${formData.orgType === type
-                                        ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold text-[#1381e5]"
-                                        : "border-neutral-200 hover:border-neutral-300 bg-white"
+                                    className={`h-14 rounded-2xl border  text-left transition-all ${formData.orgType === type
+                                        ? "border-[#1381e5] bg-[#1381e5]/5 font-semibold px-3 text-[#1381e5] text-nowrap"
+                                        : "border-neutral-200 hover:border-neutral-300 px-4 bg-white  text-nowrap"
                                         }`}
                                 >
                                     {type}
@@ -221,46 +222,12 @@ export default function ContactUsPage() {
                         </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-6">
-                        <div className="flex flex-col gap-2">
-                            <label className="text-sm font-semibold opacity-70">Region*</label>
-                            <div className="relative">
-                                <select
-                                    required
-                                    name="region"
-                                    value={formData.region}
-                                    onChange={handleInputChange}
-                                    className="w-full h-14 rounded-2xl border border-neutral-200 px-6 appearance-none focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
-                                >
-                                    <option value="" disabled>Please select a region</option>
-                                    <option value="Americas">Americas</option>
-                                    <option value="Europe">Europe</option>
-                                    <option value="Asia Pacific">Asia Pacific</option>
-                                    <option value="Middle East & Africa">Middle East & Africa</option>
-                                </select>
-                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-40 pointer-events-none" />
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label className="text-sm font-semibold opacity-70">Country*</label>
-                            <div className="relative">
-                                <select
-                                    required
-                                    name="country"
-                                    value={formData.country}
-                                    onChange={handleInputChange}
-                                    className="w-full h-14 rounded-2xl border border-neutral-200 px-6 appearance-none focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-neutral-50/30"
-                                >
-                                    <option value="" disabled>Please select a country</option>
-                                    <option value="United States">United States</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="India">India</option>
-                                    <option value="Singapore">Singapore</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 opacity-40 pointer-events-none" />
-                            </div>
-                        </div>
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-semibold opacity-70">Country*</label>
+                        <CountrySelector
+                            value={formData.country}
+                            onChange={(val: string) => setFormData((prev) => ({ ...prev, country: val }))}
+                        />
                     </div>
 
                     <div className="flex flex-col gap-4">

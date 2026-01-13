@@ -50,7 +50,11 @@ const AirlinesCTASection = ({ content }: { content: any }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col items-center gap-8 md:gap-10 mt-4">
+                    <div className="flex flex-col items-center " style={{ marginTop: "4rem" }}>
+                        {/* <p className="text-[16px] md:text-[20px] text-neutral-400 font-medium">
+                            A320 FMS Simulator
+                        </p> */}
+
                         <Link
                             href="/contact"
                             className="px-8 py-4 rounded-full bg-[#1381e5] hover:bg-[#1381e5]/90 text-white font-semibold text-base md:text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#1381e5]/20"
@@ -60,7 +64,7 @@ const AirlinesCTASection = ({ content }: { content: any }) => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

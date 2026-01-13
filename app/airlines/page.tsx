@@ -60,7 +60,7 @@ const content = {
 //   },
 //   {
 //     number: "4.",
-//     title: "DReduce Training Costs & Time",
+//     title: "Reduce Training Costs & Time",
 //     description: "Conserve valuable simulator time and significantly reduce training costs through the efficient use of our comprehensive and effective training tools."
 //   },
 // ];
@@ -108,12 +108,12 @@ const enablesFeatures = [
 ];
 
 const customizations = [
-    "SOP-aligned procedures and flows.",
-    "Fleet and avionics configuration (options, variants, training constraints).",
-    "Syllabus mapping and lesson gating (phases, competencies, proficiency standards).",
-    "Instructor dashboards and reporting (KPIs, exports, cohort analytics).",
-    "Integrations (SSO, LMS connectivity, MDM requirements).",
-    "Scenario packs (tailored scenario for your company routes).",
+  "SOP-aligned procedures and flows.",
+  "Fleet and avionics configuration (options, variants, training constraints).",
+  "Syllabus mapping and lesson gating (phases, competencies, proficiency standards).",
+  "Instructor dashboards and reporting (KPIs, exports, cohort analytics).",
+  "Integrations (SSO, LMS connectivity, MDM requirements).",
+  "Scenario packs (tailored scenario for your company routes).",
 ];
 
 const AirlinesCTASectionContent = {
@@ -136,7 +136,7 @@ const AirlinesPage = () => {
         <AirlinesLandingPage ImageBackground={img} content={content} />
         <WhySimVizSection features={features} content={content} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-        <TailoredSolutionsSection customizations={customizations} />
+        {/* <TailoredSolutionsSection /> */}
         <AirlinesOverviewSection />
         <AirlinesCTASection content={AirlinesCTASectionContent} />
       </main>
