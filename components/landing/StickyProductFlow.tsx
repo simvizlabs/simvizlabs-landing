@@ -250,64 +250,92 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
       style={{ height: `${products.length * 125}vh` }}
       className={`relative bg-black ${shouldSnap ? 'snap-y snap-mandatory' : ''}`}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-7 h-screen w-full overflow-hidden flex items-center justify-center">
         <section className="bg-black py-4 md:py-12 text-white overflow-hidden h-full w-full relative">
           <div className="mx-auto px-4 sm:px-8 h-full flex flex-col">
-            <div className="relative h-full w-full max-w-[1600px] mx-auto">
-              {products.map((product, index) => {
-                const styles = getProductStyles(index);
-                return (
-                  <motion.div
-                    key={index}
-                    style={{
-                      opacity: styles.opacity,
-                      y: styles.y,
-                      scale: styles.scale,
-                      pointerEvents: styles.pointerEvents,
-                      position: 'absolute',
-                      inset: 0,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      willChange: 'opacity, transform',
-                    }}
-                    className="px-4"
-                  >
-                    {/* Text Content */}
-                    <div className="flex flex-col items-center gap-3 md:gap-4 text-center mb-8 md:mb-12 z-10">
-                      {product.isComingSoon && (
-                        <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-[10px] md:text-xs font-medium text-[#0099FF] backdrop-blur-sm">
-                          Launching Soon
-                        </span>
-                      )}
-                      <div>
-                        <p className="text-sm md:text-lg font-medium text-white/60 mb-1">{product.subtitle}</p>
-                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">{product.title}</h2>
-                      </div>
-                      {product.description && (
-                        <p className="text-sm md:text-base text-white/70 max-w-lg mx-auto hidden sm:block">
-                          {product.description}
-                        </p>
-                      )}
-                      {!product.isComingSoon && (
-                        <Button asChild className="bg-[#0099FF] text-white hover:bg-[#007acc] cursor-pointer rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2">
-                          <Link href={`/our-products?product=${product.id}`}>
-                            Learn More
-                          </Link>
-                        </Button>
-                      )}
-                    </div>
+            <div className="relative h-full w-full max-w-[1600px] mx-auto flex flex-col">
+              {/* Static Text Content - Positioned at top */}
+              <div className="relative w-full flex-shrink-0 z-30 pointer-events-none">
+                <div className="flex flex-col items-center gap-3 md:gap-4 text-center px-4 py-8 md:py-12">
+                  {products.map((product, index) => {
+                    const styles = getProductStyles(index);
+                    return (
+                      <motion.div
+                        key={`text-${index}`}
+                        style={{
+                          opacity: styles.opacity,
+                          position: 'absolute',
+                          top: 0,
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          width: '100%',
+                          pointerEvents: styles.pointerEvents,
+                        }}
+                        className="flex flex-col items-center gap-3 md:gap-4 text-center"
+                      >
+                        {product.id === "a320" ? (
+                          <div>
+                            <p className="text-sm md:text-lg font-medium text-white/60 mb-1">{product.subtitle}</p>
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">FMS Simulator</h2>
+                          </div>
+                        ) : (
+                          <div>
+                            <span className="inline-block rounded-full  px-3 py-1 text-xl md:text-5xl font-medium text-[#0099FF] backdrop-blur-sm mb-2">
+                              Launching Soon
+                            </span>
+                            <h2 className="text-xl sm:text-xl md:text-xl font-semibold leading-tight">{product.title}</h2>
+                          </div>
+                        )}
+                        {product.description && (
+                          <p className="text-sm md:text-base text-white/70 max-w-lg mx-auto hidden sm:block">
+                            {product.description}
+                          </p>
+                        )}
+                        {!product.isComingSoon && (
+                          <Button asChild className="bg-[#0099FF] text-white hover:bg-[#007acc] cursor-pointer rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2 pointer-events-auto">
+                            <Link href={`/our-products?product=${product.id}`}>
+                              Learn More
+                            </Link>
+                          </Button>
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
 
-                    <ProductImage 
-                      product={product} 
-                      priority={index <= 1}
-                      scrollProgress={scrollYProgress}
-                      isActive={styles.isActive}
-                    />
-                  </motion.div>
-                );
-              })}
+              {/* Animated Images Only - Positioned below text */}
+              <div className="relative flex-1 w-full">
+                {products.map((product, index) => {
+                  const styles = getProductStyles(index);
+                  return (
+                    <motion.div
+                      key={`image-${index}`}
+                      style={{
+                        opacity: styles.opacity,
+                        y: styles.y,
+                        scale: styles.scale,
+                        pointerEvents: styles.pointerEvents,
+                        position: 'absolute',
+                        inset: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        willChange: 'opacity, transform',
+                        zIndex: 10,
+                      }}
+                      className="px-4"
+                    >
+                      <ProductImage 
+                        product={product} 
+                        priority={index <= 1}
+                        scrollProgress={scrollYProgress}
+                        isActive={styles.isActive}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>

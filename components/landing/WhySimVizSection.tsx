@@ -4,12 +4,9 @@ import React from "react";
 
 const FeatureCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
     return (
-        <div className="bg-white rounded-[24px] p-8 justify-around sm:p-8 flex flex-col gap-10 sm:gap-6 h-full aspect-square sm:aspect-auto shadow-sm hover:shadow-md transition-shadow">
-            <div>
-                <span className="text-[24px] font-bold text-[#191716]">{number}</span>
-            </div>
-            <div className="flex flex-col gap-6 sm:gap-4">
-                <h3 className="text-[24px] font-bold leading-tight text-[#191716] max-w-[80%]">
+        <div className="bg-white rounded-[24px] p-8 justify-around sm:p-8 flex flex-col gap-6 h-full aspect-square sm:aspect-auto shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex flex-col gap-4">
+                <h3 className="text-[24px] font-bold leading-tight text-[#191716]">
                     {title}
                 </h3>
                 <p className="text-[16px] leading-relaxed text-[#191716]">
@@ -113,37 +110,46 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                     {displayHeading}
                 </h2>
 
-                {/* Carousel Container */}
+                {/* Mobile: Column Layout, Desktop: Carousel */}
+                <div className="md:hidden flex flex-col gap-4">
+                    {features.map((feature, index) => (
+                        <div key={index}>
+                            {content?.id === "airlines" || content?.id === "ato" ? (
+                                <FeatureCard2 description={feature.description} />
+                            ) : (
+                                <FeatureCard
+                                    number={feature.number}
+                                    title={feature.title}
+                                    description={feature.description}
+                                />
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop: Carousel Container */}
                 <div
                     ref={scrollContainerRef}
-                    className="flex gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                    className="hidden md:flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {features.map((feature, index) => (
-                        <div key={index} className="min-w-[100%] sm:min-w-[calc(50%-8px)] lg:min-w-[calc(33.333%-16px)] snap-start">
-                            {content?.id === "airlines" || content?.id === "ato" ? <FeatureCard2 description={feature.description} /> : <FeatureCard
-                                number={feature.number}
-                                title={feature.title}
-                                description={feature.description}
-                            />}
+                        <div key={index} className="min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-start">
+                            {content?.id === "airlines" || content?.id === "ato" ? (
+                                <FeatureCard2 description={feature.description} />
+                            ) : (
+                                <FeatureCard
+                                    number={feature.number}
+                                    title={feature.title}
+                                    description={feature.description}
+                                />
+                            )}
                         </div>
                     ))}
                 </div>
 
                 {numDots > 1 && (
-                    <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 mt-4">
-                        <div className="flex gap-2 bg-[#e5e5e5] px-4 py-2 rounded-full">
-                            {Array.from({ length: numDots }).map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => scrollTo(idx)}
-                                    className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${activeIndex === idx ? "bg-[#525252]" : "bg-[#a3a3a3]"
-                                        }`}
-                                    aria-label={`Go to slide ${idx + 1}`}
-                                />
-                            ))}
-                        </div>
-
+                    <div className="hidden md:flex flex-row items-center justify-end gap-4 mt-4">
                         <div className="flex gap-2">
                             <button
                                 onClick={scrollLeft}

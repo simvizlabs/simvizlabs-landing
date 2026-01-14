@@ -31,29 +31,35 @@ export default function Home() {
             title: "A320 FMS Simulator",
             subtitle: "iPad Based",
             image: "/landing/a320/a320_fms_simulator.png",
-            orientation: "left"
+            orientation: "left",
+            bottomText: "A320 FMS Simulator"
           },
           {
             id: "b737",
-            title: "B737 FMS Simulator",
+            title: "B737NG FMS Simulator",
             subtitle: "iPad Based",
             image: "/landing/b737/b737_fms_simulator.png",
-            orientation: "right"
+            orientation: "right",
+            isComingSoon: true,
+            bottomText: "A new way to train like a pro."
           },
           {
             id: "b747",
-            title: "B747 FMS Simulator",
+            title: "B747-400 FMS Simulator",
             subtitle: "iPad Based",
             image: "/landing/b747/b747_fms_simulator.png",
-            orientation: "left"
+            orientation: "left",
+            isComingSoon: true,
+            bottomText: "A new way to train like a pro."
           },
           {
-            id: "atr72",
-            title: "ATR 72-600 FMS Simulator",
+            id: "atr",
+            title: "ATR 72-600",
             subtitle: "iPad Based",
             image: "/landing/atr/atr.png",
             orientation: "right",
-            isComingSoon: true
+            isComingSoon: true,
+            bottomText: "A new way to train like a pro."
           }
         ]}  
       />

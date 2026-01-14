@@ -15,7 +15,7 @@ import TrainingManagementSection from "@/components/landing/TrainingManagementSe
 
 const content = {
   title: "Boost your students career success.",
-  description: "Give your students a competitive edge in airline interviews with our self-paced LMS course with an integrated FMS trainer.",
+  description: "Give your students a competitive edge in airline interviews with our FMS Simulator and integrated LMS.",
   button: [
     {
       heading: "Schedule a Demo",
