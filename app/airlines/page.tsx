@@ -10,6 +10,7 @@ import AirlinesOverviewSection from "@/components/landing/AirlinesOverviewSectio
 import AirlinesCTASection from "@/components/landing/AirlinesCTASection";
 import { TrainingManagementSectionFeatures2 } from "@/constants/TrainingManagementSectionFeatures";
 import TailoredSolutionsSection from "@/components/landing/TailoredSolutionsSection";
+import ImplementationSection from "@/components/landing/ImplementationSection";
 import Image from "next/image";
 
 const img = "/assets/new-airlines/airlines-header.png";
@@ -22,8 +23,12 @@ export const metadata: Metadata = {
 
 const content = {
   id: "airlines",
-  title: "Move FMS Training out of expensive simulators into unlimited, measurable practice.",
-  description: "SimViz Labs delivers airline-scale FMS training software: high-fidelity simulator, integrated LMS that standardizes proficiency, reduces simulator dependency, AI-guided practice, and proves readiness with analytics.",
+  title: "Move FMS fundamentals out of expensive simulators.",
+  description: <><p className="text-[16px] md:text-[20px]">SimViz Labs delivers airline scale FMS training system on iPads:
+    <br />
+    high-fidelity simulator, integrated LMS,  AI-guided practice, and analytics that improve crew readiness. <br />Your pilots master procedures before simulator sessions. The instructors get objective proficiency data. <br />Airline’s training department gains consistent standards across fleets and bases.
+  </p>
+    <p className="mt-8">Airline gets a regulatory complaint and bespoke SOPs built into the system.</p></>,
   button: [
     {
       heading: "Schedule a Demo",
@@ -135,45 +140,52 @@ const AirlinesPage = () => {
       <NavbarDemo />
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
-        <section className="pb-16 px-4 bg-[#f5f5f7] md:px-8  mx-auto text-center space-y-4">
-                     <span className="text-normal md:text-xl text-black tracking-tight">
-                       iPad Based
-                    </span>
-                    <h2 className="text-2xl md:text-4xl font-bold text-black tracking-tight">
-                        FMS Simulator & LMS
-                    </h2>
+        <section className="py-24 px-4 bg-[#f5f5f7] md:px-8 mx-auto text-center">
+          <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
+            <div className="space-y-4">
+              <span className="text-normal md:text-xl text-black/60 tracking-tight font-medium">
+                iPad Based
+              </span>
+              <h2 className="text-4xl md:text-6xl font-bold text-black tracking-tight max-w-2xl mx-auto leading-tight">
+                FMS Simulator & LMS
+              </h2>
+            </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-xl mx-auto">
-                        <div className="group space-y-8">
-                            <div className="relative aspect-[4/3] w-full max-w-[500px] overflow-hidden p-8  transition-transform duration-500">
-                                <Image
-                                    src="/assets/our-products/a320/a320_simualtor_landscape.png"
-                                    alt="FMS Simulator"
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                            <p className="text-lg font-bold text-black/40 uppercase tracking-widest">FMS Simulator</p>
-                        </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full mt-8">
+              {/* FMS Simulator iPad */}
+              <div className="relative group">
+                <div className="relative w-full aspect-[4/3] rotate-90 transform transition-all duration-700 hover:scale-[1.02]">
+                  <Image
+                    src="/assets/new-airlines/fms_simulator.png"
+                    alt="FMS Simulator"
+                    fill
+                    className="object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </div>
+              </div>
 
-                        <div className="group space-y-8">
-                            <div className="relative aspect-[4/3] w-full max-w-[600px] transition-transform duration-500">
-                                <Image
-                                    src="/assets/our-products/a320/cpdlc.png"
-                                    alt="CPDLC"
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                            <p className="text-lg font-bold text-black/40 uppercase tracking-widest">CPDLC</p>
-                        </div>
-                    </div>
-                </section>
-        <WhySimVizSection features={features} content={content} />
+              {/* LMS iPad */}
+              <div className="relative group">
+                <div className="relative w-full aspect-[4/3] transform rotate-90 transition-all duration-700 hover:scale-[1.02]">
+                  <Image
+                    src="/assets/new-airlines/lms.png"
+                    alt="LMS"
+                    fill
+                    className="object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* <WhySimVizSection features={features} content={content} /> */}
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-        {/* <TailoredSolutionsSection /> */}
-        <AirlinesOverviewSection />
-        <AirlinesCTASection content={AirlinesCTASectionContent} />
+        <TailoredSolutionsSection />
+        <ImplementationSection />
+        {/* <AirlinesOverviewSection /> */}
+        {/* <AirlinesCTASection content={AirlinesCTASectionContent} /> */}
       </main>
       <Footer theme="light" />
     </div>

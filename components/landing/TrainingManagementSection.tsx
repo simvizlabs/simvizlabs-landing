@@ -110,7 +110,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
             <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-16">
                 {/* Header */}
                 <h2 className="text-[36px] md:text-[56px] font-semibold text-[#191716] leading-tight text-center md:text-left">
-                    Our <span className="text-[#5ea2ef]">Training Management System</span>
+                    Key Features
                 </h2>
 
                 {/* Carousel Container */}

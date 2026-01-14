@@ -2,16 +2,15 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const defaultCustomizations = [
-    "SOP-aligned procedures and flows.",
-    "Fleet and avionics configuration (options, variants, training constraints).",
-    "Syllabus mapping and lesson gating (phases, competencies, proficiency standards).",
-    "Instructor dashboards and reporting (KPIs, exports, cohort analytics).",
-    "Integrations (SSO, LMS connectivity, MDM requirements).",
-    "Scenario packs (tailored scenario for your company routes).",
+    "FMS and auto-flight training with repeatable, procedure-aligned practice.",
+    "Inbuilt LMS solution allows for tailored lesson plans and scenarios for company specific routes.",
+    "Unlimited self-paced familiarization without simulator pressure or cost anxiety.",
+    "Objective readiness evidence through analytics (gap detection, pattern recognition, targeted remediation).",
+    "Distance learning capability.",
+    "Instructor tooling: scenario delivery, progress visibility, and data-backed briefing/debrief."
 ];
 
 const TailoredSolutionsSection = () => {
@@ -28,7 +27,7 @@ const TailoredSolutionsSection = () => {
             {/* Top Part: Clear Engine (Sticky) */}
             <div className="sticky top-0 z-0 w-full border-b border-black/5 bg-white">
                 <Image
-                    src="/assets/new-airlines/1.png"
+                    src="/assets/new-airlines/plane_strip.png"
                     alt="Tailored Solutions Hero"
                     width={1920}
                     height={1080}
@@ -56,16 +55,14 @@ const TailoredSolutionsSection = () => {
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-[16.4px]" />
 
                 <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-8 md:px-12 flex flex-col gap-12">
-                    <h3 className="text-[20px] md:text-[24px] font-bold text-black font-geist">
-                        Typical airline customizations include:
+                    <h3 className="text-xl md:text-4xl font-bold text-black font-geist">
+                        What does my airline get?
                     </h3>
 
-                    <div className="">
+                    <div className="flex flex-col gap-6">
                         {defaultCustomizations.map((item, index) => (
-                            <div key={index} className="flex items-start gap-4 group">
-                                <div className="mt-1 p-1 rounded-full border border-black/10 transition-colors">
-                                    <CheckCircle2 className="w-5 h-5 text-black" />
-                                </div>
+                            <div key={item} className="flex items-start gap-4 group">
+                                <div className="mt-[10px] w-1.5 h-1.5 rounded-full bg-black shrink-0" />
                                 <p className="text-[17px] md:text-[20px] text-black leading-relaxed font-medium font-geist">
                                     {item}
                                 </p>
