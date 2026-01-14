@@ -10,6 +10,7 @@ import AirlinesOverviewSection from "@/components/landing/AirlinesOverviewSectio
 import AirlinesCTASection from "@/components/landing/AirlinesCTASection";
 import { TrainingManagementSectionFeatures2 } from "@/constants/TrainingManagementSectionFeatures";
 import TailoredSolutionsSection from "@/components/landing/TailoredSolutionsSection";
+import Image from "next/image";
 
 const img = "/assets/new-airlines/airlines-header.png";
 
@@ -134,6 +135,40 @@ const AirlinesPage = () => {
       <NavbarDemo />
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
+        <section className="pb-16 px-4 bg-[#f5f5f7] md:px-8  mx-auto text-center space-y-4">
+                     <span className="text-normal md:text-xl text-black tracking-tight">
+                       iPad Based
+                    </span>
+                    <h2 className="text-2xl md:text-4xl font-bold text-black tracking-tight">
+                        FMS Simulator & LMS
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-xl mx-auto">
+                        <div className="group space-y-8">
+                            <div className="relative aspect-[4/3] w-full max-w-[500px] overflow-hidden p-8  transition-transform duration-500">
+                                <Image
+                                    src="/assets/our-products/a320/a320_simualtor_landscape.png"
+                                    alt="FMS Simulator"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <p className="text-lg font-bold text-black/40 uppercase tracking-widest">FMS Simulator</p>
+                        </div>
+
+                        <div className="group space-y-8">
+                            <div className="relative aspect-[4/3] w-full max-w-[600px] transition-transform duration-500">
+                                <Image
+                                    src="/assets/our-products/a320/cpdlc.png"
+                                    alt="CPDLC"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <p className="text-lg font-bold text-black/40 uppercase tracking-widest">CPDLC</p>
+                        </div>
+                    </div>
+                </section>
         <WhySimVizSection features={features} content={content} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
         {/* <TailoredSolutionsSection /> */}
