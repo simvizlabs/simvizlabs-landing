@@ -25,6 +25,7 @@ export interface ProductHighlightCardProps {
     };
     className?: string;
     layoutId?: string;
+    comingSoon?: string;
 }
 
 export function ProductHighlightCard({
@@ -37,6 +38,7 @@ export function ProductHighlightCard({
     secondaryButton,
     className,
     layoutId,
+    comingSoon,
 }: ProductHighlightCardProps) {
     return (
         <motion.div
@@ -53,6 +55,11 @@ export function ProductHighlightCard({
                     className="text-4xl md:text-6xl font-bold text-black tracking-tight leading-tight"
                 >
                     {title}
+                    {comingSoon && (
+                        <span className="text-sm text-gray-500">
+                            {comingSoon}
+                        </span>
+                    )}
                 </motion.h3>
                 <motion.p
                     layoutId={`desc-${layoutId}`}

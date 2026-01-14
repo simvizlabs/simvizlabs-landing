@@ -36,7 +36,7 @@ const content = {
         }
     ],
     simvizEnables: {
-        heading: <>Why ATOs use <span className="text-[#5ea2ef]">SimViz Labs ?</span> </>
+        heading: <>Why ATOs use <span className="text-[#5ea2ef]">SimViz Labs?</span> </>
     }
 }
 
@@ -86,6 +86,10 @@ const customizations = [
 ]
 
 
+const ImplementationSectionHeading = [
+"Move FMS training to SimViz Labs Solution and use simulator time for high-value training. Optimize your FFS availability with value added training. "
+];
+
 
 const ATOPage = () => {
     return (
@@ -95,9 +99,11 @@ const ATOPage = () => {
                 <AirlinesLandingPage ImageBackground={imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11} content={content} />
                 <WhySimVizSection features={features} content={content} />
                 <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-                {/* <TailoredSolutionsSection customizations={customizations} /> */}
-                <AirlinesOverviewSection />
-                <AirlinesCTASection content={AirlinesCTASectionContent} />
+                <TailoredSolutionsSection imageSrc="/assets/ato/ato-header.png" customizations={customizations} />
+                <ImplementationSection heading={ImplementationSectionHeading} />
+                {/* <AirlinesOverviewSection /> */}
+
+                {/* <AirlinesCTASection content={AirlinesCTASectionContent} /> */}
             </main>
             <Footer theme="light" />
         </div>

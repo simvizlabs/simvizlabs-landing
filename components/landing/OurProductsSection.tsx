@@ -75,8 +75,9 @@ function OurProductsContent() {
       imageSrc: "/assets/our-products/eda6f0f09e9c208ab7cefc56ddfa2662695ae550.png",
       content: {
         headImage: "/assets/our-products/b737/b737_simulator_landscape.png",
-        title: "B737 FMS Simulator",
-        description: "Realistic B737 FMC and MCP training focused on precise LNAV/VNAV logic, CDU workflows, and line-operations realism.",
+        title: "B737NG FMS Simulator",
+        comingSoon:"(MAX Coming Soon)",
+        description: "Realistic B737NG FMC and MCP training focused on precise LNAV/VNAV logic, CDU workflows, and line-operations realism.",
         rotateImage: "90",
         buttons: [
           {
@@ -109,8 +110,9 @@ function OurProductsContent() {
       imageSrc: "/assets/our-products/b0738e33683cda336533d7d62466166f6fa760af.png",
       content: {
         headImage: "/assets/our-products/b747/b747_simulator_landscape.png",
-        title: "B747 FMS Simulator",
-        description: "High-fidelity B747 FMC training designed for long-range navigation, complex automation, and wide-body airline operations.",
+        title: "B747-400 FMS Simulator",
+        comingSoon:"(MAX Coming Soon)",
+        description: "High-fidelity B747-400 FMC training designed for long-range navigation, complex automation, and wide-body airline operations.",
         rotateImage: "90",
 
         buttons: [
@@ -195,6 +197,7 @@ function OurProductsContent() {
                   <ProductHighlightCard
                     layoutId="a320"
                     title={products.a320.content.title}
+                    comingSoon={products.a320.content.comingSoon}
                     description={products.a320.content.description}
                     imageSrc={products.a320.imageSrc}
                     badgeSrc={appStoreBadge}

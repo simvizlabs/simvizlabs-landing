@@ -133,6 +133,11 @@ const AirlinesCTASectionContent = {
   imageSrc: "/landing/a320/a320_fms_simulator.png"
 }
 
+const ImplementationSectionHeading: string[] = [
+  "SimViz runs on modern, cloud-native infrastructure and is accessible from an iPad, includes an integrated LMS.",
+  "Our implementation team works directly with your airline IT team to align deployment and customization to your environment."
+];
+
 
 const AirlinesPage = () => {
   return (
@@ -182,8 +187,8 @@ const AirlinesPage = () => {
         </section>
         {/* <WhySimVizSection features={features} content={content} /> */}
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-        <TailoredSolutionsSection />
-        <ImplementationSection />
+        <TailoredSolutionsSection customizations={customizations} heading="What does my airline get?" imageSrc="/assets/new-airlines/plane_strip.png" />
+        <ImplementationSection heading={ImplementationSectionHeading} />
         {/* <AirlinesOverviewSection /> */}
         {/* <AirlinesCTASection content={AirlinesCTASectionContent} /> */}
       </main>

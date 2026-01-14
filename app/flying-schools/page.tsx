@@ -55,6 +55,10 @@ const features = [
 const img = "/assets/flying-school/flying-school-header.png"
 
 
+const ImplementationSectionHeading: string[] = [
+  "SimViz runs on modern, cloud-native infrastructure and is accessible from an iPad, includes an integrated LMS.",
+];
+
 
 const AeronauticalsPage = () => {
   return (
@@ -69,6 +73,7 @@ const AeronauticalsPage = () => {
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
         <WhySimVizSection features={features} />
+        <ImplementationSection heading={ImplementationSectionHeading} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures} />
       </main>
       <Footer theme="light" />

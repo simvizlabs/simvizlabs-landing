@@ -13,7 +13,7 @@ const defaultCustomizations = [
     "Instructor tooling: scenario delivery, progress visibility, and data-backed briefing/debrief."
 ];
 
-const TailoredSolutionsSection = () => {
+const TailoredSolutionsSection = ({ customizations, heading, imageSrc }: { customizations: string[], heading: string, imageSrc: string }) => {
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -27,7 +27,7 @@ const TailoredSolutionsSection = () => {
             {/* Top Part: Clear Engine (Sticky) */}
             <div className="sticky top-0 z-0 w-full border-b border-black/5 bg-white">
                 <Image
-                    src="/assets/new-airlines/plane_strip.png"
+                    src={imageSrc}
                     alt="Tailored Solutions Hero"
                     width={1920}
                     height={1080}
@@ -56,11 +56,11 @@ const TailoredSolutionsSection = () => {
 
                 <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-8 md:px-12 flex flex-col gap-12">
                     <h3 className="text-xl md:text-4xl font-bold text-black font-geist">
-                        What does my airline get?
+                        {heading}
                     </h3>
 
                     <div className="flex flex-col gap-6">
-                        {defaultCustomizations.map((item, index) => (
+                        {customizations.map((item, index) => (
                             <div key={item} className="flex items-start gap-4 group">
                                 <div className="mt-[10px] w-1.5 h-1.5 rounded-full bg-black shrink-0" />
                                 <p className="text-[17px] md:text-[20px] text-black leading-relaxed font-medium font-geist">

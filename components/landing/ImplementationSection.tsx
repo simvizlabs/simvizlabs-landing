@@ -5,20 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const ImplementationSection = () => {
+const ImplementationSection = ({ heading }: { heading: string[] }) => {
     return (
         <section className="relative w-full py-24 px-4 sm:px-8 md:px-12 bg-white overflow-hidden">
             <div className="max-w-[1440px] mx-auto flex flex-col items-center text-center gap-12">
                 {/* Text Content */}
                 <div className="flex flex-col gap-6 max-w-4xl mx-auto">
-                    <h2 className="text-[24px] md:text-[36px] font-semibold text-black leading-tight">
-                        SimViz runs on modern, cloud-native infrastructure
-                        and is accessible from an iPad, includes an integrated LMS.
-                    </h2>
-                    <p className="text-[20px] md:text-[28px] font-semibold text-black/80 leading-snug">
-                        Our implementation team works directly with your
-                        airline IT team to align deployment and customization to your environment.
-                    </p>
+                    {heading.map((heading, index) => (
+                        <h2 key={index} className="text-[32px] md:text-[48px] font-bold leading-tight text-[#191716]">
+                            {heading}
+                        </h2>
+                    ))}
                 </div>
 
                 {/* Overlapping iPads Container */}
