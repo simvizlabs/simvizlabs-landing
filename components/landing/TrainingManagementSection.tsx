@@ -116,7 +116,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
                 {/* Carousel Container */}
                 <div
                     ref={scrollContainerRef}
-                    className="flex gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                    className="flex flex-col sm:flex-row gap-4 md:gap-6 overflow-hidden sm:overflow-x-auto pb-8 sm:snap-x sm:snap-mandatory scrollbar-hide scroll-smooth"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                     {features.map((feature, index) => (
@@ -148,7 +148,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
                             ))}
                         </div> */}
 
-                        <div className="flex gap-2">
+                        <div className="hidden sm:flex gap-2">
                             <button
                                 onClick={scrollLeft}
                                 className="w-10 h-10 rounded-full bg-[#e5e5e5] flex items-center justify-center hover:bg-[#d4d4d4] transition-colors active:scale-95"

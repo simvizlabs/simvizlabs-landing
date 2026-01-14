@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ChevronDown, Loader2 } from "lucide-react";
+import { Check, ChevronDown, Facebook, Instagram, Linkedin, Loader2, YoutubeIcon } from "lucide-react";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { CountrySelector } from "@/components/ui/CountrySelector";
+import Link from "next/link";
 
 const BENEFITS = [
     {
@@ -33,7 +34,7 @@ const ORG_TYPES = [
 
 ];
 
-const SOLUTIONS = ["A320", "B737", "B747", "ATR 72-600", "LMS"];
+const SOLUTIONS = ["A320", "B737NG", "B747-400", "ATR 72-600", "LMS"];
 
 export default function ContactUsPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -134,12 +135,11 @@ export default function ContactUsPage() {
                             Connect <br /> with SimViz Labs
                         </h2>
                         <p className="text-xl text-neutral-600 leading-relaxed max-w-xl">
-                            Learn how SimViz Labs helps airlines, flying schools, and approved training organizations train smarter, faster, and with confidence.
-                        </p>
+                            Get in touch with SimViz Labs to find the training approach that works best for you. Fill out the form and our team will reach out with personalized support and recommendations.                        </p>
                     </div>
 
-                    <div className="flex flex-col gap-8">
-                        {BENEFITS.map((benefit, idx) => (
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+                        {/* {BENEFITS.map((benefit, idx) => (
                             <div key={idx} className="flex gap-4 group">
                                 <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-neutral-300 flex items-center justify-center group-hover:border-[#1381e5] group-hover:bg-[#1381e5]/5 transition-colors">
                                     <Check className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#1381e5]" />
@@ -149,7 +149,23 @@ export default function ContactUsPage() {
                                     <p className="text-neutral-500 leading-relaxed max-w-md">{benefit.description}</p>
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
+                        <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
+                            <Instagram className="h-5 w-5" />
+                            <span className="text-sm font-medium">@simvizlabs</span>
+                        </Link>
+                        <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
+                            <Linkedin className="h-5 w-5" />
+                            <span className="text-sm font-medium">simvizlabs</span>
+                        </Link>
+                        <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
+                            <Facebook className="h-5 w-5" />
+                            <span className="text-sm font-medium">SimViz Labs</span>
+                        </Link>
+                        <Link href="https://www.youtube.com/@simvizlabs" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
+                            <YoutubeIcon className="h-5 w-5" />
+                            <span className="text-sm font-medium">@simvizlabs</span>
+                        </Link>
                     </div>
                 </div>
 
