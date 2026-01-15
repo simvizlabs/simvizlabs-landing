@@ -139,6 +139,14 @@ export default function NavbarDemo() {
       name: "Our Products",
       link: "/our-products",
     },
+    {
+      name: "About Us",
+      link: "/about-us",
+    },
+    {
+      name: "Contact Us",
+      link: "/contact",
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -172,7 +180,7 @@ export default function NavbarDemo() {
           {/* Desktop Navigation - Hidden on mobile */}
           <div className="hidden lg:flex w-full items-center justify-between">
             <NavBody className="w-full max-w-full">
-              <div className="flex items-center">
+              <div className="flex items-center pr-8 lg:pr-12">
                 <Link href="/" className="flex items-center gap-2">
                   <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} className="mr-1" />
                   <span className="text-xl font-bold text-white">SimViz Labs</span>
@@ -182,7 +190,7 @@ export default function NavbarDemo() {
               <NavItems
                 items={navItems}
                 onItemClick={handleNavItemClick}
-                className="text-sm font-medium text-white/80 transition-colors text-white hover:text-white"
+                className="text-sm font-medium text-white/80 transition-colors text-white hover:text-white pl-4 lg:pl-8"
               />
 
               {/* Show auth buttons/avatar only for Indian IP addresses AND on the specific path */}
@@ -247,7 +255,7 @@ export default function NavbarDemo() {
               <MobileNavMenu
                 isOpen={isMobileMenuOpen}
                 onClose={() => setIsMobileMenuOpen(false)}
-                navItems={[...navItems, { name: "Contact Us", link: "/contact" }]}
+                navItems={navItems}
                 handleNavItemClick={handleNavItemClick}
                 className="bg-black text-white border-l border-white/10"
               />

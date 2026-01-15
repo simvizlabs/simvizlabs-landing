@@ -4,12 +4,12 @@ import React from "react";
 
 const FeatureCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
     return (
-        <div className="bg-white rounded-[24px] p-8 justify-around sm:p-8 flex flex-col gap-6 h-full aspect-square sm:aspect-auto shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex flex-col gap-4">
-                <h3 className="text-[24px] font-bold leading-tight text-[#191716]">
+        <div className="bg-white rounded-[24px] p-8 flex flex-col gap-6  w-full shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex flex-col gap-4 justify-start flex-1">
+                <h3 className="text-2xl md:text-2xl lg:text-2xl font-bold leading-tight text-[#191716]">
                     {title}
                 </h3>
-                <p className="text-[16px] leading-relaxed text-[#191716]">
+                <p className="text-xl md:text-xl lg:text-2xl leading-relaxed text-[#191716]">
                     {description}
                 </p>
             </div>
@@ -19,7 +19,7 @@ const FeatureCard = ({ number, title, description }: { number: string; title: st
 
 const FeatureCard2 = ({ description }: { description: string }) => {
     return (
-        <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left h-full aspect-square shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left w-full aspect-square shadow-sm hover:shadow-md transition-all duration-300">
             <span className="font-semibold text-2xl md:text-3xl leading-snug text-[#191716]">
                 {description}
             </span>
@@ -36,7 +36,7 @@ interface WhySimVizSectionProps {
 
 const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: WhySimVizSectionProps) => {
     const displayHeading = heading || content?.whySimvizSection?.heading || content?.simvizEnables?.heading || content?.heading || (
-        <>Why <span className="text-[#5ea2ef]">SimViz Labs</span>?</>
+        <>Why <span className="bg-gradient-to-r from-[#1381E5] to-[#CAE6FF] bg-clip-text text-transparent">SimViz Labs?</span></>
     );
 
     console.log(displayHeading,"displayHeading",content?.simvizEnables?.heading)
@@ -103,10 +103,10 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
     };
 
     return (
-        <section className={`bg-[#f5f5f7] ${reducedTopPadding ? 'pt-0 pb-16 md:pb-24' : 'py-16 md:py-24'} px-4 sm:px-8 md:px-12 w-full`}>
-            <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-16">
+        <section className={`bg-[#f5f5f7] mx-auto ${reducedTopPadding ? 'pt-0 pb-16 md:pb-24' : ''} px-4 sm:px-8 md:px-12 w-full`}>
+            <div className="max-w-7xl mx-auto flex flex-col gap-4 md:gap-8">
                 {/* Header */}
-                <h2 className="text-[36px] md:text-[56px] font-semibold text-[#191716] leading-tight text-center md:text-left">
+                <h2 className="text-4xl items-start text-start md:text-3xl lg:text-4xl font-semibold text-[#191716] leading-tight text-center md:text-left">
                     {displayHeading}
                 </h2>
 
@@ -130,11 +130,11 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                 {/* Desktop: Carousel Container */}
                 <div
                     ref={scrollContainerRef}
-                    className="hidden md:flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                    className="hidden md:flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth items-stretch"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {features.map((feature, index) => (
-                        <div key={index} className="min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-start">
+                        <div key={index} className="w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start flex">
                             {content?.id === "airlines" || content?.id === "ato" ? (
                                 <FeatureCard2 description={feature.description} />
                             ) : (
@@ -149,7 +149,7 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                 </div>
 
                 {numDots > 1 && (
-                    <div className="hidden md:flex flex-row items-center justify-end gap-4 mt-4">
+                    <div className="hidden md:flex flex-row items-center justify-end gap-4">
                         <div className="flex gap-2">
                             <button
                                 onClick={scrollLeft}

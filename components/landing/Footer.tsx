@@ -24,7 +24,7 @@ export function Footer({
 
   // Start of modification
   return (
-    <footer className={cn("py-16 border-t font-geist", baseStyles, className)}>
+    <footer className={cn("py-16 border-t font-sans", baseStyles, className)}>
       <div className="container mx-auto px-4 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
 

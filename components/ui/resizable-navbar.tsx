@@ -117,7 +117,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl grid grid-cols-3 items-center self-start rounded-full bg-transparent px-2 py-2 lg:grid dark:bg-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl grid grid-cols-3 items-center self-start rounded-full bg-transparent px-2 py-2 lg:grid dark:bg-transparent gap-4 lg:gap-6",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
@@ -187,18 +187,18 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                     : "text-white/60 hover:text-white dark:text-neutral-300 dark:hover:text-white"
                 )}
               >
-                {hovered === idx && (
+                {hovered === idx && !isActive && (
                   <motion.div
-                    layoutId="hovered"
-                    className="absolute inset-0 h-full w-full rounded-full bg-gray-100/80 backdrop-blur-sm dark:bg-neutral-800/80"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 25,
-                      mass: 0.5
+                    layoutId="hover-indicator"
+                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-white/60 rounded-full"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    exit={{ scaleX: 0 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 30,
+                      duration: 0.3
                     }}
                   />
                 )}
@@ -209,7 +209,12 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                     className="absolute bottom-0 left-3 right-3 h-0.5 bg-white rounded-full"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 30,
+                      duration: 0.3
+                    }}
                   />
                 )}
 

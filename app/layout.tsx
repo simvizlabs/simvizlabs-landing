@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
@@ -91,7 +94,7 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`antialiased font-geist`}>
+        <body className={`antialiased ${inter.variable} font-sans`}>
           <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
             <SmoothScrollProvider>
               {children}

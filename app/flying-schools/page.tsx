@@ -16,7 +16,7 @@ import ImplementationSection from "@/components/landing/ImplementationSection";
 
 const content = {
   title: "Boost your students career success.",
-  description: "Give your students a competitive edge in airline interviews with our FMS Simulator and integrated LMS.",
+  description: <p className="text-sm sm:text-md md:text-xl lg:text-2xl">Give your students a competitive edge in airline interviews <br/> with our FMS Simulator and integrated LMS.</p>,
   button: [
     {
       heading: "Schedule a Demo",

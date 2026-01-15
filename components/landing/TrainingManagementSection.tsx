@@ -15,12 +15,12 @@ const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; 
     }, []);
 
     return (
-        <div className="bg-white rounded-[24px] p-8 flex flex-col gap-6 h-full shadow-sm hover:shadow-md transition-shadow min-h-[400px]">
-            <div className="flex flex-col gap-4">
-                <h3 className="text-[20px] font-bold leading-tight text-[#191716] max-w-[90%]">
+        <div className="bg-white rounded-2xl md:rounded-3xl px-3 sm:px-4 md:px-6 lg:px-8 py-7 md:py-8 flex flex-col gap-4 md:gap-6 lg:gap-7 h-full shadow-sm hover:shadow-md transition-shadow min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">
+            <div className="flex flex-col gap-3 md:gap-4">
+                <h3 className="text-md sm:text-lg md:text-xl lg:text-2xl font-bold font-medium leading-[1.36] text-[#191716] font-sans">
                     {title}
                 </h3>
-                <p className="text-[14px] leading-relaxed text-[#191716]">
+                <p className="text-base sm:text-md md:text-lg lg:text-xl leading-[1.45] text-[#191716] font-sans">
                     {description}
                 </p>
             </div>
@@ -106,10 +106,10 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
     };
 
     return (
-        <section className="bg-[#f5f5f7] py-16 md:py-24 px-4 sm:px-8 md:px-12 w-full">
-            <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-16">
+        <section className="bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 w-full">
+            <div className="max-w-[1648px] mx-auto flex flex-col gap-6 md:gap-8 lg:gap-10">
                 {/* Header */}
-                <h2 className="text-[36px] md:text-[56px] font-semibold text-[#191716] leading-tight text-center md:text-left">
+                <h2 className="text-3xl sm:text-5xl sm:mt-4s md:text-3xl lg:text-4xl xl:text-4xl font-semibold text-[#191716] leading-[normal] text-center md:text-left font-sans">
                     Key Features
                 </h2>
 
@@ -135,7 +135,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
                 </div>
 
                 {numDots > 1 && (
-                    <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 mt-4">
+                    <div className="flex  sm:flex-row items-center w-full justify-end gap-4  ">
                         {/* <div className="flex gap-2 bg-[#e5e5e5] px-4 py-2 rounded-full">
                             {Array.from({ length: numDots }).map((_, idx) => (
                                 <button

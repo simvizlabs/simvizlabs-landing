@@ -24,16 +24,16 @@ export const metadata: Metadata = {
 const content = {
   id: "airlines",
   title: "Move FMS fundamentals out of expensive simulators.",
-  description: <><p className="text-[16px] md:text-[20px]">SimViz Labs delivers airline scale FMS training system on iPads:
+  description: <><p className="text-xs sm:text-sm md:text-base lg:text-lg">SimViz Labs delivers airline scale FMS training system on iPads:
     <br />
-    high-fidelity simulator, integrated LMS,  AI-guided practice, and analytics that improve crew readiness. <br />Your pilots master procedures before simulator sessions. The instructors get objective proficiency data. <br />Airline’s training department gains consistent standards across fleets and bases.
+    high-fidelity simulator, integrated LMS,  AI-guided practice, and analytics that improve crew readiness. <br />Your pilots master procedures before simulator sessions. The instructors get objective proficiency data. <br />Airline's training department gains consistent standards across fleets and bases.
   </p>
-    <p className="mt-8">Airline gets a regulatory complaint and bespoke SOPs built into the system.</p></>,
+    <p className="mt-6 sm:mt-8 text-xs sm:text-sm md:text-base lg:text-lg">Airline gets a regulatory complaint and bespoke SOPs built into the system.</p></>,
   button: [
     {
       heading: "Schedule a Demo",
       redirect: "/contact",
-      class: "px-9 py-7 rounded-[24px] bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-[17px] text-nowrap"
+      class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
     }
   ],
   // whySimvizSection: {
@@ -114,12 +114,12 @@ const enablesFeatures = [
 ];
 
 const customizations = [
-  "SOP-aligned procedures and flows.",
-  "Fleet and avionics configuration (options, variants, training constraints).",
-  "Syllabus mapping and lesson gating (phases, competencies, proficiency standards).",
-  "Instructor dashboards and reporting (KPIs, exports, cohort analytics).",
-  "Integrations (SSO, LMS connectivity, MDM requirements).",
-  "Scenario packs (tailored scenario for your company routes).",
+  "FMS and auto-flight training with repeatable, procedure-aligned practice.",
+  "Inbuilt LMS solution allows for tailored lesson plans and scenarios for company specific routes.",
+  "Unlimited self-paced familiarization without simulator pressure or cost anxiety.",
+  "Objective readiness evidence through analytics (gap detection, pattern recognition, targeted remediation).",
+  "Distance learning capability.",
+  "Instructor tooling: scenario delivery, progress visibility, and data-backed briefing/debrief.",
 ];
 
 const AirlinesCTASectionContent = {
@@ -133,33 +133,33 @@ const AirlinesCTASectionContent = {
   imageSrc: "/landing/a320/a320_fms_simulator.png"
 }
 
-const ImplementationSectionHeading: string[] = [
-  "SimViz runs on modern, cloud-native infrastructure and is accessible from an iPad, includes an integrated LMS.",
-  "Our implementation team works directly with your airline IT team to align deployment and customization to your environment."
+  const ImplementationSectionHeading: any[] = [
+  <>SimViz Labs runs on modern, cloud-native infrastructure <br/> and is accessible from an iPad, includes an integrated LMS.</>,
+  <>Our implementation team works directly with your <br/> airline IT team to align deployment and customization to your environment.</>
 ];
 
 
 const AirlinesPage = () => {
   return (
-    <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist min-h-screen flex flex-col">
+    <div className="bg-[#f5f5f7] text-[#191716] dark:bg-neutral-900 dark:text-white font-sans min-h-screen flex flex-col">
       <NavbarDemo />
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
-        <section className="py-24 px-4 bg-[#f5f5f7] md:px-8 mx-auto text-center">
-          <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-            <div className="space-y-4">
-              <span className="text-normal md:text-xl text-black/60 tracking-tight font-medium">
+        <section className="px-4 bg-[#f5f5f7] sm:px-6 md:px-8 lg:px-16 xl:px-32 mx-auto text-center">
+          <div className="max-w-7xl mx-auto flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
+            <div className="space-y-3 md:space-y-4">
+              <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-[#191716] tracking-tight font-medium leading-[1.36] font-sans">
                 iPad Based
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold text-black tracking-tight max-w-2xl mx-auto leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#191716] tracking-tight max-w-2xl mx-auto leading-[normal] font-sans">
                 FMS Simulator & LMS
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full">
               {/* FMS Simulator iPad */}
               <div className="relative group">
-                <div className="relative w-full aspect-[4/3] rotate-90 transform transition-all duration-700 hover:scale-[1.02]">
+                <div className="relative text-left w-full aspect-[4/3] rotate-90 transform transition-all duration-700 hover:scale-[1.02]">
                   <Image
                     src="/assets/new-airlines/fms_simulator.png"
                     alt="FMS Simulator"
