@@ -308,7 +308,7 @@ export default function ContactUsPage() {
                     )}
                 </form>
             </main>
-            <Footer theme="light" />
+            <Footer bgColor="bg-[#F5F5F7]" />
         </div>
     );
 }

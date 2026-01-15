@@ -7,7 +7,7 @@ import { Button } from "../../components/ui/button";
 import NavbarDemo from "../../components/resizable-navbar-demo";
 import Footer from "../../components/footer";
 import { IconSchool, IconRocket, IconBriefcase, IconUsers, IconNotebook, IconLayoutDashboard, IconDeviceLaptop, IconChartHistogram, IconDeviceAudioTape, IconDeviceTabletQuestion } from "@tabler/icons-react";
-import TrainingManagementSectionFeatures from "@/constants/TrainingManagementSectionFeatures";
+import TrainingManagementSectionFeatures, { TrainingManagementSectionFeatures2 } from "@/constants/TrainingManagementSectionFeatures";
 import AirlinesLandingPage from "@/components/landing/AirlinesLandingPage";
 import WhySimVizSection from "@/components/landing/WhySimVizSection";
 import TrainingManagementSection from "@/components/landing/TrainingManagementSection";
@@ -21,7 +21,7 @@ const content = {
     {
       heading: "Schedule a Demo",
       redirect: "/contact",
-      class: "px-9 py-7 rounded-[24px] bg-[#1381e5] border-[#1381e5] hover:border-[#1381e5] hover:text-[#1381e5] font-sans font-semibold leading-[normal] not-italic text-[17px] text-[#fff] text-nowrap"
+      class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
     }
   ]
 }
@@ -74,10 +74,10 @@ const AeronauticalsPage = () => {
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
         <WhySimVizSection features={features} />
-        <TrainingManagementSection features={TrainingManagementSectionFeatures} />
+        <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
         <ImplementationSection heading={ImplementationSectionHeading} />
       </main>
-      <Footer theme="light" />
+      <Footer bgColor="bg-[#F5F5F7]" />
     </div>
   );
 };

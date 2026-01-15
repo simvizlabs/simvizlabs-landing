@@ -66,7 +66,7 @@ export default function Home() {
           <MultiPlatformSection />
       <BenefitsSection />
       {/* <Footer theme="light" className="bg-[#F5F5F7] border-black/5" /> */}
-      <Footer theme="light" />
+      <Footer bgColor="bg-[#F5F5F7]" />
     </main>
   );
 }

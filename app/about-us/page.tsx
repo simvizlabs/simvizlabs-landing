@@ -157,7 +157,7 @@ const AboutUsPage = () => {
           </div>
         </section>
       </main>
-      <Footer theme="light" />
+      <Footer bgColor="bg-[#F5F5F7]" />
     </div>
   );
 };

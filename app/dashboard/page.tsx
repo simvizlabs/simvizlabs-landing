@@ -525,7 +525,7 @@ const DashboardPage = () => {
 
       {/* Footer */}
       <div className="mt-16">
-        <Footer />
+        <Footer bgColor="bg-[#F5F5F7]" />
       </div>
     </div>
   );

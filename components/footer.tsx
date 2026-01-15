@@ -68,17 +68,21 @@ const footerSections = [
 
 const Footer = ({
   className,
-  theme = "dark"
+  bgColor = "bg-white",
+  // theme = "dark",
+
 }: {
   className?: string;
-  theme?: "dark" | "light";
+  bgColor?: string;
+  // theme?: "dark" | "light";
 }) => {
-  const isDark = theme === "dark";
+  // const isDark = theme === "dark";
 
   return (
     <footer className={cn(
-      "border-t font-geist",
-      isDark ? "dark bg-black border-white/10" : "bg-white",
+      "",
+      // isDark ? "dark bg-black border-white/10" : "bg-white",
+      bgColor,
       className
     )}>
       <div className="max-w-screen-xl mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 px-6">
@@ -86,16 +90,16 @@ const Footer = ({
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Image
-              src={isDark ? "/logo-dark.png" : "/logo.svg"}
+              src={"/logo.svg"}
               alt="SimViz Labs"
               width={48}
               height={48}
-              className={cn(isDark ? "" : "")}
+              className={cn("")}
             />
+          <p className={cn("mt-2 font-bold", "text-black")}>SimViz Labs</p>
           </div>
-          <p className={cn("mt-2 font-bold", isDark ? "text-white" : "text-black")}>SimViz Labs</p>
 
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-black/70">
             Next Generation Aviation Solutions.
           </p>
           {/* <p className="mt-4 text-muted-foreground">
@@ -114,13 +118,13 @@ const Footer = ({
 
         {footerSections.map(({ title, links }) => (
           <div key={title} className="xl:justify-self-end">
-            <h6 className="font-semibold text-foreground">{title}</h6>
+            <h6 className="font-semibold text-black">{title}</h6>
             <ul className="mt-6 space-y-2">
               {links.map(({ title, href }) => (
                 <li key={title}>
                   <Link
                     href={href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-black/70 hover:text-black transition-colors"
                   >
                     {title}
                   </Link>
@@ -130,25 +134,25 @@ const Footer = ({
           </div>
         ))}
       </div>
-      <Separator className={isDark ? "bg-white/10" : "bg-black/10"} />
+        <Separator className={"bg-black/10"} />
       <div className="max-w-screen-xl mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
         {/* Copyright */}
-        <span className="text-muted-foreground text-center xs:text-start">
+        <span className="text-black/70 text-center xs:text-start">
           &copy; {new Date().getFullYear()}{" "}
           SimViz Labs LLC. All rights reserved.
         </span>
 
-        <div className="flex items-center gap-5 text-muted-foreground">
-          <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className="hover:text-foreground transition-colors">
+        <div className="flex items-center gap-5 text-black/70">
+          <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className="hover:text-black transition-colors">
             <Instagram className="h-5 w-5" />
           </Link>
-          <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank" className="hover:text-foreground transition-colors">
+          <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank" className="hover:text-black transition-colors">
             <Linkedin className="h-5 w-5" />
           </Link>
-          <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className="hover:text-foreground transition-colors">
+          <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className="hover:text-black transition-colors">
             <Facebook className="h-5 w-5" />
           </Link>
-          <Link href="https://www.youtube.com/@simvizlabs" target="_blank" className="hover:text-foreground transition-colors">
+          <Link href="https://www.youtube.com/@simvizlabs" target="_blank" className="hover:text-black transition-colors">
             <YoutubeIcon className="h-5 w-5" />
           </Link>
         </div>

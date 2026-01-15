@@ -231,7 +231,7 @@ const TypeRatingOrganizationsPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer bgColor="bg-[#F5F5F7]" />
     </div>
   );
 };

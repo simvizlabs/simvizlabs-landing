@@ -250,7 +250,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
       style={{ height: `${products.length * 125}vh` }}
       className={`relative bg-black ${shouldSnap ? 'snap-y snap-mandatory' : ''}`}
     >
-      <div className="sticky top-7 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-7 h-screen w-full  overflow-hidden flex items-center justify-center">
         <section className="bg-black py-4 md:py-12 text-white overflow-hidden h-full w-full relative">
           <div className="mx-auto px-4 sm:px-8 h-full flex flex-col">
             <div className="relative h-full w-full max-w-[1600px] mx-auto flex flex-col">
@@ -265,7 +265,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         style={{
                           opacity: styles.opacity,
                           position: 'absolute',
-                          top: 0,
+                          // top: '5rem',
                           left: '50%',
                           transform: 'translateX(-50%)',
                           width: '100%',
@@ -276,11 +276,29 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         {product.id === "a320" ? (
                           <div>
                             <p className="text-sm md:text-lg font-medium text-white/60 mb-1">{product.subtitle}</p>
-                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">FMS Simulator</h2>
+                            <h2 
+                              className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight"
+                              style={{
+                                background: 'linear-gradient(90deg, #FFF 0%, #1381E5 100%)',
+                                backgroundClip: 'text',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent'
+                              }}
+                            >
+                              FMS Simulator
+                            </h2>
                           </div>
                         ) : (
                           <div>
-                            <span className="inline-block rounded-full  px-3 py-1 text-xl md:text-5xl font-medium text-[#0099FF] backdrop-blur-sm mb-2">
+                            <span 
+                              className="inline-block rounded-full px-3 py-1 text-xl md:text-5xl font-medium backdrop-blur-sm mb-2"
+                              style={{
+                                background: 'linear-gradient(90deg, #FFF 0%, #1381E5 100%)',
+                                backgroundClip: 'text',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent'
+                              }}
+                            >
                               Launching Soon
                             </span>
                             <h2 className="text-xl sm:text-xl md:text-xl font-semibold leading-tight">{product.title}</h2>
@@ -291,13 +309,13 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                             {product.description}
                           </p>
                         )}
-                        {!product.isComingSoon && (
-                          <Button asChild className="bg-[#0099FF] text-white hover:bg-[#007acc] cursor-pointer rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2 pointer-events-auto">
-                            <Link href={`/our-products?product=${product.id}`}>
-                              Learn More
-                            </Link>
-                          </Button>
-                        )}
+                          {/* {!product.isComingSoon && (
+                            <Button asChild className="bg-[#0099FF] text-white hover:bg-[#007acc] cursor-pointer rounded-full px-6 h-9 md:h-10 text-xs md:text-sm mt-2 pointer-events-auto">
+                              <Link href={`/our-products?product=${product.id}`}>
+                                Learn More
+                              </Link>
+                            </Button>
+                          )} */}
                       </motion.div>
                     );
                   })}

@@ -33,7 +33,7 @@ const content = {
         {
             heading: "Schedule a Demo",
             redirect: "/contact",
-            class: "px-9 py-7 rounded-[24px] bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white font-sans font-semibold leading-[normal] not-italic text-[17px] text-white text-nowrap"
+            class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
         }
     ],
     simvizEnables: {
@@ -110,7 +110,7 @@ const ATOPage = () => {
 
                 {/* <AirlinesCTASection content={AirlinesCTASectionContent} /> */}
             </main>
-            <Footer theme="light" />
+            <Footer bgColor="bg-[#F5F5F7]" />
         </div>
     );
 };

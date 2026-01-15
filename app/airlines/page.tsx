@@ -144,7 +144,7 @@ const AirlinesPage = () => {
     <div className="bg-[#f5f5f7] text-[#191716] dark:bg-neutral-900 dark:text-white font-sans min-h-screen flex flex-col">
       <NavbarDemo />
       <main className="flex-grow">
-        <AirlinesLandingPage ImageBackground={img} content={content} />
+        <AirlinesLandingPage ImageBackground={img}  content={content} />
         <section className="px-4 bg-[#f5f5f7] sm:px-6 md:px-8 lg:px-16 xl:px-32 mx-auto text-center">
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
             <div className="space-y-3 md:space-y-4">
@@ -188,11 +188,11 @@ const AirlinesPage = () => {
         {/* <WhySimVizSection features={features} content={content} /> */}
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
         <TailoredSolutionsSection customizations={customizations} heading="What does my airline get?" imageSrc="/assets/new-airlines/plane_strip.png" />
-        <ImplementationSection heading={ImplementationSectionHeading} />
+        <ImplementationSection heading={ImplementationSectionHeading} bgColor="bg-[#f5f5f7]" />
         {/* <AirlinesOverviewSection /> */}
         {/* <AirlinesCTASection content={AirlinesCTASectionContent} /> */}
       </main>
-      <Footer theme="light" />
+      <Footer bgColor="bg-[#F5F5F7]" />
     </div>
   );
 };

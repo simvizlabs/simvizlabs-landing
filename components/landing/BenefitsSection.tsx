@@ -19,7 +19,7 @@ const benefits = [
 export function BenefitsSection() {
   return (
     <section
-      className="relative w-full pt-20 sm: pb-[15rem] md:pb-[15rem] lg:pb-[35rem] sm:mx-auto  md:py-24 overflow-hidden"
+      className="relative w-full pt-20  sm: pb-[15rem] md:pb-[15rem] lg:pb-[35rem] sm:mx-auto  md:py-24 overflow-hidden"
       style={{
         background: 'radial-gradient(170.74% 170.74% at 50% -101.23%, #FFF 36.45%, #C1E1FF 42%, #F5F5F7 100%)'
       }}
@@ -34,7 +34,7 @@ export function BenefitsSection() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto px-4 sm:px-8">
+      <div className="relative ml-32 z-10 mx-auto px-4 sm:px-8">
         <h2 className="mb-10 sm:mb-16 max-w-2xl text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-black sm:text-5xl">
           Train Smarter with Real Airline Systems.
         </h2>

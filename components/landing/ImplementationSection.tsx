@@ -19,9 +19,9 @@ interface ImplementationSectionProps {
     bgColor?: string;
 }
 
-const ImplementationSection = ({ heading, bgColor = "bg-white" }: ImplementationSectionProps) => {
+const ImplementationSection = ({ heading, bgColor = "bg-[#f5f5f7]" }: ImplementationSectionProps) => {
     return (
-        <section className={`h-[40rem] sm:h-[40rem] md:h-[50rem] lg:h-[60rem] relative w-full py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 overflow-hidden ${bgColor}`}>
+        <section className={`h-[40rem] sm:h-[40rem] md:h-[50rem]  lg:h-[60rem] relative w-full py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 overflow-hidden ${bgColor}`}>
             <div className="max-w-[1440px] mx-auto flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
                 {/* Text Content */}
                 <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto">
