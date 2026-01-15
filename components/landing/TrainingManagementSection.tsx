@@ -107,7 +107,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
 
     return (
         <section className="bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 w-full">
-            <div className="max-w-[1648px] mx-auto flex flex-col gap-6 md:gap-8 lg:gap-10">
+            <div className=" mx-auto max-w-7xl flex flex-col gap-6 md:gap-8 lg:gap-10">
                 {/* Header */}
                 <h2 className="text-3xl sm:text-5xl sm:mt-4s md:text-3xl lg:text-4xl xl:text-4xl font-semibold text-[#191716] leading-[normal] text-center md:text-left font-sans">
                     Key Features

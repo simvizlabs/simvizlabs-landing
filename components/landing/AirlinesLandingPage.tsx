@@ -21,7 +21,7 @@ const AirlinesLandingPage = ({ ImageBackground, content }) => {
                 />
             </div>
 
-            <div className="flex flex-col items-center gap-4 md:gap-6 lg:gap-8 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 w-full">
+            <div className="flex max-w-7xl mx-auto flex-col items-center gap-4 md:gap-6 lg:gap-8 py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 w-full">
                 <p className="font-sans font-semibold leading-[normal] not-italic text-[#191716] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center max-w-[1641px]">
                     {content.title}
                 </p>
