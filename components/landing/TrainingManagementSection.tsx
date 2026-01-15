@@ -17,10 +17,10 @@ const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; 
     return (
         <div className="bg-white rounded-2xl md:rounded-3xl px-3 sm:px-4 md:px-6 lg:px-8 py-7 md:py-8 flex flex-col gap-4 md:gap-6 lg:gap-7 h-full shadow-sm hover:shadow-md transition-shadow min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">
             <div className="flex flex-col gap-3 md:gap-4">
-                <h3 className="text-md sm:text-lg md:text-xl lg:text-2xl font-bold font-medium leading-[1.36] text-[#191716] font-sans">
+                <h3 className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold font-medium leading-[1.36] text-[#191716] font-sans">
                     {title}
                 </h3>
-                <p className="text-base sm:text-md md:text-lg lg:text-xl leading-[1.45] text-[#191716] font-sans">
+                <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl leading-[1.45] text-[#191716] font-sans">
                     {description}
                 </p>
             </div>
@@ -109,7 +109,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
         <section className="bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 w-full">
             <div className=" mx-auto max-w-7xl flex flex-col gap-6 md:gap-8 lg:gap-10">
                 {/* Header */}
-                <h2 className="text-3xl sm:text-5xl sm:mt-4s md:text-3xl lg:text-4xl xl:text-4xl font-semibold text-[#191716] leading-[normal] text-center md:text-left font-sans">
+                <h2 className="text-3xl sm:text-5xl sm:mt-4s md:text-5xl lg:text-5xl xl:text-5xl font-semibold text-[#191716] leading-[normal] text-center md:text-left font-sans">
                     Key Features
                 </h2>
 

@@ -19,8 +19,8 @@ const FeatureCard = ({ number, title, description }: { number: string; title: st
 
 const FeatureCard2 = ({ description }: { description: string }) => {
     return (
-        <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left w-full aspect-square shadow-sm hover:shadow-md transition-all duration-300">
-            <span className="font-semibold text-2xl md:text-3xl leading-snug text-[#191716]">
+    <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left w-full md:aspect-square shadow-sm hover:shadow-md transition-all duration-300 mb-8">
+            <span className="font-semibold text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl leading-snug text-[#191716]">
                 {description}
             </span>
         </div>
