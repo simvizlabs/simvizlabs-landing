@@ -74,8 +74,8 @@ const AeronauticalsPage = () => {
       <main className="flex-grow">
         <AirlinesLandingPage ImageBackground={img} content={content} />
         <WhySimVizSection features={features} />
-        <ImplementationSection heading={ImplementationSectionHeading} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures} />
+        <ImplementationSection heading={ImplementationSectionHeading} />
       </main>
       <Footer theme="light" />
     </div>

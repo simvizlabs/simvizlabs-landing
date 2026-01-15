@@ -100,7 +100,7 @@ const ATOPage = () => {
                 <AirlinesLandingPage ImageBackground={imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11} content={content} />
                 <WhySimVizSection features={features} content={content} />
                 <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-                <TailoredSolutionsSection imageSrc="/assets/ato/ato-header.png" customizations={customizations} />
+                <TailoredSolutionsSection imageSrc="/assets/ato/ato-tailored.jpg" customizations={customizations} />
                 <ImplementationSection heading={ImplementationSectionHeading} />
                 {/* <AirlinesOverviewSection /> */}
 
