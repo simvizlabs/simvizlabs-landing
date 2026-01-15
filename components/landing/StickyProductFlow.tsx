@@ -265,9 +265,8 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         style={{
                           opacity: styles.opacity,
                           position: 'absolute',
-                          // top: '5rem',
                           left: '50%',
-                          transform: 'translateX(-50%)',
+                          transform: 'translate(-50%,12vh)',
                           width: '100%',
                           pointerEvents: styles.pointerEvents,
                         }}

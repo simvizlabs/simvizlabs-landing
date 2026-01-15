@@ -4,11 +4,11 @@ import { Check } from "lucide-react";
 const benefits = [
   {
     title: "Reduce simulator hours & costs",
-    description: "More learning before you sit in the simulator. Smarter prep = less wasted time.",
+    description: <><p className="text-sm sm:text-base md:text-lg">More learning before you sit in the simulator. <br/>Smarter prep = less wasted time.</p></>,
   },
   {
     title: "Build proficiency on real automation workflows",
-    description: "Hands-on practice with true FMC logic and CPDLC exchanges—not screenshots.",
+    description: <><p className="text-sm sm:text-base md:text-lg">Hands-on practice with true FMC logic and CPDLC exchanges—not screenshots.</p></>,
   },
   {
     title: "Worldwide ARINC 424 navigation Database to power realistic, route-accurate scenarios and procedures.",
@@ -34,7 +34,7 @@ export function BenefitsSection() {
         />
       </div>
 
-      <div className="relative ml-32 z-10 mx-auto px-4 sm:px-8">
+      <div className="relative md:ml-32 z-10 mx-auto px-4 sm:px-8">
         <h2 className="mb-10 sm:mb-16 max-w-2xl text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-black sm:text-5xl">
           Train Smarter with Real Airline Systems.
         </h2>
