@@ -11,6 +11,7 @@ import TrainingManagementSectionFeatures from "@/constants/TrainingManagementSec
 import AirlinesLandingPage from "@/components/landing/AirlinesLandingPage";
 import WhySimVizSection from "@/components/landing/WhySimVizSection";
 import TrainingManagementSection from "@/components/landing/TrainingManagementSection";
+import ImplementationSection from "@/components/landing/ImplementationSection";
 
 
 const content = {

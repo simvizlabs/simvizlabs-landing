@@ -9,6 +9,7 @@ import AirlinesOverviewSection from "@/components/landing/AirlinesOverviewSectio
 import AirlinesCTASection from "@/components/landing/AirlinesCTASection";
 import { TrainingManagementSectionFeatures2 } from "@/constants/TrainingManagementSectionFeatures";
 import TailoredSolutionsSection from "@/components/landing/TailoredSolutionsSection";
+import ImplementationSection from "@/components/landing/ImplementationSection";
 
 const imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11 = "/assets/ato/ato-header.png";
 
