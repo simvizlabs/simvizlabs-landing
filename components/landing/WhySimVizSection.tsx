@@ -19,7 +19,7 @@ const FeatureCard = ({ number, title, description }: { number: string; title: st
 
 const FeatureCard2 = ({ description }: { description: string }) => {
     return (
-    <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left w-full md:aspect-square shadow-sm hover:shadow-md transition-all duration-300 mb-8">
+        <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left w-full md:aspect-square shadow-sm hover:shadow-md transition-all duration-300 mb-8">
             <span className="font-semibold text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl leading-snug text-[#191716]">
                 {description}
             </span>
@@ -36,10 +36,10 @@ interface WhySimVizSectionProps {
 
 const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: WhySimVizSectionProps) => {
     const displayHeading = heading || content?.whySimvizSection?.heading || content?.simvizEnables?.heading || content?.heading || (
-        <>Why <span className="bg-gradient-to-r from-[#1381E5] to-[#CAE6FF] bg-clip-text text-transparent">SimViz Labs?</span></>
+        <>Why <span className="text-[#1381E5]">SimViz Labs?</span></>
     );
 
-    console.log(displayHeading,"displayHeading",content?.simvizEnables?.heading)
+    console.log(displayHeading, "displayHeading", content?.simvizEnables?.heading)
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);

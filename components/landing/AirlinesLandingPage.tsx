@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import WhySimVizSection from "@/components/landing/WhySimVizSection";
 import TrainingManagementSection from "@/components/landing/TrainingManagementSection";
 import { Button } from "../ui/button";
@@ -31,9 +32,13 @@ const AirlinesLandingPage = ({ ImageBackground, content }) => {
                     </div>
                 </div>
                 <div className="flex items-start mt-4">
-                    {content.button.map((button) => <Button variant="outline" className={button.class}>
-                        {button.heading}
-                    </Button>)}
+                    {content.button.map((button, index) => (
+                        <Link href={button.redirect} key={index}>
+                            <Button variant="outline" className={button.class}>
+                                {button.heading}
+                            </Button>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>

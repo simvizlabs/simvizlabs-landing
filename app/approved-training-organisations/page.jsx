@@ -33,7 +33,7 @@ const content = {
         {
             heading: "Schedule a Demo",
             redirect: "/contact",
-            class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
+            class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-full bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
         }
     ],
     simvizEnables: {
@@ -88,7 +88,7 @@ const customizations = [
 
 
 const ImplementationSectionHeading = [
-"Move FMS training to SimViz Labs Solution and use simulator time for high-value training. Optimize your FFS availability with value added training. "
+    "Move FMS training to SimViz Labs Solution and use simulator time for high-value training. Optimize your FFS availability with value added training. "
 ];
 
 
@@ -100,10 +100,10 @@ const ATOPage = () => {
                 <AirlinesLandingPage ImageBackground={imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11} content={content} />
                 <WhySimVizSection features={features} content={content} />
                 <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-                <TailoredSolutionsSection 
-                    imageSrc="/assets/ato/ato-tailored.jpg" 
-                    customizations={customizations} 
-                    // heading="What does my ATO get?"
+                <TailoredSolutionsSection
+                    imageSrc="/assets/ato/ato-tailored.jpg"
+                    customizations={customizations}
+                // heading="What does my ATO get?"
                 />
                 <ImplementationSection heading={ImplementationSectionHeading} />
                 {/* <AirlinesOverviewSection /> */}

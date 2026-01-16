@@ -16,12 +16,12 @@ import ImplementationSection from "@/components/landing/ImplementationSection";
 
 const content = {
   title: "Boost your students career success.",
-  description: <p className="text-sm sm:text-md md:text-xl lg:text-2xl">Give your students a competitive edge in airline interviews <br/> with our FMS Simulator and integrated LMS.</p>,
+  description: <p className="text-xs sm:text-sm md:text-base lg:text-lg">Give your students a competitive edge in airline interviews <br /> with our FMS Simulator and integrated LMS.</p>,
   button: [
     {
       heading: "Schedule a Demo",
       redirect: "/contact",
-      class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
+      class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-full bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
     }
   ]
 }
