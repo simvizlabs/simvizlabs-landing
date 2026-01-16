@@ -83,9 +83,8 @@ function ProductImage({
           width={1200}
           height={800}
           onLoad={() => setIsLoaded(true)}
-          className="w-auto h-auto relative scale-[1.5] left-[25px] sm:scale-[1.5] lg:scale-[2] md:max-w-full md:max-h-[50vh]"
-        // priority={priority}
-        />
+          className="w-auto h-auto max-w-full max-h-[60vh] sm:max-h-[55vh] md:max-h-[50vh] scale-[1.4] sm:scale-[1.4] md:scale-[1.4] lg:scale-[1.6] xl:scale-[1.8] object-contain"
+         />
       </motion.div>
     </div>
   );
@@ -256,7 +255,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
             <div className="relative h-full w-full max-w-[1600px] mx-auto flex flex-col">
               {/* Static Text Content - Positioned at top */}
               <div className="relative w-full flex-shrink-0 z-30 pointer-events-none">
-                <div className="flex flex-col items-center gap-3 md:gap-4 text-center px-4 py-8 md:py-12">
+                <div className="flex  flex-col items-center gap-3 md:gap-4 text-center px-4 py-8 md:py-12">
                   {products.map((product, index) => {
                     const styles = getProductStyles(index);
                     return (
@@ -264,13 +263,9 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         key={`text-${index}`}
                         style={{
                           opacity: styles.opacity,
-                          position: 'absolute',
-                          left: '50%',
-                          transform: 'translate(-50%,12vh)',
-                          width: '100%',
                           pointerEvents: styles.pointerEvents,
                         }}
-                        className="flex flex-col items-center gap-3 md:gap-4 text-center"
+                        className="absolute left-1/2 -translate-x-1/2 translate-y-[8vh] md:translate-y-[4vh] lg:translate-y-[2vh] w-full flex flex-col items-center gap-3 md:gap-4 text-center"
                       >
                         {product.id === "a320" ? (
                           <div>

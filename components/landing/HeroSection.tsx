@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import ScheduleDemoButton from "../MajorComponnts/ScheduleDemoButton";
 
 export function HeroSection() {
   return (
@@ -20,24 +21,21 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 text-center py-20">
-        <h1 className="max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+        <h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
           Train smarter. Fly safer.
           <br className="hidden sm:block" />
           {" "}Operate with precision.
         </h1>
 
-        <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-white/90">
-          Boost pilot readiness. Elevate operational confidence. Cut simulator costs.
+        <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-white/90 text-nowrap">
+          Boost pilot readiness.
+          <br className="block sm:hidden" />
+          {" "}Elevate operational confidence.
+          <br className="block sm:hidden" />
+          {" "}Cut simulator costs.
         </p>
 
-        <div className="mt-8 sm:mt-10">
-          <a
-            href="/contact"
-            className="h-10 sm:h-12 bg-[#0099FF] text-white p-4 hover:bg-[#007acc] px-6 sm:px-8 text-sm sm:text-base font-semibold rounded-full"
-          >
-            Schedule a Demo
-          </a>
-        </div>
+         <ScheduleDemoButton/>
       </div>
     </section>
   );

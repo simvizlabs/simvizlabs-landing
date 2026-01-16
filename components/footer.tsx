@@ -38,11 +38,11 @@ const footerSections = [
         href: "/our-products?product=a320",
       },
       {
-        title: "B737",
+        title: "B737NG",
         href: "/our-products?product=b737",
       },
       {
-        title: "B747",
+        title: "B747-400",
         href: "/our-products?product=b747",
       },
     ],
@@ -91,33 +91,36 @@ const Footer = ({
           <div className="flex items-center gap-2">
             <Image
               src={"/logo.svg"}
-              alt="SimViz Labs"
+              alt="SimvizLabs"
               width={48}
               height={48}
               className={cn("")}
             />
-          <p className={cn("mt-2 font-bold", "text-black")}>SimViz Labs</p>
+          <p className={cn("mt-2 font-bold", "text-black")}>SimvizLabs</p>
           </div>
 
           <p className="mt-4 text-black/70">
             Next Generation Aviation Solutions.
           </p>
-          {/* <p className="mt-4 text-muted-foreground">
-            HeadQuaters
-          </p>
-          <p className="mt-4 text-muted-foreground">
-            USA
-          </p>
-          <p className="mt-4 text-muted-foreground">
-            Next Generation Aviation Solutions.
-          </p>
-          <p className="mt-4 text-muted-foreground">
-            Next Generation Aviation Solutions.
-          </p> */}
+          
+          <div className="mt-6 space-y-3">
+            <div>
+              <p className="text-black/70 ">Headquarters</p>
+              <p className="text-black/70">Chandler, AZ, USA</p>
+            </div>
+            <div>
+              <p className="text-black/70 ">Technology Center</p>
+              <p className="text-black/70">New Delhi, India</p>
+            </div>
+            <div>
+              <p className="text-black/70 ">Regional Office</p>
+              <p className="text-black/70">Singapore</p>
+            </div>
+          </div>
         </div>
 
         {footerSections.map(({ title, links }) => (
-          <div key={title} className="xl:justify-self-end">
+          <div key={title} className="xl:justify-self-end mt-4">
             <h6 className="font-semibold text-black">{title}</h6>
             <ul className="mt-6 space-y-2">
               {links.map(({ title, href }) => (
