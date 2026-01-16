@@ -4,11 +4,11 @@ import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import Image from "next/image";
 
-const imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11 = "https://www.figma.com/api/mcp/asset/4f210148-3a35-45da-9512-bcece9773196";
-const imgIMockupIPadPro = "https://www.figma.com/api/mcp/asset/eba643b2-026a-4c0e-bf5d-46bd75c259a8";
-const imgImage = "https://www.figma.com/api/mcp/asset/a32b0047-f7b1-4e26-a9cd-3814bb767934";
-const imgImage1 = "https://www.figma.com/api/mcp/asset/69425558-1561-4c17-8755-7f6ef9e831bb";
-const imgLine19 = "https://www.figma.com/api/mcp/asset/4edb7ae9-eea4-4ed1-819e-a3366c9b9612";
+const imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11 = "/assets/about-us/header-image.png";
+const imgIMockupIPadPro = "/assets/about-us/ipad-mockup.png";
+const imgImage = "/assets/about-us/image-1.png";
+const imgImage1 = "/assets/about-us/image-2.png";
+const imgLine19 = "/assets/about-us/line-19.png";
 
 export const metadata: Metadata = {
   title: "About Us | SimViz Labs",
@@ -44,7 +44,7 @@ const AboutUsPage = () => {
                 SimViz Labs is an aviation technology company delivering modern training and operational software for the aviation industry.
               </p>
               <p>
-                Our solutions are designed around real cockpit workflows, airline SOPs, and aircraft specific operations. We provide scalable, secure, and customizable platforms that integrate seamlessly into airline training ecosystems and support long term operational excellence.
+                Our solutions are designed around real cockpit workflows, airline SOPs, <br/> and aircraft specific operations. We provide scalable, secure, and customizable platforms <br/>that integrate seamlessly into airline training ecosystems and support long term operational excellence.
               </p>
             </div>
           </div>
@@ -56,7 +56,7 @@ const AboutUsPage = () => {
             {/* High fidelity system training */}
             <div className="flex flex-col gap-5 items-center">
               <div className="bg-[#e8e8ec] h-[273px] w-full overflow-hidden relative rounded-lg flex items-center justify-center">
-                <div className="relative w-[320px] h-[246px] rotate-90">
+                <div className="relative w-[320px] h-[246px] ">
                   <Image
                     src={imgIMockupIPadPro}
                     alt="iPad Pro Mockup"
@@ -110,7 +110,7 @@ const AboutUsPage = () => {
             </h2>
             <div className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45] max-w-4xl">
               <p>
-                SimViz Labs mission is to redefine aviation training systems by delivering scalable, regulatory compliant solutions, addressing complex operational challenges, and implementing best of breed technologies and services that enhance training effectiveness, efficiency, and safety.
+                SimViz Labs mission is to redefine aviation training systems <br/> by delivering scalable, regulatory compliant solutions, addressing complex operational challenges, and implementing <br/> best of breed technologies and services that enhance training effectiveness, efficiency, and safety.
               </p>
             </div>
           </div>
