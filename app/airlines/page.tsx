@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import AirlinesLandingPage from "@/components/landing/AirlinesLandingPage";
 // import Hero from "@/components/hero";A
 import WhySimVizSection from "@/components/landing/WhySimVizSection";
+import WhySimVizSectionV2 from "@/components/landing/WhySimVizSectionV2";
 import TrainingManagementSection from "@/components/landing/TrainingManagementSection";
 import AirlinesOverviewSection from "@/components/landing/AirlinesOverviewSection";
 import AirlinesCTASection from "@/components/landing/AirlinesCTASection";
@@ -17,10 +18,7 @@ import Image from "next/image";
 
 const img = "/assets/new-airlines/airlines-header.png";
 
-export const metadata: Metadata = {
-  title: "Airline Pilot Training Solutions | Reduce Simulator Costs",
-  description: "Optimize your training budget with scalable, tablet-based FMS simulators. A320 & B737 solutions for ease of deployment and lower operational costs.",
-};
+
 
 
 const content = {
@@ -187,7 +185,7 @@ const AirlinesPage = () => {
             </div>
           </div>
         </section>
-        {/* <WhySimVizSection features={features} content={content} /> */}
+        <WhySimVizSectionV2 features={features} heading={content.simvizEnables.heading} />
         <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
         <TailoredSolutionsSection customizations={customizations} heading="What does my airline get?" imageSrc="/assets/new-airlines/plane_strip.png" />
         <ImplementationSection heading={ImplementationSectionHeading} bgColor="bg-[#f5f5f7]" />

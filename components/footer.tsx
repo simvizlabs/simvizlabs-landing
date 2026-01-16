@@ -85,8 +85,8 @@ const Footer = ({
       bgColor,
       className
     )}>
-      <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 py-12 flex flex-col lg:flex-row justify-between gap-12 lg:gap-8">
-        <div className="flex-1 max-w-sm">
+      <div className="w-full px-4 md:px-16 lg:px-24 py-12 flex flex-col lg:flex-row justify-between gap-12 lg:gap-8">
+        <div className="flex-1">
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Image
@@ -103,17 +103,17 @@ const Footer = ({
             Next Generation Aviation Solutions.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-            <div>
-              <p className="text-black font-semibold text-sm uppercase tracking-wider">Headquarters</p>
+          <div className="mt-6 flex flex-row md:flex-col gap-6 w-full">
+            <div className="w-full">
+              <p className="text-black text-sm uppercase tracking-wider">Headquarters</p>
               <p className="text-black/70">Chandler, AZ, USA</p>
             </div>
-            <div>
-              <p className="text-black font-semibold text-sm uppercase tracking-wider">Technology Center</p>
+            <div className="w-full">
+              <p className="text-black text-sm uppercase tracking-wider">Technology Center</p>
               <p className="text-black/70">New Delhi, India</p>
             </div>
-            <div>
-              <p className="text-black font-semibold text-sm uppercase tracking-wider">Regional Office</p>
+            <div className="w-full">
+              <p className="text-black text-sm uppercase tracking-wider">Regional Office</p>
               <p className="text-black/70">Singapore</p>
             </div>
           </div>

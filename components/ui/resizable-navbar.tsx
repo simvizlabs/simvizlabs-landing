@@ -117,7 +117,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl grid grid-cols-3 items-center self-start rounded-full bg-transparent px-2 py-2 lg:grid dark:bg-transparent gap-4 lg:gap-6",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl grid grid-cols-3 items-center self-start rounded-full bg-transparent px-2 py-2 xl:grid dark:bg-transparent gap-4 xl:gap-6",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
@@ -157,11 +157,11 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   return (
     <motion.div
       className={cn(
-        "hidden flex-1 flex-row items-center justify-center lg:flex",
+        "hidden flex-1 flex-row items-center justify-center xl:flex",
         className,
       )}
     >
-      <div className="flex items-center justify-center gap-2 lg:gap-8">
+      <div className="flex items-center justify-center gap-2 xl:gap-8">
         {items.map((item, idx) => {
           const isActive = pathname === item.link;
           return (
@@ -183,20 +183,20 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 className={cn(
                   "relative font-bold flex items-center gap-1 px-3 py-2 transition-colors duration-200",
                   isActive
-                    ? "text-white"
-                    : "text-white/60 hover:text-white dark:text-neutral-300 dark:hover:text-white"
+                    ? "text-[#191716]"
+                    : "text-[#191716]/70 hover:text-[#191716] dark:text-neutral-300 dark:hover:text-white"
                 )}
               >
                 {hovered === idx && !isActive && (
                   <motion.div
                     layoutId="hover-indicator"
-                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-white/60 rounded-full"
+                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#191716]/60 rounded-full"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     exit={{ scaleX: 0 }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 300, 
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
                       damping: 30,
                       duration: 0.3
                     }}
@@ -206,12 +206,12 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 {isActive && (
                   <motion.div
                     layoutId="active-indicator"
-                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-white rounded-full"
+                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#191716] rounded-full"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 300, 
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
                       damping: 30,
                       duration: 0.3
                     }}
@@ -250,7 +250,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-1rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-1rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
@@ -305,7 +305,7 @@ export const MobileNavMenu = ({
             transition={{ duration: 0.3 }}
             className="w-full flex justify-end"
           >
-            <MobileNavToggle isOpen={isOpen} onClick={onClose} className="text-white" />
+            <MobileNavToggle isOpen={isOpen} onClick={onClose} className="text-black" />
           </motion.div>
           <div className="w-full flex-1 flex flex-col items-center justify-center">
             {navItems.map((item, idx) => {
@@ -327,7 +327,7 @@ export const MobileNavMenu = ({
                     href={item.link}
                     className={cn(
                       "text-2xl font-medium transition-colors",
-                      isActive ? "text-white font-bold" : "text-neutral-400 hover:text-white"
+                      isActive ? "text-black font-bold" : "text-neutral-400 hover:text-black"
                     )}
                     onClick={(e) => {
                       if (item.link.startsWith('#')) {
@@ -363,9 +363,9 @@ export const MobileNavToggle = ({
   className,
 }: MobileNavToggleProps) => {
   return isOpen ? (
-    <IconX className={cn("text-black dark:text-white", className)} onClick={onClick} />
+    <IconX className={cn("text-[#191716]/70 dark:text-white", className)} onClick={onClick} />
   ) : (
-    <IconMenu2 className={cn("text-black dark:text-white", className)} onClick={onClick} />
+    <IconMenu2 className={cn("text-[#191716]/70 dark:text-white", className)} onClick={onClick} />
   );
 };
 

@@ -2,22 +2,7 @@
 
 import React from "react";
 
-const FeatureCard = ({ number, title, description }: { number: string; title: React.ReactNode; description: React.ReactNode }) => {
-    return (
-        <div className="bg-white rounded-[24px] p-8 flex flex-col gap-6  w-full shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex flex-col gap-4 justify-start flex-1">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-[#191716]">
-                    {title}
-                </h3>
-                <p className="text-xl md:text-xl lg:text-2xl font-normal leading-relaxed text-[#191716]">
-                    {description}
-                </p>
-            </div>
-        </div>
-    );
-};
-
-const FeatureCard2 = ({ description }: { description: React.ReactNode }) => {
+const FeatureCard = ({ description }: { description: React.ReactNode }) => {
     return (
         <div className="bg-white rounded-[24px] p-12 sm:pr-20 md:p-12 flex flex-col justify-start items-start text-left w-full shadow-sm hover:shadow-md transition-all duration-300 mb-8">
             <span className="font-semibold text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl leading-snug text-[#191716]">
@@ -27,28 +12,25 @@ const FeatureCard2 = ({ description }: { description: React.ReactNode }) => {
     );
 };
 
-interface WhySimVizSectionProps {
+interface WhySimVizSectionV2Props {
     features: any[];
-    content?: any;
     heading?: React.ReactNode;
-    reducedTopPadding?: boolean;
 }
 
-const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: WhySimVizSectionProps) => {
-    const displayHeading = heading || content?.whySimvizSection?.heading || content?.simvizEnables?.heading || content?.heading || (
+const WhySimVizSectionV2 = ({ features, heading }: WhySimVizSectionV2Props) => {
+    const displayHeading = heading || (
         <>Why <span className="text-[#1381E5] ">SimViz Labs?</span></>
     );
 
-    console.log(displayHeading, "displayHeading", content?.simvizEnables?.heading)
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);
 
     React.useEffect(() => {
         const updateItemsPerView = () => {
-            if (window.innerWidth >= 1524) {
+            if (window.innerWidth >= 1024) {
                 setItemsPerView(3);
-            } else if (window.innerWidth >= 800) {
+            } else if (window.innerWidth >= 400) {
                 setItemsPerView(2);
             } else {
                 setItemsPerView(1);
@@ -106,7 +88,7 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
         <section className={`bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32`}>
             <div className="md:mx-auto flex-col gap-4 md:gap-8">
                 {/* Header */}
-                <h2 className="text-4xl mb-10 items-start text-start md:text-5xl lg:text-6xl font-semibold text-[#191716] leading-tight text-center md:text-left">
+                <h2 className="text-4xl mb-10 items-start md:text-4xl lg:text-5xl font-semibold text-[#191716] leading-tight text-left md:text-left">
                     {displayHeading}
                 </h2>
 
@@ -114,15 +96,7 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                 <div className="md:hidden flex flex-col gap-4">
                     {features.map((feature, index) => (
                         <div key={index}>
-                            {content?.id === "airlines" || content?.id === "ato" ? (
-                                <FeatureCard2 description={feature.description} />
-                            ) : (
-                                <FeatureCard
-                                    number={feature.number}
-                                    title={feature.title}
-                                    description={feature.description}
-                                />
-                            )}
+                            <FeatureCard description={feature.description} />
                         </div>
                     ))}
                 </div>
@@ -134,16 +108,8 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {features.map((feature, index) => (
-                        <div key={index} className="w-full min-[800px]:w-[calc(50%-12px)] min-[1524px]:w-[calc(33.333%-16px)] flex-shrink-0 snap-start flex">
-                            {content?.id === "airlines" || content?.id === "ato" ? (
-                                <FeatureCard2 description={feature.description} />
-                            ) : (
-                                <FeatureCard
-                                    number={feature.number}
-                                    title={feature.title}
-                                    description={feature.description}
-                                />
-                            )}
+                        <div key={index} className="w-full min-[400px]:w-[calc(50%-12px)] min-[1024px]:w-[calc(33.333%-16px)] flex-shrink-0 snap-start flex">
+                            <FeatureCard description={feature.description} />
                         </div>
                     ))}
                 </div>
@@ -181,4 +147,4 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
     );
 };
 
-export default WhySimVizSection;
+export default WhySimVizSectionV2;

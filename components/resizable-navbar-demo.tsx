@@ -174,23 +174,23 @@ export default function NavbarDemo() {
   }, [pathname, router]);
 
   return (
-    <div className="relative w-full font-geist">
-      <Navbar className="fixed top-0 z-50 w-full border-b border-white/10 bg-black lg:bg-black/20 lg:backdrop-blur-md font-geist transition-all duration-300">
-        <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4 sm:px-8">
+    <div className="relative w-full font-geist" >
+      <Navbar className="fixed top-0 z-50 w-full border-b border-neutral-200 bg-white shadow-sm xl:bg-white/70 xl:backdrop-blur-md font-geist transition-all duration-300">
+        <div className="mx-auto flex h-16 md:h-20 items-center justify-between px-4 sm:px-8">
           {/* Desktop Navigation - Hidden on mobile */}
-          <div className="hidden lg:flex w-full items-center justify-between">
+          <div className="hidden xl:flex w-full items-center justify-between">
             <NavBody className="w-full max-w-full">
-              <div className="flex items-center pr-8 lg:pr-12">
+              <div className="flex items-center pr-8 xl:pr-12">
                 <Link href="/" className="flex items-center gap-2">
                   <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} className="mr-1" />
-                  <span className="text-xl font-bold text-white">SimViz Labs</span>
+                  <span className="text-xl font-bold text-[#191716]">SimViz Labs</span>
                 </Link>
               </div>
 
               <NavItems
                 items={navItems}
                 onItemClick={handleNavItemClick}
-                className="text-sm font-medium text-white/80 transition-colors text-white hover:text-white pl-4 lg:pl-8"
+                className="text-sm font-medium text-[#191716]/70 transition-colors hover:text-black pl-4 xl:pl-8"
               />
 
               {/* Show auth buttons/avatar only for Indian IP addresses AND on the specific path */}
@@ -201,7 +201,7 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="primary"
                         href="/dashboard"
-                        className="text-black hover:bg-white/10 hover:text-white font-geist"
+                        className="text-black hover:bg-white/10 hover:text-black font-geist"
                       >
                         Dashboard
                       </NavbarButton>
@@ -219,14 +219,14 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="secondary"
                         href="/sign-in"
-                        className="text-white hover:bg-white hover:text-black font-geist"
+                        className="text-[#191716] hover:bg-neutral-100 font-geist"
                       >
                         Sign In
                       </NavbarButton>
                       <NavbarButton
                         variant="primary"
                         href="/sign-up"
-                        className="bg-[#1381e5] text-white hover:bg-[#1381e5]/90 font-geist"
+                        className="bg-[#1381e5] text-black/90 hover:bg-[#1381e5]/90 font-geist"
                       >
                         Sign Up
                       </NavbarButton>
@@ -238,17 +238,17 @@ export default function NavbarDemo() {
           </div>
 
           {/* Mobile Navigation - Hidden on desktop */}
-          <div className="lg:hidden flex w-full items-center justify-between">
+          <div className="xl:hidden flex w-full items-center justify-between">
             <MobileNav>
               <MobileNavHeader className="flex justify-between items-center w-full">
                 <Link href="/" className="flex items-center gap-2">
                   <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} />
-                  <span className="text-lg font-bold text-white">SimViz Labs</span>
+                  <span className="text-lg font-bold text-[#191716]">SimViz Labs</span>
                 </Link>
                 <MobileNavToggle
                   isOpen={isMobileMenuOpen}
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="text-white"
+                  className="text-[#191716]/70"
                 />
               </MobileNavHeader>
 
@@ -257,11 +257,11 @@ export default function NavbarDemo() {
                 onClose={() => setIsMobileMenuOpen(false)}
                 navItems={navItems}
                 handleNavItemClick={handleNavItemClick}
-                className="bg-black text-white border-l border-white/10"
+                className="bg-white/70 text-black/90 border-l border-white/10"
               />
               {/* Show auth buttons/avatar only for Indian IP addresses - Mobile */}
               {!geoLoading && isIndia && pathname === "/in/a320-bundle" && isMobileMenuOpen && (
-                <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 lg:hidden">
+                <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 xl:hidden">
                   {userLoaded && user ? (
                     <>
                       <NavbarButton
@@ -287,14 +287,14 @@ export default function NavbarDemo() {
                       <NavbarButton
                         variant="secondary"
                         href="/sign-in"
-                        className="text-white border border-white/20 w-full"
+                        className="text-black/90 border border-white/20 w-full"
                       >
                         Sign In
                       </NavbarButton>
                       <NavbarButton
                         variant="primary"
                         href="/sign-up"
-                        className="bg-[#1381e5] text-white hover:bg-[#1381e5]/90 w-full font-geist"
+                        className="bg-[#1381e5] text-black/90 hover:bg-[#1381e5]/90 w-full font-geist"
                       >
                         Sign Up
                       </NavbarButton>

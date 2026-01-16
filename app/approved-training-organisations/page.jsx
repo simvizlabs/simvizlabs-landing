@@ -10,6 +10,7 @@ import AirlinesCTASection from "@/components/landing/AirlinesCTASection";
 import { TrainingManagementSectionFeatures2 } from "@/constants/TrainingManagementSectionFeatures";
 import TailoredSolutionsSection from "@/components/landing/TailoredSolutionsSection";
 import ImplementationSection from "@/components/landing/ImplementationSection";
+import WhySimVizSectionV2 from "@/components/landing/WhySimVizSectionV2";
 
 const imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11 = "/assets/ato/ato-header.png";
 
@@ -88,7 +89,7 @@ const customizations = [
 
 
 const ImplementationSectionHeading = [
-"Move FMS training to SimViz Labs Solution and use simulator time for high-value training. Optimize your FFS availability with value added training. "
+    "Move FMS training to SimViz Labs Solution and use simulator time for high-value training. Optimize your FFS availability with value added training. "
 ];
 
 
@@ -98,12 +99,12 @@ const ATOPage = () => {
             <NavbarDemo />
             <main className="flex-grow">
                 <AirlinesLandingPage ImageBackground={imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11} content={content} />
-                <WhySimVizSection features={features} content={content} />
+                <WhySimVizSectionV2 features={features} heading={<>Why ATOs use <span className="text-[#5ea2ef]">SimViz Labs?</span> </>} />
                 <TrainingManagementSection features={TrainingManagementSectionFeatures2} />
-                <TailoredSolutionsSection 
-                    imageSrc="/assets/ato/ato-tailored.jpg" 
-                    customizations={customizations} 
-                    // heading="What does my ATO get?"
+                <TailoredSolutionsSection
+                    imageSrc="/assets/ato/ato-tailored.jpg"
+                    customizations={customizations}
+                    heading="What ATO's get?"
                 />
                 <ImplementationSection heading={ImplementationSectionHeading} />
                 {/* <AirlinesOverviewSection /> */}
