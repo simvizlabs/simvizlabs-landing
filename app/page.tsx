@@ -25,7 +25,7 @@ export default function Home() {
       {/* Sticky Product Flow */}
       {/* Sticky Product Flow */}
       <StickyProductFlow
-        products={[ 
+        products={[
           {
             id: "a320",
             title: "A320 FMS Simulator",
@@ -61,9 +61,9 @@ export default function Home() {
             isComingSoon: true,
             bottomText: "A new way to train like a pro."
           }
-        ]}  
+        ]}
       />
-          <MultiPlatformSection />
+      <MultiPlatformSection />
       <BenefitsSection />
       {/* <Footer theme="light" className="bg-[#F5F5F7] border-black/5" /> */}
       <Footer bgColor="bg-[#F5F5F7]" />
