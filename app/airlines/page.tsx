@@ -33,7 +33,7 @@ const content = {
     {
       heading: "Schedule a Demo",
       redirect: "/contact",
-      class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
+      class: "px-4 py-3 sm:px-6 sm:py-4 md:px-7 md:py-6 rounded-full bg-[#1381e5] hover:bg-[#1381e5]/90 hover:text-white text-white font-sans font-semibold leading-[normal] not-italic text-sm sm:text-base md:text-lg text-nowrap"
     }
   ],
   // whySimvizSection: {
@@ -133,9 +133,9 @@ const AirlinesCTASectionContent = {
   imageSrc: "/landing/a320/a320_fms_simulator.png"
 }
 
-  const ImplementationSectionHeading: any[] = [
-  <>SimViz Labs runs on modern, cloud-native infrastructure <br/> and is accessible from an iPad, includes an integrated LMS.</>,
-  <>Our implementation team works directly with your <br/> airline IT team to align deployment and customization to your environment.</>
+const ImplementationSectionHeading: any[] = [
+  <>SimViz Labs runs on modern, cloud-native infrastructure <br /> and is accessible from an iPad, includes an integrated LMS.</>,
+  <>Our implementation team works directly with your <br /> airline IT team to align deployment and customization to your environment.</>
 ];
 
 
@@ -144,7 +144,7 @@ const AirlinesPage = () => {
     <div className="bg-[#f5f5f7] text-[#191716] dark:bg-neutral-900 dark:text-white font-sans min-h-screen flex flex-col">
       <NavbarDemo />
       <main className="flex-grow">
-        <AirlinesLandingPage ImageBackground={img}  content={content} />
+        <AirlinesLandingPage ImageBackground={img} content={content} />
         <section className="px-4 bg-[#f5f5f7] sm:px-6 md:px-8 lg:px-16 xl:px-32 mx-auto text-center">
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
             <div className="space-y-3 md:space-y-4">
