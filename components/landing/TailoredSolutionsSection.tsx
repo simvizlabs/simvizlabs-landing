@@ -42,7 +42,7 @@ const TailoredSolutionsSection = ({ customizations, heading, imageSrc }: { custo
             <div className="relative z-10 w-full py-12 md:py-16 lg:py-20 xl:py-32 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
                 <div className="absolute inset-0 z-0 overflow-hidden">
                     <motion.div
-                        style={{ 
+                        style={{
                             y,
                             willChange: 'transform'
                         }}
@@ -71,7 +71,7 @@ const TailoredSolutionsSection = ({ customizations, heading, imageSrc }: { custo
                         {customizations.map((item, index) => (
                             <div key={item} className="flex items-start gap-3 sm:gap-3 lg:gap-3 group">
                                 <p className="font-medium leading-[1.36] text-[#191716] text-base sm:text-md md:text-md lg:text-lg shrink-0 font-sans">•</p>
-                                <p className="text-base sm:text-md md:text-md lg:text-lg text-[#191716] leading-[1.36] font-normal font-sans">
+                                <p className="text-md sm:text-lg md:text-2xl lg:text-3xl text-[#191716] leading-[1.36] font-normal font-sans">
                                     {item}
                                 </p>
                             </div>

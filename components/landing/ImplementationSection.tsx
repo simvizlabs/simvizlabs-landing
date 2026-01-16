@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import ScheduleDemoButton from "../MajorComponnts/ScheduleDemoButton";
 
 const imgIMockupIPadPro = "/assets/implementation-section/ipad-left.png";
 const imgIMockupIPadPro1 = "/assets/implementation-section/ipad-right.png";
@@ -25,11 +26,11 @@ const ImplementationSection = ({ heading, bgColor = "bg-[#f5f5f7]" }: Implementa
             <div className="max-w-[1440px] mx-auto flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
                 {/* Text Content */}
                 <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto">
-                  {heading && heading.map((item, index) => (
-                    <h2 key={index} className="text-md sm:text-md md:text-lg  lg:text-xl font-semibold leading-[1.36] text-[#191716] font-sans">
-                        {item}
-                    </h2>
-                  ))}
+                    {heading && heading.map((item, index) => (
+                        <h2 key={index} className="text-lg sm:text-xl md:text-2xl  lg:text-3xl font-semibold leading-[1.36] text-[#191716] font-sans">
+                            {item}
+                        </h2>
+                    ))}
                 </div>
 
                 <div>
@@ -40,7 +41,7 @@ const ImplementationSection = ({ heading, bgColor = "bg-[#f5f5f7]" }: Implementa
                         <Image width={375} height={812} src="/assets/ipads_mobile.png" alt="IPads Mobile" />
                     </div>
                     <div className="relative sm:-top-[5rem] md:-top-[6rem] lg:-top-[16rem]">
-                        <Button className="bg-[#1381e5] hover:bg-[#1381e5]/90 text-white rounded-xl font-semibold text-xs leading-normal transition-all shadow-lg whitespace-nowrap font-sans">Request a Demo</Button>
+                        <ScheduleDemoButton />
                     </div>
                 </div>
 
@@ -80,19 +81,14 @@ const ImplementationSection = ({ heading, bgColor = "bg-[#f5f5f7]" }: Implementa
 
                         {/* CTA Button - Mobile */}
                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
-                            <Link
-                                href="/contact"
-                                className="px-4 py-2 bg-[#1381e5] hover:bg-[#1381e5]/90 text-white rounded-xl font-semibold text-xs leading-normal transition-all shadow-lg whitespace-nowrap font-sans"
-                            >
-                                Request a Demo
-                            </Link>
+                            <ScheduleDemoButton />
                         </div>
                     </div>
 
                     {/* Desktop/iPad Version - Landscape orientation - Show for >= 768px (md) */}
                     <div className="hidden md:block relative w-full h-full">
                         {/* Left iPad - Desktop */}
-                    <div className="absolute left-[3rem] sm:left-[2.5rem] md:left-[2rem] lg:left-[1.5rem] xl:left-[3rem] 2xl:left-[10.375rem] top-[2rem] sm:top-[2.5rem] md:top-[2.5rem] lg:top-[2rem] xl:top-[4.125rem] z-0">
+                        <div className="absolute left-[3rem] sm:left-[2.5rem] md:left-[2rem] lg:left-[1.5rem] xl:left-[3rem] 2xl:left-[10.375rem] top-[2rem] sm:top-[2.5rem] md:top-[2.5rem] lg:top-[2rem] xl:top-[4.125rem] z-0">
                             <div className="h-40 sm:h-48 md:h-56 lg:h-64 xl:h-80 2xl:h-[351px] w-28 sm:w-36 md:w-40 lg:w-48 xl:w-72 2xl:w-[458px] relative">
                                 <div className="rotate-90 h-full w-full">
                                     <Image
@@ -135,12 +131,7 @@ const ImplementationSection = ({ heading, bgColor = "bg-[#f5f5f7]" }: Implementa
 
                         {/* CTA Button - Desktop */}
                         <div className="absolute bottom-8 sm:bottom-10 md:bottom-12 lg:bottom-8 xl:bottom-0 left-1/2 -translate-x-1/2 z-20">
-                            <Link
-                                href="/contact"
-                                className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 lg:px-7 lg:py-4 bg-[#1381e5] hover:bg-[#1381e5]/90 text-white rounded-xl sm:rounded-2xl lg:rounded-3xl font-semibold text-xs sm:text-sm md:text-base lg:text-lg leading-normal transition-all shadow-lg whitespace-nowrap font-sans"
-                            >
-                                Request a Demo
-                            </Link>
+                            <ScheduleDemoButton />
                         </div>
                     </div>
                 </div>

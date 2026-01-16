@@ -2,14 +2,14 @@
 
 import React from "react";
 
-const FeatureCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
+const FeatureCard = ({ number, title, description }: { number: string; title: React.ReactNode; description: React.ReactNode }) => {
     return (
         <div className="bg-white rounded-[24px] p-8 flex flex-col gap-6  w-full shadow-sm hover:shadow-md transition-shadow">
             <div className="flex flex-col gap-4 justify-start flex-1">
-                <h3 className="text-2xl md:text-2xl lg:text-2xl font-bold leading-tight text-[#191716]">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-[#191716]">
                     {title}
                 </h3>
-                <p className="text-xl md:text-xl lg:text-2xl leading-relaxed text-[#191716]">
+                <p className="text-xl md:text-xl lg:text-2xl font-normal leading-relaxed text-[#191716]">
                     {description}
                 </p>
             </div>
@@ -17,9 +17,9 @@ const FeatureCard = ({ number, title, description }: { number: string; title: st
     );
 };
 
-const FeatureCard2 = ({ description }: { description: string }) => {
+const FeatureCard2 = ({ description }: { description: React.ReactNode }) => {
     return (
-    <div className="bg-white rounded-[24px] p-8 md:p-10 flex flex-col justify-start items-start text-left w-full md:aspect-square shadow-sm hover:shadow-md transition-all duration-300 mb-8">
+        <div className="bg-white rounded-[24px] p-10 md:p-12 flex flex-col justify-start items-start text-left w-full shadow-sm hover:shadow-md transition-all duration-300 mb-8">
             <span className="font-semibold text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl leading-snug text-[#191716]">
                 {description}
             </span>
@@ -36,19 +36,19 @@ interface WhySimVizSectionProps {
 
 const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: WhySimVizSectionProps) => {
     const displayHeading = heading || content?.whySimvizSection?.heading || content?.simvizEnables?.heading || content?.heading || (
-        <>Why <span className="bg-gradient-to-r from-[#1381E5] to-[#CAE6FF] bg-clip-text text-transparent">SimViz Labs?</span></>
+        <>Why <span className="text-[#1381E5] ">SimViz Labs?</span></>
     );
 
-    console.log(displayHeading,"displayHeading",content?.simvizEnables?.heading)
+    console.log(displayHeading, "displayHeading", content?.simvizEnables?.heading)
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);
 
     React.useEffect(() => {
         const updateItemsPerView = () => {
-            if (window.innerWidth >= 1024) {
+            if (window.innerWidth >= 1524) {
                 setItemsPerView(3);
-            } else if (window.innerWidth >= 640) {
+            } else if (window.innerWidth >= 800) {
                 setItemsPerView(2);
             } else {
                 setItemsPerView(1);
@@ -103,10 +103,10 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
     };
 
     return (
-        <section className={`bg-[#f5f5f7] mx-auto ${reducedTopPadding ? 'pt-0 pb-16 md:pb-24' : ''} px-4 sm:px-8 md:px-12 w-full`}>
-            <div className="max-w-7xl mx-auto flex flex-col gap-4 md:gap-8">
+        <section className={`bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32`}>
+            <div className="md:mx-auto flex-col gap-4 md:gap-8">
                 {/* Header */}
-                <h2 className="text-4xl items-start text-start md:text-3xl lg:text-4xl font-semibold text-[#191716] leading-tight text-center md:text-left">
+                <h2 className="text-4xl mb-10 items-start text-start md:text-5xl lg:text-6xl font-semibold text-[#191716] leading-tight text-center md:text-left">
                     {displayHeading}
                 </h2>
 
@@ -134,7 +134,7 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {features.map((feature, index) => (
-                        <div key={index} className="w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start flex">
+                        <div key={index} className="w-full min-[800px]:w-[calc(50%-12px)] min-[1524px]:w-[calc(33.333%-16px)] flex-shrink-0 snap-start flex">
                             {content?.id === "airlines" || content?.id === "ato" ? (
                                 <FeatureCard2 description={feature.description} />
                             ) : (

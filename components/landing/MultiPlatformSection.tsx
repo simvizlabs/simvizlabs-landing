@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export function MultiPlatformSection() {
   return (
-    <section className="bg-white pl-2 md:pl-16 items-start py-12 sm:py-16 md:py-24 text-black min-h-full">
+    <section className="bg-white max-w-7xl px-6 sm:px-12 md:pl-16 lg:pl-24  items-start py-12 sm:py-16 md:py-24 text-black min-h-full">
       <div className="container">
         <div className="max-w-7xl ">
           <h2 className="mb-6 sm:mb-8 text-3xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Metadata } from "next";
 import NavbarDemo from "@/components/resizable-navbar-demo";
@@ -23,12 +25,12 @@ export const metadata: Metadata = {
 
 const content = {
   id: "airlines",
-  title: "Move FMS fundamentals out of expensive simulators.",
-  description: <><p className="text-xs sm:text-sm md:text-base lg:text-lg">SimViz Labs delivers airline scale FMS training system on iPads:
+  title: <>Move FMS fundamentals <br /> out of expensive simulators.</>,
+  description: <><p className="font-medium">SimViz Labs delivers airline scale FMS training system on iPads:
     <br />
     high-fidelity simulator, integrated LMS,  AI-guided practice, and analytics that improve crew readiness. <br />Your pilots master procedures before simulator sessions. The instructors get objective proficiency data. <br />Airline's training department gains consistent standards across fleets and bases.
   </p>
-    <p className="mt-6 sm:mt-8 text-xs sm:text-sm md:text-base lg:text-lg">Airline gets a regulatory complaint and bespoke SOPs built into the system.</p></>,
+    <p className="mt-10 font-medium">Airline gets a regulatory complaint and bespoke SOPs built into the system.</p></>,
   button: [
     {
       heading: "Schedule a Demo",
@@ -133,9 +135,9 @@ const AirlinesCTASectionContent = {
   imageSrc: "/landing/a320/a320_fms_simulator.png"
 }
 
-  const ImplementationSectionHeading: any[] = [
-  <>SimViz Labs runs on modern, cloud-native infrastructure <br/> and is accessible from an iPad, includes an integrated LMS.</>,
-  <>Our implementation team works directly with your <br/> airline IT team to align deployment and customization to your environment.</>
+const ImplementationSectionHeading: any[] = [
+  <>SimViz Labs runs on modern, cloud-native infrastructure <br /> and is accessible from an iPad, includes an integrated LMS.</>,
+  <>Our implementation team works directly with your <br /> airline IT team to align deployment and customization to your environment.</>
 ];
 
 
@@ -144,7 +146,7 @@ const AirlinesPage = () => {
     <div className="bg-[#f5f5f7] text-[#191716] dark:bg-neutral-900 dark:text-white font-sans min-h-screen flex flex-col">
       <NavbarDemo />
       <main className="flex-grow">
-        <AirlinesLandingPage ImageBackground={img}  content={content} />
+        <AirlinesLandingPage ImageBackground={img} content={content} />
         <section className="px-4 bg-[#f5f5f7] sm:px-6 md:px-8 lg:px-16 xl:px-32 mx-auto text-center">
           <div className="max-w-7xl mx-auto flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
             <div className="space-y-3 md:space-y-4">

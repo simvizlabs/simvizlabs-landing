@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; description: string; imageSrc: string; rotate?: string }) => {
+const FeatureCard = ({ title, description, imageSrc, rotate }: { title: React.ReactNode; description: React.ReactNode; imageSrc: string; rotate?: string }) => {
     const [isLoaded, setIsLoaded] = React.useState(false);
     const imgRef = React.useRef<HTMLImageElement>(null);
 
@@ -17,10 +17,10 @@ const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; 
     return (
         <div className="bg-white rounded-2xl md:rounded-3xl px-3 sm:px-4 md:px-6 lg:px-8 py-7 md:py-8 flex flex-col gap-4 md:gap-6 lg:gap-7 h-full shadow-sm hover:shadow-md transition-shadow min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">
             <div className="flex flex-col gap-3 md:gap-4">
-                <h3 className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold font-medium leading-[1.36] text-[#191716] font-sans">
+                <h3 className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold leading-[1.36] text-[#191716] font-sans">
                     {title}
                 </h3>
-                <p className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl leading-[1.45] text-[#191716] font-sans">
+                <p className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl leading-[1.45] text-[#191716] font-sans">
                     {description}
                 </p>
             </div>
@@ -31,7 +31,7 @@ const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; 
                 <Image
                     ref={imgRef}
                     src={imageSrc}
-                    alt={title}
+                    alt={typeof title === 'string' ? title : "Training management feature"}
                     fill
                     onLoad={() => setIsLoaded(true)}
                     className={`object-contain transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -42,16 +42,16 @@ const FeatureCard = ({ title, description, imageSrc, rotate }: { title: string; 
     );
 };
 
-const TrainingManagementSection = ({ features }: { features: { title: string; description: string; imageSrc: string; rotate?: string }[] }) => {
+const TrainingManagementSection = ({ features }: { features: { title: React.ReactNode; description: React.ReactNode; imageSrc: string; rotate?: string }[] }) => {
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [itemsPerView, setItemsPerView] = React.useState(1);
 
     React.useEffect(() => {
         const updateItemsPerView = () => {
-            if (window.innerWidth >= 1024) {
+            if (window.innerWidth >= 1524) {
                 setItemsPerView(3);
-            } else if (window.innerWidth >= 640) {
+            } else if (window.innerWidth >= 800) {
                 setItemsPerView(2);
             } else {
                 setItemsPerView(1);
@@ -107,9 +107,9 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
 
     return (
         <section className="bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 w-full">
-            <div className=" mx-auto max-w-7xl flex flex-col gap-6 md:gap-8 lg:gap-10">
+            <div className=" md:mx-auto flex flex-col gap-6 md:gap-8 lg:gap-10">
                 {/* Header */}
-                <h2 className="text-3xl sm:text-5xl sm:mt-4s md:text-5xl lg:text-5xl xl:text-5xl font-semibold text-[#191716] leading-[normal] text-center md:text-left font-sans">
+                <h2 className="text-3xl sm:text-4xl sm:mt-4s md:text-4xl lg:text-5xl font-semibold text-[#191716] leading-[normal] text-left md:text-left font-sans">
                     Key Features
                 </h2>
 
@@ -122,7 +122,7 @@ const TrainingManagementSection = ({ features }: { features: { title: string; de
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="min-w-[100%] sm:min-w-[calc(50%-8px)] lg:min-w-[calc(33.333%-16px)] snap-start"
+                            className="min-w-full min-[800px]:min-w-[calc(50%-8px)] min-[1524px]:min-w-[calc(33.333%-16px)] snap-start"
                         >
                             <FeatureCard
                                 title={feature.title}

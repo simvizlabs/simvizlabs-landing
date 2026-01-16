@@ -24,7 +24,7 @@ export function BenefitsSection() {
         background: 'radial-gradient(170.74% 170.74% at 50% -101.23%, #FFF 36.45%, #C1E1FF 42%, #F5F5F7 100%)'
       }}
     >
-      <div className="flex flex-col md:flex-row min-h-[60vh] md:min-h-[80vh] items-center">
+      <div className="flex max-w-7xl flex-col md:flex-row min-h-[60vh] md:min-h-[80vh] items-center">
         {/* Text Column */}
         <div className="w-full md:w-1/2 px-6 sm:px-12 md:pl-16 lg:pl-24 py-12 md:py-20 flex flex-col z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black mb-10 md:mb-16">

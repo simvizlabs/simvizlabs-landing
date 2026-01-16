@@ -85,8 +85,8 @@ const Footer = ({
       bgColor,
       className
     )}>
-      <div className="max-w-screen-xl mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 px-6">
-        <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
+      <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 py-12 flex flex-col lg:flex-row justify-between gap-12 lg:gap-8">
+        <div className="flex-1 max-w-sm">
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Image
@@ -96,56 +96,62 @@ const Footer = ({
               height={48}
               className={cn("")}
             />
-          <p className={cn("mt-2 font-bold", "text-black")}>SimvizLabs</p>
+            <p className={cn("mt-2 font-bold", "text-black")}>SimvizLabs</p>
           </div>
 
           <p className="mt-4 text-black/70">
             Next Generation Aviation Solutions.
           </p>
-          
-          <div className="mt-6 space-y-3">
+
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             <div>
-              <p className="text-black/70 ">Headquarters</p>
+              <p className="text-black font-semibold text-sm uppercase tracking-wider">Headquarters</p>
               <p className="text-black/70">Chandler, AZ, USA</p>
             </div>
             <div>
-              <p className="text-black/70 ">Technology Center</p>
+              <p className="text-black font-semibold text-sm uppercase tracking-wider">Technology Center</p>
               <p className="text-black/70">New Delhi, India</p>
             </div>
             <div>
-              <p className="text-black/70 ">Regional Office</p>
+              <p className="text-black font-semibold text-sm uppercase tracking-wider">Regional Office</p>
               <p className="text-black/70">Singapore</p>
             </div>
           </div>
         </div>
 
-        {footerSections.map(({ title, links }) => (
-          <div key={title} className="xl:justify-self-end mt-4">
-            <h6 className="font-semibold text-black">{title}</h6>
-            <ul className="mt-6 space-y-2">
-              {links.map(({ title, href }) => (
-                <li key={title}>
-                  <Link
-                    href={href}
-                    className="text-black/70 hover:text-black transition-colors"
-                  >
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24">
+          {footerSections.map(({ title, links }) => (
+            <div key={title} className="min-w-fit">
+              <h6 className="font-semibold text-black mb-4">{title}</h6>
+              <ul className="space-y-3">
+                {links.map(({ title, href }) => (
+                  <li key={title}>
+                    <Link
+                      href={href}
+                      className="text-black/70 hover:text-black transition-colors text-sm"
+                    >
+                      {title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-        <Separator className={"bg-black/10"} />
-      <div className="max-w-screen-xl mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
+
+      <div className="px-6 sm:px-12 md:px-16 lg:px-24">
+        <Separator className="bg-black/10" />
+      </div>
+
+      <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5">
         {/* Copyright */}
-        <span className="text-black/70 text-center xs:text-start">
+        <span className="text-black/70 text-sm text-center sm:text-left">
           &copy; {new Date().getFullYear()}{" "}
           SimViz Labs LLC. All rights reserved.
         </span>
 
-        <div className="flex items-center gap-5 text-black/70">
+        <div className="flex items-center gap-6 text-black/70">
           <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className="hover:text-black transition-colors">
             <Instagram className="h-5 w-5" />
           </Link>
@@ -160,7 +166,7 @@ const Footer = ({
           </Link>
         </div>
       </div>
-    </footer >
+    </footer>
   );
 };
 
