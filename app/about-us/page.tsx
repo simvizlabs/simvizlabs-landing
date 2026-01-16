@@ -22,7 +22,7 @@ const AboutUsPage = () => {
       <main className="flex-grow">
         {/* Hero Image */}
         <div className="relative w-full" data-name="Gemini_Generated_Image_wlhaq0wlhaq0wlha (1) 1" data-node-id="2293:13218">
-          <div className="relative w-full h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden">
+          <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
             <Image
               src={imgGeminiGeneratedImageWlhaq0Wlhaq0Wlha11}
               alt="Aircraft Autopilot Control Panel"
@@ -56,7 +56,7 @@ const AboutUsPage = () => {
             {/* High fidelity system training */}
             <div className="flex flex-col gap-5 items-center">
               <div className="bg-[#e8e8ec] h-[273px] w-full overflow-hidden relative rounded-lg flex items-center justify-center">
-                <div className="relative w-[320px] h-[246px] -rotate-90">
+                <div className="relative w-[320px] h-[246px] rotate-90">
                   <Image
                     src={imgIMockupIPadPro}
                     alt="iPad Pro Mockup"
@@ -125,7 +125,7 @@ const AboutUsPage = () => {
             
             <div className="space-y-0">
               {/* Chandler, AZ */}
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 py-6 border-b border-[#191716]/20">
+              <div className="flex flex-row justify-between md:items-center gap-4 py-6 border-b border-[#191716]/20">
                 <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
                   Chandler, AZ, USA
                 </p>
@@ -135,7 +135,7 @@ const AboutUsPage = () => {
               </div>
 
               {/* New Delhi, India */}
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 py-6 border-b border-[#191716]/20">
+              <div className="flex flex-row justify-between md:items-center gap-4 py-6 border-b border-[#191716]/20">
                 <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
                   New Delhi, India
                 </p>
@@ -145,7 +145,7 @@ const AboutUsPage = () => {
               </div>
 
               {/* Singapore */}
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 py-6">
+              <div className="flex flex-row justify-between md:items-center gap-4 py-6">
                 <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
                   Singapore
                 </p>
