@@ -29,7 +29,7 @@ const AirlinesCTASectionContent = {
 const content = {
     id: "ato",
     title: "Smarter training, beyond simulator.",
-    description: "SimViz Labs delivers an iPad-based FMS Simulator with an integrated LMS that helps you standardize a baseline while tailoring curriculum and scenarios to the requirements of a specific airline.",
+    description: <>   <span>  SimViz Labs delivers an iPad-based FMS Simulator with an integrated LMS that helps you standardize <br /> a baseline while tailoring curriculum and scenarios to the requirements of a specific airline.</span> </>,
     button: [
         {
             heading: "Schedule a Demo",
