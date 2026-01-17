@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import { MediaController, MediaPlayButton } from 'media-chrome/react';
 import { Play } from 'lucide-react';
 
-const brandVideoSrc = "https://course-media-simvizlabs.s3.us-east-1.amazonaws.com/intro_video.mp4
+const brandVideoSrc = "https://course-media-simvizlabs.s3.us-east-1.amazonaws.com/intro_video.mp4";
 
 const MediaChromePlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
