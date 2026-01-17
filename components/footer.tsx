@@ -103,7 +103,7 @@ const Footer = ({
             <p className="mt-4 text-black/70">
               Next Generation Aviation Solutions.
             </p>
-            <div className="mt-6 flex flex-row gap-6 w-full">
+            <div className="mt-6 flex flex-col sm:flex-row gap-6 w-full">
               <div className="w-full">
                 <p className="text-black text-sm uppercase tracking-wider">Headquarters</p>
                 <p className="text-black/70">Chandler, AZ, USA</p>

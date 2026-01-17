@@ -176,7 +176,7 @@ export default function NavbarDemo() {
   return (
     <div className="relative w-full font-geist" >
       <Navbar className="fixed top-0 z-50 w-full border-b border-neutral-200 bg-white shadow-sm xl:bg-white/70 xl:backdrop-blur-md font-geist transition-all duration-300">
-        <div className="mx-auto flex h-16 md:h-20 items-center justify-between px-4 sm:px-8">
+        <div className="mx-auto flex h-12 items-center justify-between px-4 sm:px-8">
           {/* Desktop Navigation - Hidden on mobile */}
           <div className="hidden xl:flex w-full items-center justify-between">
             <NavBody className="w-full max-w-full">

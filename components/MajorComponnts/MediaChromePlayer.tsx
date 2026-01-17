@@ -38,7 +38,7 @@ const MediaChromePlayer = () => {
           height: 100%;
         }
       `}</style>
-      <div className='inset-0  bg-black relative'>
+      <div className='inset-0  text-center justify-center items-center h-[calc(100%-56px)] bg-black relative'>
           <MediaController 
               ref={controllerRef}
               className=""
@@ -47,7 +47,7 @@ const MediaChromePlayer = () => {
                   ref={videoRef}
                   slot="media" 
                   src={brandVideoSrc} 
-                  className="overflow-hidden md:w-[100vw] md:h-[calc(100%-80px)]" 
+                  className="overflow-hidden md:h-[calc(100vh-56px)]" 
                >
                   <track
                       label="thumbnails"
