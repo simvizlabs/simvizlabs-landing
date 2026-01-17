@@ -37,10 +37,10 @@ const MediaChromePlayer = () => {
           height: 100%;
         }
       `}</style>
-      <div className='inset-0 w-screen h-screen bg-black z-50 relative'>
+      <div className='inset-0 w-screen bg-black relative'>
           <MediaController 
               ref={controllerRef}
-              className="w-full h-full"
+              className=""
           >
               <video 
                   ref={videoRef}

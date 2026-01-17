@@ -64,7 +64,7 @@ export function BenefitsSection() {
         </div>
       </div> */}
       {/* Background Image */}
-      <div className="absolute sm:block text-center text-bottom right-[-2vw] top-[10vh] sm:top-[15vh] md:top-[18vh] sm:right-[-2vw] md:right-[-5vw] lg:right-[0vw] lg:top-[10vh] w-[90vw] h-[90vh] z-0 md:opacity-100 pointer-events-none">
+      <div className="absolute hidden sm:block text-center text-bottom right-[-2vw] top-[10vh] sm:top-[15vh] md:top-[18vh] sm:right-[-2vw] md:right-[-5vw] lg:right-[0vw] lg:top-[10vh] w-[90vw] h-[90vh] z-0 md:opacity-100 pointer-events-none">
         <Image
           src="/landing/bg-benefits.png"
           alt="Benefits Background"
