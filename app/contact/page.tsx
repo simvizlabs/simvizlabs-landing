@@ -298,7 +298,7 @@ export default function ContactUsPage() {
 
                     {submissionStatus === "success" && (
                         <div className="p-6 rounded-2xl bg-green-50 border border-green-100 text-green-700 text-center font-semibold">
-                            Thank you! Your inquiry has been sent successfully. We'll be in touch soon.
+                            Thank you! Your inquiry has been sent successfully.
                         </div>
                     )}
                     {submissionStatus === "error" && (

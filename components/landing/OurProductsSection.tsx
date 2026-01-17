@@ -65,7 +65,7 @@ function OurProductsContent() {
         { title: "AI-powered CPDLC", description: "Master datalink clearances and controller communications with intelligent guidance." },
         { title: "Customizable ACARS module", description: "Configurable AOC menus tailored to your airline's specific dispatch procedures." },
         { title: "FCU and FMA training", description: "Master Flight Control Unit operations and Flight Mode Annunciator interpretation." },
-        { title: "Integrated airbus systems", description: "Learn how FMGC, FCU, datalink, flight guidance (AP/FD/A-THR) integrate." }
+        { title: "Integrated Airbus systems", description: "Learn how FMGC, FCU, datalink, flight guidance (AP/FD/A-THR) integrate." }
       ]
     },
     b737: {
@@ -91,7 +91,7 @@ function OurProductsContent() {
         { title: "AI-powered CPDLC", description: "Master datalink clearances, route amendments, and controller communications with intelligent guidance through the CDU interface." },
         { title: "Customizable ACARS module", description: "Configurable AOC menus tailored to your airline's specific dispatch procedures, message formats, and operational workflows via CDU." },
         { title: "MCP and FMA training", description: "Master Mode Control Panel operations and Flight Mode Annunciator interpretation for precise auto flight understanding in complex terminal environments and for each phase of flight." },
-        { title: "Integrated boeing systems", description: "Learn how FMC, MCP, datalink, flight guidance (autopilot/autothrottle), and aircraft systems work together in realistic airline operations." }
+        { title: "Integrated Boeing systems", description: "Learn how FMC, MCP, datalink, flight guidance (autopilot/autothrottle), and aircraft systems work together in realistic airline operations." }
       ]
     },
     b747: {
@@ -118,7 +118,7 @@ function OurProductsContent() {
         { title: "AI-powered CPDLC", description: "Master datalink clearances, route amendments, and controller communications with intelligent guidance through the CDU interface." },
         { title: "Customizable ACARS module", description: "Configurable AOC menus tailored to your airline's specific dispatch procedures, message formats, and operational workflows via CDU." },
         { title: "MCP and FMA training", description: "Master Mode Control Panel operations and Flight Mode Annunciator interpretation for precise auto flight understanding in complex terminal environments and for each phase of flight." },
-        { title: "Integrated boeing systems", description: "Learn how FMC, MCP, datalink, flight guidance (autopilot/autothrottle), and complex aircraft systems work together in realistic wide-body operations." }
+        { title: "Integrated Boeing systems", description: "Learn how FMC, MCP, datalink, flight guidance (autopilot/autothrottle), and complex aircraft systems work together in realistic wide-body operations." }
       ]
     }
   };

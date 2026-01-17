@@ -34,7 +34,7 @@ const A320ProductPage = () => {
             description: "Master Flight Control Unit operations and Flight Mode Annunciator interpretation for precise auto-flight understanding in complex terminal environments and for each phase of flight."
         },
         {
-            title: "Integrated airbus systems",
+            title: "Integrated Airbus systems",
             description: "Integrated Airbus Systems Learn how FMGC, FCU, datalink, flight guidance (AP/FD/A-THR)."
         }
     ];

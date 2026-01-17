@@ -96,7 +96,7 @@ const Footer = ({
               height={48}
               className={cn("")}
             />
-            <p className={cn("mt-2 font-bold", "text-black")}>SimvizLabs</p>
+            <p className={cn("mt-2 font-bold", "text-black")}>SimViz Labs</p>
           </div>
 
           <p className="mt-4 text-black/70">
