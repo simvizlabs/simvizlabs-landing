@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import ProductButton from "./ProductButton";
 import { motion } from "framer-motion";
 import { ChevronUp } from "lucide-react";
+import LearnMoreButton from "../MajorComponnts/LearnMoreButton";
 
 interface SimulatorProductsLargeProps {
     featureCards: {
@@ -27,6 +28,7 @@ interface SimulatorProductsLargeProps {
         subtitle: string;
         subscriptionContentIncluded: boolean;
         rotateImage?: string;
+        comingSoon?: string;
     };
     onClose?: () => void;
     layoutId?: string;
@@ -65,6 +67,15 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content, onClose, lay
                     >
                         {content.title}
                     </motion.h1>
+                    {content.comingSoon && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-2xl md:text-5xl text-[#A4A4A4] font-semibold"
+                        >
+                            {content.comingSoon}
+                        </motion.div>
+                    )}
                     <motion.p
                         layoutId={`desc-${layoutId}`}
                         className="text-xl md:text-2xl text-black/60 max-w-3xl mx-auto leading-relaxed font-medium"
@@ -74,21 +85,33 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content, onClose, lay
                 </div>
 
                 <div className="flex flex-wrap gap-5 justify-center mt-4">
-                    {content.buttons.map((button, index) => (
-                        <ProductButton
-                            key={index}
-                            variant={button.variant}
-                            className={button.class}
-                            onClick={button.onClick}
-                        >
-                            {button.text} {button.icon}
-                        </ProductButton>
-                    ))}
+                    {content.buttons.map((button, index) => {
+                        if (button.text === "Learn More") {
+                            return (
+                                <LearnMoreButton
+                                    key={index}
+                                    isExpanded={true}
+                                    onClick={button.onClick}
+                                    className={button.class}
+                                />
+                            );
+                        }
+                        return (
+                            <ProductButton
+                                key={index}
+                                variant={button.variant}
+                                className={button.class}
+                                onClick={button.onClick}
+                            >
+                                {button.text} {button.icon}
+                            </ProductButton>
+                        );
+                    })}
                 </div>
 
                 <section className="pt-24 border-y border-white/20">
                     <div className="max-w-7xl">
-                        <h2 className="text-lg md:text-2xl font-bold mb-16 text-black text-left tracking-tight pl-2">
+                        <h2 className="text-lg md:text-2xl font-bold mb-16 text-black text-center tracking-tight pl-2">
                             {content.subtitle}
                         </h2>
 

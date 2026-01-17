@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import LearnMoreButton from "../MajorComponnts/LearnMoreButton";
 
 export interface ProductCardProps {
   id?: string;
@@ -20,6 +21,7 @@ export interface ProductCardProps {
     className?: string;
   }[];
   layoutId?: string;
+  comingSoon?: string;
 }
 
 export function ProductCard({
@@ -31,6 +33,7 @@ export function ProductCard({
   className,
   buttons,
   layoutId,
+  comingSoon,
 }: ProductCardProps) {
   return (
     <motion.div
@@ -41,6 +44,15 @@ export function ProductCard({
       )}
     >
       <div className="flex flex-col items-center gap-5 w-full max-w-xl">
+        {comingSoon && (
+          <motion.span
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-[#A4A4A4] text-xl md:text-2xl font-semibold uppercase tracking-wider -mb-3 block"
+          >
+            {comingSoon}
+          </motion.span>
+        )}
         <motion.h3
           layoutId={`title-${layoutId}`}
           className="text-[#191716] text-3xl md:text-5xl font-semibold leading-tight font-sans"
@@ -56,28 +68,39 @@ export function ProductCard({
 
         {buttons && buttons.length > 0 && (
           <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 justify-center mt-2 w-full">
-            {buttons.map((btn, index) => (
-              <Button
-                key={index}
-                asChild={!!btn.href}
-                onClick={btn.onClick}
-                className={cn(
-                  "rounded-3xl px-8 py-4 text-lg font-semibold transition-colors duration-200 flex-shrink-0",
-                  btn.variant === "outline"
-                    ? "bg-transparent border border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10"
-                    : "bg-[#1381e5] text-white hover:bg-[#106bc0]",
-                  btn.className
-                )}
-              >
-                {btn.href ? (
-                  <Link href={btn.href}>
-                    {btn.text} {btn.icon}
-                  </Link>
-                ) : (
-                  <span className="flex items-center">{btn.text} {btn.icon}</span>
-                )}
-              </Button>
-            ))}
+            {buttons.map((btn, index) => {
+              if (btn.text === "Learn More") {
+                return (
+                  <LearnMoreButton
+                    key={index}
+                    onClick={btn.onClick}
+                    className={btn.className}
+                  />
+                );
+              }
+              return (
+                <Button
+                  key={index}
+                  asChild={!!btn.href}
+                  onClick={btn.onClick}
+                  className={cn(
+                    "rounded-full px-8 py-4 text-lg font-semibold transition-colors duration-200 flex-shrink-0",
+                    btn.variant === "outline"
+                      ? "bg-transparent border border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10"
+                      : "bg-[#1381e5] text-white hover:bg-[#106bc0]",
+                    btn.className
+                  )}
+                >
+                  {btn.href ? (
+                    <Link href={btn.href}>
+                      {btn.text} {btn.icon}
+                    </Link>
+                  ) : (
+                    <span className="flex items-center rounded-full">{btn.text} {btn.icon}</span>
+                  )}
+                </Button>
+              );
+            })}
           </div>
         )}
       </div>

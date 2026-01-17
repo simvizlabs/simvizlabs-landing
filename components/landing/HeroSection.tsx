@@ -35,7 +35,9 @@ export function HeroSection() {
           {" "}Cut simulator costs.
         </p>
 
-         <ScheduleDemoButton/>
+        <div className="mt-10">
+          <ScheduleDemoButton />
+        </div>
       </div>
     </section>
   );

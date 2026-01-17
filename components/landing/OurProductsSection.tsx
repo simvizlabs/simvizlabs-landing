@@ -7,6 +7,7 @@ import { useState, useEffect, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import LearnMoreButton from "@/components/MajorComponnts/LearnMoreButton";
 
 export function OurProductsSection() {
   return (
@@ -47,16 +48,13 @@ function OurProductsContent() {
         buttons: [
           {
             text: "Watch Demo",
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5]/70 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
+            class: "rounded-full px-11 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5]/70 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
             onClick: () => { window.location.href = "/demo"; }
           },
           {
             text: "Learn More",
             onClick: () => { setExpandedId(null); },
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
-            variant: "default" as const,
-            icon: <ChevronUp className="w-5 h-5" />
           }
         ],
         subtitle: "High-fidelity A320 FMS Simulator built to aircraft-level accuracy:",
@@ -75,26 +73,17 @@ function OurProductsContent() {
       imageSrc: "/assets/our-products/eda6f0f09e9c208ab7cefc56ddfa2662695ae550.png",
       content: {
         headImage: "/assets/our-products/b737/b737_simulator_landscape.png",
-        title: "B737NG FMS Simulator",
-        comingSoon:"(MAX Coming Soon)",
+        title: <><span>B737NG <br /> FMS Simulator</span> </>,
+        comingSoon: "Coming Soon",
         description: "Realistic B737NG FMC and MCP training focused on precise LNAV/VNAV logic, CDU workflows, and line-operations realism.",
         rotateImage: "90",
         buttons: [
           {
-            text: "Watch Demo",
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5]/70 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
-            variant: "outline" as const,
-            onClick: () => { window.location.href = "/demo"; }
-          },
-          {
             text: "Learn More",
             onClick: () => { setExpandedId(null); },
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
-            variant: "default" as const,
-            icon: <ChevronUp className="w-5 h-5" />
           }
         ],
-        subtitle: "Industry-leading B737 FMC training for professional pilots:",
+        subtitle: "High-fidelity B737NG FMS Simulator built to aircraft-level accuracy:",
         subscriptionContentIncluded: false,
       },
       featureCards: [
@@ -110,27 +99,18 @@ function OurProductsContent() {
       imageSrc: "/assets/our-products/b0738e33683cda336533d7d62466166f6fa760af.png",
       content: {
         headImage: "/assets/our-products/b747/b747_simulator_landscape.png",
-        title: "B747-400 FMS Simulator",
-        comingSoon:"(MAX Coming Soon)",
+        title: <><span className="text-left">B747-400 <br /> FMS Simulator</span> </>,
+        comingSoon: "Coming Soon",
         description: "High-fidelity B747-400 FMC training designed for long-range navigation, complex automation, and wide-body airline operations.",
         rotateImage: "90",
 
         buttons: [
           {
-            text: "Watch Demo",
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
-            variant: "outline" as const,
-            onClick: () => { window.location.href = "/demo"; }
-          },
-          {
             text: "Learn More",
             onClick: () => { setExpandedId(null); },
-            class: "rounded-3xl px-10 py-7 text-lg font-semibold bg-[#1381e5] hover:bg-[#106bc0] text-white flex items-center gap-2 transition-all shadow-lg shadow-blue-500/20",
-            variant: "default" as const,
-            icon: <ChevronUp className="w-5 h-5" />
           }
         ],
-        subtitle: "Master the Queen of the Skies with advanced FMS simulation:",
+        subtitle: "High-fidelity B747-400 FMS Simulator built to aircraft-level accuracy:",
         subscriptionContentIncluded: false,
       },
       featureCards: [
@@ -204,8 +184,6 @@ function OurProductsContent() {
                     primaryButton={{
                       text: "Learn More",
                       onClick: () => handleLearnMore("a320"),
-                      icon: <ChevronDown className="w-5 h-5" />,
-                      className: "px-10 py-7 text-lg font-semibold"
                     }}
                     secondaryButton={{
                       text: "Watch Demo",
@@ -234,19 +212,12 @@ function OurProductsContent() {
                   badgeSrc={appStoreBadge}
                   buttons={[
                     {
-                      text: "Watch Demo",
-                      href: "#",
-                      variant: "outline",
-                      className: "px-8 py-6 text-base md:px-10 md:py-7 md:text-lg"
-                    },
-                    {
                       text: "Learn More",
                       variant: "solid",
                       onClick: () => handleLearnMore(product.id),
-                      icon: <ChevronDown className="w-5 h-5" />,
-                      className: "px-8 py-6 text-base md:px-10 md:py-7 md:text-lg"
                     },
                   ]}
+                  comingSoon={product.content.comingSoon}
                 />
               ))}
             </motion.div>
@@ -288,10 +259,7 @@ function OurProductsContent() {
                             text: "Learn More",
                             onClick: () => handleLearnMore(product.id),
                           }}
-                          secondaryButton={{
-                            text: "Watch Demo",
-                            href: "#",
-                          }}
+                          comingSoon={product.content.comingSoon}
                         />
                       </motion.div>
                     )}
