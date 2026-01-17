@@ -9,6 +9,7 @@ import { MultiPlatformSection } from "@/components/landing/MultiPlatformSection"
 import { StickyProductFlow2 } from "@/components/landing/StickyProductFlow2";
 import { Metadata } from "next";
 import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
+import MediaChromePlayer from "@/components/MajorComponnts/MediaChromePlayer";
 
 export const metadata: Metadata = {
   title: "SimViz Labs | Aviation Training Software & FMS Simulators",
@@ -20,7 +21,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <NavbarDemo />
       <HeroSection />
-
+    <MediaChromePlayer/>
 
       {/* Sticky Product Flow */}
       {/* Sticky Product Flow */}

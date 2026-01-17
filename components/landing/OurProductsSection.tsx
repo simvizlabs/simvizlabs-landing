@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import LearnMoreButton from "@/components/MajorComponnts/LearnMoreButton";
+import { YouTubeVideoModal } from "@/components/MajorComponnts/YouTubeVideoModal";
 
 export function OurProductsSection() {
   return (
@@ -20,6 +21,10 @@ export function OurProductsSection() {
 function OurProductsContent() {
   const searchParams = useSearchParams();
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  
+  // YouTube video ID extracted from https://youtu.be/ksj3QxbmOwM
+  const youtubeVideoId = "ksj3QxbmOwM";
 
   useEffect(() => {
     const productId = searchParams.get("product");
@@ -187,7 +192,7 @@ function OurProductsContent() {
                     }}
                     secondaryButton={{
                       text: "Watch Demo",
-                      href: "#",
+                      onClick: () => setIsVideoModalOpen(true),
                       className: "px-10 py-7 text-lg font-semibold"
                     }}
                   />
@@ -270,6 +275,13 @@ function OurProductsContent() {
           )}
         </div>
       </div>
+      
+      {/* YouTube Video Modal */}
+      <YouTubeVideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoId={youtubeVideoId}
+      />
     </section>
   );
 }
