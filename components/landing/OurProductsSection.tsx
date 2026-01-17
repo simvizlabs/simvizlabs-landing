@@ -23,8 +23,8 @@ function OurProductsContent() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   
-  // YouTube video ID extracted from https://youtu.be/ksj3QxbmOwM
-  const youtubeVideoId = "ksj3QxbmOwM";
+  // YouTube video ID extracted from https://youtu.be/Zq9svmcIzbw
+  const youtubeVideoId = "Zq9svmcIzbw
 
   useEffect(() => {
     const productId = searchParams.get("product");
