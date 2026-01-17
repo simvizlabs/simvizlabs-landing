@@ -257,7 +257,7 @@ export default function NavbarDemo() {
                 onClose={() => setIsMobileMenuOpen(false)}
                 navItems={navItems}
                 handleNavItemClick={handleNavItemClick}
-                className="bg-white/70 text-black/90 border-l border-white/10"
+                className="bg-white text-black/90 border-l border-white/10"
               />
               {/* Show auth buttons/avatar only for Indian IP addresses - Mobile */}
               {!geoLoading && isIndia && pathname === "/in/a320-bundle" && isMobileMenuOpen && (
