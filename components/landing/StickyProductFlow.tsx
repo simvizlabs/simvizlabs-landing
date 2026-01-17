@@ -267,37 +267,14 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                         }}
                         className="absolute left-1/2 -translate-x-1/2 translate-y-[8vh] md:translate-y-[4vh] lg:translate-y-[2vh] w-full flex flex-col items-center gap-3 md:gap-4 text-center"
                       >
-                        {product.id === "a320" ? (
-                          <div>
-                            <p className="text-sm md:text-lg font-medium text-white/60 mb-1">{product.subtitle}</p>
+                         <div>
+                            <p className="text-sm md:text-lg font-medium text-[#FFF] mb-1">{product.subtitle}</p>
                             <h2 
-                              className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight"
-                              style={{
-                                background: 'linear-gradient(90deg, #FFF 0%, #1381E5 100%)',
-                                backgroundClip: 'text',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent'
-                              }}
+                              className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-[#3A9DF7]"
                             >
-                            A320 FMS Simulator
+                              {product.title}
                             </h2>
                           </div>
-                        ) : (
-                          <div>
-                            <span 
-                              className="inline-block rounded-full px-3 py-1 text-xl md:text-5xl font-medium backdrop-blur-sm mb-2"
-                              style={{
-                                background: 'linear-gradient(90deg, #FFF 0%, #1381E5 100%)',
-                                backgroundClip: 'text',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent'
-                              }}
-                            >
-                              Launching Soon
-                            </span>
-                            <h2 className="text-xl sm:text-xl md:text-xl font-semibold leading-tight">{product.title}</h2>
-                          </div>
-                        )}
                         {product.description && (
                           <p className="text-sm md:text-base text-white/70 max-w-lg mx-auto hidden sm:block">
                             {product.description}

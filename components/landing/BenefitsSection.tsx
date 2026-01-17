@@ -19,7 +19,7 @@ const benefits = [
 export function BenefitsSection() {
   return (
     <section
-      className="relative w-[100vw] h-[80vh] sm:h-[80vh] md:h-[100vh] pt-10 sm:mx-auto md:py-[15vh] overflow-hidden"
+      className="relative h-[80vh] sm:h-[80vh] md:h-[100vh] pt-10 sm:mx-auto md:py-[15vh] overflow-hidden"
       style={{
         background: 'radial-gradient(170.74% 170.74% at 50% -101.23%, #FFF 36.45%, #C1E1FF 42%, #F5F5F7 100%)'
       }}
@@ -64,7 +64,7 @@ export function BenefitsSection() {
         </div>
       </div> */}
       {/* Background Image */}
-      <div className="absolute hidden sm:block text-center text-bottom right-[-2vw] top-[10vh] sm:top-[15vh] md:top-[18vh] sm:right-[-2vw] md:right-[-5vw] lg:right-[0vw] lg:top-[10vh] w-[90vw] h-[90vh] z-0 md:opacity-100 pointer-events-none">
+      <div className="absolute hidden overflow-x-hidden sm:block text-center text-bottom right-[-2vw] top-[10vh] sm:top-[15vh] md:top-[18vh] sm:right-[-2vw] md:right-[-5vw] lg:right-[0vw] lg:top-[10vh] w-[90vw] h-[90vh] z-0 md:opacity-100 pointer-events-none">
         <Image
           src="/landing/bg-benefits.png"
           alt="Benefits Background"

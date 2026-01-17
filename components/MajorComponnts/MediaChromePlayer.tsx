@@ -4,6 +4,7 @@ import { MediaController, MediaPlayButton } from 'media-chrome/react';
 import { Play } from 'lucide-react';
 
 const brandVideoSrc = "https://course-media-simvizlabs.s3.us-east-1.amazonaws.com/intro_video.mp4";
+// const brandVideoSrc= "https://stream.mux.com/DS00Spx1CV902MCtPj5WknGlR102V5HFkDe/high.mp4"
 
 const MediaChromePlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -37,7 +38,7 @@ const MediaChromePlayer = () => {
           height: 100%;
         }
       `}</style>
-      <div className='inset-0 w-screen bg-black relative'>
+      <div className='inset-0  bg-black relative'>
           <MediaController 
               ref={controllerRef}
               className=""
@@ -46,9 +47,8 @@ const MediaChromePlayer = () => {
                   ref={videoRef}
                   slot="media" 
                   src={brandVideoSrc} 
-                  className="w-full h-full" 
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-              >
+                  className="overflow-hidden md:w-[100vw] md:h-[calc(100%-80px)]" 
+               >
                   <track
                       label="thumbnails"
                       default

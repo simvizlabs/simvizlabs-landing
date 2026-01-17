@@ -23,7 +23,7 @@ const TailoredSolutionsSection = ({ customizations, heading, imageSrc }: { custo
     const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
     return (
-        <section ref={sectionRef} className="relative w-full overflow-visible bg-white">
+        <section ref={sectionRef} className="relative w-full max-w-[1920px] overflow-hidden bg-white">
             {/* Top Part: Clear Engine (Sticky) */}
             <div className="sticky top-0 z-0 w-full border-b border-black/5 bg-white">
                 <div className="relative w-full h-[100vh]">

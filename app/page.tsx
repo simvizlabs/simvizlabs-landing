@@ -19,27 +19,28 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      <NavbarDemo />
-      <HeroSection />
-    <MediaChromePlayer/>
+      <div className="max-w-[1920px] mx-auto w-full">
+        <NavbarDemo />
+        <HeroSection />
+        <MediaChromePlayer/>
 
-      {/* Sticky Product Flow */}
-      {/* Sticky Product Flow */}
-      <StickyProductFlow
+        {/* Sticky Product Flow */}
+        {/* Sticky Product Flow */}
+        <StickyProductFlow
         products={[
           {
             id: "a320",
             title: "A320 FMS Simulator",
             subtitle: "iPad Based",
-            image: "/landing/a320/a320_fms_simulator.png",
+            image: "/landing/a320/a320.png",
             orientation: "left",
             bottomText: "A320 FMS Simulator"
           },
           {
             id: "b737",
             title: "B737NG FMS Simulator",
-            subtitle: "iPad Based",
-            image: "/landing/b737/b737_fms_simulator.png",
+            subtitle: "Launching Soon",
+            image: "/landing/b737/b737.png",
             orientation: "right",
             isComingSoon: true,
             bottomText: "A new way to train like a pro."
@@ -47,8 +48,8 @@ export default function Home() {
           {
             id: "b747",
             title: "B747-400 FMS Simulator",
-            subtitle: "iPad Based",
-            image: "/landing/b747/b747_fms_simulator.png",
+            subtitle: "Launching Soon",
+            image: "/landing/b747/b747.png",
             orientation: "left",
             isComingSoon: true,
             bottomText: "A new way to train like a pro."
@@ -56,18 +57,19 @@ export default function Home() {
           {
             id: "atr",
             title: "ATR 72-600",
-            subtitle: "iPad Based",
-            image: "/landing/atr/atr.png",
+            subtitle: "Launching Soon",
+            image: "/landing/atr/atr72.png",
             orientation: "right",
             isComingSoon: true,
             bottomText: "A new way to train like a pro."
           }
         ]}
       />
-      <MultiPlatformSection />
-      <BenefitsSection />
-      {/* <Footer theme="light" className="bg-[#F5F5F7] border-black/5" /> */}
-      <Footer bgColor="bg-[#F5F5F7]" />
+        <MultiPlatformSection />
+        <BenefitsSection />
+        {/* <Footer theme="light" className="bg-[#F5F5F7] border-black/5" /> */}
+        <Footer bgColor="bg-[#F5F5F7]" />
+      </div>
     </main>
   );
 }
