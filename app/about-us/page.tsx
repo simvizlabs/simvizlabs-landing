@@ -126,31 +126,31 @@ const AboutUsPage = () => {
             <div className="space-y-0">
               {/* Chandler, AZ */}
               <div className="flex flex-row justify-between md:items-center gap-4 py-6 border-b border-[#191716]/20">
-                <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
-                  Chandler, AZ, USA
-                </p>
                 <p className="text-lg md:text-2xl font-normal text-[#191716] text-center md:text-left leading-[1.45]">
                   Headquarters
+                </p>
+                <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
+                  Chandler, AZ, USA
                 </p>
               </div>
 
               {/* New Delhi, India */}
               <div className="flex flex-row justify-between md:items-center gap-4 py-6 border-b border-[#191716]/20">
                 <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
-                  New Delhi, India
+                 Technology Center
                 </p>
                 <p className="text-lg md:text-2xl font-normal text-[#191716] text-center md:text-left leading-[1.45]">
-                  Development Center
+                  New Delhi, India
                 </p>
               </div>
 
               {/* Singapore */}
               <div className="flex flex-row justify-between md:items-center gap-4 py-6">
-                <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
-                  Singapore
-                </p>
                 <p className="text-lg md:text-2xl font-normal text-[#191716] text-center md:text-left leading-[1.45]">
                   Regional Office
+                </p>
+                <p className="text-lg md:text-2xl font-normal text-[#191716] leading-[1.45]">
+                  Singapore
                 </p>
               </div>
             </div>

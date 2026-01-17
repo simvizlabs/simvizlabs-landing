@@ -279,7 +279,7 @@ export function StickyProductFlow({ products }: StickyProductFlowProps) {
                                 WebkitTextFillColor: 'transparent'
                               }}
                             >
-                              FMS Simulator
+                            A320 FMS Simulator
                             </h2>
                           </div>
                         ) : (
