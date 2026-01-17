@@ -85,41 +85,118 @@ const Footer = ({
       bgColor,
       className
     )}>
-      <div className="w-full px-4 md:px-16 lg:px-24 py-12 flex flex-col lg:flex-row justify-between gap-12 lg:gap-8">
-        <div className="flex-1">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Image
-              src={"/logo.svg"}
-              alt="SimvizLabs"
-              width={48}
-              height={48}
-              className={cn("")}
-            />
-            <p className={cn("mt-2 font-bold", "text-black")}>SimViz Labs</p>
+      <div className="w-full pl-4 sm:pl-8 pr-8 sm:pr-16 lg:pr-24 py-12">
+        {/* Mobile: Column layout with first 2 sections in row, then single column */}
+        <div className="flex flex-col md:hidden gap-8">
+          {/* Logo section - full width on mobile */}
+          <div>
+            <div className="flex items-center gap-2">
+              <Image
+                src={"/logo.svg"}
+                alt="SimvizLabs"
+                width={48}
+                height={48}
+                className={cn("")}
+              />
+              <p className={cn("mt-2 font-bold", "text-black")}>SimViz Labs</p>
+            </div>
+            <p className="mt-4 text-black/70">
+              Next Generation Aviation Solutions.
+            </p>
+            <div className="mt-6 flex flex-row gap-6 w-full">
+              <div className="w-full">
+                <p className="text-black text-sm uppercase tracking-wider">Headquarters</p>
+                <p className="text-black/70">Chandler, AZ, USA</p>
+              </div>
+              <div className="w-full">
+                <p className="text-black text-sm uppercase tracking-wider">Technology Center</p>
+                <p className="text-black/70">New Delhi, India</p>
+              </div>
+              <div className="w-full">
+                <p className="text-black text-sm uppercase tracking-wider">Regional Office</p>
+                <p className="text-black/70">Singapore</p>
+              </div>
+            </div>
           </div>
-
-          <p className="mt-4 text-black/70">
-            Next Generation Aviation Solutions.
-          </p>
-
-          <div className="mt-6 flex flex-row md:flex-col gap-6 w-full">
-            <div className="w-full">
-              <p className="text-black text-sm uppercase tracking-wider">Headquarters</p>
-              <p className="text-black/70">Chandler, AZ, USA</p>
-            </div>
-            <div className="w-full">
-              <p className="text-black text-sm uppercase tracking-wider">Technology Center</p>
-              <p className="text-black/70">New Delhi, India</p>
-            </div>
-            <div className="w-full">
-              <p className="text-black text-sm uppercase tracking-wider">Regional Office</p>
-              <p className="text-black/70">Singapore</p>
-            </div>
+          
+          {/* First 2 sections in a row */}
+          <div className="grid grid-cols-2 gap-8">
+            {footerSections.slice(0, 2).map(({ title, links }) => (
+              <div key={title}>
+                <h6 className="font-semibold text-black mb-4">{title}</h6>
+                <ul className="space-y-3">
+                  {links.map(({ title, href }) => (
+                    <li key={title}>
+                      <Link
+                        href={href}
+                        className="text-black/70 hover:text-black transition-colors text-sm"
+                      >
+                        {title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          
+          {/* Third section in single column */}
+          <div>
+            {footerSections.slice(2, 3).map(({ title, links }) => (
+              <div key={title}>
+                <h6 className="font-semibold text-black mb-4">{title}</h6>
+                <ul className="space-y-3">
+                  {links.map(({ title, href }) => (
+                    <li key={title}>
+                      <Link
+                        href={href}
+                        className="text-black/70 hover:text-black transition-colors text-sm"
+                      >
+                        {title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24">
+        {/* Tablet and Desktop: All in same row */}
+        <div className="hidden md:flex flex-row items-start justify-between gap-8 lg:gap-12 xl:gap-16">
+          <div className="flex-1 min-w-0">
+            {/* Logo */}
+            <div className="flex items-center gap-2 mb-4">
+              <Image
+                src={"/logo.svg"}
+                alt="SimvizLabs"
+                width={48}
+                height={48}
+                className={cn("")}
+              />
+              <p className={cn("font-bold text-black", "text-black")}>SimViz Labs</p>
+            </div>
+
+            <p className="text-black/70">
+              Next Generation Aviation Solutions.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-6">
+              <div>
+                <p className="text-black text-sm uppercase tracking-wider">Headquarters</p>
+                <p className="text-black/70">Chandler, AZ, USA</p>
+              </div>
+              <div>
+                <p className="text-black text-sm uppercase tracking-wider">Technology Center</p>
+                <p className="text-black/70">New Delhi, India</p>
+              </div>
+              <div>
+                <p className="text-black text-sm uppercase tracking-wider">Regional Office</p>
+                <p className="text-black/70">Singapore</p>
+              </div>
+            </div>
+          </div>
+
           {footerSections.map(({ title, links }) => (
             <div key={title} className="min-w-fit">
               <h6 className="font-semibold text-black mb-4">{title}</h6>
@@ -140,11 +217,11 @@ const Footer = ({
         </div>
       </div>
 
-      <div className="px-6 sm:px-12 md:px-16 lg:px-24">
+      <div className="pl-4 sm:pl-8 pr-8 sm:pr-16 lg:pr-24">
         <Separator className="bg-black/10" />
       </div>
 
-      <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5">
+      <div className="w-full pl-4 sm:pl-8 pr-8 sm:pr-16 lg:pr-24 py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5">
         {/* Copyright */}
         <span className="text-black/70 text-sm text-center sm:text-left">
           &copy; {new Date().getFullYear()}{" "}

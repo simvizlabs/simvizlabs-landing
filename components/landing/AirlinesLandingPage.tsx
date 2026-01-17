@@ -26,7 +26,7 @@ const AirlinesLandingPage = ({ ImageBackground, content }) => {
                 <p className="font-sans font-semibold leading-[normal] not-italic text-[#191716] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center max-w-[1641px]">
                     {content.title}
                 </p>
-                <div className="font-medium leading-[1.36] not-italic text-[#191716] text-sm sm:text-md md:text-xl lg:text-2xl xl:text-3xl text-center max-w-[1641px]">
+                <div className="font-medium leading-[1.36] not-italic text-[#191716] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-center max-w-[1641px]">
                     <div>
                         {content.description}
                     </div>

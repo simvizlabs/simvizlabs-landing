@@ -109,7 +109,7 @@ const SimulatorProductsLarge = ({ featureCards, headImage, content, onClose, lay
                     })}
                 </div>
 
-                <section className="pt-24 border-y border-white/20">
+                <section className=" border-y border-white/20">
                     <div className="max-w-7xl">
                         <h2 className="text-lg md:text-2xl font-bold mb-16 text-black text-center tracking-tight pl-2">
                             {content.subtitle}

@@ -19,7 +19,7 @@ export function OurProductsSection() {
 
 function OurProductsContent() {
   const searchParams = useSearchParams();
-  const [expandedId, setExpandedId] = useState<string | null>("");
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     const productId = searchParams.get("product");

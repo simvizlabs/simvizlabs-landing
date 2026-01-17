@@ -48,26 +48,26 @@ export function ProductCard({
           <motion.span
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[#A4A4A4] text-xl md:text-2xl font-semibold uppercase tracking-wider -mb-3 block"
+            className="text-[#A4A4A4] text-xl md:text-2xl font-normal tracking-wider -mb-3 block"
           >
             {comingSoon}
           </motion.span>
         )}
         <motion.h3
           layoutId={`title-${layoutId}`}
-          className="text-[#191716] text-3xl md:text-5xl font-semibold leading-tight font-sans"
+          className="text-[#191716] mt-4 text-3xl md:text-5xl font-semibold leading-tight font-sans"
         >
           {title}
         </motion.h3>
         <motion.p
           layoutId={`desc-${layoutId}`}
-          className="text-[#191716] text-lg md:text-2xl leading-normal font-sans text-center max-w-xl"
+          className="text-[#191716] text-lg mt-4 md:text-2xl leading-normal font-sans text-center max-w-xl"
         >
           {description}
         </motion.p>
 
         {buttons && buttons.length > 0 && (
-          <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 justify-center mt-2 w-full">
+          <div className="flex flex-wrap mt-4 md:flex-nowrap gap-4 md:gap-6 justify-center mt-2 w-full">
             {buttons.map((btn, index) => {
               if (btn.text === "Learn More") {
                 return (

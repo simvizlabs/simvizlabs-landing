@@ -151,8 +151,8 @@ const AirlinesPage = () => {
               <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-[#191716] tracking-tight font-medium leading-[1.36] font-sans">
                 iPad Based
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#191716] tracking-tight max-w-2xl mx-auto leading-[normal] font-sans">
-                FMS Simulator & LMS
+              <h2 className="font-sans font-semibold leading-[normal] not-italic text-[#191716] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center max-w-[1641px]">
+              FMS Simulator & LMS
               </h2>
             </div>
 

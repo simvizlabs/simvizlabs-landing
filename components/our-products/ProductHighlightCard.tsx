@@ -55,31 +55,31 @@ export function ProductHighlightCard({
                     <motion.span
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-[#1381e5] text-sm md:text-base font-semibold uppercase tracking-wider mb-2 block"
+                        className="text-[#A4A4A4]  text-xl md:text-2xl font-semibold uppercase tracking-wider mb-2 block"
                     >
                         {comingSoon}
                     </motion.span>
                 )}
                 <motion.h3
                     layoutId={`title-${layoutId}`}
-                    className="text-4xl md:text-6xl font-bold text-black tracking-tight leading-tight"
+                    className="text-4xl md:text-6xl mt-2 font-bold text-black tracking-tight leading-tight"
                 >
                     {title}
                 </motion.h3>
                 <motion.p
                     layoutId={`desc-${layoutId}`}
-                    className="text-lg md:text-xl text-black/70 leading-relaxed"
+                    className="text-lg md:text-xl mt-2 text-black/70 leading-relaxed"
                 >
                     {description}
                 </motion.p>
-                <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
+                <div className="flex flex-wrap gap-4 mt-2 items-center justify-center lg:justify-start">
                     {secondaryButton && (
                         <Button
                             variant="outline"
                             asChild={!!secondaryButton.href}
                             onClick={secondaryButton.onClick}
                             className={cn(
-                                "rounded-3xl px-8 py-4 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5] transition-all",
+                                "rounded-[32px] px-8 py-4 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5] transition-all",
                                 secondaryButton.className
                             )}
                         >

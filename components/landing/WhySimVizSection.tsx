@@ -102,6 +102,9 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
         }
     };
 
+    const canScrollLeft = activeIndex > 0;
+    const canScrollRight = activeIndex < numDots - 1;
+
     return (
         <section className={`bg-[#f5f5f7] py-4 md:py-8 lg:py-12 xl:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32`}>
             <div className="md:mx-auto flex-col gap-4 md:gap-8">
@@ -153,18 +156,20 @@ const WhySimVizSection = ({ features, content, heading, reducedTopPadding }: Why
                         <div className="flex gap-2">
                             <button
                                 onClick={scrollLeft}
-                                className="w-10 h-10 rounded-full bg-[#e5e5e5] flex items-center justify-center hover:bg-[#d4d4d4] transition-colors active:scale-95"
+                                disabled={!canScrollLeft}
+                                className="w-10 h-10 rounded-full bg-[#e5e5e5] flex items-center justify-center hover:bg-[#d4d4d4] transition-colors active:scale-95 disabled:bg-[#f0f0f0] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#f0f0f0] disabled:active:scale-100"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 18L9 12L15 6" stroke="#525252" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M15 18L9 12L15 6" stroke={canScrollLeft ? "#525252" : "#b0b0b0"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                             <button
                                 onClick={scrollRight}
-                                className="w-10 h-10 rounded-full bg-[#e5e5e5] flex items-center justify-center hover:bg-[#d4d4d4] transition-colors active:scale-95"
+                                disabled={!canScrollRight}
+                                className="w-10 h-10 rounded-full bg-[#e5e5e5] flex items-center justify-center hover:bg-[#d4d4d4] transition-colors active:scale-95 disabled:bg-[#f0f0f0] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#f0f0f0] disabled:active:scale-100"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 18L15 12L9 6" stroke="#525252" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M9 18L15 12L9 6" stroke={canScrollRight ? "#525252" : "#b0b0b0"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                         </div>
