@@ -19,16 +19,15 @@ const benefits = [
 export function BenefitsSection() {
   return (
     <section
-      className="relative w-[100vw] sm:mx-auto md:py-[15vh] overflow-hidden"
+      className="relative w-[100vw] h-[80vh] sm:h-[80vh] md:h-[100vh] pt-10 sm:mx-auto md:py-[15vh] overflow-hidden"
       style={{
         background: 'radial-gradient(170.74% 170.74% at 50% -101.23%, #FFF 36.45%, #C1E1FF 42%, #F5F5F7 100%)'
       }}
     >
-      <div className="flex max-w-7xl flex-col md:flex-row min-h-[60vh] md:min-h-[80vh] items-center">
-        {/* Text Column */}
-        <div className="w-full md:w-1/2 px-6 sm:px-12 md:pl-16 lg:pl-24 py-12 md:py-20 flex flex-col z-10">
+      {/* <div className="flex max-w-7xl flex-col md:flex-row min-h-[60vh] md:min-h-[80vh] items-center">
+         <div className="w-full md:w-1/2 px-6 sm:px-12 md:pl-16 lg:pl-24 py-12 md:py-20 flex flex-col z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black mb-10 md:mb-16">
-            Train Smarter <br className="hidden sm:block" /> with Real <br className="md:hidden lg:block" /> Airline Systems.
+            Train Smarter <br className="hidden sm:block" /> with Real <br className="" /> Airline Systems.
           </h2>
 
           <div className="flex flex-col gap-8 md:gap-10">
@@ -52,8 +51,7 @@ export function BenefitsSection() {
           </div>
         </div>
 
-        {/* Image Column */}
-        <div className="w-full md:w-1/2 relative h-[40vh] md:h-full flex items-end md:items-center justify-end overflow-visible">
+         <div className="w-full md:w-1/2 relative h-[40vh] md:h-full flex items-end md:items-center justify-end overflow-visible">
           <div className="relative w-full h-full transform translate-y-10 md:translate-y-0 md:translate-x-10 lg:translate-x-20 scale-125 md:scale-150 lg:scale-[1.8]">
             <Image
               src="/landing/bg-benefits.png"
@@ -64,18 +62,18 @@ export function BenefitsSection() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Background Image */}
-      {/* <div className="absolute hidden sm:block text-center text-bottom sm:top-[15vh] md:top-[18vh] sm:right-[-25vw] md:right-[-5vw] lg:right-[8vw] w-[90vw] h-[80vh] z-0 md:opacity-100 pointer-events-none">
+      <div className="absolute sm:block text-center text-bottom right-[-2vw] top-[10vh] sm:top-[15vh] md:top-[18vh] sm:right-[-2vw] md:right-[-5vw] lg:right-[0vw] lg:top-[10vh] w-[90vw] h-[90vh] z-0 md:opacity-100 pointer-events-none">
         <Image
           src="/landing/bg-benefits.png"
           alt="Benefits Background"
           fill
           className="object-contain object-right"
         />
-      </div> */}
+      </div>
 
-      {/* <div className="relative z-10 max-w-[1440px] px-4 sm:px-8 md:px-24">
+      <div className="relative z-10 max-w-[1440px] px-4 sm:px-8 md:px-24">
         <h2 className="mb-10 sm:mb-16 text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-black sm:text-5xl">
           Train Smarter with <br /> Real Airline Systems.
         </h2>
@@ -99,7 +97,7 @@ export function BenefitsSection() {
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
     </section>
   );
 }
