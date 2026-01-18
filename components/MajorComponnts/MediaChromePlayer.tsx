@@ -35,15 +35,15 @@ const MediaChromePlayer = () => {
     }
   }, []);
 
-  // Inject styles into shadow DOM when paused state changes
+  // Inject styles into shadow DOM - apply to both play and pause buttons
   useEffect(() => {
     const updateShadowStyles = () => {
       // Try to get button from ref first, then fallback to querySelector
-      const button = playButtonRef.current || document.querySelector('media-play-button[data-paused]');
+      const button = playButtonRef.current || document.querySelector('media-play-button');
       
       if (button?.shadowRoot) {
         const shadowRoot = button.shadowRoot;
-        const styleId = 'paused-button-style';
+        const styleId = 'large-button-style';
         
         // Remove existing style if any
         const existingStyle = shadowRoot.getElementById(styleId);
@@ -51,30 +51,39 @@ const MediaChromePlayer = () => {
           existingStyle.remove();
         }
 
-        if (isPaused) {
-          // Create and inject style for paused state
-          const style = document.createElement('style');
-          style.id = styleId;
-          style.textContent = `
-            :host {
-              width: 9vw !important;
-              height: 9vh !important;
-              font-size: 16rem !important;
-            }
-            svg {
-              width: 30vw !important;
-              height: 30vh !important;
-              transform: scale(1.5) !important;
-            }
-            slot[name="icon"] svg,
-            slot[name="play"] svg,
-            slot[name="pause"] svg {
-              width: 9vw !important;
-              height: 9vh !important;
-            }
-          `;
-          shadowRoot.appendChild(style);
-        }
+        // Always apply large styles for both play and pause buttons
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = `
+          :host {
+            width: 9vw !important;
+            height: 9vh !important;
+            font-size: 16rem !important;
+          }
+          svg {
+            width: 30vw !important;
+            height: 30vh !important;
+            transform: scale(1.5) !important;
+          }
+          slot[name="icon"] svg,
+          slot[name="play"] svg,
+          slot[name="pause"] svg {
+            width: 9vw !important;
+            height: 9vh !important;
+            transform: scale(1.5) !important;
+          }
+          slot[name="pause"] svg {
+            width: 9vw !important;
+            height: 9vh !important;
+            transform: scale(1.5) !important;
+          }
+          slot[name="play"] svg {
+            width: 9vw !important;
+            height: 9vh !important;
+            transform: scale(1.5) !important;
+          }
+        `;
+        shadowRoot.appendChild(style);
       }
     };
 
@@ -84,7 +93,33 @@ const MediaChromePlayer = () => {
     // Also try after a short delay to ensure shadow DOM is ready
     const timeout = setTimeout(updateShadowStyles, 100);
     
-    return () => clearTimeout(timeout);
+    // Also update when paused state changes to catch any re-renders
+    const timeout2 = setTimeout(updateShadowStyles, 200);
+    
+    // Set up MutationObserver to watch for changes in shadow DOM
+    const button = playButtonRef.current || document.querySelector('media-play-button');
+    let observer: MutationObserver | null = null;
+    
+    if (button?.shadowRoot) {
+      observer = new MutationObserver(() => {
+        updateShadowStyles();
+      });
+      
+      observer.observe(button.shadowRoot, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'class']
+      });
+    }
+    
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(timeout2);
+      if (observer) {
+        observer.disconnect();
+      }
+    };
   }, [isPaused]);
 
   return (
