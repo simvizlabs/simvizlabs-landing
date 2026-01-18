@@ -51,30 +51,29 @@ const MediaChromePlayer = () => {
           existingStyle.remove();
         }
 
-        if (isPaused) {
-          // Create and inject style for paused state
-          const style = document.createElement('style');
-          style.id = styleId;
-          style.textContent = `
-            :host {
-              width: 9vw !important;
-              height: 9vh !important;
-              font-size: 16rem !important;
-            }
-            svg {
-              width: 30vw !important;
-              height: 30vh !important;
-              transform: scale(1.5) !important;
-            }
-            slot[name="icon"] svg,
-            slot[name="play"] svg,
-            slot[name="pause"] svg {
-              width: 9vw !important;
-              height: 9vh !important;
-            }
-          `;
-          shadowRoot.appendChild(style);
-        }
+        // Always inject styles regardless of paused state
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = `
+          :host {
+            width: 9vw !important;
+            height: 9vh !important;
+            font-size: 16rem !important;
+          }
+          svg {
+            width: 30vw !important;
+            height: 30vh !important;
+            transform: scale(1.5) !important;
+          }
+          slot[name="icon"] svg,
+          slot[name="play"] svg,
+          slot[name="pause"] svg {
+            width: 9vw !important;
+            height: 9vh !important;
+            transform: scale(1.5) !important;
+          }
+        `;
+        shadowRoot.appendChild(style);
       }
     };
 
