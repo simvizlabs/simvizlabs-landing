@@ -51,7 +51,7 @@ const MediaChromePlayer = () => {
           existingStyle.remove();
         }
 
-        // Always apply large styles for both play and pause buttons
+        // Always inject styles regardless of paused state
         const style = document.createElement('style');
         style.id = styleId;
         style.textContent = `
@@ -68,16 +68,6 @@ const MediaChromePlayer = () => {
           slot[name="icon"] svg,
           slot[name="play"] svg,
           slot[name="pause"] svg {
-            width: 9vw !important;
-            height: 9vh !important;
-            transform: scale(1.5) !important;
-          }
-          slot[name="pause"] svg {
-            width: 9vw !important;
-            height: 9vh !important;
-            transform: scale(1.5) !important;
-          }
-          slot[name="play"] svg {
             width: 9vw !important;
             height: 9vh !important;
             transform: scale(1.5) !important;
