@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { MediaController, MediaPlayButton } from 'media-chrome/react';
 import { Play } from 'lucide-react';
 
-const brandVideoSrc = "https://course-media-simvizlabs.s3.us-east-1.amazonaws.com/intro_video.mp4";
+const brandVideoSrc = "https://cdn.simvizlabs.com/intro_video.mp4";
 // const brandVideoSrc= "https://stream.mux.com/DS00Spx1CV902MCtPj5WknGlR102V5HFkDe/high.mp4"
-const thumbnailSrc = "https://course-media-simvizlabs.s3.us-east-1.amazonaws.com/into_video_thumbnail.png";
+const thumbnailSrc = "https://cdn.simvizlabs.com/into_video_thumbnail.png";
 
 const MediaChromePlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
