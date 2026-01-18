@@ -9,7 +9,7 @@ const A320BundlePrivacyPage = () => {
   return (
     <div className="relative isolate bg-white dark:bg-neutral-900 font-geist min-h-screen">
       <NavbarDemo />
-      
+
       {/* Container */}
       <div className="mx-auto max-w-5xl px-6 lg:px-8 pt-32 pb-32 sm:pb-40">
         {/* Back Button */}

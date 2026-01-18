@@ -11,6 +11,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+  			black: '#191716',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -171,11 +172,11 @@ export default {
   	},
   	fontFamily: {
   		sans: [
-  			'Geist',
+  			'Inter',
   			'sans-serif'
   		],
-  		geist: [
-  			'Geist',
+  		inter: [
+  			'Inter',
   			'sans-serif'
   		]
   	}

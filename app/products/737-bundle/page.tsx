@@ -6,12 +6,12 @@ import HeroSection from '@/components/HeroSection';
 import Pricing from '@/components/pricing';
 
 export const metadata: Metadata = {
-  title: 'B737 Simulator | High-Fidelity FMC Trainer | SimvizLabs',
-  description: 'Master the B737 FMC and automation with our aircraft-level accuracy simulator. Features precise LNAV/VNAV, AI CPDLC, customizable ACARS, and MCP/FMA training.',
+  title: 'B737 FMS Simulator & FMC Trainer | SimViz Labs',
+  description: 'High-fidelity Boeing 737 FMS training software. Realistic VNAV/LNAV simulation for professional pilot training and airline proficiency.',
   keywords: ['B737 Simulator', 'FMC Trainer', 'Boeing Training', 'CPDLC', 'ACARS', 'MCP Training', 'Flight Simulation', 'Pilot Training'],
   openGraph: {
-    title: 'B737 Simulator | High-Fidelity FMC Trainer',
-    description: 'Precise FMC simulation, AI-powered CPDLC, and integrated Boeing systems training.',
+    title: 'B737 FMS Simulator & FMC Trainer | SimViz Labs',
+    description: 'High-fidelity Boeing 737 FMS training software. Realistic VNAV/LNAV simulation for professional pilot training and airline proficiency.',
     type: 'website',
   }
 };

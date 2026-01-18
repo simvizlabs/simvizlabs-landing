@@ -30,13 +30,13 @@ const StickyScrollRevealSection = () => {
   // Each paragraph is visible for 25% of scroll, with overlap transitions
   const p0Opacity = useTransform(scrollYProgress, [0, 0.2, 0.25], [0, 1, 0]);
   const p0Y = useTransform(scrollYProgress, [0, 0.25], [50, 0]);
-  
+
   const p1Opacity = useTransform(scrollYProgress, [0.2, 0.45, 0.5], [0, 1, 0]);
   const p1Y = useTransform(scrollYProgress, [0.25, 0.5], [50, 0]);
-  
+
   const p2Opacity = useTransform(scrollYProgress, [0.45, 0.7, 0.75], [0, 1, 0]);
   const p2Y = useTransform(scrollYProgress, [0.5, 0.75], [50, 0]);
-  
+
   const p3Opacity = useTransform(scrollYProgress, [0.7, 1], [0, 1]);
   const p3Y = useTransform(scrollYProgress, [0.75, 1], [50, 0]);
 
@@ -62,7 +62,7 @@ const StickyScrollRevealSection = () => {
                   Before Your Jet Transition
                 </h2>
               </div>
-              
+
               {/* Single paragraph container - paragraphs replace each other */}
               <div className="relative h-32 md:h-40 flex items-center justify-center">
                 {paragraphs.map((text, index) => (
@@ -85,8 +85,8 @@ const StickyScrollRevealSection = () => {
                         className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-blue-600 dark:bg-blue-400 border-2 border-white dark:border-gray-900 shadow-lg"
                       />
                       {/* Vertical line */}
-                      <div 
-                        className="w-0.5 h-full min-h-[60px] md:min-h-[80px]" 
+                      <div
+                        className="w-0.5 h-full min-h-[60px] md:min-h-[80px]"
                         style={{
                           background: 'linear-gradient(to bottom, rgba(19, 129, 229, 1), rgba(217, 217, 217, 1))'
                         }}
@@ -151,8 +151,8 @@ const HorizontalScrollRevealSection = () => {
   const x = useTransform(scrollYProgress, [0.15, 1], ["1%", "-115%"]);
 
   return (
-    <section 
-      ref={targetRef} 
+    <section
+      ref={targetRef}
       className="relative h-auto md:h-[300vh] pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-0"
       style={{
         background: 'linear-gradient(to bottom, #191716, #2B3344)'
@@ -258,13 +258,13 @@ const A320FMSLandingContent = () => {
         if (res.ok) {
           const data = await res.json();
           if (data.success && data.data) {
-              setPlanDetails({
-                  id: data.data.planId,
-                  name: data.data.name,
-                  amount: data.data.amount,
-                  interval: data.data.interval,
-                  currency: data.data.currency
-              });
+            setPlanDetails({
+              id: data.data.planId,
+              name: data.data.name,
+              amount: data.data.amount,
+              interval: data.data.interval,
+              currency: data.data.currency
+            });
           }
         }
       } catch (e) {
@@ -287,21 +287,21 @@ const A320FMSLandingContent = () => {
       try {
         const res = await fetch(`/api/payments/user/${userId}`);
         if (res.ok) {
-           const data = await res.json();
-           if (data.success && data.data && data.data.user && data.data.user.activeSubscriptions) {
-               const hasActiveSubscription = data.data.user.activeSubscriptions.some(
-                   (sub: any) => sub.productId === 'a320-bundle' || sub.planId === (planDetails?.id || '1') || sub.productId === (planDetails?.id || '1')
-               );
+          const data = await res.json();
+          if (data.success && data.data && data.data.user && data.data.user.activeSubscriptions) {
+            const hasActiveSubscription = data.data.user.activeSubscriptions.some(
+              (sub: any) => sub.productId === 'a320-bundle' || sub.planId === (planDetails?.id || '1') || sub.productId === (planDetails?.id || '1')
+            );
 
-               if (hasActiveSubscription) {
-                   router.push('/dashboard');
-                   return;
-               }
-           }
+            if (hasActiveSubscription) {
+              router.push('/dashboard');
+              return;
+            }
+          }
         }
       } catch (error) {
-          console.error("Error checking subscription:", error);
-          // Fall through to open modal on error
+        console.error("Error checking subscription:", error);
+        // Fall through to open modal on error
       }
       setIsOrderModalOpen(true);
     }
@@ -344,12 +344,12 @@ const A320FMSLandingContent = () => {
       image: "/images/in/a320/fms_mock.png",
       imageAlt: "FMS Simulator Interface",
       featuresLabel: "Key Features:",
-      info:true,
+      info: true,
       infoDetails: [{
         id: 1,
         name: "Minimum Requirements",
         designation: "iPadOS 16.0+ \n MacOs Ventura 13.0 (Apple Silicon Only)",
-        icon: Info  
+        icon: Info
       }],
       features: [
         "Full MCDU functionality",
@@ -367,7 +367,7 @@ const A320FMSLandingContent = () => {
       image: "/images/in/a320/lms_mock.png",
       imageAlt: "Structured LMS Interface",
       featuresLabel: "Training modules:",
-      info:false,
+      info: false,
       features: [
         "FMS fundamentals and phases of flight",
         "Pre‑flight setup and performance planning",
@@ -410,7 +410,7 @@ const A320FMSLandingContent = () => {
   return (
     <div className="bg-white text-black dark:bg-neutral-900 dark:text-white font-geist min-h-screen">
       <NavbarDemo />
-      
+
       <main>
         {/* Hero Section - Fullscreen with Background Video */}
         <section className="relative h-[95vh] w-full overflow-hidden">
@@ -427,10 +427,10 @@ const A320FMSLandingContent = () => {
             {/* Fallback image if video doesn't load */}
             <div className="absolute inset-0 bg-purple-100 dark:bg-purple-950/30" />
           </video>
-          
+
           {/* Overlay for better text readability */}
           {/* <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-purple-800/30 to-purple-900/50" /> */}
-          <div className="absolute inset-0 bg-[#E7E7FF]"/>
+          <div className="absolute inset-0 bg-[#E7E7FF]" />
           {/* Content */}
           <div className="relative z-10 flex h-full items-end justify-center pb-8 sm:pb-12 md:pb-16 lg:pb-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
@@ -459,7 +459,7 @@ const A320FMSLandingContent = () => {
                   </Button>
                 </div>
                 <p className="mt-2 text-sm sm:text-base text-[#252121] font-bold font-geist px-4">
-                One plan. Full access. ₹9,000/year.
+                  One plan. Full access. ₹9,000/year.
                 </p>
               </div>
             </div>
@@ -472,13 +472,13 @@ const A320FMSLandingContent = () => {
         {/* FMS Competence Attributes - Horizontal Scroll Reveal */}
         <HorizontalScrollRevealSection />
 
-       
+
 
         {/* A320 FMS Simulator Advantage - Dark Grey Background */}
         <section className="py-12 sm:py-16 md:py-20 lg:py-24" style={{ background: 'linear-gradient(to bottom, rgba(34, 33, 33, 1), rgba(25, 23, 22, 1))' }}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center">
-              <div className="">       
+            <div className="flex justify-center">
+              <div className="">
                 <Image
                   src="/images/in/a320/fms_simulator.png"
                   alt="A320 FMS Control Display Unit"
@@ -531,7 +531,7 @@ const A320FMSLandingContent = () => {
             <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
               {trainingPlatformCards.map((card, index) => (
                 <div key={index} className="bg-[#272727] dark:bg-neutral-900 rounded-2xl sm:rounded-[36px] p-4 sm:p-6 md:p-8">
-                    <div className="mb-4 sm:mb-6">
+                  <div className="mb-4 sm:mb-6">
                     <Image
                       src={card.image}
                       alt={card.imageAlt}
@@ -550,11 +550,11 @@ const A320FMSLandingContent = () => {
 
                   <div>
                     <p className="text-white font-semibold mb-2 sm:mb-3 text-xs sm:text-sm md:text-base font-geist">{card.featuresLabel}</p>
-                  <hr className="border-gray-400 mb-1" />
+                    <hr className="border-gray-400 mb-1" />
                     <ul className="space-y-2 text-gray-300 dark:text-gray-400 font-geist">
                       {card.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-[#FFFFFFB2] opacity-70 font-normal items-center gap-2 leading-relaxed">
-                           {feature}
+                          {feature}
                         </li>
                       ))}
                     </ul>
@@ -630,23 +630,23 @@ const A320FMSLandingContent = () => {
               <div className="rounded-2xl w-full max-w-4xl px-4 sm:px-8 md:px-12 lg:px-16  2xl:px-24">
                 <div className="border-2 border-[#1381E5] bg-white rounded-xl sm:rounded-2xl lg:rounded-[24px] px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-24 py-6 sm:py-8 md:py-12 lg:py-16">
                   <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-bold text-[#1381E5] dark:text-white mb-2 font-geist text-center">
-                  For individuals
+                    For individuals
                   </h3>
                   <div className="text-center mb-4 sm:mb-6">
                     <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-8xl font-bold text-gray-900 dark:text-white font-geist">
                       {planDetails ? `₹${(planDetails.amount / 100).toLocaleString("en-IN")}` : "₹9,000"}
                     </span>
-                    <br/>
+                    <br />
                     <span className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
                   </div>
                   <div className="text-center w-full">
-                  <Button
-                    size="lg"
-                    className="w-full sm:max-w-64 rounded-xl sm:rounded-2xl lg:rounded-[24px] bg-[#1381E5] hover:bg-blue-700 text-white mb-4 sm:mb-6 font-geist"
-                    onClick={() => handleStartTraining()}
-                  >
-                    Get Started
-                  </Button>
+                    <Button
+                      size="lg"
+                      className="w-full sm:max-w-64 rounded-xl sm:rounded-2xl lg:rounded-[24px] bg-[#1381E5] hover:bg-blue-700 text-white mb-4 sm:mb-6 font-geist"
+                      onClick={() => handleStartTraining()}
+                    >
+                      Get Started
+                    </Button>
                   </div>
                   <hr className="border-gray-400 my-4 sm:my-6" />
                   <ul className="space-y-2 sm:space-y-3 text-gray-700 dark:text-gray-300 font-geist">
@@ -688,32 +688,32 @@ const A320FMSLandingContent = () => {
           </div>
         </section> */}
 
-        {/* About SimvizLabs - Dark Grey Background */}
+        {/* About SimViz Labs - Dark Grey Background */}
         <section className="bg-black">
-                 <Image
-                    src="/images/in/a320/aviation_academy_meeting.png"
-                    alt="About SimvizLabs"
-                    width={1200}
-                    height={600}
-                    className="w-full h-auto"
-                />
-           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-           
+          <Image
+            src="/images/in/a320/aviation_academy_meeting.png"
+            alt="About SimViz Labs"
+            width={1200}
+            height={600}
+            className="w-full h-auto"
+          />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
             <div className="mx-auto max-w-5xl text-center bg-black py-12 sm:py-16 md:py-24 lg:py-32  2xl:py-52 px-4">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-6xl font-bold tracking-tight text-white font-geist mb-4 sm:mb-6">
-                About SimvizLabs
+                About SimViz Labs
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg leading-6 sm:leading-7 md:leading-8 text-gray-300 dark:text-gray-400 font-geist">
-              Our mission is to democratize professional aviation training by enabling pilots to maximize the value of expensive simulator time through early system mastery.              </p>
+                Our mission is to democratize professional aviation training by enabling pilots to maximize the value of expensive simulator time through early system mastery.              </p>
             </div>
           </div>
         </section>
       </main>
 
-    <div className="-m-[1px]" >
-      <Footer />
+      <div className="-m-[1px]" >
+        <Footer />
       </div>
-      
+
       {/* Order Summary Modal */}
       <OrderSummaryModal
         open={isOrderModalOpen}

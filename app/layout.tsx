@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://simvizlabs.com'),
-  title: "Simvizlabs- NextGen Pilot Training",
+  title: "SimViz Labs- NextGen Pilot Training",
   description:
     "Experience aviation distance learning powered by interactive data-driven training. Enhance pilot performance and operational safety with SimvizLabs' innovative solutions.",
   keywords: [
@@ -19,10 +23,10 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    siteName: "SimVizLabs",
+    siteName: "SimViz Labs",
     locale: "en_US",
     url: "https://simvizlabs.com",
-    title: "Simvizlabs",
+    title: "SimViz Labs",
     description:
       "Next Gen Aviation solutions , Digital Pilot Training And Operational Solution",
     images: [
@@ -30,17 +34,17 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SimvizLabs Landing page",
+        alt: "SimViz Labs Landing page",
       },
     ],
   },
   authors: [
     {
-      name: "SimvizlabsDev",
+      name: "SimViz Labs Dev",
       url: "https://simvizlabs.com",
     },
   ],
-  creator: "simvizlabsdevs",
+  creator: "SimViz Labs Dev",
   icons: [
     {
       rel: "icon",
@@ -90,10 +94,12 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`antialiased font-geist`}>
+        <body className={`antialiased ${inter.variable} font-sans`}>
           <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
-            {children}
-            <Toaster />
+            <SmoothScrollProvider>
+              {children}
+              <Toaster />
+            </SmoothScrollProvider>
           </ThemeProvider>
         </body>
       </html>

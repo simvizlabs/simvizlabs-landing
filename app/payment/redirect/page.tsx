@@ -49,7 +49,7 @@ const PaymentRedirectContent = () => {
 
       const pollStatus = async () => {
         attempts++;
-        
+
         const response = await fetch(`/api/payments/status/${merchantOrderId}`);
         const data = await response.json();
 

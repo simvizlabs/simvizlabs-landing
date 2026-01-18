@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
         hostname: "tailwindcss.com",
         port: "",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.figma.com",
+        port: "",
+        pathname: "/**",
       }
     ],
     unoptimized: true,
