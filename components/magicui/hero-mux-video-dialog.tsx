@@ -58,7 +58,7 @@ export default function HeroMuxVideoDialog({
           <MuxPlayer
             playbackId={playbackId}
             metadata={{
-              video_title: 'SimvizLabs Video',
+              video_title: 'SimViz Labs Video',
               viewer_user_id: 'Placeholder (optional)',
             }}
             accentColor="#0061ff"

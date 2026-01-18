@@ -28,19 +28,19 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
         href="/"
         className={`relative z-20 mr-3 flex items-center space-x-2 px-2 py-1 ${isScrolled ? 'text-sm' : 'text-3xl'} font-normal text-extrabold font-geist transition-all duration-300`}
       >
-        <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
-        <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimvizLabs</span>
+        <Image src="/logo.svg" alt="SimViz Labs Logo" width={isScrolled ? 32 : 64} height={isScrolled ? 32 : 64} className="mr-1 transition-all duration-300" />
+        <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist">SimViz Labs</span>
       </Link>
     );
   }
-  
+
   // For mobile view, return only the logo without text
   return (
     <Link
       href="/"
       className={`relative z-20 flex items-center px-0 py-1 transition-all duration-300`}
     >
-      <Image src="/logo.svg" alt="SimvizLabs Logo" width={isScrolled ? 32 : 48} height={isScrolled ? 32 : 48} className="transition-all duration-300" />
+      <Image src="/logo.svg" alt="SimViz Labs Logo" width={isScrolled ? 32 : 48} height={isScrolled ? 32 : 48} className="transition-all duration-300" />
     </Link>
   );
 };
@@ -50,7 +50,7 @@ export default function NavbarDemo() {
   const [isIndia, setIsIndia] = useState(false);
   const [geoLoading, setGeoLoading] = useState(true);
   const { user, isLoaded: userLoaded } = useUser();
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -59,9 +59,9 @@ export default function NavbarDemo() {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -74,16 +74,16 @@ export default function NavbarDemo() {
         // First, try to get region from middleware header (set by Next.js middleware)
         const response = await fetch('/api/geolocation');
         const data = await response.json();
-        
+
         if (data.success && data.isIndia) {
           setIsIndia(true);
         } else {
           // Fallback: Check browser locale
           const browserLocale = navigator.language || (navigator as any).userLanguage;
-          const isIndianBrowserLocale = browserLocale.includes('IN') || 
-                                        browserLocale.startsWith('hi') ||
-                                        browserLocale.startsWith('ta') ||
-                                        browserLocale.startsWith('te');
+          const isIndianBrowserLocale = browserLocale.includes('IN') ||
+            browserLocale.startsWith('hi') ||
+            browserLocale.startsWith('ta') ||
+            browserLocale.startsWith('te');
           setIsIndia(isIndianBrowserLocale);
         }
       } catch (error) {
@@ -121,40 +121,33 @@ export default function NavbarDemo() {
   //   const interval = setInterval(checkAuthStatus, 1000);
   //   return () => clearInterval(interval);
   // }, []);
-  
+
   const navItems = [
     {
-      name: "Our Solutions",
-      link: "#",
-      children: [
-       
-        { name: "Airlines", link: "/airlines", icon: IconPlane },
-        { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
-        { name: "Type Rating Aviation Schools", link: "/type-rating-schools", icon: IconSchool },
-      
-      ],
+      name: "Airlines",
+      link: "/airlines",
+    },
+    {
+      name: "Flying Schools",
+      link: "/flying-schools",
+    },
+    {
+      name: "Approved Training Organisations",
+      link: "/approved-training-organisations",
     },
     {
       name: "Our Products",
-      link: "/products",
+      link: "/our-products",
     },
-    // {
-    //   name:"Pricing",
-    //   link:"/pricing",
-    // },
     {
-      name: "More",
-      link: "#",
-      listMenu:[
-      { name: "Airlines", link: "/airlines", icon: IconPlane },
-     
-        { name: "Aeronautical Schools", link: "/aeronautical-schools", icon: IconBuildingCommunity },
-        { name: "Type Rating Organisations", link: "/type-rating-schools", icon: IconSchool },
-        {name:"Our Products", link:"/products", icon: IconPlane},
-        // {name:"Pricing", link:"/pricing", icon: IconPlane}, // HIDDEN - Pricing removed
-      ]
-      }
-   ];
+      name: "About Us",
+      link: "/about-us",
+    },
+    {
+      name: "Contact Us",
+      link: "/contact",
+    },
+  ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter(); // Initialize useRouter
@@ -181,93 +174,38 @@ export default function NavbarDemo() {
   }, [pathname, router]);
 
   return (
-    <div className="relative w-full font-geist">
-      <Navbar className="font-geist">
-        {/* Desktop Navigation - Hidden on mobile */}
-        <div className="hidden lg:block">
-          <NavBody>
-            <NavbarLogo isScrolled={isScrolled} />
-            <NavItems items={navItems} onItemClick={handleNavItemClick} />
-            {/* Show auth buttons/avatar only for Indian IP addresses */}
-            {!geoLoading && isIndia && (
-              <div className="flex items-center gap-4">
-                {userLoaded && user ? (
-                  <div className="flex items-center gap-3">
-                    <NavbarButton 
-                      variant="primary" 
-                      href="/dashboard" 
-                      className="font-geist"
-                    >
-                      Dashboard
-                    </NavbarButton>
-                    <UserButton 
-                      appearance={{
-                        elements: {
-                          avatarBox: "w-10 h-10",
-                        },
-                      }}
-                      afterSignOutUrl="/"
-                    />
-                  </div>
-                ) : (
-                  <>
-                    <NavbarButton 
-                      variant="secondary" 
-                      href="/sign-in" 
-                      className="font-geist"
-                    >
-                      Sign In
-                    </NavbarButton>
-                    <NavbarButton 
-                      variant="primary" 
-                      href="/sign-up" 
-                      className="font-geist"
-                    >
-                      Sign Up
-                    </NavbarButton>
-                  </>
-                )}
+    <div className="relative w-full font-geist" >
+      <Navbar className="fixed top-0 z-50 w-full border-b border-neutral-200 bg-white shadow-sm xl:bg-white/70 xl:backdrop-blur-md font-geist transition-all duration-300">
+        <div className="mx-auto flex h-12 items-center justify-between px-4 sm:px-8">
+          {/* Desktop Navigation - Hidden on mobile */}
+          <div className="hidden xl:flex w-full items-center justify-between">
+            <NavBody className="w-full max-w-full">
+              <div className="flex items-center pr-8 xl:pr-12">
+                <Link href="/" className="flex items-center gap-2">
+                  <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} className="mr-1" />
+                  <span className="text-xl font-bold text-[#191716]">SimViz Labs</span>
+                </Link>
               </div>
-            )}
-          </NavBody>
-        </div>
 
-        {/* Mobile Navigation - Hidden on desktop */}
-        <div className="lg:hidden">
-          <MobileNav>
-            <MobileNavHeader className="flex justify-between items-center px-4">
-              <div className="flex items-center">
-                <NavbarLogo isScrolled={isScrolled} mobileView={true} />
-              </div>
-              <div className="flex-1 flex justify-center items-center">
-                <span className="font-extrabold text-[#0C5393] dark:text-[#3B82F6] font-geist text-xl">SimvizLabs</span>
-              </div>
-              <MobileNavToggle
-                isOpen={isMobileMenuOpen}
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              <NavItems
+                items={navItems}
+                onItemClick={handleNavItemClick}
+                className="text-sm font-medium text-[#191716]/70 transition-colors hover:text-black pl-4 xl:pl-8"
               />
-            </MobileNavHeader>
 
-            <MobileNavMenu
-              isOpen={isMobileMenuOpen}
-              onClose={() => setIsMobileMenuOpen(false)}
-              navItems={[...navItems, { name: "Contact Us", link: "/contact" }]}
-              handleNavItemClick={handleNavItemClick}
-            />
-            {/* Show auth buttons/avatar only for Indian IP addresses - Mobile */}
-            {!geoLoading && isIndia && isMobileMenuOpen && (
-              <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 lg:hidden">
-                {userLoaded && user ? (
-                  <>
-                    <NavbarButton 
-                      variant="primary" 
-                      href="/dashboard" 
-                      className="font-geist w-full"
-                    >
-                      Dashboard
-                    </NavbarButton>
-                    <div className="flex justify-center">
-                      <UserButton 
+              {/* Show auth buttons/avatar only for Indian IP addresses AND on the specific path */}
+              <div className="flex items-center gap-4 justify-end">
+                {!geoLoading && isIndia && pathname === "/in/a320-bundle" && (
+                  userLoaded && user ? (
+                    <div className="flex items-center gap-3">
+                      <NavbarButton
+                        variant="primary"
+                        href="/dashboard"
+                        className="text-black hover:bg-white/10 hover:text-black font-geist"
+                      >
+                        Dashboard
+                      </NavbarButton>
+                      <UserButton
                         appearance={{
                           elements: {
                             avatarBox: "w-10 h-10",
@@ -276,28 +214,96 @@ export default function NavbarDemo() {
                         afterSignOutUrl="/"
                       />
                     </div>
-                  </>
-                ) : (
-                  <>
-                    <NavbarButton 
-                      variant="secondary" 
-                      href="/sign-in" 
-                      className="font-geist w-full"
-                    >
-                      Sign In
-                    </NavbarButton>
-                    <NavbarButton 
-                      variant="primary" 
-                      href="/sign-up" 
-                      className="font-geist w-full"
-                    >
-                      Sign Up
-                    </NavbarButton>
-                  </>
+                  ) : (
+                    <>
+                      <NavbarButton
+                        variant="secondary"
+                        href="/sign-in"
+                        className="text-[#191716] hover:bg-neutral-100 font-geist"
+                      >
+                        Sign In
+                      </NavbarButton>
+                      <NavbarButton
+                        variant="primary"
+                        href="/sign-up"
+                        className="bg-[#1381e5] text-black/90 hover:bg-[#1381e5]/90 font-geist"
+                      >
+                        Sign Up
+                      </NavbarButton>
+                    </>
+                  )
                 )}
               </div>
-            )}
-          </MobileNav>
+            </NavBody>
+          </div>
+
+          {/* Mobile Navigation - Hidden on desktop */}
+          <div className="xl:hidden flex w-full items-center justify-between">
+            <MobileNav>
+              <MobileNavHeader className="flex justify-between items-center w-full">
+                <Link href="/" className="flex items-center gap-2">
+                  <Image src="/logo.svg" alt="SimViz Labs Logo" width={32} height={32} />
+                  <span className="text-lg font-bold text-[#191716]">SimViz Labs</span>
+                </Link>
+                <MobileNavToggle
+                  isOpen={isMobileMenuOpen}
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="text-[#191716]/70"
+                />
+              </MobileNavHeader>
+
+              <MobileNavMenu
+                isOpen={isMobileMenuOpen}
+                onClose={() => setIsMobileMenuOpen(false)}
+                navItems={navItems}
+                handleNavItemClick={handleNavItemClick}
+                className="bg-white text-black/90 border-l border-white/10"
+              />
+              {/* Show auth buttons/avatar only for Indian IP addresses - Mobile */}
+              {!geoLoading && isIndia && pathname === "/in/a320-bundle" && isMobileMenuOpen && (
+                <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 xl:hidden">
+                  {userLoaded && user ? (
+                    <>
+                      <NavbarButton
+                        variant="primary"
+                        href="/dashboard"
+                        className="bg-white text-black w-full"
+                      >
+                        Dashboard
+                      </NavbarButton>
+                      <div className="flex justify-center">
+                        <UserButton
+                          appearance={{
+                            elements: {
+                              avatarBox: "w-10 h-10",
+                            },
+                          }}
+                          afterSignOutUrl="/"
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <NavbarButton
+                        variant="secondary"
+                        href="/sign-in"
+                        className="text-black/90 border border-white/20 w-full"
+                      >
+                        Sign In
+                      </NavbarButton>
+                      <NavbarButton
+                        variant="primary"
+                        href="/sign-up"
+                        className="bg-[#1381e5] text-black/90 hover:bg-[#1381e5]/90 w-full font-geist"
+                      >
+                        Sign Up
+                      </NavbarButton>
+                    </>
+                  )}
+                </div>
+              )}
+            </MobileNav>
+          </div>
         </div>
       </Navbar>
     </div>

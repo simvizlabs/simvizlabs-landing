@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'A320 CDU Trainer | Mobile & Tablet | SimvizLabs',
+  title: 'A320 CDU Trainer | Mobile & Tablet | SimViz Labs',
   description: 'Complete A320 MCDU and ATSU training solution on your device. Practice real airline workflows, route validation, and performance initialization.',
   keywords: ['A320 CDU', 'MCDU Trainer', 'Mobile Flight Sim', 'Airbus Apps', 'Pilot Tools'],
   openGraph: {

@@ -138,7 +138,7 @@ function CheckoutContent() {
         <div className="flex items-center justify-center h-screen">
           <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
         </div>
-        <Footer />
+        <Footer bgColor="bg-[#F5F5F7]" />
       </div>
     );
   }
@@ -293,7 +293,7 @@ function CheckoutContent() {
         </div>
       </main>
 
-      <Footer />
+      <Footer bgColor="bg-[#F5F5F7]" />
     </div>
   );
 }
@@ -310,7 +310,7 @@ export default function CheckoutPage() {
               <p className="text-sm text-gray-600 dark:text-gray-300 font-geist">Loading checkout...</p>
             </div>
           </div>
-          <Footer />
+          <Footer bgColor="bg-[#F5F5F7]" />
         </div>
       }
     >

@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import Pricing from '@/components/pricing';
 
 export const metadata: Metadata = {
-  title: 'B747 Simulator | High-Fidelity FMC Trainer | SimvizLabs',
+  title: 'B747 Simulator | High-Fidelity FMC Trainer | SimViz Labs',
   description: 'Master the B747 FMC and automation. Features aircraft-level accuracy for long-range nav, AI CPDLC, customizable ACARS, and complex MCP/FMA operations.',
   keywords: ['B747 Simulator', 'FMC Trainer', 'Boeing Wide-body', 'CPDLC', 'ACARS', 'Pilot Training', 'Aviation', 'Long-range Navigation'],
   openGraph: {
