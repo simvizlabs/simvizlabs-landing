@@ -55,7 +55,7 @@ function OurProductsContent() {
             text: "Watch Demo",
             class: "rounded-full px-11 py-7 text-lg font-semibold border-[#1381e5] text-[#1381e5] hover:bg-[#1381e5]/10 hover:text-[#1381e5]/70 transition-all bg-white/50 backdrop-blur-sm shadow-sm",
             variant: "outline" as const,
-            onClick: () => { window.location.href = "/demo"; }
+            onClick: () => setIsVideoModalOpen(true)
           },
           {
             text: "Learn More",
