@@ -4,14 +4,35 @@ import A320LandingContent from "./A320LandingContent";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'A320 FMGC Simulator | High-Fidelity FMS Trainer | SimViz Labs',
-  description: 'Master the A320 FMGC, FCU, and automation systems. Features precise performance calculations, AI-powered CPDLC, customizable ACARS, and integrated Airbus systems training.',
-  keywords: ['A320 Simulator', 'FMGC Trainer', 'Airbus Training', 'CPDLC', 'ACARS', 'Pilot Training', 'Aviation', 'Flight Simulation'],
+  title: 'A320 FMS Simulator & FMS Trainer | Airbus A320 FMGC Training | SimViz Labs',
+  description: 'Professional A320 FMS simulator and FMS trainer. Master the A320 FMGC, FCU, and automation systems with ACARS simulator and CPDLC simulator. High-fidelity aviation training for type rating and pilot training.',
+  keywords: [
+    'A320 FMS',
+    'A320 FMS simulator',
+    'A320 FMS training',
+    'FMS Trainer',
+    'FMS Simulator',
+    'A320 Simulator',
+    'FMGC Trainer',
+    'Airbus Training',
+    'CPDLC simulator',
+    'ACARS simulator',
+    'ACARS trainer',
+    'Pilot Training',
+    'Aviation training',
+    'Type rating',
+    'Aviation',
+    'Flight Simulation',
+  ],
   openGraph: {
-    title: 'A320 FMGC Simulator | High-Fidelity FMS Trainer',
-    description: 'High-fidelity A320 simulator built to aircraft-level accuracy. Master FMGC, FCU, and datalink operations.',
+    title: 'A320 FMS Simulator & FMS Trainer | Airbus A320 FMGC Training',
+    description: 'High-fidelity A320 FMS simulator with ACARS and CPDLC capabilities. Professional aviation training solution for pilot training and type rating.',
     type: 'website',
-  }
+    url: 'https://simvizlabs.com/in/a320-bundle',
+  },
+  alternates: {
+    canonical: 'https://simvizlabs.com/in/a320-bundle',
+  },
 };
 
 export default function A320BundlePage() {

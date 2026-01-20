@@ -12,8 +12,36 @@ import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
 import MediaChromePlayer from "@/components/MajorComponnts/MediaChromePlayer";
 
 export const metadata: Metadata = {
-  title: "SimViz Labs | Aviation Training Software & FMS Simulators",
-  description: "Reduce training costs with iPad-based FMS simulators for A320, B737, and B747. CBTA compliant pilot training solutions for airlines and ATOs.",
+  title: "FMS Simulator & Trainer | A320 FMS, B737 FMS, B747 FMS Training | SimViz Labs",
+  description: "Professional FMS simulator and trainer solutions. High-fidelity A320 FMS simulator, B737 FMS training, B747 FMS, ACARS simulator, CPDLC simulator for aviation training and type rating. Aviation distance learning platform.",
+  keywords: [
+    "FMS Simulator",
+    "FMS Trainer",
+    "A320 FMS simulator",
+    "B737 FMS training",
+    "B737 FMS",
+    "Aviation training",
+    "Aviation distance learning",
+    "Flight simulator",
+    "Type rating",
+    "Pilot training",
+    "ACARS simulator",
+    "CPDLC simulator",
+    "ACARS trainer",
+    "A320 FMS",
+    "B737 FMS",
+    "B747 FMS",
+    "B777 FMS",
+    "A330 FMS",
+    "ATR FMS",
+    "B787 FMS",
+  ],
+  openGraph: {
+    title: "FMS Simulator & Trainer | A320, B737, B747 FMS Training",
+    description: "Professional FMS simulator solutions for aviation training. A320 FMS, B737 FMS, B747 FMS trainers with ACARS and CPDLC capabilities.",
+    type: "website",
+    url: "https://simvizlabs.com",
+  },
 };
 
 export default function Home() {

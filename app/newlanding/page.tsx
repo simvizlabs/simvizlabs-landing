@@ -7,8 +7,30 @@ import { StickyProductFlow } from "@/components/landing/StickyProductFlow";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SimViz Labs - Train Smarter, Fly Safer",
-  description: "Boost pilot readiness and elevate operational confidence with SimViz Labs simulators.",
+  title: "FMS Simulator & Aviation Training | Train Smarter, Fly Safer | SimViz Labs",
+  description: "Professional FMS simulators for aviation training. A320 FMS simulator, B737 FMS training, B747 FMS, ACARS simulator, and CPDLC simulator. Boost pilot readiness and elevate operational confidence with SimViz Labs simulators.",
+  keywords: [
+    "FMS Simulator",
+    "FMS Trainer",
+    "A320 FMS simulator",
+    "B737 FMS training",
+    "B737 FMS",
+    "B747 FMS",
+    "Aviation training",
+    "Aviation distance learning",
+    "Flight simulator",
+    "Type rating",
+    "Pilot training",
+    "ACARS simulator",
+    "CPDLC simulator",
+    "ACARS trainer",
+  ],
+  openGraph: {
+    title: "FMS Simulator & Aviation Training | Train Smarter, Fly Safer",
+    description: "Professional FMS simulators for A320, B737, B747. Boost pilot readiness with aviation training solutions.",
+    type: "website",
+    url: "https://simvizlabs.com/newlanding",
+  },
 };
 
 export default function NewLandingPage() {
