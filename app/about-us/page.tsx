@@ -11,8 +11,35 @@ const imgImage1 = "/assets/about-us/image-2.png";
 const imgLine19 = "/assets/about-us/line-19.png";
 
 export const metadata: Metadata = {
-  title: "About Us | SimViz Labs",
-  description: "Learn more about SimViz Labs and our mission to revolutionize pilot training through innovative aviation solutions.",
+  title: "About Us | SimViz Labs - FMS Simulator & Aviation Training Solutions",
+  description: "Learn more about SimViz Labs and our mission to revolutionize pilot training through innovative FMS simulator solutions. A320 FMS simulator, B737 FMS training, B747 FMS, ACARS simulator, and CPDLC simulator for aviation training and type rating.",
+  keywords: [
+    "SimViz Labs",
+    "About SimViz Labs",
+    "FMS Simulator",
+    "FMS Trainer",
+    "A320 FMS simulator",
+    "B737 FMS training",
+    "B737 FMS",
+    "B747 FMS",
+    "Aviation training",
+    "Aviation distance learning",
+    "Flight simulator",
+    "Pilot training",
+    "ACARS simulator",
+    "CPDLC simulator",
+    "Aviation solutions",
+    "Type rating",
+  ],
+  openGraph: {
+    title: "About Us | SimViz Labs - FMS Simulator & Aviation Training Solutions",
+    description: "Learn about SimViz Labs and our mission to revolutionize pilot training through innovative FMS simulator solutions.",
+    type: "website",
+    url: "https://simvizlabs.com/about-us",
+  },
+  alternates: {
+    canonical: "https://simvizlabs.com/about-us",
+  },
 };
 
 const AboutUsPage = () => {

@@ -117,8 +117,36 @@ const ATOPage = () => {
 };
 
 export const metadata = {
-    title: "ATO Training Software | CBTA Compliant FMS Tools",
-    description: "Enhance your Approved Training Organisation's curriculum with modern, EASA/ICAO compliant FMS simulators. Improve student pass rates today.",
+    title: "Approved Training Organisation Software | ATO FMS Simulator | CBTA Compliant | SimViz Labs",
+    description: "Enhance Approved Training Organisation curriculum with modern, EASA/ICAO compliant FMS simulators. A320 FMS simulator, B737 FMS training, B747 FMS for ATOs. Improve student pass rates with ACARS simulator and CPDLC simulator. CBTA compliant aviation training.",
+    keywords: [
+        "Approved Training Organisation",
+        "ATO training",
+        "ATO training software",
+        "CBTA compliant",
+        "EASA compliant FMS",
+        "ICAO compliant FMS",
+        "FMS Simulator for ATO",
+        "FMS Trainer",
+        "A320 FMS simulator",
+        "B737 FMS training",
+        "B737 FMS",
+        "B747 FMS",
+        "Aviation training",
+        "Aviation distance learning",
+        "Flight simulator",
+        "Pilot training",
+        "ACARS simulator",
+        "CPDLC simulator",
+        "ACARS trainer",
+        "A320 FMS",
+        "B737 FMS",
+        "B747 FMS",
+        "Type rating training",
+        "Aviation education",
+        "iPad FMS training",
+        "Flight training programs",
+    ],
 };
 
 export default ATOPage;
