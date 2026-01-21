@@ -19,6 +19,9 @@ const isPublicRoute = createRouteMatcher([
   '/tutorials(.*)',
   '/api/webhooks(.*)',
   '/payment(.*)',
+  '/.well-known(.*)', // Apple App Site Association and other well-known files
+  '/activate(.*)', // License activation links
+  '/licenseKey(.*)', // License key validation
 ]);
 
 // Define protected routes that require authentication

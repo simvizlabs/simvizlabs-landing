@@ -49,7 +49,7 @@ const AircraftCardList = () => {
             transition={{ duration: 0.2 }}
           >
             <Link
-              href={`/products#${aircraft.id}`}
+              href={`/our-products?product=${aircraft.id === 'A320-Simulator' ? 'a320' : aircraft.id === 'b737-trainer-section' ? 'b737' : aircraft.id === 'B747-Simulator' ? 'b747' : aircraft.id}`}
               className="flex items-center space-x-4 p-4 hover:bg-gray-100 transition-colors font-geist"
             >
               <div className="relative w-12 h-12 rounded-lg overflow-hidden">

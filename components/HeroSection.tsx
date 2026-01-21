@@ -19,7 +19,7 @@ export default function HeroSection({ heroText, heroImage, heroDescription }: He
             <div className="relative z-10 mx-auto w-full max-w-2xl px-6 lg:px-0">
                 <div className="relative text-center">
                     <Link
-                        href="/products"
+                        href="/our-products"
                         className="inline-flex items-center gap-1 rounded-md bg-gray-50 px-3 mt-8 py-2 text-sm font-regular text-gray-800  dark:text-gray-400 hover:underline hover:underline-offset-2"
                     >
                         <ArrowLeft className="h-4 w-4" />

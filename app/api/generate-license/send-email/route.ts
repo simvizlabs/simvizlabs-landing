@@ -54,43 +54,77 @@ function formatLicenseEmailHtml(data: {
     licenseKey: string;
     licenseUrl: string;
 }) {
+
+  console.log(licenseUrl);
+  console.log(data.licenseUrl);
+
     return `
-    <div style="font-family: sans-serif; max-width: 600px; color: #191716; margin: 0 auto;">
-      <div style="background: linear-gradient(135deg, #1381e5 0%, #5ea2ef 100%); padding: 30px; text-align: center; border-radius: 12px 12px 0 0;">
-        <h1 style="color: white; margin: 0; font-size: 28px;">Your License Key</h1>
+    <div style="font-family: sans-serif; max-width: 600px; color: #112480; margin: 0 auto; background: white;">
+      <!-- Header Section with Dark Blue Background -->
+      <div style="background: #112480; padding: 40px 30px; position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
+        <div style="position: relative; z-index: 2;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; background: rgba(255, 255, 255, 0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+              <span style="color: white; font-size: 20px;">✈</span>
+            </div>
+            <h1 style="color: white; margin: 0; font-size: 24px; font-weight: bold;">SimViz Labs</h1>
+          </div>
+        </div>
+        <!-- Decorative airplane wing graphic -->
+        <div style="position: absolute; right: -20px; top: 20px; width: 150px; height: 150px; background: rgba(94, 162, 239, 0.3); border-radius: 50%; transform: rotate(-45deg); z-index: 1;"></div>
       </div>
       
-      <div style="padding: 30px; background: white; border-radius: 0 0 12px 12px; border: 1px solid #e5e5e5;">
-        <p style="font-size: 16px; line-height: 1.6; color: #191716; margin-bottom: 20px;">
-          Hello ${data.firstName} ${data.lastName},
+      <!-- Main Content Section -->
+      <div style="padding: 40px 30px; background: white; border-radius: 0 0 12px 12px; border: 1px solid #e5e5e5; border-top: none;">
+        <!-- Title -->
+        <h2 style="font-size: 32px; font-weight: bold; color: #112480; margin: 0 0 20px 0; line-height: 1.2;">
+          Your License is Ready
+        </h2>
+        
+        <hr/>
+        
+        <!-- Greeting -->
+        <p style="font-size: 16px; line-height: 1.6;margin: 0 0 20px 0;">
+          Hello <strong style="color:#112480"> ${data.firstName} ${data.lastName} </strong>,
         </p>
         
-        <p style="font-size: 16px; line-height: 1.6; color: #191716; margin-bottom: 20px;">
-          Your license key has been generated successfully. Please use the link below to access your license:
+        <!-- Introductory Text -->
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 40px 0;">
+          Your license has been granted successfully. <br/> To activate your license, please follow the steps below.
         </p>
         
-        <div style="background: #f5f5f7; padding: 20px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #1381e5;">
-          <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold; color: #666;">License Key:</p>
-          <p style="margin: 0; font-size: 20px; font-family: monospace; font-weight: bold; color: #1381e5; word-break: break-all;">
-            ${data.licenseKey}
+        <!-- Step 1: Download App -->
+        <div style="margin-bottom: 30px;">
+          <p style="font-size: 16px; line-height: 1.6;  margin: 0 0 15px 0; font-weight: 500;">
+            1. Download the SimViz Labs app on your device.
           </p>
+          <div style="text-align: left;">
+            <a href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" 
+               target="_blank"
+               rel="noopener noreferrer"
+               style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
+              Download on AppStore
+            </a>
+          </div>
         </div>
         
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="${data.licenseUrl}" 
-             style="display: inline-block; background: #1381e5; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
-            Activate License
-          </a>
+        <!-- Step 2: Activate Key -->
+        <div style="margin-bottom: 30px;">
+          <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px 0; font-weight: 500;">
+            2. Once the app is installed, click <strong>Activate Key</strong> to apply your license.
+          </p>
+          <div style="text-align: left;">
+            <a href="${data.licenseUrl}" 
+               style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
+              Activate Key
+            </a>
+          </div>
         </div>
         
-        <p style="font-size: 14px; line-height: 1.6; color: #666; margin-top: 30px;">
-          Or copy and paste this URL into your browser:<br>
-          <a href="${data.licenseUrl}" style="color: #1381e5; word-break: break-all;">${data.licenseUrl}</a>
-        </p>
-        
-        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e5e5;">
-          <p style="font-size: 12px; color: #999; margin: 0;">
-            This email was sent from SimViz Labs License Management System.
+        <!-- Important Warning -->
+        <div style="margin-top: 40px; padding: 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
+          <p style="font-size: 14px; line-height: 1.6; color: #856404; margin: 0; font-weight: 500;">
+            <strong>Important:</strong> Please ensure the SimViz Labs app is installed on your device before clicking Activate Key. Activating the key without the app installed may result in activation failure.
           </p>
         </div>
       </div>
@@ -115,7 +149,7 @@ async function sendEmailViaGraph(accessToken: string, data: {
 
     const payload = {
         message: {
-            subject: `Your SimViz Labs License Key - ${data.licenseKey}`,
+            subject: `Your SimViz Labs License is Ready`,
             body: {
                 contentType: "HTML",
                 content: formatLicenseEmailHtml(data),
@@ -183,9 +217,8 @@ export async function POST(request: NextRequest) {
         // Get access token
         const accessToken = await getGraphAccessToken();
 
-        // Construct license URL
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://simvizlabs.com";
-        const licenseUrl = `${baseUrl}/licenseKey?query=${licenseKey}`;
+        // Construct deeplink URL
+        const licenseUrl = `simviz://activate?license_key=${encodeURIComponent(licenseKey)}`;
 
         // Send email
         await sendEmailViaGraph(accessToken, {
