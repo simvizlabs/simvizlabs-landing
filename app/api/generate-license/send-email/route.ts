@@ -55,7 +55,7 @@ function formatLicenseEmailHtml(data: {
     licenseUrl: string;
 }) {
 
-  console.log(licenseUrl);
+  // console.log(licenseUrl);
   console.log(data.licenseUrl);
 
     return `
@@ -113,12 +113,12 @@ function formatLicenseEmailHtml(data: {
           <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px 0; font-weight: 500;">
             2. Once the app is installed, click <strong>Activate Key</strong> to apply your license.
           </p>
-          <div style="text-align: left;">
-            <a href="${data.licenseUrl}" 
-               style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
-              Activate Key
-            </a>
-          </div>
+           <div style="text-align: left;">
+              <a href="${data.licenseUrl}" 
+                style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
+               Activate Key
+             </a>
+           </div>
         </div>
         
         <!-- Important Warning -->
@@ -217,11 +217,12 @@ export async function POST(request: NextRequest) {
         // Get access token
         const accessToken = await getGraphAccessToken();
 
-        // Construct deeplink URL
-        const licenseUrl = `simviz://activate?license_key=${encodeURIComponent(licenseKey)}`;
+        // Construct web bridge URL (will redirect to app)
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://simvizlabs.com";
+        const licenseUrl = `${baseUrl}/activate/${encodeURIComponent(licenseKey)}`;
 
         // Send email
-        await sendEmailViaGraph(accessToken, {
+        await   sendEmailViaGraph(accessToken, {
             email,
             firstName,
             lastName,

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, Suspense } from "react";
-import { Loader2, CheckCircle2, XCircle, Download, Key } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, Download, Key, ExternalLink } from "lucide-react";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { useParams } from "next/navigation";
@@ -12,6 +12,8 @@ function ActivateContent() {
     const [isValidating, setIsValidating] = useState(true);
     const [isValid, setIsValid] = useState<boolean | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [appOpened, setAppOpened] = useState(false);
+    const [showFallback, setShowFallback] = useState(false);
 
     useEffect(() => {
         if (!licenseKey) {
@@ -38,6 +40,11 @@ function ActivateContent() {
 
                 if (result.success) {
                     setIsValid(true);
+                    // Mark license as verified in database (if needed)
+                    // You can add an API call here to mark it as verified
+                    
+                    // Attempt to open app automatically
+                    attemptAppOpen();
                 } else {
                     setIsValid(false);
                     setError(result.message || "Invalid license key");
@@ -53,6 +60,56 @@ function ActivateContent() {
 
         validateLicense();
     }, [licenseKey]);
+
+    const attemptAppOpen = () => {
+        if (!licenseKey) return;
+
+        const deeplink = `simviz://activate?license_key=${encodeURIComponent(licenseKey)}`;
+        
+        // Track if page becomes hidden (app opened)
+        let pageHidden = false;
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                pageHidden = true;
+                setAppOpened(true);
+            }
+        };
+        
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        // Try to open the app via deeplink
+        const startTime = Date.now();
+        
+        // Use iframe method for better compatibility
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = deeplink;
+        document.body.appendChild(iframe);
+        
+        // Also try direct location change as fallback
+        setTimeout(() => {
+            window.location.href = deeplink;
+        }, 100);
+        
+        // Show fallback button after delay if app doesn't open
+        setTimeout(() => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            if (!pageHidden && document.visibilityState === 'visible') {
+                // Page is still visible, app didn't open
+                setShowFallback(true);
+            }
+            // Clean up iframe
+            if (iframe.parentNode) {
+                iframe.parentNode.removeChild(iframe);
+            }
+        }, 2500);
+    };
+
+    const handleManualActivate = () => {
+        if (!licenseKey) return;
+        const deeplink = `simviz://activate?license_key=${encodeURIComponent(licenseKey)}`;
+        window.location.href = deeplink;
+    };
 
     return (
         <div className="min-h-screen bg-white font-sans text-[#191716]">
@@ -93,22 +150,40 @@ function ActivateContent() {
                                 </div>
                                 <div className="text-center">
                                     <h2 className="text-3xl font-bold text-green-600 mb-4">
-                                        License Activated Successfully!
+                                        License Verified Successfully!
                                     </h2>
                                     <p className="text-neutral-600 mb-6">
-                                        Your license key has been validated and is ready to use.
+                                        {appOpened 
+                                            ? "Opening the SimViz Labs app..." 
+                                            : showFallback 
+                                                ? "The app didn't open automatically. Use the button below to open it manually."
+                                                : "Attempting to open the app..."}
                                     </p>
-                                    {licenseKey && (
-                                        <div className="bg-white rounded-xl p-6 border border-neutral-200 mb-6">
-                                            <p className="text-sm font-semibold text-neutral-600 mb-2">
-                                                License Key:
-                                            </p>
-                                            <p className="text-xl font-mono font-bold text-[#1381e5] break-all">
-                                                {licenseKey}
-                                            </p>
-                                        </div>
-                                    )}
                                 </div>
+
+                                {showFallback && (
+                                    <div className="w-full max-w-md space-y-4">
+                                        <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                                            <div className="flex items-start gap-4">
+                                                <ExternalLink className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                                                <div className="flex-1">
+                                                    <h3 className="font-bold text-blue-900 mb-2">
+                                                        Open App to Complete Activation
+                                                    </h3>
+                                                    <p className="text-sm text-blue-800 mb-4">
+                                                        The app didn't open automatically. Click the button below to open the SimViz Labs app and complete activation.
+                                                    </p>
+                                                    <button
+                                                        onClick={handleManualActivate}
+                                                        className="w-full px-6 py-3 bg-[#1381e5] text-white font-bold rounded-xl hover:bg-[#106bc0] transition-all"
+                                                    >
+                                                        Open App to Complete Activation
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                                 
                                 <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 max-w-md">
                                     <div className="flex items-start gap-4">
@@ -121,7 +196,7 @@ function ActivateContent() {
                                                 Download the SimViz Labs app from the App Store to start using your license.
                                             </p>
                                             <a
-                                                href="https://apps.apple.com/app/idYOUR_APP_ID"
+                                                href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-block px-6 py-3 bg-[#1381e5] text-white font-bold rounded-xl hover:bg-[#106bc0] transition-all"

@@ -663,7 +663,7 @@ export default function GenerateLicensePage() {
                                         License URL:
                                     </p>
                                     <p className="text-sm font-mono text-neutral-700 break-all">
-                                        https://simvizlabs.com/licenseKey?query={generatedLicenseKey}
+                                    simviz://activate?license_key={generatedLicenseKey}
                                     </p>
                                 </div>
 
