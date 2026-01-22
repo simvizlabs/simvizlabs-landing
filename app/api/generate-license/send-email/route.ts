@@ -59,23 +59,16 @@ function formatLicenseEmailHtml(data: {
   console.log(data.licenseUrl);
 
   return `
-    <div style="font-family: sans-serif; max-width: 600px; color: #112480; margin: 0 auto; background: white;">
+    <div style="font-family: sans-serif; max-width: 608px; color: #112480; margin: 0 auto; background: white; border: 1px solid #4B4B4B;
+background: #FFF;
+backdrop-filter: blur(22.649999618530273px);">
       <!-- Header Section with Dark Blue Background -->
-      <div style="background: #112480; padding: 40px 30px; position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
-        <div style="position: relative; z-index: 2;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 32px; height: 32px; background: rgba(255, 255, 255, 0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center;">
-              <span style="color: white; font-size: 20px;">✈</span>
+      <div style="width:100% overflow:hidden relative">
+          <img src="https://cdn.simvizlabs.com/public_assets/email_banner.png"/>
             </div>
-            <h1 style="color: white; margin: 0; font-size: 24px; font-weight: bold;">SimViz Labs</h1>
-          </div>
-        </div>
-        <!-- Decorative airplane wing graphic -->
-        <div style="position: absolute; right: -20px; top: 20px; width: 150px; height: 150px; background: rgba(94, 162, 239, 0.3); border-radius: 50%; transform: rotate(-45deg); z-index: 1;"></div>
-      </div>
       
       <!-- Main Content Section -->
-      <div style="padding: 40px 30px; background: white; border-radius: 0 0 12px 12px; border: 1px solid #e5e5e5; border-top: none;">
+      <div style="padding: 40px 30px; background: white; border-top: none;">
         <!-- Title -->
         <h2 style="font-size: 32px; font-weight: bold; color: #112480; margin: 0 0 20px 0; line-height: 1.2;">
           Your License is Ready
@@ -122,9 +115,10 @@ function formatLicenseEmailHtml(data: {
         </div>
         
         <!-- Important Warning -->
-        <div style="margin-top: 40px; padding: 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
-          <p style="font-size: 14px; line-height: 1.6; color: #856404; margin: 0; font-weight: 500;">
-            <strong>Important:</strong> Please ensure the SimViz Labs app is installed on your device before clicking Activate Key. Activating the key without the app installed may result in activation failure.
+        <div style="margin-top: 40px">
+          <p style="font-size: 14px; line-height: 1.6;  margin: 0; font-weight: 500;">
+            <strong>Important: Please ensure the SimViz Labs app is installed on your device before clicking Activate Key. Activating the key without the app installed may result in activation failure.
+            </strong>
           </p>
         </div>
       </div>
