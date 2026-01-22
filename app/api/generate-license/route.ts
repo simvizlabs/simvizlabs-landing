@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
         // }
 
         const data = await request.json();
-        const { email, firstName, lastName } = data;
+        const { email, firstName, lastName, user_type, subscriptionType } = data;
 
         // Validation
         if (!email || !firstName || !lastName) {
@@ -102,8 +102,11 @@ export async function POST(request: NextRequest) {
                 email,
                 firstName,
                 lastName,
+                user_type: user_type || 'temp',
+                subscriptionType: subscriptionType || 'monthly',
             }),
         });
+        console.log(response.ok);
 
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
@@ -129,7 +132,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { licenseKey, user } = result.data;
+        const { licenseKey, user, license } = result.data;
 
         // Store license key locally for quick validation
         licenseStore.set(licenseKey, {
@@ -137,7 +140,7 @@ export async function POST(request: NextRequest) {
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            userId: user.userId,
+            userId: user.userId || user.user_id,
             userType: user.user_type,
             createdAt: new Date(result.timestamp || new Date()),
         });
@@ -149,12 +152,17 @@ export async function POST(request: NextRequest) {
             data: {
                 licenseKey,
                 user: {
-                    userId: user.userId,
+                    userId: user.userId || user.user_id,
                     email: user.email,
                     firstName: user.firstName,
                     lastName: user.lastName,
                     user_type: user.user_type,
                 },
+                license: license ? {
+                    plan: license.plan,
+                    expiresAt: license.expiresAt,
+                    subscriptionType: license.subscriptionType || null,
+                } : null,
             },
         });
     } catch (error: any) {

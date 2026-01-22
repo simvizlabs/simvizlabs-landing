@@ -53,11 +53,15 @@ export default function GenerateLicensePage() {
         email: "",
         firstName: "",
         lastName: "",
+        user_type: "temp",
+        subscriptionType: "monthly",
     });
     const [errors, setErrors] = useState({
         email: "",
         firstName: "",
         lastName: "",
+        user_type: "",
+        subscriptionType: "",
     });
     const [tempUsers, setTempUsers] = useState<TempUser[]>([]);
     const [pagination, setPagination] = useState<Pagination | null>(null);
@@ -166,6 +170,8 @@ export default function GenerateLicensePage() {
             email: "",
             firstName: "",
             lastName: "",
+            user_type: "",
+            subscriptionType: "",
         };
         let isValid = true;
 
@@ -190,11 +196,21 @@ export default function GenerateLicensePage() {
             isValid = false;
         }
 
+        if (!formData.user_type) {
+            newErrors.user_type = "User type is required";
+            isValid = false;
+        }
+
+        if (!formData.subscriptionType) {
+            newErrors.subscriptionType = "Subscription type is required";
+            isValid = false;
+        }
+
         setErrors(newErrors);
         return isValid;
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
         // Clear error when user starts typing
@@ -224,6 +240,8 @@ export default function GenerateLicensePage() {
                     email: formData.email,
                     firstName: formData.firstName,
                     lastName: formData.lastName,
+                    user_type: formData.user_type,
+                    subscriptionType: formData.subscriptionType,
                 }),
             });
 
@@ -613,6 +631,50 @@ export default function GenerateLicensePage() {
                             )}
                         </div>
 
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm font-semibold opacity-70">
+                                    User Type <span className="text-red-500">*</span>
+                                </label>
+                                <select
+                                    name="user_type"
+                                    value={formData.user_type}
+                                    onChange={handleInputChange}
+                                    className={`w-full h-14 rounded-2xl border px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white ${
+                                        errors.user_type ? "border-red-500" : "border-neutral-200"
+                                    }`}
+                                    disabled
+                                >
+                                    <option value="temp">Temp</option>
+                                </select>
+                                {errors.user_type && (
+                                    <p className="text-sm text-red-500">{errors.user_type}</p>
+                                )}
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm font-semibold opacity-70">
+                                    Subscription Type <span className="text-red-500">*</span>
+                                </label>
+                                <select
+                                    name="subscriptionType"
+                                    value={formData.subscriptionType}
+                                    onChange={handleInputChange}
+                                    className={`w-full h-14 rounded-2xl border px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white ${
+                                        errors.subscriptionType ? "border-red-500" : "border-neutral-200"
+                                    }`}
+                                >
+                                    <option value="monthly">Monthly</option>
+                                    <option value="quarterly">Quarterly</option>
+                                    <option value="halfyearly">Half-Yearly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                                {errors.subscriptionType && (
+                                    <p className="text-sm text-red-500">{errors.subscriptionType}</p>
+                                )}
+                            </div>
+                        </div>
+
                         <button
                             disabled={isGenerating}
                             type="submit"
@@ -663,7 +725,7 @@ export default function GenerateLicensePage() {
                                         License URL:
                                     </p>
                                     <p className="text-sm font-mono text-neutral-700 break-all">
-                                    simviz://activate?license_key={generatedLicenseKey}
+                                    {process.env.NEXT_PUBLIC_DEEPLINK_SCHEME || 'simviz://activate'}?license_key={generatedLicenseKey}
                                     </p>
                                 </div>
 

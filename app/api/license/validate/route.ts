@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Call external license API to validate license key
-        const response = await fetch(`${LICENSE_API_URL}/api/license/validate`, {
+        const response = await fetch(`${LICENSE_API_URL}/api/licenses/validate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

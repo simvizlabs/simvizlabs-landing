@@ -64,7 +64,8 @@ function ActivateContent() {
     const attemptAppOpen = () => {
         if (!licenseKey) return;
 
-        const deeplink = `simviz://activate?license_key=${encodeURIComponent(licenseKey)}`;
+        const deeplinkScheme = process.env.NEXT_PUBLIC_DEEPLINK_SCHEME || 'simviz://activate';
+        const deeplink = `${deeplinkScheme}?license_key=${encodeURIComponent(licenseKey)}`;
         
         // Track if page becomes hidden (app opened)
         let pageHidden = false;
@@ -107,7 +108,8 @@ function ActivateContent() {
 
     const handleManualActivate = () => {
         if (!licenseKey) return;
-        const deeplink = `simviz://activate?license_key=${encodeURIComponent(licenseKey)}`;
+        const deeplinkScheme = process.env.NEXT_PUBLIC_DEEPLINK_SCHEME || 'simviz://activate';
+        const deeplink = `${deeplinkScheme}?license_key=${encodeURIComponent(licenseKey)}`;
         window.location.href = deeplink;
     };
 
