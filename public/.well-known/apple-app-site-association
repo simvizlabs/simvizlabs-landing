@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "743ZC4UGHL.com.simvizlabs.fms-trainer-airbus"
+        ],
+        "components": [
+          {
+            "/": "/licenseKey",
+            "?": {
+              "query": "*"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
