@@ -8,16 +8,11 @@ export async function GET() {
         applinks: {
             details: [
                 {
-                    appIDs: ["743ZC4UGHL.com.simvizlabs.SimViz A320"],
-                    components: [
-                        {
-                            "/": "/activate/*",
-                            comment: "Matches activation links like /activate/KEY123"
-                        },
+                    "appIDs": ["743ZC4UGHL.com.simvizlabs.fms-trainer-airbus"],
+                    "components": [
                         {
                             "/": "/licenseKey",
-                            "?": { "query": "*" },
-                            comment: "Matches license key validation links like /licenseKey?query=KEY123"
+                            "?": { "query": "*" }
                         }
                     ]
                 }

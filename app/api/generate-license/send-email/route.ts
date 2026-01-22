@@ -5,60 +5,60 @@ import { getGraphAccessToken } from "@/lib/microsoft-graph";
 const SECRET = process.env.AUTH_SECRET || process.env.NEXT_PUBLIC_AUTH_SECRET || "your-secret-key-change-in-production";
 
 function verifyToken(token: string): { email: string; valid: boolean } | null {
-    try {
-        const decoded = Buffer.from(token, "base64").toString("utf-8");
-        const [payloadString, signature] = decoded.split(".");
-        
-        if (!payloadString || !signature) {
-            return null;
-        }
+  try {
+    const decoded = Buffer.from(token, "base64").toString("utf-8");
+    const [payloadString, signature] = decoded.split(".");
 
-        // Verify signature
-        const expectedSignature = createHmac("sha256", SECRET).update(payloadString).digest("hex");
-        if (signature !== expectedSignature) {
-            return null;
-        }
-
-        const payload = JSON.parse(payloadString);
-        
-        // Check expiration
-        if (Date.now() > payload.expires) {
-            return null;
-        }
-
-        return { email: payload.email, valid: true };
-    } catch (error) {
-        return null;
+    if (!payloadString || !signature) {
+      return null;
     }
+
+    // Verify signature
+    const expectedSignature = createHmac("sha256", SECRET).update(payloadString).digest("hex");
+    if (signature !== expectedSignature) {
+      return null;
+    }
+
+    const payload = JSON.parse(payloadString);
+
+    // Check expiration
+    if (Date.now() > payload.expires) {
+      return null;
+    }
+
+    return { email: payload.email, valid: true };
+  } catch (error) {
+    return null;
+  }
 }
 
 function checkAuth(request: NextRequest): { authenticated: boolean; email?: string } {
-    const token = request.cookies.get("auth-token")?.value;
-    
-    if (!token) {
-        return { authenticated: false };
-    }
+  const token = request.cookies.get("auth-token")?.value;
 
-    const result = verifyToken(token);
-    
-    if (!result || !result.valid) {
-        return { authenticated: false };
-    }
+  if (!token) {
+    return { authenticated: false };
+  }
 
-    return { authenticated: true, email: result.email };
+  const result = verifyToken(token);
+
+  if (!result || !result.valid) {
+    return { authenticated: false };
+  }
+
+  return { authenticated: true, email: result.email };
 }
 
 function formatLicenseEmailHtml(data: {
-    firstName: string;
-    lastName: string;
-    licenseKey: string;
-    licenseUrl: string;
+  firstName: string;
+  lastName: string;
+  licenseKey: string;
+  licenseUrl: string;
 }) {
 
   // console.log(licenseUrl);
   console.log(data.licenseUrl);
 
-    return `
+  return `
     <div style="font-family: sans-serif; max-width: 600px; color: #112480; margin: 0 auto; background: white;">
       <!-- Header Section with Dark Blue Background -->
       <div style="background: #112480; padding: 40px 30px; position: relative; overflow: hidden; border-radius: 12px 12px 0 0;">
@@ -133,115 +133,116 @@ function formatLicenseEmailHtml(data: {
 }
 
 async function sendEmailViaGraph(accessToken: string, data: {
-    email: string;
-    firstName: string;
-    lastName: string;
-    licenseKey: string;
-    licenseUrl: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  licenseKey: string;
+  licenseUrl: string;
 }) {
-    const senderMail = process.env.AZURE_AD_SENDER_MAIL;
+  const senderMail = process.env.AZURE_AD_SENDER_MAIL;
 
-    if (!senderMail) {
-        throw new Error("Missing Microsoft Graph sender email: AZURE_AD_SENDER_MAIL environment variable is not set");
-    }
+  if (!senderMail) {
+    throw new Error("Missing Microsoft Graph sender email: AZURE_AD_SENDER_MAIL environment variable is not set");
+  }
 
-    const url = `https://graph.microsoft.com/v1.0/users/${senderMail}/sendMail`;
+  const url = `https://graph.microsoft.com/v1.0/users/${senderMail}/sendMail`;
 
-    const payload = {
-        message: {
-            subject: `Your SimViz Labs License is Ready`,
-            body: {
-                contentType: "HTML",
-                content: formatLicenseEmailHtml(data),
-            },
-            toRecipients: [
-                {
-                    emailAddress: {
-                        address: data.email,
-                    },
-                },
-            ],
+  const payload = {
+    message: {
+      subject: `Your SimViz Labs License is Ready`,
+      body: {
+        contentType: "HTML",
+        content: formatLicenseEmailHtml(data),
+      },
+      toRecipients: [
+        {
+          emailAddress: {
+            address: data.email,
+          },
         },
-        saveToSentItems: "true",
-    };
+      ],
+    },
+    saveToSentItems: "true",
+  };
 
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-    });
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
 
-    if (!response.ok) {
-        const error = await response.json().catch(() => ({}));
-        console.error("Graph sendMail error:", error);
-        throw new Error("Failed to send email via Microsoft Graph");
-    }
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    console.error("Graph sendMail error:", error);
+    throw new Error("Failed to send email via Microsoft Graph");
+  }
 
-    return true;
+  return true;
 }
 
 export async function POST(request: NextRequest) {
-    try {
-        // Check authentication
-        // const auth = checkAuth(request);
-        // if (!auth.authenticated) {
-        //     return NextResponse.json(
-        //         { success: false, message: "Authentication required" },
-        //         { status: 401 }
-        //     );
-        // }
+  try {
+    // Check authentication
+    // const auth = checkAuth(request);
+    // if (!auth.authenticated) {
+    //     return NextResponse.json(
+    //         { success: false, message: "Authentication required" },
+    //         { status: 401 }
+    //     );
+    // }
 
-        const data = await request.json();
-        const { email, firstName, lastName, licenseKey } = data;
+    const data = await request.json();
+    const { email, firstName, lastName, licenseKey } = data;
 
-        // Validation
-        if (!email || !firstName || !lastName || !licenseKey) {
-            return NextResponse.json(
-                { success: false, message: "All fields are required" },
-                { status: 400 }
-            );
-        }
-
-        // Basic email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return NextResponse.json(
-                { success: false, message: "Invalid email address" },
-                { status: 400 }
-            );
-        }
-
-        // Get access token
-        const accessToken = await getGraphAccessToken();
-
-        // Construct web bridge URL (will redirect to app)
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://simvizlabs.com";
-        const licenseUrl = `${baseUrl}/activate/${encodeURIComponent(licenseKey)}`;
-
-        // Send email
-        await   sendEmailViaGraph(accessToken, {
-            email,
-            firstName,
-            lastName,
-            licenseKey,
-            licenseUrl,
-        });
-
-        return NextResponse.json({
-            success: true,
-            message: "Email sent successfully",
-        });
-    } catch (error: any) {
-        console.error("Email sending error:", error);
-        return NextResponse.json(
-            {
-                success: false,
-                message: error.message || "Failed to send email",
-            },
-            { status: 500 }
-        );
+    // Validation
+    if (!email || !firstName || !lastName || !licenseKey) {
+      return NextResponse.json(
+        { success: false, message: "All fields are required" },
+        { status: 400 }
+      );
     }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { success: false, message: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    // Get access token
+    const accessToken = await getGraphAccessToken();
+
+    // Construct web bridge URL (will redirect to app)
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://simvizlabs.com";
+    // const licenseUrl = `${baseUrl}/activate/${encodeURIComponent(licenseKey)}`;
+    const licenseUrl = `${baseUrl}/licenseKey?query=${encodeURIComponent(licenseKey)}`;
+
+    // Send email
+    await sendEmailViaGraph(accessToken, {
+      email,
+      firstName,
+      lastName,
+      licenseKey,
+      licenseUrl,
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: "Email sent successfully",
+    });
+  } catch (error: any) {
+    console.error("Email sending error:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: error.message || "Failed to send email",
+      },
+      { status: 500 }
+    );
+  }
 }

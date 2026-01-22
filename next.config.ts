@@ -36,6 +36,19 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  async headers() {
+    return [
+      {
+        source: "/.well-known/apple-app-site-association",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/json",
+          },
+        ],
+      },
+    ];
+  },
   // Disable ESLint during builds (set to false to re-enable)
   eslint: {
     ignoreDuringBuilds: true,
@@ -45,6 +58,7 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   /* config options here */
+
 };
 
 export default nextConfig;
