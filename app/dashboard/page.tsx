@@ -75,11 +75,11 @@ const DashboardPage = () => {
         if (data.data.user && data.data.transactions) {
           // Set user data with subscriptions
           setUserData(data.data.user);
-          
+
           // Set transactions
           const transactionsData = data.data.transactions.data || [];
           setPayments(transactionsData);
-          
+
           // Set activation key from the first active subscription or successful payment
           const activeSubscription = data.data.user.activeSubscriptions?.[0];
           if (activeSubscription) {
@@ -147,15 +147,15 @@ const DashboardPage = () => {
   const activePayment = payments.find(
     (p) => p.state === "PAYMENT_SUCCESS" || p.status === "COMPLETED"
   );
-  
+
   // Use subscription data if available, otherwise fall back to payment data
   const hasActiveSubscription = !!activeSubscription || !!activePayment;
   const subscriptionProductName = activeSubscription?.productName || "A320 FMS Simulator";
   const subscriptionAmount = activeSubscription?.amount || activePayment?.amount || 0;
-  const subscriptionEndDate = activeSubscription?.endDate 
+  const subscriptionEndDate = activeSubscription?.endDate
     ? new Date(activeSubscription.endDate).toLocaleDateString()
     : null;
-  
+
   const userFullName = user.fullName || `${user.firstName || ""} ${user.lastName || ""}`.trim() || "User";
   const userEmail = user.primaryEmailAddress?.emailAddress || "";
   const userPhone = user.primaryPhoneNumber?.phoneNumber || "";
@@ -165,12 +165,12 @@ const DashboardPage = () => {
       <NavbarDemo />
       <main className="">
         {/* Active Subscription Section */}
-        
+
         <section className="bg-gray-100 py-20 px-4 md:px-10 lg:px-20 xl:px-32">
           <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Profile</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Profile</h2>
           </div>
-          <hr className="mb-10"/>
+          <hr className="mb-10" />
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
             Hi, {userFullName}
           </h2>
@@ -191,26 +191,26 @@ const DashboardPage = () => {
                   </p>
                   <ul className="space-y-2 mb-6 text-sm text-gray-700 dark:text-gray-300">
                     <li className="flex items-start gap-2">
-                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
-                       <span>Complete A320 FMS and auto flight simulator</span>
+                      <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                      <span>Complete A320 FMS and auto flight simulator</span>
                     </li>
                     <li className="flex items-start gap-2">
-                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
-                       <span>All learning and training modules</span>
+                      <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                      <span>All learning and training modules</span>
                     </li>
                     <li className="flex items-start gap-2">
-                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
-                       <span>Airline interview preparation</span>
+                      <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                      <span>Airline interview preparation</span>
                     </li>
                     <li className="flex items-start gap-2">
-                       <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
-                       <span>Unlimited practice with no usage limits</span>
+                      <Check className="h-4 w-4 text-gray-900 dark:text-white mt-0.5 shrink-0" />
+                      <span>Unlimited practice with no usage limits</span>
                     </li>
                   </ul>
                 </div>
 
                 <div>
-                   {/* Activation Key */}
+                  {/* Activation Key */}
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -221,7 +221,7 @@ const DashboardPage = () => {
                         className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                         aria-label="Toggle key visibility"
                       >
-                         {isKeyVisible ? (
+                        {isKeyVisible ? (
                           <EyeOff className="h-4 w-4" />
                         ) : (
                           <Eye className="h-4 w-4" />
@@ -232,7 +232,7 @@ const DashboardPage = () => {
                       <span className="flex-1 font-mono text-sm text-gray-900 dark:text-white break-all">
                         {isKeyVisible ? activationKey : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
                       </span>
-                       <button
+                      <button
                         onClick={copyToClipboard}
                         className="p-1 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded transition-colors"
                         aria-label="Copy activation key"
@@ -248,12 +248,12 @@ const DashboardPage = () => {
 
                   <div className="flex items-center justify-between text-sm pt-4 border-t border-gray-100 dark:border-gray-700">
                     <span className="text-blue-600 dark:text-blue-400 font-medium">
-                        {formatAmount(subscriptionAmount)}/year
+                      {formatAmount(subscriptionAmount)}/year
                     </span>
                     {subscriptionEndDate && (
-                         <span className="text-gray-500 dark:text-gray-400">
-                           Active until {subscriptionEndDate}
-                         </span>
+                      <span className="text-gray-500 dark:text-gray-400">
+                        Active until {subscriptionEndDate}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -262,7 +262,7 @@ const DashboardPage = () => {
               {/* Column 2: FMS Simulator */}
               <div className="bg-white dark:bg-neutral-800dark:border-gray-700  p-6 flex flex-col">
                 <div className="mb-6 flex-grow flex items-center justify-center dark:bg-neutral-900 rounded-lg p-4">
-                   <Image
+                  <Image
                     src="/images/in/a320/fms_mock.png"
                     alt="A320 FMS Simulator"
                     width={400}
@@ -276,17 +276,17 @@ const DashboardPage = () => {
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
                   Complete access to all training solutions and features.
                 </p>
-                 <Button
-                    className=" bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
-                  >
+                <Button
+                  className=" bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
+                >
                   Access Simulator
                 </Button>
               </div>
 
-               {/* Column 3: LMS */}
+              {/* Column 3: LMS */}
               <div className="bg-white dark:bg-neutral-800  dark:border-gray-700  p-6 flex flex-col">
-                 <div className="mb-6 flex-grow flex items-center justify-center dark:bg-neutral-900 rounded-lg p-4">
-                   <Image
+                <div className="mb-6 flex-grow flex items-center justify-center dark:bg-neutral-900 rounded-lg p-4">
+                  <Image
                     src="/images/in/a320/lms_mock.png"
                     alt="LMS"
                     width={400}
@@ -300,11 +300,11 @@ const DashboardPage = () => {
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
                   Complete access to learning and training modules.
                 </p>
-                 <Button
-                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
-                    onClick={() => router.push("https://lms.simvizlabs.com")}
-                  >
-                  Access LMS+P
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 text-white rounded-[24px] py-2"
+                  onClick={() => router.push("https://lms.simvizlabs.com")}
+                >
+                  Access LMS
                 </Button>
               </div>
             </div>
@@ -339,13 +339,12 @@ const DashboardPage = () => {
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {subscription.productName}
                     </h4>
-                    <span className={`px-2 py-1 rounded text-xs font-semibold ${
-                      subscription.isActive
+                    <span className={`px-2 py-1 rounded text-xs font-semibold ${subscription.isActive
                         ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
                         : subscription.status === 'refunded'
-                        ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                        : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
-                    }`}>
+                          ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                          : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
+                      }`}>
                       {subscription.status.toUpperCase()}
                     </span>
                   </div>
@@ -409,13 +408,12 @@ const DashboardPage = () => {
                           {formatAmount(payment.amount)}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 py-1 rounded text-xs font-semibold ${
-                            payment.status === 'COMPLETED' || payment.state === 'PAYMENT_SUCCESS'
+                          <span className={`px-2 py-1 rounded text-xs font-semibold ${payment.status === 'COMPLETED' || payment.state === 'PAYMENT_SUCCESS'
                               ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
                               : payment.status === 'FAILED' || payment.state === 'PAYMENT_ERROR'
-                              ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                              : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-                          }`}>
+                                ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                                : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                            }`}>
                             {payment.status || payment.state}
                           </span>
                         </td>
