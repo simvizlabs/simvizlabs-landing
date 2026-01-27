@@ -11,10 +11,11 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState, useCallback, useEffect } from "react";
-import { IconSchool, IconPlane, IconBuildingCommunity } from "@tabler/icons-react";
+import { useState, useCallback, useEffect, Fragment } from "react";
+import { IconSchool, IconPlane, IconBuildingCommunity, IconLayoutDashboard, IconLogout, IconUser } from "@tabler/icons-react";
 import { useRouter, usePathname } from 'next/navigation';
-import { useUser, UserButton } from "@clerk/nextjs";
+import { useUser, useClerk } from "@clerk/nextjs";
+import { Menu, MenuButton, MenuItems, MenuItem, Transition } from "@headlessui/react";
 
 interface NavbarLogoProps {
   isScrolled: boolean;
@@ -45,6 +46,76 @@ export const NavbarLogo = ({ isScrolled, mobileView = false }: NavbarLogoProps &
   );
 };
 
+export const CustomUserButton = () => {
+  const { user } = useUser();
+  const { signOut } = useClerk();
+  const router = useRouter();
+
+  if (!user) return null;
+
+  return (
+    <div className="font-geist">
+      <Menu as="div" className="relative inline-block text-left">
+        <div>
+          <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-0 focus:ring-offset-0">
+            <span className="sr-only">Open user menu</span>
+            <img
+              className="h-10 w-10 rounded-full object-cover border border-neutral-200"
+              src={user.imageUrl}
+              alt={user.fullName || "User"}
+            />
+          </MenuButton>
+        </div>
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <MenuItems className="absolute right-0 z-50 mt-2 w-72 origin-top-right divide-y divide-gray-100 rounded-xl bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none border border-neutral-100">
+            <div className="px-4 py-3">
+              <p className="text-sm text-gray-900 font-medium truncate">
+                {user.fullName || user.firstName}
+              </p>
+              <p className="text-xs text-gray-500 truncate font-normal">
+                {user.primaryEmailAddress?.emailAddress}
+              </p>
+            </div>
+            <div className="p-1">
+              <MenuItem>
+                {({ active }) => (
+                  <button
+                    onClick={() => router.push('/dashboard')}
+                    className={`${active ? 'bg-neutral-100 text-gray-900' : 'text-gray-700'
+                      } group flex w-full items-center rounded-lg px-2 py-2 text-sm font-medium transition-colors`}
+                  >
+                    <IconLayoutDashboard className="mr-2 h-4 w-4 text-gray-500" aria-hidden="true" />
+                    Dashboard
+                  </button>
+                )}
+              </MenuItem>
+              <MenuItem>
+                {({ active }) => (
+                  <button
+                    onClick={() => signOut(() => router.push('/'))}
+                    className={`${active ? 'bg-red-50 text-red-900' : 'text-red-700'
+                      } group flex w-full items-center rounded-lg px-2 py-2 text-sm font-medium transition-colors`}
+                  >
+                    <IconLogout className="mr-2 h-4 w-4 text-red-500" aria-hidden="true" />
+                    Sign Out
+                  </button>
+                )}
+              </MenuItem>
+            </div>
+          </MenuItems>
+        </Transition>
+      </Menu>
+    </div>
+  );
+};
 export default function NavbarDemo() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isIndia, setIsIndia] = useState(false);
@@ -198,21 +269,7 @@ export default function NavbarDemo() {
                 {!geoLoading && isIndia && pathname === "/in/a320-bundle" && (
                   userLoaded && user ? (
                     <div className="flex items-center gap-3">
-                      <NavbarButton
-                        variant="primary"
-                        href="/dashboard"
-                        className="text-black hover:bg-white/10 hover:text-black font-geist"
-                      >
-                        Dashboard
-                      </NavbarButton>
-                      <UserButton
-                        appearance={{
-                          elements: {
-                            avatarBox: "w-10 h-10",
-                          },
-                        }}
-                        afterSignOutUrl="/"
-                      />
+                      <CustomUserButton />
                     </div>
                   ) : (
                     <>
@@ -223,13 +280,13 @@ export default function NavbarDemo() {
                       >
                         Sign In
                       </NavbarButton>
-                      <NavbarButton
+                      {/* <NavbarButton
                         variant="primary"
                         href="/sign-up"
                         className="bg-[#1381e5] text-black/90 hover:bg-[#1381e5]/90 font-geist"
                       >
                         Sign Up
-                      </NavbarButton>
+                      </NavbarButton> */}
                     </>
                   )
                 )}
@@ -264,22 +321,8 @@ export default function NavbarDemo() {
                 <div className="fixed bottom-8 left-0 right-0 z-50 flex flex-col gap-3 px-4 xl:hidden">
                   {userLoaded && user ? (
                     <>
-                      <NavbarButton
-                        variant="primary"
-                        href="/dashboard"
-                        className="bg-white text-black w-full"
-                      >
-                        Dashboard
-                      </NavbarButton>
                       <div className="flex justify-center">
-                        <UserButton
-                          appearance={{
-                            elements: {
-                              avatarBox: "w-10 h-10",
-                            },
-                          }}
-                          afterSignOutUrl="/"
-                        />
+                        <CustomUserButton />
                       </div>
                     </>
                   ) : (
@@ -291,13 +334,13 @@ export default function NavbarDemo() {
                       >
                         Sign In
                       </NavbarButton>
-                      <NavbarButton
+                      {/* <NavbarButton
                         variant="primary"
                         href="/sign-up"
                         className="bg-[#1381e5] text-black/90 hover:bg-[#1381e5]/90 w-full font-geist"
                       >
                         Sign Up
-                      </NavbarButton>
+                      </NavbarButton> */}
                     </>
                   )}
                 </div>
