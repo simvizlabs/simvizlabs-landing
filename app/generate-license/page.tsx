@@ -646,6 +646,7 @@ export default function GenerateLicensePage() {
                                     disabled
                                 >
                                     <option value="temp">Temp</option>
+                                    <option value="user">Production</option>
                                 </select>
                                 {errors.user_type && (
                                     <p className="text-sm text-red-500">{errors.user_type}</p>
