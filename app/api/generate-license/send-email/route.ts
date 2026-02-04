@@ -104,12 +104,12 @@ backdrop-filter: blur(22.649999618530273px);">
         <!-- Step 2: Activate Key -->
         <div style="margin-bottom: 30px;">
           <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px 0; font-weight: 500;">
-            2. Once the app is installed, click <strong>Activate Key</strong> to apply your license.
+            2. Once the app is installed, click <strong>Sign In</strong> to apply your license.
           </p>
            <div style="text-align: left;">
               <a href="${data.licenseUrl}" 
                 style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
-               Activate Key
+               Sign In
              </a>
            </div>
         </div>
@@ -117,7 +117,7 @@ backdrop-filter: blur(22.649999618530273px);">
         <!-- Important Warning -->
         <div style="margin-top: 40px">
           <p style="font-size: 14px; line-height: 1.6;  margin: 0; font-weight: 500;">
-            <strong>Important: Please ensure the SimViz Labs app is installed on your device before clicking Activate Key. Activating the key without the app installed may result in activation failure.
+            <strong>Important: Please ensure the SimViz Labs app is installed on your device before clicking Sign In.Your device must be running iPadOs 17 or later. Signing In without the app installed may result in activation failure.
             </strong>
           </p>
         </div>
@@ -214,7 +214,8 @@ export async function POST(request: NextRequest) {
     // Construct web bridge URL (will redirect to app)
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://simvizlabs.com";
     // const licenseUrl = `${baseUrl}/activate/${encodeURIComponent(licenseKey)}`;
-    const licenseUrl = `${baseUrl}/licenseKey?query=${encodeURIComponent(licenseKey)}`;
+    // const licenseUrl = `${baseUrl}/licenseKey?query=${encodeURIComponent(licenseKey)}`;
+    const licenseUrl = `${baseUrl}/licenseKey?query=${encodeURIComponent(email)}`;
 
     // Send email
     await sendEmailViaGraph(accessToken, {

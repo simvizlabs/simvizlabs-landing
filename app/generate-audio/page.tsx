@@ -26,6 +26,7 @@ export default function GenerateAudioPage() {
   const [bulkAudio, setBulkAudio] = useState<Record<number, string>>({});
   const [processingIndex, setProcessingIndex] = useState<number | null>(null);
   const [activeJsonIndex, setActiveJsonIndex] = useState<number | null>(null);
+  const [combinedJson, setCombinedJson] = useState<any[] | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const audioInputRef = useRef<HTMLInputElement>(null);
@@ -73,6 +74,7 @@ export default function GenerateAudioPage() {
     } else {
         setBulkItems(null);
     }
+    setCombinedJson(null);
   }, [text]);
 
   const handleAudioFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -103,7 +105,13 @@ export default function GenerateAudioPage() {
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Failed");
 
-        const resultObj = typeof item === "object" ? { ...item, subtitleWords: data.subtitleWords } : { contentScript: actualText, subtitleWords: data.subtitleWords };
+        let cleanItem = item;
+        if (typeof item === "object" && item !== null) {
+            const { subtitleWords, ...rest } = item;
+            cleanItem = rest;
+        }
+
+        const resultObj = typeof item === "object" ? { ...cleanItem, subtitleWords: data.subtitleWords } : { contentScript: actualText, subtitleWords: data.subtitleWords };
         const audioUrl = `data:audio/mpeg;base64,${data.audio_base64}`;
 
         return { result: resultObj, audio: audioUrl };
@@ -147,6 +155,11 @@ export default function GenerateAudioPage() {
                 setBulkAudio({ ...newAudio });
             }
         }
+        
+        // Prepare combined JSON
+        const finalArray = bulkItems.map((item, i) => newResults[i] || item);
+        setCombinedJson(finalArray);
+
         setProcessingIndex(null);
         toast.success("Bulk generation complete");
 
@@ -201,6 +214,11 @@ export default function GenerateAudioPage() {
             }
         }
     }
+    
+    // Prepare combined JSON
+    const finalArray = bulkItems.map((item, i) => newResults[i] || item);
+    setCombinedJson(finalArray);
+    
     setProcessingIndex(null);
     setLoading(false);
     toast.success(`Complete! Generated keys and uploaded ${uploadCount} files.`);
@@ -393,9 +411,10 @@ export default function GenerateAudioPage() {
                     </div>
                  </div>
 
-                 <div className="flex-1 overflow-auto space-y-4">
+                  <div className="flex-1 overflow-auto space-y-4">
                     {bulkItems ? (
-                        bulkItems.map((item, idx) => {
+                        <>
+                        {bulkItems.map((item, idx) => {
                             const content = (typeof item === "object" && (item.subtitle || item.text)) 
                                 ? (item.subtitle || item.text) 
                                 : (typeof item === "string" ? item : null);
@@ -409,8 +428,8 @@ export default function GenerateAudioPage() {
                                         <p className="font-semibold text-sm text-gray-900 dark:text-white truncate">
                                             {item.title || `Item ${idx + 1}`}
                                         </p>
-                                        <p className="text-xs text-gray-500 font-mono truncate max-w-[200px]" title={item.audio}>
-                                           {item.audio || "No audio path"}
+                                        <p className="text-xs text-gray-500 font-mono truncate" title={item.audio}>
+                                           <span className="opacity-70">Path:</span> {item.audio || "N/A"}
                                         </p>
                                         {!hasContent && <span className="text-[10px] text-red-500 font-medium">No subtitle content</span>}
                                     </div>
@@ -471,7 +490,29 @@ export default function GenerateAudioPage() {
                                     </div>
                                 )}
                             </div>
-                        )})
+                        )})}
+                        {combinedJson && (
+                            <div className="mt-6 border-t border-gray-200 dark:border-neutral-700 pt-4">
+                                <div className="flex justify-between items-center mb-2">
+                                   <label className="text-sm font-bold text-gray-900 dark:text-white">Combined Final JSON</label>
+                                   <Button 
+                                      size="sm" 
+                                      variant="outline" 
+                                      onClick={() => {
+                                          navigator.clipboard.writeText(JSON.stringify(combinedJson, null, 2));
+                                          toast.success("Combined JSON copied!");
+                                      }}
+                                      className="h-8 gap-2"
+                                   >
+                                      <Copy className="h-3 w-3" /> Copy All
+                                   </Button>
+                                </div>
+                                <div className="bg-slate-950 text-gray-300 p-3 rounded-lg overflow-auto text-xs font-mono max-h-[300px] border border-gray-800">
+                                   <pre>{JSON.stringify(combinedJson, null, 2)}</pre>
+                                </div>
+                            </div>
+                        )}
+                        </>
                     ) : (
                         audioSrc ? (
                             <div className="space-y-6 flex-1 flex flex-col">
