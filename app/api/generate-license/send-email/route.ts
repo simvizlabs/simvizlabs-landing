@@ -71,7 +71,7 @@ backdrop-filter: blur(22.649999618530273px);">
       <div style="padding: 40px 30px; background: white; border-top: none;">
         <!-- Title -->
         <h2 style="font-size: 32px; font-weight: bold; color: #112480; margin: 0 0 20px 0; line-height: 1.2;">
-          Your License is Ready
+          Your Account is Ready
         </h2>
         
         <hr/>
@@ -83,7 +83,7 @@ backdrop-filter: blur(22.649999618530273px);">
         
         <!-- Introductory Text -->
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 40px 0;">
-          Your license has been granted successfully. <br/> To activate your license, please follow the steps below.
+          Your Account has been successfully created. <br/> To Access the app, please follow the steps below.
         </p>
         
         <!-- Step 1: Download App -->
