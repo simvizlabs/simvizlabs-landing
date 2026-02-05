@@ -643,7 +643,7 @@ export default function GenerateLicensePage() {
                                     className={`w-full h-14 rounded-2xl border px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white ${
                                         errors.user_type ? "border-red-500" : "border-neutral-200"
                                     }`}
-                                    disabled
+                                
                                 >
                                     <option value="temp">Temp</option>
                                     <option value="user">Production</option>
