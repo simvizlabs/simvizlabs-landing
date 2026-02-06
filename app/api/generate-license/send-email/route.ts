@@ -55,74 +55,166 @@ function formatLicenseEmailHtml(data: {
   licenseUrl: string;
 }) {
 
-  // console.log(licenseUrl);
   console.log(data.licenseUrl);
 
   return `
-    <div style="font-family: sans-serif; max-width: 608px; color: #112480; margin: 0 auto; background: white; border: 1px solid #4B4B4B;
-background: #FFF;
-backdrop-filter: blur(22.649999618530273px);">
-      <!-- Header Section with Dark Blue Background -->
-      <div style="width:100% overflow:hidden relative">
-          <img src="https://cdn.simvizlabs.com/public_assets/email_banner.png"/>
-            </div>
-      
-      <!-- Main Content Section -->
-      <div style="padding: 40px 30px; background: white; border-top: none;">
-        <!-- Title -->
-        <h2 style="font-size: 32px; font-weight: bold; color: #112480; margin: 0 0 20px 0; line-height: 1.2;">
-          Your Account is Ready
-        </h2>
-        
-        <hr/>
-        
-        <!-- Greeting -->
-        <p style="font-size: 16px; line-height: 1.6;margin: 0 0 20px 0;">
-          Hello <strong style="color:#112480"> ${data.firstName} ${data.lastName} </strong>,
-        </p>
-        
-        <!-- Introductory Text -->
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 40px 0;">
-          Your Account has been successfully created. <br/> To Access the app, please follow the steps below.
-        </p>
-        
-        <!-- Step 1: Download App -->
-        <div style="margin-bottom: 30px;">
-          <p style="font-size: 16px; line-height: 1.6;  margin: 0 0 15px 0; font-weight: 500;">
-            1. Download the SimViz Labs app on your device.
-          </p>
-          <div style="text-align: left;">
-            <a href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" 
-               target="_blank"
-               rel="noopener noreferrer"
-               style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
-              Download on AppStore
-            </a>
-          </div>
-        </div>
-        
-        <!-- Step 2: Activate Key -->
-        <div style="margin-bottom: 30px;">
-          <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px 0; font-weight: 500;">
-            2. Once the app is installed, click <strong>Sign In</strong> to apply your license.
-          </p>
-           <div style="text-align: left;">
-              <a href="${data.licenseUrl}" 
-                style="display: inline-block; background: #112480; color: white; padding: 14px 32px; text-decoration: none; border-radius: 32px; font-weight: 600; font-size: 16px; text-align: center;">
-               Sign In
-             </a>
-           </div>
-        </div>
-        
-        <!-- Important Warning -->
-        <div style="margin-top: 40px">
-          <p style="font-size: 14px; line-height: 1.6;  margin: 0; font-weight: 500;">
-            <strong>Important: Please ensure the SimViz Labs app is installed on your device before clicking Sign In.Your device must be running iPadOs 17 or later. Signing In without the app installed may result in activation failure.
-            </strong>
-          </p>
-        </div>
+    <!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="x-apple-disable-message-reformatting">
+      <title></title>
+      <!--[if mso]>
+      <noscript>
+        <xml>
+          <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+        </xml>
+      </noscript>
+      <![endif]-->
+      <style>
+        table, td, div, h1, p {font-family: sans-serif;}
+      </style>
+    </head>
+    <body style="margin:0;padding:0;">
+      <div role="article" aria-roledescription="email" lang="en" style="width:100%;border-radius:20px;background-color:#ffffff;">
+        <center style="width:100%">
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="608" style="background-color:#ffffff;border:1px solid #4B4B4B;">
+          <tr>
+          <td>
+          <![endif]-->
+          <table align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:608px;background-color:#ffffff;border:1px solid #4B4B4B;border-radius:20px;overflow:hidden;margin:0 auto;">
+            
+            <!-- Header Image -->
+            <tr>
+              <td style="padding:0;">
+                <img src="https://cdn.simvizlabs.com/public_assets/email_banner.png" alt="" style="width:100%;height:auto;display:block;border:0;border-top-left-radius:20px;border-top-right-radius:20px;" />
+              </td>
+            </tr>
+
+            <!-- Main Content -->
+            <tr>
+              <td style="padding:40px 30px;">
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                  <!-- Title -->
+                  <tr>
+                    <td style="padding-bottom:20px;">
+                      <h2 style="margin:0;color:#112480;font-size:32px;font-weight:bold;line-height:1.2;font-family:Arial,sans-serif;">
+                        Your Account is Ready
+                      </h2>
+                    </td>
+                  </tr>
+
+                  <!-- Divider -->
+                  <tr>
+                    <td style="padding-bottom:20px;">
+                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                         <tr>
+                            <td style="border-top:1px solid #cccccc;font-size:0;line-height:0;">&nbsp;</td>
+                         </tr>
+                       </table>
+                    </td>
+                  </tr>
+
+                  <!-- Greeting -->
+                  <tr>
+                    <td style="padding-bottom:20px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                      Hello <strong style="color:#112480;">${data.firstName} ${data.lastName}</strong>,
+                    </td>
+                  </tr>
+
+                  <!-- Introductory Text -->
+                  <tr>
+                    <td style="padding-bottom:40px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                      Your Account has been successfully created.<br/>
+                      To Access the app, please follow the steps below.
+                    </td>
+                  </tr>
+
+                  <!-- Step 1 -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                            1. Download the SimViz Labs app on your device.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left">
+                            <div>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                                <w:anchorlock/>
+                                <center>
+                              <![endif]-->
+                                  <a href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px;-webkit-text-size-adjust:none;border-radius:32px;">Download on App Store</a>
+                              <!--[if mso]>
+                                </center>
+                              </v:roundrect>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Step 2 -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                            2. Once the app is installed, click <strong>Sign In</strong> to apply your license.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left">
+                             <div>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${data.licenseUrl}" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                                <w:anchorlock/>
+                                <center>
+                              <![endif]-->
+                                  <a href="${data.licenseUrl}" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;border-radius:32px;">Sign In</a>
+                              <!--[if mso]>
+                                </center>
+                              </v:roundrect>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Warning -->
+                  <tr>
+                    <td style="padding-top:10px;">
+                      <p style="margin:0;font-size:14px;line-height:1.6;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                        Important: Please ensure the SimViz Labs app is installed on your device before clicking Sign In. Your device must be running iPadOs 17 or later. Signing In without the app installed may result in activation failure.
+                      </p>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!--[if mso | IE]>
+          </td>
+          </tr>
+          </table>
+          <![endif]-->
+        </center>
       </div>
-    </div>
+    </body>
+    </html>
   `;
 }
 
@@ -143,7 +235,7 @@ async function sendEmailViaGraph(accessToken: string, data: {
 
   const payload = {
     message: {
-      subject: `Your SimViz Labs License is Ready`,
+      subject: `Your SimViz Labs Account is Ready`,
       body: {
         contentType: "HTML",
         content: formatLicenseEmailHtml(data),
@@ -155,18 +247,18 @@ async function sendEmailViaGraph(accessToken: string, data: {
           },
         },
       ],
-      ccRecipients: [
-        {
-          emailAddress: {
-            address: "bony@simvizlabs.com",
-          },
-        },
-        {
-          emailAddress: {
-            address: "kush@simvizlabs.com",
-          },
-        },
-      ],
+      // ccRecipients: [
+      //   {
+      //     emailAddress: {
+      //       address: "bony@simvizlabs.com",
+      //     },
+      //   },
+      //   {
+      //     emailAddress: {
+      //       address: "kush@simvizlabs.com",
+      //     },
+      //   },
+      // ],
     },
     saveToSentItems: "true",
   };
