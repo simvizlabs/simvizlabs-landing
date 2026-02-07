@@ -247,18 +247,18 @@ async function sendEmailViaGraph(accessToken: string, data: {
           },
         },
       ],
-      // ccRecipients: [
-      //   {
-      //     emailAddress: {
-      //       address: "bony@simvizlabs.com",
-      //     },
-      //   },
-      //   {
-      //     emailAddress: {
-      //       address: "kush@simvizlabs.com",
-      //     },
-      //   },
-      // ],
+      ccRecipients: [
+      {
+      emailAddress: {
+      address: "bony@simvizlabs.com",
+        },
+     },
+      {
+      emailAddress: {
+      address: "kush@simvizlabs.com",
+        },
+       },
+     ],
     },
     saveToSentItems: "true",
   };
