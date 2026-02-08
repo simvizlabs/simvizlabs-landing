@@ -11,6 +11,7 @@ export interface ProductHighlightCardProps {
     description: string;
     imageSrc: string;
     badgeSrc?: string;
+    appStoreLink?: string;
     primaryButton?: {
         text: string;
         href?: string;
@@ -35,6 +36,7 @@ export function ProductHighlightCard({
     description,
     imageSrc,
     badgeSrc,
+    appStoreLink,
     primaryButton,
     secondaryButton,
     className,
@@ -132,13 +134,25 @@ export function ProductHighlightCard({
                 </div>
                 {badgeSrc && (
                     <div className="pt-4">
-                        <Image
-                            src={badgeSrc}
-                            alt="Download on the App Store"
-                            width={180}
-                            height={54}
-                            className="cursor-pointer hover:opacity-80 transition-opacity"
-                        />
+                        {appStoreLink ? (
+                            <Link href={appStoreLink} target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src={badgeSrc}
+                                    alt="Download on the App Store"
+                                    width={180}
+                                    height={54}
+                                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                                />
+                            </Link>
+                        ) : (
+                            <Image
+                                src={badgeSrc}
+                                alt="Download on the App Store"
+                                width={180}
+                                height={54}
+                                className="cursor-pointer hover:opacity-80 transition-opacity"
+                            />
+                        )}
                     </div>
                 )}
             </div>

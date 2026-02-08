@@ -22,7 +22,7 @@ function OurProductsContent() {
   const searchParams = useSearchParams();
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  
+
   // YouTube video ID extracted from https://youtu.be/Zq9svmcIzbw
   const youtubeVideoId = "Zq9svmcIzbw";
 
@@ -186,6 +186,7 @@ function OurProductsContent() {
                     description={products.a320.content.description}
                     imageSrc={products.a320.imageSrc}
                     badgeSrc={appStoreBadge}
+                    appStoreLink="https://apps.apple.com/in/app/a320-fms-trainer-simviz-labs/id6743235055"
                     primaryButton={{
                       text: "Learn More",
                       onClick: () => handleLearnMore("a320"),
@@ -275,7 +276,7 @@ function OurProductsContent() {
           )}
         </div>
       </div>
-      
+
       {/* YouTube Video Modal */}
       <YouTubeVideoModal
         isOpen={isVideoModalOpen}
