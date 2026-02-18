@@ -150,7 +150,7 @@ export default function ContactUsPage() {
                                 </div>
                             </div>
                         ))} */}
-                        <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
+                        <Link href="https://www.instagram.com/simvizlab/" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
                             <Instagram className="h-5 w-5" />
                             <span className="text-sm font-medium">@simvizlabs</span>
                         </Link>
@@ -158,7 +158,7 @@ export default function ContactUsPage() {
                             <Linkedin className="h-5 w-5" />
                             <span className="text-sm font-medium">simvizlabs</span>
                         </Link>
-                        <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
+                        <Link href="https://www.facebook.com/people/SimViz-Labs/61588331910228/?ref=1" target="_blank" className="flex items-center gap-3 text-neutral-600 hover:text-[#1381e5] transition-colors group">
                             <Facebook className="h-5 w-5" />
                             <span className="text-sm font-medium">SimViz Labs</span>
                         </Link>
