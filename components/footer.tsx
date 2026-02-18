@@ -233,13 +233,13 @@ const Footer = ({
         </span>
 
         <div className={cn("flex items-center gap-6", mutedTextColor)}>
-          <Link href="https://www.instagram.com/simvizlabs/" target="_blank" className={cn("transition-colors", isDark ? "hover:text-white" : "hover:text-black")}>
+          <Link href="https://www.instagram.com/simvizlab/" target="_blank" className={cn("transition-colors", isDark ? "hover:text-white" : "hover:text-black")}>
             <Instagram className="h-5 w-5" />
           </Link>
           <Link href="https://www.linkedin.com/company/simvizlabs/" target="_blank" className={cn("transition-colors", isDark ? "hover:text-white" : "hover:text-black")}>
             <Linkedin className="h-5 w-5" />
           </Link>
-          <Link href="https://www.facebook.com/profile.php?id=61571811252329" target="_blank" className={cn("transition-colors", isDark ? "hover:text-white" : "hover:text-black")}>
+          <Link href="https://www.facebook.com/people/SimViz-Labs/61588331910228/?ref=1" target="_blank" className={cn("transition-colors", isDark ? "hover:text-white" : "hover:text-black")}>
             <Facebook className="h-5 w-5" />
           </Link>
           <Link href="https://www.youtube.com/@simvizlabs" target="_blank" className={cn("transition-colors", isDark ? "hover:text-white" : "hover:text-black")}>
