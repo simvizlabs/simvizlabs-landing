@@ -55,6 +55,7 @@ export default function GenerateLicensePage() {
         lastName: "",
         user_type: "temp",
         subscriptionType: "monthly",
+        lmsEnabled: "false",
     });
     const [errors, setErrors] = useState({
         email: "",
@@ -242,6 +243,7 @@ export default function GenerateLicensePage() {
                     lastName: formData.lastName,
                     user_type: formData.user_type,
                     subscriptionType: formData.subscriptionType,
+                    lmsEnabled: formData.lmsEnabled === "true",
                 }),
             });
 
@@ -674,6 +676,21 @@ export default function GenerateLicensePage() {
                                     <p className="text-sm text-red-500">{errors.subscriptionType}</p>
                                 )}
                             </div>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">
+                                LMS Integration <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                                name="lmsEnabled"
+                                value={formData.lmsEnabled}
+                                onChange={handleInputChange}
+                                className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white"
+                            >
+                                <option value="false">No (Standard)</option>
+                                <option value="true">Yes (LMS Integrated)</option>
+                            </select>
                         </div>
 
                         <button

@@ -14,6 +14,7 @@ const licenseStore = new Map<string, {
 }>();
 
 const LICENSE_API_URL = process.env.LICENSE_API_URL || process.env.NEXT_PUBLIC_PAYMENTS_API_URL || 'http://localhost:3002';
+const LMS_API_URL = process.env.LMS_API_BACKEND_URL || process.env.NEXT_PUBLIC_PAYMENTS_API_URL || 'http://localhost:3001';
 
 const SECRET = process.env.AUTH_SECRET || process.env.NEXT_PUBLIC_AUTH_SECRET || "your-secret-key-change-in-production";
 
@@ -73,7 +74,7 @@ export async function POST(request: NextRequest) {
         // }
 
         const data = await request.json();
-        const { email, firstName, lastName, user_type, subscriptionType } = data;
+        const { email, firstName, lastName, user_type, subscriptionType, lmsEnabled } = data;
 
         // Validation
         if (!email || !firstName || !lastName) {
@@ -93,19 +94,41 @@ export async function POST(request: NextRequest) {
         }
 
         // Call external license API
-        const response = await fetch(`${LICENSE_API_URL}/api/licenses/generate`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                firstName,
-                lastName,
-                user_type: user_type || 'temp',
-                subscriptionType: subscriptionType || 'monthly',
-            }),
-        });
+        let response;
+
+        if (lmsEnabled) {
+            console.log("LMS Enabled: Routing to LMS API");
+            response = await fetch(`${LMS_API_URL}/api/user/lms-create`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    firstName,
+                    lastName,
+                    user_type: user_type || 'temp',
+                    subscriptionType: subscriptionType || 'monthly',
+                    lmsEnabled: true,
+                }),
+            });
+        } else {
+            console.log("Standard License Generation");
+            response = await fetch(`${LICENSE_API_URL}/api/licenses/generate`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    firstName,
+                    lastName,
+                    user_type: user_type || 'temp',
+                    subscriptionType: subscriptionType || 'monthly',
+                    lmsEnabled: false,
+                }),
+            });
+        }
         console.log(response.ok);
 
         if (!response.ok) {
