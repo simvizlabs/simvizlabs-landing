@@ -685,6 +685,8 @@ export default function GenerateLicensePage() {
                                         errors.subscriptionType ? "border-red-500" : "border-neutral-200"
                                     }`}
                                 >
+                                    <option value="weekly">Weekly</option>
+                                    <option value="biweekly">Bi-Weekly</option>
                                     <option value="monthly">Monthly</option>
                                     <option value="quarterly">Quarterly</option>
                                     <option value="halfyearly">Half-Yearly</option>

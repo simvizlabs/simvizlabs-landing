@@ -33,6 +33,30 @@ const formatAmountDisplay = (amount: number) => {
   return `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 };
 
+const calculateEndDate = (interval: string) => {
+  const date = new Date();
+  switch (interval.toLowerCase()) {
+    case 'weekly':
+      date.setDate(date.getDate() + 7);
+      break;
+    case 'biweekly':
+    case 'bi-weekly':
+      date.setDate(date.getDate() + 14);
+      break;
+    case 'monthly':
+      date.setMonth(date.getMonth() + 1);
+      break;
+    case 'quarterly':
+      date.setMonth(date.getMonth() + 3);
+      break;
+    case 'yearly':
+    default:
+      date.setFullYear(date.getFullYear() + 1);
+      break;
+  }
+  return date.toISOString();
+};
+
 export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
   open,
   onOpenChange,
@@ -69,7 +93,7 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
 
       const paymentData = {
         amount: amountInPaise,
-        planId: planDetails.id, // Send planId if available
+        planId: planDetails?.id, // Send planId if available
         metadata: {
           userId: userId,
           productId: productId,
@@ -77,9 +101,7 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
           plan: productId,
           planName: productName,
           subscriptionType: productName,
-          subscriptionEndDate: new Date(
-            Date.now() + 365 * 24 * 60 * 60 * 1000
-          ).toISOString(), // 1 year from now
+          subscriptionEndDate: calculateEndDate(planDetails?.interval || "yearly"),
           amount: amountInPaise,
           currency: planDetails?.currency || "INR",
         },
@@ -190,10 +212,12 @@ export const OrderSummaryModal: React.FC<OrderSummaryModalProps> = ({
             {/* Pricing Info */}
             <div className="flex items-center justify-between pt-2">
               <span className="text-base text-gray-600 dark:text-gray-400 font-geist">
-                Annual, prepaid
+                {planDetails?.interval ? (
+                  planDetails.interval.charAt(0).toUpperCase() + planDetails.interval.slice(1) + ", prepaid"
+                ) : "Annual, prepaid"}
               </span>
               <span className="text-lg font-semibold text-[#1381E5] font-geist">
-                {formatAmountDisplay(productAmount)}/year
+                {formatAmountDisplay(productAmount)}/{planDetails?.interval || "year"}
               </span>
             </div>
           </div>
