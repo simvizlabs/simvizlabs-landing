@@ -285,6 +285,8 @@ export default function GenerateLicensePage() {
                     firstName: formData.firstName,
                     lastName: formData.lastName,
                     licenseKey: generatedLicenseKey,
+                    password: formData.password,
+                    lmsEnabled: formData.lmsEnabled === "true",
                 }),
             });
 
@@ -700,7 +702,7 @@ export default function GenerateLicensePage() {
 
                         <div className="flex flex-col gap-2">
                             <label className="text-sm font-semibold opacity-70">
-                                LMS Integration <span className="text-red-500">*</span>
+                                Email Type <span className="text-red-500">*</span>
                             </label>
                             <select
                                 name="lmsEnabled"
@@ -708,8 +710,8 @@ export default function GenerateLicensePage() {
                                 onChange={handleInputChange}
                                 className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white"
                             >
-                                <option value="false">No (Standard)</option>
-                                <option value="true">Yes (LMS Integrated)</option>
+                                <option value="false">Send License Key Only</option>
+                                <option value="true">Send License Key with LMS Credentials</option>
                             </select>
                         </div>
 

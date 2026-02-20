@@ -641,7 +641,7 @@ const A320FMSLandingContent = () => {
                       {planDetails ? `₹${(planDetails.amount / 100).toLocaleString("en-IN")}` : "₹9,000"}
                     </span>
                     <br />
-                    <span className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-gray-600 dark:text-gray-400 font-geist ml-2">per year</span>
+                    <span className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-gray-600 dark:text-gray-400 font-geist ml-2">per {planDetails?.interval || "year"}</span>
                   </div>
                   <div className="text-center w-full">
                     <Button
