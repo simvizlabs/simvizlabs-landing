@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Loader2, Mail, Key, Lock, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { Loader2, Mail, Key, Lock, Users, ChevronLeft, ChevronRight, RefreshCw, Eye, EyeOff } from "lucide-react";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
 import { toast } from "sonner";
@@ -56,6 +56,7 @@ export default function GenerateLicensePage() {
         user_type: "temp",
         subscriptionType: "monthly",
         lmsEnabled: "false",
+        password: "",
     });
     const [errors, setErrors] = useState({
         email: "",
@@ -63,6 +64,7 @@ export default function GenerateLicensePage() {
         lastName: "",
         user_type: "",
         subscriptionType: "",
+        password: "",
     });
     const [tempUsers, setTempUsers] = useState<TempUser[]>([]);
     const [pagination, setPagination] = useState<Pagination | null>(null);
@@ -71,6 +73,7 @@ export default function GenerateLicensePage() {
     const [pageLimit, setPageLimit] = useState(20);
     const [statusFilter, setStatusFilter] = useState<string>("");
     const [showUsersTable, setShowUsersTable] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     // Check authentication on mount
     useEffect(() => {
@@ -173,6 +176,7 @@ export default function GenerateLicensePage() {
             lastName: "",
             user_type: "",
             subscriptionType: "",
+            password: "",
         };
         let isValid = true;
 
@@ -202,8 +206,8 @@ export default function GenerateLicensePage() {
             isValid = false;
         }
 
-        if (!formData.subscriptionType) {
-            newErrors.subscriptionType = "Subscription type is required";
+        if (formData.lmsEnabled === "true" && !formData.password.trim()) {
+            newErrors.password = "Password is required for LMS integrated account creation";
             isValid = false;
         }
 
@@ -244,6 +248,7 @@ export default function GenerateLicensePage() {
                     user_type: formData.user_type,
                     subscriptionType: formData.subscriptionType,
                     lmsEnabled: formData.lmsEnabled === "true",
+                    password: formData.lmsEnabled === "true" ? formData.password : undefined,
                 }),
             });
 
@@ -295,6 +300,19 @@ export default function GenerateLicensePage() {
             toast.error("An error occurred while sending the email");
         } finally {
             setIsSending(false);
+        }
+    };
+
+    const generatePassword = () => {
+        const length = 16;
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+        let retVal = "";
+        for (let i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        setFormData(prev => ({ ...prev, password: retVal }));
+        if (errors.password) {
+            setErrors(prev => ({ ...prev, password: "" }));
         }
     };
 
@@ -693,6 +711,48 @@ export default function GenerateLicensePage() {
                             </select>
                         </div>
 
+                        {formData.lmsEnabled === "true" && (
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm font-semibold opacity-70">
+                                    Account Password <span className="text-red-500">*</span>
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleInputChange}
+                                        className={`w-full h-14 rounded-2xl border px-6 pr-24 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white ${
+                                            errors.password ? "border-red-500" : "border-neutral-200"
+                                        }`}
+                                        placeholder="Set a password for the new account"
+                                    />
+                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                            className="p-2 rounded-lg hover:bg-neutral-100 text-neutral-500 transition-all"
+                                            title={showPassword ? "Hide Password" : "Show Password"}
+                                        >
+                                            {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={generatePassword}
+                                            className="p-2 rounded-lg hover:bg-neutral-100 text-[#1381e5] transition-all"
+                                            title='Generate Password'
+                                        >
+                                            <RefreshCw className="w-5 h-5" />
+                                        </button>
+                                        <Lock className="w-5 h-5 text-neutral-400 mr-2" />
+                                    </div>
+                                </div>
+                                {errors.password && (
+                                    <p className="text-sm text-red-500">{errors.password}</p>
+                                )}
+                            </div>
+                        )}
+
                         <button
                             disabled={isGenerating}
                             type="submit"
@@ -746,6 +806,20 @@ export default function GenerateLicensePage() {
                                     {process.env.NEXT_PUBLIC_DEEPLINK_SCHEME || 'simviz://activate'}?license_key={generatedLicenseKey}
                                     </p>
                                 </div>
+
+                                {formData.lmsEnabled === "true" && formData.password && (
+                                    <div className="bg-white rounded-xl p-6 border border-neutral-200">
+                                        <p className="text-sm font-semibold text-neutral-600 mb-2">
+                                            Account Password:
+                                        </p>
+                                        <p className="text-xl font-mono font-bold text-[#1381e5] break-all">
+                                            {formData.password}
+                                        </p>
+                                        <p className="text-xs text-neutral-500 mt-2">
+                                            Please share this password with the user so they can sign in to their account.
+                                        </p>
+                                    </div>
+                                )}
 
                                 <button
                                     onClick={handleSendEmail}

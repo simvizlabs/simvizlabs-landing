@@ -74,12 +74,19 @@ export async function POST(request: NextRequest) {
         // }
 
         const data = await request.json();
-        const { email, firstName, lastName, user_type, subscriptionType, lmsEnabled } = data;
+        const { email, password, firstName, lastName, user_type, subscriptionType, lmsEnabled } = data;
 
         // Validation
         if (!email || !firstName || !lastName) {
             return NextResponse.json(
                 { success: false, message: "Email, first name, and last name are required" },
+                { status: 400 }
+            );
+        }
+
+        if (lmsEnabled && !password) {
+            return NextResponse.json(
+                { success: false, message: "Password is required for LMS integrated account creation" },
                 { status: 400 }
             );
         }
@@ -97,19 +104,19 @@ export async function POST(request: NextRequest) {
         let response;
 
         if (lmsEnabled) {
-            console.log("LMS Enabled: Routing to LMS API");
-            response = await fetch(`${LMS_API_URL}/api/user/lms-create`, {
+            console.log("LMS Enabled: Routing to Direct Creation API in Payments Service");
+            response = await fetch(`${LICENSE_API_URL}/api/licenses/create-direct`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     email,
+                    password,
                     firstName,
                     lastName,
-                    user_type: user_type || 'temp',
+                    user_type: user_type || 'paid-user',
                     subscriptionType: subscriptionType || 'monthly',
-                    lmsEnabled: true,
                 }),
             });
         } else {
