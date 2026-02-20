@@ -222,6 +222,8 @@ function formatLmsAccountEmailHtml(data: {
   firstName: string;
   lastName: string;
   email: string;
+  licenseKey: string;
+  licenseUrl: string;
   password?: string;
 }) {
   const lmsUrl = "https://lms.simvizlabs.com/sign-in";
@@ -273,7 +275,7 @@ function formatLmsAccountEmailHtml(data: {
                   <tr>
                     <td style="padding-bottom:20px;">
                       <h2 style="margin:0;color:#112480;font-size:32px;font-weight:bold;line-height:1.2;font-family:Arial,sans-serif;">
-                        Your LMS Account is Ready
+                        Your Account is Ready
                       </h2>
                     </td>
                   </tr>
@@ -298,8 +300,81 @@ function formatLmsAccountEmailHtml(data: {
 
                   <!-- Introductory Text -->
                   <tr>
-                    <td style="padding-bottom:30px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
-                      Your SimViz Labs account has been successfully created. You can now access our Learning Management System (LMS) using the credentials below.
+                    <td style="padding-bottom:40px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                      Your SimViz Labs account has been successfully created. You can now access our Learning Management System (LMS) and use your license key in the app.<br/>
+                      To Access the App and LMS follow the steps below:
+                    </td>
+                  </tr>
+
+                  <!-- App Access Subheader -->
+                  <tr>
+                    <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                      App Access
+                    </td>
+                  </tr>
+
+                  <!-- Step 1 -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                            1. Download the SimViz Labs app on your device.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left">
+                            <div>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                                <w:anchorlock/>
+                                <center>
+                              <![endif]-->
+                                  <a href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px;-webkit-text-size-adjust:none;border-radius:32px;">Download on App Store</a>
+                              <!--[if mso]>
+                                </center>
+                              </v:roundrect>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Step 2 -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                            2. Once the app is installed, click <strong>Sign In</strong> to apply your license.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left">
+                             <div>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${data.licenseUrl}" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                                <w:anchorlock/>
+                                <center>
+                              <![endif]-->
+                                  <a href="${data.licenseUrl}" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;border-radius:32px;">Sign In</a>
+                              <!--[if mso]>
+                                </center>
+                              </v:roundrect>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- LMS Access Subheader -->
+                  <tr>
+                    <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                      LMS Access
                     </td>
                   </tr>
 
@@ -309,20 +384,23 @@ function formatLmsAccountEmailHtml(data: {
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f8f9fa;border-radius:12px;border:1px solid #e9ecef;">
                         <tr>
                           <td style="padding:20px;">
-                            <p style="margin:0 0 10px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Email Address:</p>
-                            <p style="margin:0 0 20px 0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.email}</p>
+                            <p style="margin:0 0 5px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Email Address:</p>
+                            <p style="margin:0 0 15px 0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.email}</p>
                             
-                            <p style="margin:0 0 10px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Password:</p>
-                            <p style="margin:0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.password || '********'}</p>
+                            <p style="margin:0 0 5px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Password:</p>
+                            <p style="margin:0 0 15px 0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.password || '********'}</p>
+
+                            <p style="margin:0 0 5px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">License Key:</p>
+                            <p style="margin:0;font-size:18px;font-weight:bold;color:#1381e5;font-family:Arial,sans-serif;word-break:break-all;">${data.licenseKey}</p>
                           </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
 
-                  <!-- Action Button -->
+                  <!-- LMS Action Button -->
                   <tr>
-                    <td align="left" style="padding-bottom:30px;">
+                    <td align="center" style="padding-bottom:30px;">
                       <div>
                         <!--[if mso]>
                         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${lmsUrl}" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
@@ -341,9 +419,13 @@ function formatLmsAccountEmailHtml(data: {
                   <!-- Instruction -->
                   <tr>
                     <td style="padding-top:10px;">
-                      <p style="margin:0;font-size:14px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
-                        Please sign in at <a href="${lmsUrl}" target="_blank" style="color:#1381e5;text-decoration:none;font-weight:bold;">${lmsUrl}</a> using the credentials provided above. We recommend changing your password after your first login.
+                      <p style="margin:0;font-size:14px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;font-weight:bold;">
+                        Important Instructions:
                       </p>
+                      <ol style="margin:10px 0;padding-left:20px;font-size:14px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                        <li>Sign in to the LMS at <a href="${lmsUrl}" target="_blank" style="color:#1381e5;text-decoration:none;">${lmsUrl}</a> to start your training.</li>
+                        <li>Download the SimViz Labs app on your device and use the license key provided above to activate it.</li>
+                      </ol>
                     </td>
                   </tr>
 
@@ -368,6 +450,7 @@ function formatLmsWithLicenseEmailHtml(data: {
   lastName: string;
   email: string;
   licenseKey: string;
+  licenseUrl: string;
   password?: string;
 }) {
   const lmsUrl = "https://lms.simvizlabs.com/sign-in";
@@ -419,7 +502,7 @@ function formatLmsWithLicenseEmailHtml(data: {
                   <tr>
                     <td style="padding-bottom:20px;">
                       <h2 style="margin:0;color:#112480;font-size:32px;font-weight:bold;line-height:1.2;font-family:Arial,sans-serif;">
-                        Your LMS Account & License
+                        Your Account is Ready
                       </h2>
                     </td>
                   </tr>
@@ -444,8 +527,89 @@ function formatLmsWithLicenseEmailHtml(data: {
 
                   <!-- Introductory Text -->
                   <tr>
-                    <td style="padding-bottom:30px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
-                      Your SimViz Labs account has been successfully created. You can now access our Learning Management System (LMS) and use your license key in the app.
+                    <td style="padding-bottom:40px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                      Your SimViz Labs account has been successfully created. You can now access our Learning Management System (LMS) and use your license key in the app.<br/>
+                      To Access the App and LMS follow the steps below:
+                    </td>
+                  </tr>
+
+                  <!-- App Access Subheader -->
+                  <tr>
+                    <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                      App Access
+                    </td>
+                  </tr>
+
+                  <!-- Step 1 -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                            1. Download the SimViz Labs app on your device.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left">
+                            <div>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                                <w:anchorlock/>
+                                <center>
+                              <![endif]-->
+                                  <a href="https://apps.apple.com/in/app/airbus-a320-fms/id6743235055" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px;-webkit-text-size-adjust:none;border-radius:32px;">Download on App Store</a>
+                              <!--[if mso]>
+                                </center>
+                              </v:roundrect>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Step 2 -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                            2. Once the app is installed, click <strong>Sign In</strong> to apply your license.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left">
+                             <div>
+                              <!--[if mso]>
+                              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${data.licenseUrl}" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                                <w:anchorlock/>
+                                <center>
+                              <![endif]-->
+                                  <a href="${data.licenseUrl}" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;border-radius:32px;">Sign In</a>
+                              <!--[if mso]>
+                                </center>
+                              </v:roundrect>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                        
+                             <tr>
+                    <td style="padding-top:10px;">
+                      <p style="margin:0;font-size:14px;line-height:1.6;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                        Important: Please ensure the SimViz Labs app is installed on your device before clicking Sign In. Your device must be running iPadOs 17 or later. Signing In without the app installed may result in activation failure.
+                      </p>
+                    </td>
+                         </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- LMS Access Subheader -->
+                  <tr>
+                    <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
+                      LMS Access
                     </td>
                   </tr>
 
@@ -461,17 +625,15 @@ function formatLmsWithLicenseEmailHtml(data: {
                             <p style="margin:0 0 5px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Password:</p>
                             <p style="margin:0 0 15px 0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.password || '********'}</p>
 
-                            <p style="margin:0 0 5px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">License Key:</p>
-                            <p style="margin:0;font-size:18px;font-weight:bold;color:#1381e5;font-family:Arial,sans-serif;word-break:break-all;">${data.licenseKey}</p>
-                          </td>
+                            </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
 
-                  <!-- Action Button -->
+                  <!-- LMS Action Button -->
                   <tr>
-                    <td align="left" style="padding-bottom:30px;">
+                    <td align="center" style="padding-bottom:30px;">
                       <div>
                         <!--[if mso]>
                         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${lmsUrl}" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
@@ -542,14 +704,17 @@ async function sendEmailViaGraph(accessToken: string, data: {
       lastName: data.lastName,
       email: data.email,
       password: data.password,
-      licenseKey: data.licenseKey
+      licenseKey: data.licenseKey,
+      licenseUrl: data.licenseUrl
     });
   } else if (data.emailType === 'lms-only') {
     emailContent = formatLmsAccountEmailHtml({
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      password: data.password
+      password: data.password,
+      licenseKey: data.licenseKey,
+      licenseUrl: data.licenseUrl
     });
   } else {
     emailContent = formatLicenseEmailHtml(data);
@@ -557,7 +722,7 @@ async function sendEmailViaGraph(accessToken: string, data: {
 
   const payload = {
     message: {
-      subject: (data.lmsEnabled || data.emailType?.startsWith('lms')) ? `Your SimViz Labs LMS Account is Ready` : `Your SimViz Labs Account is Ready`,
+      subject: (data.lmsEnabled || data.emailType?.startsWith('lms')) ? `Your SimViz Labs Account is Ready` : `Your SimViz Labs Account is Ready`,
       body: {
         contentType: "HTML",
         content: emailContent,
