@@ -57,6 +57,7 @@ export default function GenerateLicensePage() {
         subscriptionType: "monthly",
         lmsEnabled: "false",
         password: "",
+        emailType: "standard",
     });
     const [errors, setErrors] = useState({
         email: "",
@@ -249,6 +250,7 @@ export default function GenerateLicensePage() {
                     subscriptionType: formData.subscriptionType,
                     lmsEnabled: formData.lmsEnabled === "true",
                     password: formData.lmsEnabled === "true" ? formData.password : undefined,
+                    emailType: formData.emailType,
                 }),
             });
 
@@ -287,6 +289,7 @@ export default function GenerateLicensePage() {
                     licenseKey: generatedLicenseKey,
                     password: formData.password,
                     lmsEnabled: formData.lmsEnabled === "true",
+                    emailType: formData.emailType,
                 }),
             });
 
@@ -702,16 +705,26 @@ export default function GenerateLicensePage() {
 
                         <div className="flex flex-col gap-2">
                             <label className="text-sm font-semibold opacity-70">
-                                Email Type <span className="text-red-500">*</span>
+                                Email & Integration Type <span className="text-red-500">*</span>
                             </label>
                             <select
-                                name="lmsEnabled"
-                                value={formData.lmsEnabled}
-                                onChange={handleInputChange}
+                                name="deliveryOption"
+                                value={`${formData.lmsEnabled}-${formData.emailType}`}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    if (value === "false-standard") {
+                                        setFormData(prev => ({ ...prev, lmsEnabled: "false", emailType: "standard" }));
+                                    } else if (value === "true-lms-only") {
+                                        setFormData(prev => ({ ...prev, lmsEnabled: "true", emailType: "lms-only" }));
+                                    } else if (value === "true-lms-with-license") {
+                                        setFormData(prev => ({ ...prev, lmsEnabled: "true", emailType: "lms-with-license" }));
+                                    }
+                                }}
                                 className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white"
                             >
-                                <option value="false">Send License Key Only</option>
-                                <option value="true">Send License Key with LMS Credentials</option>
+                                <option value="false-standard">Send License Key Only (Standard)</option>
+                                <option value="true-lms-with-license">Send License Key with LMS Credentials (Combined Premium)</option>
+                                <option value="true-lms-only">Send LMS Credentials Only (Legacy Simple)</option>
                             </select>
                         </div>
 

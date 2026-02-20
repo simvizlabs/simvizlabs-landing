@@ -222,6 +222,151 @@ function formatLmsAccountEmailHtml(data: {
   firstName: string;
   lastName: string;
   email: string;
+  password?: string;
+}) {
+  const lmsUrl = "https://lms.simvizlabs.com/sign-in";
+
+  return `
+    <!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="x-apple-disable-message-reformatting">
+      <title></title>
+      <!--[if mso]>
+      <noscript>
+        <xml>
+          <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+        </xml>
+      </noscript>
+      <![endif]-->
+      <style>
+        table, td, div, h1, p {font-family: sans-serif;}
+      </style>
+    </head>
+    <body style="margin:0;padding:0;">
+      <div role="article" aria-roledescription="email" lang="en" style="width:100%;border-radius:20px;background-color:#ffffff;">
+        <center style="width:100%">
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="608" style="background-color:#ffffff;border:1px solid #4B4B4B;">
+          <tr>
+          <td>
+          <![endif]-->
+          <table align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:608px;background-color:#ffffff;border:1px solid #4B4B4B;border-radius:20px;overflow:hidden;margin:0 auto;">
+            
+            <!-- Header Image -->
+            <tr>
+              <td style="padding:0;">
+                <img src="https://cdn.simvizlabs.com/public_assets/email_banner.png" alt="" style="width:100%;height:auto;display:block;border:0;border-top-left-radius:20px;border-top-right-radius:20px;" />
+              </td>
+            </tr>
+
+            <!-- Main Content -->
+            <tr>
+              <td style="padding:40px 30px;">
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                  <!-- Title -->
+                  <tr>
+                    <td style="padding-bottom:20px;">
+                      <h2 style="margin:0;color:#112480;font-size:32px;font-weight:bold;line-height:1.2;font-family:Arial,sans-serif;">
+                        Your LMS Account is Ready
+                      </h2>
+                    </td>
+                  </tr>
+
+                  <!-- Divider -->
+                  <tr>
+                    <td style="padding-bottom:20px;">
+                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                         <tr>
+                            <td style="border-top:1px solid #cccccc;font-size:0;line-height:0;">&nbsp;</td>
+                         </tr>
+                       </table>
+                    </td>
+                  </tr>
+
+                  <!-- Greeting -->
+                  <tr>
+                    <td style="padding-bottom:20px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                      Hello <strong style="color:#112480;">${data.firstName} ${data.lastName}</strong>,
+                    </td>
+                  </tr>
+
+                  <!-- Introductory Text -->
+                  <tr>
+                    <td style="padding-bottom:30px;font-size:16px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                      Your SimViz Labs account has been successfully created. You can now access our Learning Management System (LMS) using the credentials below.
+                    </td>
+                  </tr>
+
+                  <!-- Credentials Box -->
+                  <tr>
+                    <td style="padding-bottom:30px;">
+                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f8f9fa;border-radius:12px;border:1px solid #e9ecef;">
+                        <tr>
+                          <td style="padding:20px;">
+                            <p style="margin:0 0 10px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Email Address:</p>
+                            <p style="margin:0 0 20px 0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.email}</p>
+                            
+                            <p style="margin:0 0 10px 0;font-size:14px;color:#666666;font-family:Arial,sans-serif;">Password:</p>
+                            <p style="margin:0;font-size:18px;font-weight:bold;color:#112480;font-family:Arial,sans-serif;">${data.password || '********'}</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Action Button -->
+                  <tr>
+                    <td align="left" style="padding-bottom:30px;">
+                      <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${lmsUrl}" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                          <w:anchorlock/>
+                          <center>
+                        <![endif]-->
+                            <a href="${lmsUrl}" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px;-webkit-text-size-adjust:none;border-radius:32px;">Sign In to LMS</a>
+                        <!--[if mso]>
+                          </center>
+                        </v:roundrect>
+                        <![endif]-->
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Instruction -->
+                  <tr>
+                    <td style="padding-top:10px;">
+                      <p style="margin:0;font-size:14px;line-height:1.6;color:#000000;font-family:Arial,sans-serif;">
+                        Please sign in at <a href="${lmsUrl}" target="_blank" style="color:#1381e5;text-decoration:none;font-weight:bold;">${lmsUrl}</a> using the credentials provided above. We recommend changing your password after your first login.
+                      </p>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!--[if mso | IE]>
+          </td>
+          </tr>
+          </table>
+          <![endif]-->
+        </center>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+function formatLmsWithLicenseEmailHtml(data: {
+  firstName: string;
+  lastName: string;
+  email: string;
   licenseKey: string;
   password?: string;
 }) {
@@ -379,6 +524,7 @@ async function sendEmailViaGraph(accessToken: string, data: {
   licenseUrl: string;
   password?: string;
   lmsEnabled?: boolean;
+  emailType?: 'standard' | 'lms-only' | 'lms-with-license';
 }) {
   const senderMail = process.env.AZURE_AD_SENDER_MAIL;
 
@@ -388,20 +534,33 @@ async function sendEmailViaGraph(accessToken: string, data: {
 
   const url = `https://graph.microsoft.com/v1.0/users/${senderMail}/sendMail`;
 
+  let emailContent = "";
+
+  if (data.emailType === 'lms-with-license' || (data.lmsEnabled && data.emailType !== 'lms-only')) {
+    emailContent = formatLmsWithLicenseEmailHtml({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      licenseKey: data.licenseKey
+    });
+  } else if (data.emailType === 'lms-only') {
+    emailContent = formatLmsAccountEmailHtml({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password
+    });
+  } else {
+    emailContent = formatLicenseEmailHtml(data);
+  }
+
   const payload = {
     message: {
-      subject: data.lmsEnabled ? `Your SimViz Labs LMS Account is Ready` : `Your SimViz Labs Account is Ready`,
+      subject: (data.lmsEnabled || data.emailType?.startsWith('lms')) ? `Your SimViz Labs LMS Account is Ready` : `Your SimViz Labs Account is Ready`,
       body: {
         contentType: "HTML",
-        content: data.lmsEnabled 
-          ? formatLmsAccountEmailHtml({
-              firstName: data.firstName,
-              lastName: data.lastName,
-              email: data.email,
-              password: data.password,
-              licenseKey: data.licenseKey
-            })
-          : formatLicenseEmailHtml(data),
+        content: emailContent,
       },
       toRecipients: [
         {
@@ -411,17 +570,17 @@ async function sendEmailViaGraph(accessToken: string, data: {
         },
       ],
       ccRecipients: [
-      {
-      emailAddress: {
-      address: "bony@simvizlabs.com",
+        {
+          emailAddress: {
+            address: "bony@simvizlabs.com",
+          },
         },
-     },
-      {
-      emailAddress: {
-      address: "kush@simvizlabs.com",
+        {
+          emailAddress: {
+            address: "kush@simvizlabs.com",
+          },
         },
-       },
-     ],
+      ],
     },
     saveToSentItems: "true",
   };
@@ -456,7 +615,7 @@ export async function POST(request: NextRequest) {
     // }
 
     const data = await request.json();
-    const { email, firstName, lastName, licenseKey, password, lmsEnabled } = data;
+    const { email, firstName, lastName, licenseKey, password, lmsEnabled, emailType } = data;
 
     // Validation
     if (!email || !firstName || !lastName || !licenseKey) {
@@ -493,6 +652,7 @@ export async function POST(request: NextRequest) {
       licenseUrl,
       password,
       lmsEnabled,
+      emailType,
     });
 
     return NextResponse.json({
