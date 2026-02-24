@@ -130,6 +130,13 @@ export async function sendEmailViaGraph(accessToken: string, data: ContactInquir
           },
         },
       ],
+      ccRecipients: [
+        {
+          emailAddress: {
+            address: "bony@simvizlabs.com",
+          },
+        },
+      ],
       replyTo: [
         {
           emailAddress: {
