@@ -607,9 +607,20 @@ function formatLmsWithLicenseEmailHtml(data: {
                   </tr>
 
                   <!-- LMS Access Subheader -->
-                  <tr>
-                    <td style="padding-bottom:15px;font-size:16px;font-weight:bold;color:#000000;font-family:Arial,sans-serif;">
-                      LMS Access
+                          <tr>
+                    <td align="" style="padding-bottom:30px;">
+                      <div>
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${lmsUrl}" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
+                          <w:anchorlock/>
+                          <center>
+                        <![endif]-->
+                            <a href="${lmsUrl}" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px;-webkit-text-size-adjust:none;border-radius:32px;">Sign In to LMS</a>
+                        <!--[if mso]>
+                          </center>
+                        </v:roundrect>
+                        <![endif]-->
+                      </div>
                     </td>
                   </tr>
 
@@ -632,22 +643,6 @@ function formatLmsWithLicenseEmailHtml(data: {
                   </tr>
 
                   <!-- LMS Action Button -->
-                  <tr>
-                    <td align="center" style="padding-bottom:30px;">
-                      <div>
-                        <!--[if mso]>
-                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${lmsUrl}" style="height:50px;v-text-anchor:middle;width:240px;" arcsize="64%" stroke="f" fillcolor="#112480">
-                          <w:anchorlock/>
-                          <center>
-                        <![endif]-->
-                            <a href="${lmsUrl}" target="_blank" style="background-color:#1381e5;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:240px;-webkit-text-size-adjust:none;border-radius:32px;">Sign In to LMS</a>
-                        <!--[if mso]>
-                          </center>
-                        </v:roundrect>
-                        <![endif]-->
-                      </div>
-                    </td>
-                  </tr>
 
                   <!-- Instruction -->
                   <tr>
@@ -687,6 +682,7 @@ async function sendEmailViaGraph(accessToken: string, data: {
   password?: string;
   lmsEnabled?: boolean;
   emailType?: 'standard' | 'lms-only' | 'lms-with-license';
+  user_type?: string;
 }) {
   const senderMail = process.env.AZURE_AD_SENDER_MAIL;
 
@@ -734,7 +730,11 @@ async function sendEmailViaGraph(accessToken: string, data: {
           },
         },
       ],
-      ccRecipients: [
+      ccRecipients: data.user_type === 'temp' ? [{
+        emailAddress: {
+          address: "pranjal@simvizlabs.com",
+        },
+      }] : [
         {
           emailAddress: {
             address: "bony@simvizlabs.com",
@@ -749,6 +749,9 @@ async function sendEmailViaGraph(accessToken: string, data: {
     },
     saveToSentItems: "true",
   };
+
+  console.log("Email Payload Recipients:", JSON.stringify(payload.message.toRecipients, null, 2));
+  console.log("Email Payload CC:", JSON.stringify(payload.message.ccRecipients, null, 2));
 
   const response = await fetch(url, {
     method: "POST",
@@ -780,7 +783,7 @@ export async function POST(request: NextRequest) {
     // }
 
     const data = await request.json();
-    const { email, firstName, lastName, licenseKey, password, lmsEnabled, emailType } = data;
+    const { email, firstName, lastName, licenseKey, password, lmsEnabled, emailType, user_type } = data;
 
     // Validation
     if (!email || !firstName || !lastName || !licenseKey) {
@@ -818,6 +821,7 @@ export async function POST(request: NextRequest) {
       password,
       lmsEnabled,
       emailType,
+      user_type,
     });
 
     return NextResponse.json({

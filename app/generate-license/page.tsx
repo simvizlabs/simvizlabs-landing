@@ -290,6 +290,7 @@ export default function GenerateLicensePage() {
                     password: formData.password,
                     lmsEnabled: formData.lmsEnabled === "true",
                     emailType: formData.emailType,
+                    user_type: formData.user_type,
                 }),
             });
 
