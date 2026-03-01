@@ -74,7 +74,20 @@ export async function POST(request: NextRequest) {
         // }
 
         const data = await request.json();
-        const { email, password, firstName, lastName, user_type, subscriptionType, lmsEnabled } = data;
+        const { email, password, firstName, lastName, user_type, subscriptionType, lmsEnabled, typeOfFms } = data;
+
+        // Transform typeOfFms from Enum to Array for backend
+        let typeOfFmsArray: string[] = [];
+        if (typeOfFms === "BOTH") {
+            typeOfFmsArray = ["both"];
+        } else if (typeOfFms === "HONEYWELL") {
+            typeOfFmsArray = ["honeywell"];
+        } else if (typeOfFms === "THALES") {
+            typeOfFmsArray = ["thales"];
+        } else {
+            // Default to thales if not provided or unknown
+            typeOfFmsArray = ["thales"];
+        }
 
         // Validation
         if (!email || !firstName || !lastName) {
@@ -117,6 +130,7 @@ export async function POST(request: NextRequest) {
                     lastName,
                     user_type: user_type || 'paid-user',
                     subscriptionType: subscriptionType || 'monthly',
+                    typeOfFms: typeOfFmsArray,
                 }),
             });
         } else {
@@ -133,6 +147,7 @@ export async function POST(request: NextRequest) {
                     user_type: user_type || 'temp',
                     subscriptionType: subscriptionType || 'monthly',
                     lmsEnabled: false,
+                    typeOfFms: typeOfFmsArray,
                 }),
             });
         }

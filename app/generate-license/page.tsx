@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Loader2, Mail, Key, Lock, Users, ChevronLeft, ChevronRight, RefreshCw, Eye, EyeOff } from "lucide-react";
 import NavbarDemo from "@/components/resizable-navbar-demo";
 import Footer from "@/components/footer";
@@ -58,6 +58,7 @@ export default function GenerateLicensePage() {
         lmsEnabled: "false",
         password: "",
         emailType: "standard",
+        typeOfFms: "THALES",
     });
     const [errors, setErrors] = useState({
         email: "",
@@ -102,13 +103,7 @@ export default function GenerateLicensePage() {
     }, []);
 
     // Fetch temp users when authenticated
-    useEffect(() => {
-        if (isAuthenticated) {
-            fetchTempUsers();
-        }
-    }, [isAuthenticated, currentPage, pageLimit, statusFilter]);
-
-    const fetchTempUsers = async () => {
+    const fetchTempUsers = useCallback(async () => {
         setIsLoadingUsers(true);
         try {
             const params = new URLSearchParams({
@@ -136,7 +131,13 @@ export default function GenerateLicensePage() {
         } finally {
             setIsLoadingUsers(false);
         }
-    };
+    }, [currentPage, pageLimit, statusFilter]);
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            fetchTempUsers();
+        }
+    }, [isAuthenticated, currentPage, pageLimit, statusFilter, fetchTempUsers]);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -251,6 +252,7 @@ export default function GenerateLicensePage() {
                     lmsEnabled: formData.lmsEnabled === "true",
                     password: formData.lmsEnabled === "true" ? formData.password : undefined,
                     emailType: formData.emailType,
+                    typeOfFms: formData.typeOfFms,
                 }),
             });
 
@@ -291,6 +293,7 @@ export default function GenerateLicensePage() {
                     lmsEnabled: formData.lmsEnabled === "true",
                     emailType: formData.emailType,
                     user_type: formData.user_type,
+                    typeOfFms: formData.typeOfFms,
                 }),
             });
 
@@ -726,6 +729,22 @@ export default function GenerateLicensePage() {
                                 <option value="false-standard">Send License Key Only (Standard)</option>
                                 <option value="true-lms-with-license">Send License Key with LMS Credentials (Combined Premium)</option>
                                 <option value="true-lms-only">Send LMS Credentials Only (Legacy Simple)</option>
+                            </select>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-semibold opacity-70">
+                                FMS Type <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                                name="typeOfFms"
+                                value={formData.typeOfFms}
+                                onChange={handleInputChange}
+                                className="w-full h-14 rounded-2xl border border-neutral-200 px-6 focus:outline-none focus:ring-2 focus:ring-[#1381e5]/20 focus:border-[#1381e5] transition-all bg-white"
+                            >
+                                <option value="THALES">Thales</option>
+                                <option value="HONEYWELL">Honeywell</option>
+                                <option value="BOTH">Both (Thales & Honeywell)</option>
                             </select>
                         </div>
 
